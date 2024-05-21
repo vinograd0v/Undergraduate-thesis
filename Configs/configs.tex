@@ -1,0 +1,71 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                  CONFIG FILE                          %%   
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[spanish]{babel}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{subcaption}
+\usepackage{multicol}
+\usepackage{xcolor}
+\usepackage{amsmath, amsfonts, mathtools, amsthm, amssymb}
+\usepackage{mathrsfs}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                       FONTS                           %%   
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[T1]{fontenc}
+\usepackage{newpxtext,euler}
+\let\oldstylenums\oldstyle
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%          ALGUNOS PAQUETES Y COSAS EXTRA               %%   
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{bbm}
+\usepackage{slashed}
+\usepackage{enumitem}
+\usepackage[breaklinks = true]{hyperref}
+\usepackage{lipsum}
+
+\newcommand\N{\ensuremath{\mathbb{N}}}
+\newcommand\R{\ensuremath{\mathbb{R}}}
+\newcommand\Z{\ensuremath{\mathbb{Z}}}
+\renewcommand\O{\ensuremath{\emptyset}}
+\newcommand\Q{\ensuremath{\mathbb{Q}}}
+\newcommand\C{\ensuremath{\mathbb{C}}}
+
+\usepackage{tikz}
+
+\usepackage[					
+	paper=a4paper,			% 	- use A4 paper size		
+	includefoot,			% 	- include footer space
+	includemp,				% 	- include side note 
+	bindingoffset=0.5cm,	% 	- binding correction
+	top=2.25cm,				% 	- total body: top margin
+	left=2.5cm,			% 	- total body: left 
+	right=0.8cm,			% 	- total body: right 
+	bottom=1.5cm,			% 	- total body: bottom 
+	marginparwidth=1.75cm,	% 	- width for side note
+	marginparsep=10pt,		% 	- space between notes 
+	footskip=2cm,			% 	- footer skip size
+]{geometry}
+
+\newcommand*{\geomdoc}{\newgeometry{includefoot,includemp,bindingoffset=-0.2cm,top=3cm,left=3.55cm,right=0.55cm,bottom=1.5cm,marginparwidth=1.75cm,marginparsep=10pt,footskip=2cm
+}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                     AYUDA TENGO TOC                   %%   
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{silence}
+\WarningFilter{latexfont}{Font shape}
+\WarningFilter{latexfont}{Some font shapes were not available, defaults substituted.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%    IMPORTAR ARCHIVOS DE CONFIGURACIÓN ADICIONALES     %%   
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{Configs/Boxes}
+\input{Configs/Formats}

@@ -1,0 +1,80 @@
+\begin{thebibliography}{10}
+
+\bibitem{riemann1990ueber}
+Bernhard Riemann.
+\newblock On the number of primes less than a given magnitude.
+\newblock {\em Complete Works. Kendrick Press}, 2004.
+
+\bibitem{A.J.Hildebrand}
+A.J. Hildebrand.
+\newblock {\em Introduction to Analytic Number Theory Lecture Notes}.
+\newblock 2005 url: \url{https://bit.ly/3V7a7G0}.
+
+\bibitem{levinson1969motivated}
+Norman Levinson.
+\newblock A motivated account of an elementary proof of the prime number
+  theorem.
+\newblock {\em The American Mathematical Monthly}, 76(3):225--245, 1969.
+
+\bibitem{pongsriiam2023analytic}
+Prapanpong Pongsriiam.
+\newblock {\em Analytic Number Theory for Beginners}, volume 103.
+\newblock American Mathematical Society, 2023.
+
+\bibitem{apostol1998introduction}
+T.M. Apostol.
+\newblock {\em Introduction to Analytic Number Theory}.
+\newblock Undergraduate Texts in Mathematics. Springer New York, 1998.
+
+\bibitem{Apostol:105425}
+Tom~M Apostol.
+\newblock {\em {Mathematical analysis; 2nd ed.}}
+\newblock Addison-Wesley series in mathematics. Addison-Wesley, Reading, MA,
+  1974.
+
+\bibitem{jameson2003prime}
+Graham James~Oscar Jameson.
+\newblock {\em The prime number theorem}.
+\newblock Cambridge University Press, 2003.
+
+\bibitem{murty2007problems}
+USR Murty.
+\newblock {\em Problems in analytic number theory}, volume 206.
+\newblock Springer Science \& Business Media, 2007.
+
+\bibitem{patterson1995introduction}
+Samuel~J Patterson.
+\newblock {\em An introduction to the theory of the Riemann zeta-function}.
+\newblock Cambridge University Press, 1995.
+
+\bibitem{stein2010complex}
+E.M. Stein and R.~Shakarchi.
+\newblock {\em Complex Analysis}.
+\newblock Princeton lectures in analysis. Princeton University Press, 2010.
+
+\bibitem{davenport2013multiplicative}
+Harold Davenport.
+\newblock {\em Multiplicative number theory}, volume~74.
+\newblock Springer Science \& Business Media, 2013.
+
+\bibitem{zagier1997newman}
+Don Zagier.
+\newblock Newman's short proof of the prime number theorem.
+\newblock {\em The American mathematical monthly}, 104(8):705--708, 1997.
+
+\bibitem{granville2006prime}
+Andrew Granville and Greg Martin.
+\newblock Prime number races.
+\newblock {\em The American Mathematical Monthly}, 113(1):1--33, 2006.
+
+\bibitem{murty2012non}
+M~Ram Murty and V~Kumar Murty.
+\newblock {\em Non-vanishing of L-functions and applications}.
+\newblock Springer Science \& Business Media, 2012.
+
+\bibitem{iwaniec2021analytic}
+Henryk Iwaniec and Emmanuel Kowalski.
+\newblock {\em Analytic number theory}, volume~53.
+\newblock American Mathematical Soc., 2021.
+
+\end{thebibliography}

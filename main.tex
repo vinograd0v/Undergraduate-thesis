@@ -1,0 +1,87 @@
+\documentclass[11pt,a4paper]{book} 
+\input{Configs/Configs}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                   TITLE PAGE                          %%   
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\renewcommand{\contentsname}{\vspace{0cm} Contenido \vspace{-2cm}}
+\begin{titlepage}
+\vspace*{2cm}
+\noindent
+\centering{\titlefont{Sobre el teorema de los números\\
+\vspace{0.2cm}
+primos en progresiones aritmética}}
+
+\vspace*{2cm}
+\begin{minipage}{\linewidth}
+
+\centering \scshape \printauthor
+\vspace*{2cm}
+
+\textsc{Director:}\\
+\vspace{0.1cm}
+John Jaime Rodriguez\\
+\vspace{2.5cm}
+
+\includegraphics[scale=0.1]{Logos/logo_un.jpeg}\\
+\fontsize{13pt}{13pt}\selectfont   Facultad de Ciencias\\
+\vspace{0.1cm}
+Departamento de Matemáticas\\
+\vspace{0.1cm}
+Bogotá, D.C, Colombia\\
+\vspace{0.1cm}
+\today
+\end{minipage}
+\end{titlepage}
+
+\input{Minimals/Info}
+\newpage
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                     ABSTRACT                          %%   
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{Minimals/abstract}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                 AGRADECIMIENTOS                       %%   
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\input{Minimals/Acknowledgment}
+%\blankpages
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                      CONTENIDO                        %%   
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\let\cleardoublepage=\clearpage
+\tableofcontents
+\thispagestyle{empty}
+\blankpages
+\geomdoc % aplica geometría nueva al documento.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%          CUERPO DEL DOCUMENTO, CAPITULOS              %%   
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setcounter{page}{1}
+\chapter*{Introducción}
+\markboth{coyo}{Introducción}
+\input{Chapters/1}
+\blankpage
+\chapter{Preliminares}
+\input{Chapters/2}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                BIBLIOGRAFÍA                           %%   
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nocite{*}
+\blankpages
+\bibliographystyle{unsrt}
+\bibliography{references}
+
+
+
+\end{document}

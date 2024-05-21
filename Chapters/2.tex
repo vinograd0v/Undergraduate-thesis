@@ -1,0 +1,550 @@
+%!TEX root = ../main.tex
+
+\thispagestyle{empty}
+\vspace{-0.7cm}
+
+\cleanchapterquote{Hasta el día de hoy, los matemáticos han intentado en vano descubrir algún orden en la secuencia de números primos, y tenemos razones para creer que es un misterio al que la mente humana nunca penetrará}{Leonhard Euler}{}
+
+Para comenzar con este capítulo presentaremos el teorema fundamental de la aritmética (TFA), una pieza crucial en cualquier trabajo sobre teoría de números.\\
+
+
+\begin{theorem}[TFA]
+Todo entero $n>1$ se puede escribir como producto de primos de manera única salvo el orden de los factores, es decir:
+
+$$n=\prod_{j=1}^{m}p_j^{k_j}$$
+\end{theorem}
+
+Escribiremos $p^m\mid\mid n$ siempre que si $p^m\mid n$ entonces $p^{m+1}\nmid n$, es decir, $p^m$ es la potencia exacta que divide a $n$, esto nos permite escribir el TFA como:
+
+$$n= \prod_{p^m\mid\mid n}p^m$$
+
+\section{Funciones aritmética}
+
+\begin{definition}
+Una función aritmética es una función con dominio los naturales y rango $\R$ o $\C$, es decir $a$ es función aritmética si:
+
+$$f:\N \to \mathbb{F}$$
+
+con $\mathbb{F}=\C$ o $\mathbb{F}=\R$
+\end{definition}
+
+Esta definición nos muestra que las funciones aritmética no son más que sucesiones de números reales o complejos, en algunos casos será útil considerarlas de esta  manera y de manera análoga a  las sucesiones las denotaremos como $a_n$, donde cada $a_n$ representa $f(n)$. Veamos algunos ejemplos importantes:
+
+\begin{itemize}
+\item[$\bullet$] \textbf{Función constante k:}
+
+$$k(n)=k, \text{ para todo } n \in \N $$
+
+\item[$\bullet$] \textbf{Función unidad:}
+
+$$e(n)=\begin{cases}
+1 \quad n=1\\
+0 \quad n\neq 1.
+\end{cases}$$
+
+\item[$\bullet$] \textbf{Función número de divisores:} $\tau(n)$, el número de divisores positivos de $n$ (incluyendo 1 y n)
+
+$$\tau(n)=\sum_{j\mid n}1$$
+
+\item[$\bullet$] \textbf{Función suma de divisores:} $\sigma(n)$, la suma de los divisores positivos de $n$
+
+$$\sigma(n)=\sum_{j\mid n}j$$
+
+\item[$\bullet$] \textbf{Función de Möbius:} $\mu(n)$, se define como
+
+$$\mu(n)=\begin{cases}
+1  &n=1\\
+0  &\text{si n no es libre de cuadrados}\\
+(-1)^k &\text{si n tiene k factores primos.}
+\end{cases}$$
+
+\item[$\bullet$] \textbf{Función phi de Euler:} $\varphi(n)$, el número de enteros positivos $m\leq n$ que son primos relativos a n ($(m,n)=1$)
+
+$$\varphi(n)=\sum_{\substack{m=1 \\(m, n)=1}}^n 1$$
+
+\item[$\bullet$]\textbf{Función de Von Mangoldt:} $\Lambda(n)$, se define como
+
+$$\Lambda(n)= \begin{cases}\log p & n=p^m \\ 0 & \text { en otro caso }\end{cases}$$
+
+\item[$\bullet$]\textbf{Función identidad:} $N(n)$, la función identidad se define como:
+
+$$N(n)=n$$ 
+
+\end{itemize}
+
+Por la naturaleza de $\N$, existen dos clases importantes de funciones aritmética, las funciones aditivas y multiplicativas:
+
+\begin{itemize}
+
+\item[$\bullet$] Las funciones aditivas que satisfacen
+$$
+f(m n)=f(m)+f(n) \quad \text { siempre que }(m, n)=1,
+$$
+
+
+\item[$\bullet$] las funciones multiplicativas que satisfacen
+$$
+f(m n)=f(m) f(n) \text { siempre que }(m, n)=1 .
+$$
+
+
+\end{itemize}
+
+
+Si una función aditiva o multiplicativa satisface la  propiedad para cualquier par de números naturales $m$ y $n$, se dirá que la función es completamente aditiva o completamente multiplicativa, respectivamente, las funciones aditivas y multiplicativas están determinadas por sus valores en las potencias de los números primos.\\ 
+
+\begin{proof}
+Supongamos que $f$ es aditiva y $n>1$, por el TFA:
+
+$$f(n)=f\left(\prod_{p^m\mid\mid n}p^m\right)=\sum_{p^m\mid \mid n} f(p^{m})$$
+
+Note que si $f$ es  completamente  aditiva:
+
+$$f(n)=f\left(\prod_{i=1}^{m}p_i^{k_i}\right)=k_1f(p_1)+\ldots+k_mf(p_k)=\sum_{i=1}^{m}  f(p_i)k_i$$
+
+Ahora, si $f$ es multiplicativa:
+
+$$f(n)=f\left(\prod_{p^m\mid\mid n}p^m\right)=\prod_{p^m\mid\mid n}f(p^m)   $$
+
+Si además es completamente multiplicativa:
+
+$$f(n)=f\left(\prod_{i=1}^{m}p_i^{k_i}\right)=\prod_{i=1}^{m} f(p_i)^{k_i} $$
+
+\end{proof}
+
+Una propiedad adicional que será útil para caracterizar estas funciones que si $f$ es aditiva y no identicamente nula, entonces para algún $n$, $f(1\cdot  n)=f(1)+f(n)$, así $f(1)=0$, análogamente si $f$ es multiplicativa $f(1\cdot n)=f(1)f(n)$, $f(1)=1$.\\
+
+Ahora veamos que aunque la función de Von Mangoldt, parece extraña, su definición es natural y nos permite obtener una versión logarítmica del teorema fundamental de la aritmética.
+\begin{theorem}
+Dado $n\in \N$, $n>1$ entonces:
+
+$$\log(n)=\sum_{j\mid n}\Lambda(j)$$
+\end{theorem}
+
+\begin{proof}
+
+Note que si $n>1$, entonces por el TFA:
+
+$$\log(n)=k_1\log(p_1)+\ldots+k_m\log(p_m)$$
+
+ Los $p_j$ de la igualdad son los primos de su descomposición y $k_j$ sus potencias respectivas. Así, esta igualdad nos dice que en el cálculo de $\log(n)$ solo importan los valores del $\log$ en los divisores primos o potencias de primos, luego:
+
+ $$\log(n)=\sum_{j\mid n}\Lambda(j)$$
+\end{proof}
+
+Sin embargo, la principal motivación para introducir la función de Von Mangoldt es que sus sumas parciales $\displaystyle\sum_{n \leq x} \Lambda(n)$ son la suma ponderada de las potencias primos $p^m \leq x$, tomando como peso $\log p$, el peso correcto para compensar la densidad de primos. No es difícil demostrar que las potencias $p^m$ con $(m \geq 2)$ contribuyen poco en la suma anterior.\\
+
+De hecho, estudiar el comportamiento asintótico de la suma anterior resultará equivalente a estudiar el de la función de contadora de primos $\pi(x)$; de hecho, el TNP es equivalente a la afirmación
+
+$$
+\lim _{x \rightarrow \infty} \frac{1}{x} \sum_{n \leq x} \Lambda(n)=1 .
+$$
+
+Esta equivalencia nos dará el camino a la prueba del teorema de los números primos, lo que la convierte en una función aritmética muy importante.\cite{A.J.Hildebrand}
+
+\begin{definition}
+
+Las funciones $\psi(x)$ y $\vartheta(x)$ de Chevyshev se definen como sigue:
+
+$$\vartheta(x)=\sum_{p\leq x}\log p, \quad \quad \psi(x)=\sum_{n \leq x} \Lambda(n)$$
+
+\end{definition}
+
+\subsection{La función de Möbius}
+
+Es natural preguntarse por la definición de la función de Möbius, ya que de todas parece ser la más extraña, uno se preguntaría si hay una forma de motivarla... En efecto:\\
+
+Consideremos la función: 
+
+$$L(x)=\sum_{n\leq x}\log(n)$$
+
+Note que aplicando el teorema anterior:
+
+\begin{equation}
+L(x)=\sum_{n\leq x}\log(n)=\sum_{n\leq x}\sum_{j\mid n}\Lambda(j)
+\end{equation}
+
+Ahora vamos a aplicar una técnica muy útil y frecuente en teoría de números, el cambio de orden de sumación, para esto vamos a cambiar $n$ y $d$ de orden en la doble suma en (2.1) y conservaremos la condición $j\mid n$.
+
+\begin{align*}
+    L(x)&=\sum_{n\leq x}\log(n)=\sum_{n\leq x}\sum_{j\mid n}\Lambda(j)\\
+    &=\sum_{j \leq x} \sum_{\substack{n \leq x \\
+j \mid n}} \Lambda(j)\\
+&=\sum_{j \leq x} \Lambda(j) \sum_{\substack{n \leq x \\
+j \mid n}} 1
+.\end{align*}
+
+Ahora, ¿cuántos enteros positivos $n\leq x$ hay tal que $j\mid n$?, pues exactamente $\dfrac{x}{j}$, así:
+
+\begin{align*}
+    L(x)&=\sum_{j\leq x}\Lambda(j)\sum_{m\leq \frac{x}{j}}1\\
+\end{align*}
+
+Y cambiando nuevamente el orden de sumación:
+
+\begin{align*}
+    L(x)&=\sum_{m\leq x}\sum_{j\leq \frac{x}{m}}\Lambda(j)\\
+    &=\sum_{m\leq x}\psi\left(\frac{x}{m}\right)
+\end{align*}
+
+Esta identidad la abordaremos más adelante, pero de momento sabemos que podemos escribir a $L(x)$ en términos de $\psi(x)$, ¿y si queremos lo opuesto?, ie. a $\psi(x)$ en términos de  $L(x)$, ¿podemos \textbf{invertir} el papel de las funciones?. Vamos a abordar esta pregunta poniéndola en un contexto más general.\\
+
+Siguiendo a \cite{levinson1969motivated}, supongamos $F(x)$ y $G(x)$ funciones aritmética con $G(x)=\displaystyle\sum_{n\leq x}F\left(\dfrac{x}{n}\right)$, tenemos que:
+
+$$G \left( \frac{x}{2} \right)=F \left( \dfrac{x}{2} \right)+F \left( \frac{x}{4} \right)+F \left( \frac{x}{6} \right)+\ldots$$
+
+Así:
+
+$$G(x)-G \left( \frac{x}{2} \right)=F(x)+F \left( \dfrac{x}{3} \right)+F \left( \dfrac{x}{5} \right)+\ldots$$
+
+Podemos pensar que continuar restando los términos $G \left( \dfrac{x}{j} \right)$ nos permitirá obtener la inversión, sin embargo el término $G \left( \dfrac{x}{3} \right)$ contiene a $F \left( \dfrac{x}{6} \right)$, por tanto:
+
+$$
+G(x)-G\left(\frac{x}{2}\right)-G\left(\frac{x}{3}\right)=F(x)+F\left(\frac{x}{5}\right)-F\left(\frac{x}{6}\right)+F\left(\frac{x}{7}\right)+\ldots
+$$
+
+Así, en los siguientes pasos debemos eliminar $-F\left(\frac{x}{6}\right)$. Esto se lograría sumando $G\left(\frac{\mathrm{x}}{6}\right)$ y no restándolo. La suma anterior nos muestra además que no necesitamos restar $G\left(\frac{x}{4}\right)$ pues $F\left(\frac{x}{4}\right)$ ya desapareció al restar $G\left(\frac{x}{2}\right)$.\\
+
+
+Así, podemos intuir que necesitamos multiplicar $G(\frac{x}{j})$ en cada sumando, por una función que nos de el signo adecuado (sume y reste, según se necesite) o anule el término, como ocurre en el caso de $G\left(\frac{x}{4}\right)$. Denotemos esta función que estamos buscando como $\mu(x)$. Si suponemos que existe dicha función, entonces:
+
+\begin{equation}
+F(x)=\sum_{j \leqslant x} \mu(j) G\left(\frac{x}{j}\right)
+\end{equation}
+
+Además de ello, ya tenemos algunos valores de $\mu$, $\mu(1)=1$, $\mu(2)=\mu(3)=-1, \mu(4)=0$ y $\mu(6)=1$. Podemos de momento darnos cuenta que estos valores parecen coincidir con los que obtendríamos al evaluar la función de Möbius, lo cual no es ninguna coincidencia, sin embargo aún no podemos afirmar que son en esencia la misma función. Note que por la definición de $G$:
+
+\begin{equation}
+G\left(\frac{\mathrm{x}}{\mathrm{j}}\right)=\sum_{k\leq \frac{x}{j}} F\left(\frac{x}{j \mathrm{k}}\right)
+\end{equation}
+
+Por tanto al reemplazar (2.3) en (2.2), obtenemos:
+
+\begin{align*}
+    F(x)&=\sum_{j \leqslant x} \mu(j)\sum_{jk\leq x} F\left(\frac{x}{j \mathrm{k}}\right)=\sum_{jk\leq x}\mu(j)F \left( \frac{x}{jk} \right)\\
+    &=\sum_{n\leq x}F \left( \frac{x}{n} \right)\sum_{jk=n}\mu(j)
+.\end{align*}
+
+Finalmente:
+
+\begin{equation}
+F(x)=F(x)+\sum_{1<n\leq x}F \left( \frac{x}{n} \right)\sum_{jk=n}\mu(j)
+\end{equation}
+
+Para obtener la inversión necesitamos que la doble suma en (2.4) se anule, y dado que no tenemos condiciones sobre $F$, la función $\mu$ debe cumplir que si $n \neq 1$
+
+$$\sum_{j\mid n}\mu(j)=0$$
+
+En efecto, \textit{la función que cumple esta propiedad es... la función de Möbius}.
+
+\begin{theorem}
+Sea $n \geqslant 1$, entonces:
+
+$$\sum_{\mathrm{d} \mid \mathfrak{n}} \mu(\mathrm{d})=e(n)$$
+
+\end{theorem}
+
+Antes de continuar con la prueba de este resultado notemos que la suma en (2.2) en realidad no recorre los $j\leqslant x$, sino los $j$ que son divisores de $x$ ya que $G$ es función aritmética y por tanto $\frac{x}{j}$ es necesariamente un número natural. Así:
+
+\begin{equation}
+F(x)=\sum_{j \mid x} \mu(j) G\left(\frac{x}{j}\right)
+\end{equation}
+
+Esta suma sobre los divisores de $n$ llevará el nombre de convolución o producto de Dirichlet y nos permitirá darle al conjunto de las funciones aritmética una estructura de Monoide Abeliano, estas ideas sin embargo las estudiaremos en la  siguiente sección. Ahora continuemos con la prueba.\\
+
+\begin{proof}
+
+Si $n=1$, entonces $1=e(1)=\mu(1)$, si $n\neq 1$, entonces por el teorema fundamental de la aritmética $n=\displaystyle\prod_{i=1}^k p_i^{\alpha_i}$, note que los únicos divisores $d$ tales que $\mu(d)\neq 0$ son los que toman la forma $d=p_{i_1}\ldots p_{i_j}$ donde $\mathcal{K}=\{i_1,\ldots, i_j\}\subseteq \{1,\ldots,k\}$, en este caso $\mu(d)=(-1)^{|\mathcal{K}|}$. Necesitamos saber cuántas veces va a aparecer este valor en la suma, es decir dado un $0\leq r\leq k$ fijo, ¿cuántos subconjuntos de $\{1,\ldots,k\}$ tienen cardinal $r$?, exactamente $\displaystyle \binom{k}{r}$. Así la suma toma la forma:
+
+\begin{align*}
+    \sum_{d\mid n}\mu(d)&=1+\sum_{i}\mu(p_i)+\sum_{i,j}\mu(p_ip_j)+\ldots+\mu(p_1\ldots p_k)\\
+    &=1-k+\binom{k}{2}+\ldots+(-1)^k\\
+    &=\sum_{r=1}^k\binom{k}{r}(-1)^r\\
+    &=(1-1)^k\\
+    &=0
+.\end{align*}
+
+\end{proof}
+
+Aplicando esto a la función $L(x)$, obtenemos que:
+
+$$\boxed{\psi(x)=\sum_{j\mid n} \mu(j)L \left( \frac{n}{j} \right)}$$
+
+La fórmula en (2.5) se conoce como inversión de Möbius, las ideas aquí sin embargo fueron abordadas de manera informal, para poder presentar un argumento riguroso, necesitamos, como se menciono antes, introducir la convolución de Dirichlet, que además nos permitirá obtener propiedades importantes de algunas de las funciones aritmética que hemos presentado en esta sección.
+
+\section{Convolución de Dirichlet}
+
+Siguiendo las ideas de la  sección anterior, presentamos la siguiente definición:
+
+\begin{definition}
+Sean f y g funciones aritméticas. Definimos la convolución o producto de Dirichlet como: 
+
+$$(f*g)(n)=\sum_{\mathrm{d} \mid \mathrm{n}} \mathrm{f}(\mathrm{d}) \mathrm{g}\left(\frac{\mathrm{n}}{\mathrm{d}}\right).$$
+
+O simplemente $f*g$.
+\end{definition}
+
+Algunos resultados del capítulo anterior se pueden escribir en términos de convolución, por ejemplo, el TFA se puede presentar como:
+
+$$\boxed{\log n=\sum_{j\mid n}\Lambda(j)=\Lambda * 1}$$
+
+donde 1, denota la función constante 1, también $\psi(x)=\mu*L$, pero la convolución no solo se introduce como una manera de simplificar notación, como mencionamos antes, esta tiene propiedades importantes que nos permitirán darle una estructura algebraica a las funciones aritmética. 
+
+\begin{theorem}
+Sean $f$ y $g$ funciones aritméticas. Entonces se cumple lo siguiente
+
+\begin{itemize}
+
+\item[$\bullet$] $f * g=g * f$.
+
+\item[$\bullet$] $(f * g) * h=f *(g * h)$.
+
+\item[$\bullet$] $e * f=f * e=f$.
+
+\end{itemize}
+
+\end{theorem}
+
+\begin{proof}
+
+Primero note que $\displaystyle\sum_{j\mid n} f(j)g \left( \frac{n}{j} \right)=\sum_{jk=n} f(j)g(k)$, ya que en ambos casos la suma recorre los divisores de $n$, luego:
+
+$$\begin{aligned}
+(f * g)(n) & =\sum_{j_1 j_2=n} f\left(j_1\right) g\left(j_2\right) \\
+& =\sum_{j_1 j_2=n} g\left(j_1\right) f\left(j_2\right) \\
+& =(g * f)(n)
+\end{aligned}$$
+
+Ya que no importa el orden en el la suma recorra los divisores, lo que prueba la conmutatividad. Ahora, recordemos que $e(n)=1$ si $n=1$ y 0 si $n\neq 1$, por tanto:
+
+$$(e*f)(n)=(f*e)(n)=\sum_{j\mid n}f(j)e \left( \frac{n}{j} \right)$$
+
+Así, como $e \left( \dfrac{n}{j} \right)=0$ si $j\neq n$, los términos de la suma son cero excepto cuando $j=n$, 
+
+$$(e*f)(n)=(f*e)(n)=\sum_{j\mid n}f(j)e \left( \frac{n}{j} \right)=f(n)=f$$
+
+Para probar la asociatividad, considere $N=g*h$ y $M=f*g$, luego
+
+$$
+\begin{aligned}
+(f * N)(n) & =\sum_{j \mid n} f(j) N\left(\frac{n}{j}\right) \\
+& =\sum_{j_1 j_2=n} f\left(j_1\right) N\left(j_2\right) \\
+& =\sum_{j_1 j_2=n} f\left(j_1\right)\left(\sum_{j_3 j_4=j_2} g\left(j_3\right) h\left(j_4\right)\right) \\
+& =\sum_{j_1 j_3 j_4=n} f\left(j_1\right) g\left(j_3\right) h\left(j_4\right)\\
+& =\sum_{j_1 j_3 j_4=n} f\left(j_3\right) g\left(j_4\right) h\left(j_1\right)\\
+& =\sum_{j_1 j_2=n}\left(\sum_{j_3 j_4=j_2} f\left(j_3\right) g\left(j_4\right)\right) h\left(j_1\right)\\
+& =\sum_{j_1 j_2=n} M\left(j_2\right) h\left(j_1\right)\\
+&=(M * h)(n)
+\end{aligned}
+$$
+
+\end{proof}
+
+Hemos  probado en particular que la función $e$ es el elemento neutro de la convolución, sabemos además que $\mu *1=e$, es decir la función de Möbius tiene inverso multiplicativo, con estas nuevas herramientas podemos presentar una prueba corta y formal de la fórmula de inversión de Möbius (2.5).\\
+
+\begin{theorem}[Fórmula de inversión de Möbius]
+Sean $f$ y $g$ funciones aritmética, entonces $f=g*1$ si y solo si $g=\mu* f$.
+\end{theorem}
+
+\begin{proof}
+Note que $f=g*1$ si y solo si $\mu*f=\mu*g*1=g*\mu*1=g*e=g$
+\end{proof}
+
+Sin embargo, no toda función aritmética tiene inverso multiplicativo, el caso más evidente es tomar la función constante $N=0$, note que para toda $f$, $f*N=N$. Esto nos lleva a la pregunta: ¿bajo qué condiciones una función aritmética tiene inverso?, la respuesta podría venir de estudiar las características que no permiten que $N$ lo tenga... A saber, $N$ \textit{se anula en todo punto}, ¿bastaría con que esta función no se anule en todo su dominio para que tenga inversa?, o ¿en algún punto en particular?, la respuesta nos viene del siguiente teorema, basta con que la función no se anule en 1 para poder garantizar además la \textit{unicidad}.
+
+\begin{theorem}
+ 
+Sea $f$ una función aritmética tal que $f(1) \neq 0$. Entonces existe una única función aritmética $g$ tal que $f*g=e$.
+
+\end{theorem} 
+
+\begin{proof}
+Note que si $n=1$, entonces $f(1)g(1)=e(1)=1$, así $g(1)=\dfrac{1}{f(1)}$, ahora  supongamos que $g$ se ha definido para todos lo valores $1<k<n$, luego como $f*g(n)=0$:
+
+\begin{equation}
+0=\sum_{d\mid n}g(d)f \left( \frac{n}{d} \right)=\sum_{\substack{d \mid n \\
+d<n}} f\left(\frac{n}{d}\right) g(d)+f(1) g(n)
+\end{equation}
+
+Así:
+
+$$g(n) =\frac{-1}{f(1)} \sum_{\substack{d \mid n \\
+d<n}} f\left(\frac{n}{d}\right) g(d)$$
+
+Esto nos define $g$ de manera recursiva, lo que concluye el resultado.
+
+\end{proof}
+
+Esto nos permite dotar a estas funciones aritmética de una estructura de grupo Abeliano, ya que si $f(1)\neq 0$ y $g(1)\neq 0$, entonces $f*g(1)=f(1)g(1)\neq 0$.\\
+
+\begin{theorem}
+Sean $f$ y $g$ funciones aritméticas multiplicativas, entonces $f * g$ también es multiplicativa.
+\end{theorem}
+
+\begin{proof}
+Sean $x, y \in \mathbb{N}$ tal que $(x, y)=1$. Note que cada divisor $d \mid xy$ puede escribirse de manera única como $d=mn$ donde $m \mid x$ y $n \mid y$, además $(m, n)=1$ y $\left(\dfrac{x}{m}, \dfrac{y}{n}\right)=1$. Por lo tanto
+
+$$
+\begin{aligned}
+(f * g)(xy) & =\sum_{d \mid xy} f(d) g\left(\frac{xy}{d}\right) \\
+& =\sum_{\substack{m|x \\
+n| y}} f(mn) g\left(\frac{xy}{mn}\right) \\
+& =\sum_{\substack{m|x \\
+n| y}} f(m) g\left(\frac{x}{m}\right) f(n) g\left(\frac{y}{n}\right) \\
+& =\sum_{m \mid x} f(m) g\left(\frac{y}{m}\right) \sum_{n \mid y} f(n) g\left(\frac{y}{n}\right) \\
+& =(f * g)(x)(f * g)(y) .
+\end{aligned}
+$$
+
+Así $f * g$ es multiplicativa.
+\end{proof}
+
+
+\begin{theorem}
+Si $f$ es multiplicativa, entonces $g=f^{-1}$ también es multiplicativa
+\end{theorem}
+
+Donde $f^{-1}$ denota su inversa, presentaremos una prueba siguiendo a \cite{A.J.Hildebrand}
+
+\begin{proof}
+Queremos ver que:
+
+\begin{equation}
+g(n_1n_2)=g(n_1)g(n_2) \quad \text{si} \quad (n_1,n_2)=1.
+\end{equation}
+
+Procedamos por inducción matemática. Sea $n=n_1 n_2$, si $n_1 n_2=1$, entonces $n_1=n_2=1$, luego:
+
+$$g(1\cdot 1)=g(1)=\dfrac{1}{f(1)}=1=g(1)g(1)$$
+
+Supongamos ahora que $g$ satisface (2.7) para todo $k_1k_2\geq 2$ tal que $k_1k_2<n$ y sean $n_1$ y $n_2$ tales que $n_1n_2=n$ y $(n_1,n_2)=1$, por (2.6) tenemos que:
+
+$$
+\begin{aligned}
+0 & =\sum_{d \mid n_1 n_2} f(d) g\left(\frac{n_1n_2}{d}\right) \\
+&=\sum_{\substack{d_1 \mid n_1 \\
+d_2\mid n_2\\ d_1d_2<n}} f(d_1)f(d_2) g \left( \frac{n_1}{d_1} \right)g \left( \frac{n_2}{d_2} \right)+ g(n_1n_2)\\
+&=\sum_{\substack{d_1 \mid n_1 \\
+d_2\mid n_2}} f(d_1)f(d_2) g \left( \frac{n_1}{d_1} \right)g \left( \frac{n_2}{d_2} \right)+ g(n_1n_2)-g(n_1)g(n_2)\\
+& =\sum_{d_1 \mid n_1} \sum_{d_2 \mid n_2} f\left(d_1\right) f\left(d_2\right) g\left(\frac{n_1}{d_1}\right) g\left(\frac{n_2}{d_2}\right)+\left(g\left(n_1 n_2\right)-g\left(n_1\right) g\left(n_2\right)\right) \\
+& =(f * g)\left(n_1\right)(f * g)\left(n_2\right)+\left(g\left(n_1 n_2\right)-g\left(n_1\right) g\left(n_2\right)\right) \\
+& =e\left(n_1\right) e\left(n_2\right)+\left(g\left(n_1 n_2\right)-g\left(n_1\right) g\left(n_2\right)\right).
+\end{aligned}
+$$
+
+Y como $n_1n_2\geq 2$, entonces $n_1\geq 2$ o $n_2\geq 2$, así $e(n_1)e(n_2)=0$, por tanto $g(n_1n_2)=g(n_1)g(n_2)$.
+\end{proof}
+
+\begin{corollary}
+Sea $\mathcal{M}$ el conjunto de funciones aritmética multiplicativas, entonces $(\mathcal{M},*)$ es un grupo Abeliano.
+\end{corollary}
+
+Finalizaremos esta sección con algunas propiedades importantes de las funciones aritmética que definimos el inicio del capítulo.
+
+\subsection{La función \texorpdfstring{$\varphi$}{Lg} de Euler}
+
+La propiedad del teorema (2.3) nos permite manipular sumas  con condiciones de coprimalidad, es decir sumas sobre los $n$ que son coprimos con un entero $k$ fijo. Considere el conjunto $C_k=\{n \text{ | } (n,k)=1\}$, note que la función característica del conjunto $C_k$ es:
+
+$$
+\mathbbm{1}_{C_k}(n)=\sum_{d \mid(n, k)} \mu(d)=e((n,k)),
+$$
+
+Una aplicación de esta propiedad es la siguiente propiedad de la función $\varphi$ de Euler:
+
+$$\begin{aligned}
+\varphi(n) & =\sum_{\substack{m \leq n \\
+(m, n)=1}} 1=\sum_{m\leq n}\mathbbm{1}_{C_n}(m) \\
+& =\sum_{m \leq n} \sum_{d \mid(m, n)} \mu(d) \\
+& =\sum_{d \mid n} \mu(d) \sum_{\substack{m \leq n \\
+d \mid m}} 1 \\
+& =\sum_{d \mid n} \mu(d) \frac{n}{d}\\
+&=\mu*N(n)=n \sum_{d \mid n} \frac{\mu(d)}{d} .
+\end{aligned}$$
+
+Es claro que la función $N$ es multiplicativa por definición, luego esta propiedad nos permite probar que la función $\varphi$ es multiplicativa, por el teorema (2.7) basta ver que en efecto $\mu$ lo es, algo en un principio sorprendente teniendo en cuenta que esta propiedad en cursos de álgebra se sigue de:
+
+$$\Z_{mn}=\Z_m\times \Z_n \quad\text{si}\quad(m,n)=1$$
+
+\begin{theorem}
+La función $\mu$ es multiplicativa:
+\end{theorem}
+
+\begin{proof}
+
+Supongamos que $n=n_1n_2$, si $n=1$, entonces $n_1=n_2=1$, $\mu(n)=\mu(n_1)\mu(n_2)=1$. Ahora supongamos que $\mu(k)=\mu(k_1)\mu(k_2)$, para todo $k=k_1k_2$ tal que $1<k<n$ y $(k_1,k_2)=1$ y sean $n_1,n_2$ tales que $n_1n_2=n$ y $(n_1,n_2)=1$, tenemos que:
+
+\begin{align*}
+    0&=\sum_{d\mid n_1n_2}\mu(d)\\
+    &=\sum_{\substack{d_1\mid n_1\\ d_2\mid n_2\\d_1d_2<n}}\mu(d_1)\mu(d_2)+\mu(n_1n_2)\\
+    &=\sum_{\substack{d_1\mid n_1}}\mu(d_1)\sum_{d_2\mid n_2}\mu(d_2)+\mu(n_1n_2)-\mu(n_1)\mu(n_2)\\
+    &=\mu(n_1n_2)-\mu(n_1)\mu(n_2)
+.\end{align*}
+
+Así, por el principio de inducción matemática se sigue el resultado.
+\end{proof}
+
+\begin{corollary}
+La función $\varphi(n)$ tiene las siguientes propiedades:
+
+\begin{itemize}
+\item[i)] $\varphi(mn)=\varphi(m)\varphi(n)$ si $(m,n)=1$
+
+\item[ii)] $\varphi(p^n)=p^n-p^{n-1}$
+
+\item[iii)] $\varphi(n)=n\displaystyle\prod_{p\mid n}\left(1-\frac{1}{p}\right)  $
+\end{itemize}
+\end{corollary}
+
+
+
+\begin{proof}
+
+i) Como $\varphi=\mu* N$, se sigue del teorema anterior.\\
+
+ii) Note que si $n=p^k$, entonces:
+
+\begin{align*}
+    \varphi(p^k)&=p^k\sum_{j\mid p^k}\frac{\mu(j)}{j}\\
+    &=p^k\left(1+\frac{\mu(p)}{p}+\frac{\mu(p^2)}{p^2}+\ldots+\frac{\mu(p^k)}{p^k}\right)\\
+    &=p^k \left(1-\frac{1}{p}\right)=p^k-p^{k-1}
+.\end{align*}
+
+iii) Sea $n>1$, por el TFA se sigue que:
+
+\begin{align*}
+    \varphi(n)&= \varphi \left( \prod_{p^m\mid\mid n}p^m \right)\\
+    &= \prod_{p^m\mid\mid n}\varphi(p^m)\\
+    &=  \prod_{p^m\mid\mid n} p^m-p^{m-1}\\
+    &=n \prod_{p\mid n}\left( 1-\frac{1}{p} \right)
+.\end{align*}
+\end{proof}
+
+Al inicio del capítulo mencionamos que las funciones aritmética están totalmente determinadas por sus valores en las potencias de primos, esta propiedad nos permite probar de manera sencilla afirmaciones del estilo $f*g=h$, siempre que $f,g$ y $h$ sean funciones multiplicativas, basta ver que $f*g(p^m)=h(p^m)$, veamos un ejemplo:
+
+\begin{theorem}
+La función $\varphi(n)$ satisface la propiedad:
+
+$$n=\sum_{j\mid n}\varphi(j)$$
+\end{theorem}
+
+\begin{proof}
+La afirmación se puede  escribir como $N=\varphi*1$, como estas funciones son multiplicativas, entonces basta ver que la identidad se tiene en las potencias de primos, en efecto:
+
+\begin{align*}
+    \sum_{j\mid p^m}\varphi(j)&=\varphi(1)+\varphi(p)+\varphi(p^2)+\varphi(p^3)+\ldots+\varphi(p^m)\\
+    &=1+(\slashed{p}-1)+(\slashed{p^2}-\slashed{p})+(\slashed{p^3}-\slashed{p^2})+\slashed{ } \ldots\not{ } +(p^m-\slashed p^{m-1})\\
+    &=p^m
+.\end{align*}
+\end{proof}
+
+Esta identidad  también puede probarse usando propiedades  de la convolución:
+
+\begin{align*}
+    \sum_{j\mid n}\varphi(j)=\varphi*1(n)=(N*\mu)*1(n)=N*(\mu*1)(n)=N*e(n)=n
+\end{align*}
+
+\subsection{Las funciones número y suma de divisores}
+
+Podemos usar la convolución de manera conveniente para reescribir algunas funciones aritmética, por ejemplo:
+
+$$\sigma(n)=\sum_{j\mid n}j=N*1(n)$$
