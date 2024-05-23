@@ -98,21 +98,16 @@ Supongamos que $f$ es aditiva y $n>1$, por el TFA:
 
 $$f(n)=f\left(\prod_{p^m\mid\mid n}p^m\right)=\sum_{p^m\mid \mid n} f(p^{m})$$
 
-Note que si $f$ es  completamente  aditiva:
-
-$$f(n)=f\left(\prod_{i=1}^{m}p_i^{k_i}\right)=k_1f(p_1)+\ldots+k_mf(p_k)=\sum_{i=1}^{m}  f(p_i)k_i$$
-
 Ahora, si $f$ es multiplicativa:
 
-$$f(n)=f\left(\prod_{p^m\mid\mid n}p^m\right)=\prod_{p^m\mid\mid n}f(p^m)   $$
+$$f(n)=f\left(\prod_{p^m\mid\mid n}p^m\right)=\prod_{p^m\mid\mid n}f(p^m) $$
+\end{proof}
 
-Si además es completamente multiplicativa:
+Si además la función es completamente multiplicativa:
 
 $$f(n)=f\left(\prod_{i=1}^{m}p_i^{k_i}\right)=\prod_{i=1}^{m} f(p_i)^{k_i} $$
 
-\end{proof}
-
-Una propiedad adicional que será útil para caracterizar estas funciones que si $f$ es aditiva y no identicamente nula, entonces para algún $n$, $f(1\cdot  n)=f(1)+f(n)$, así $f(1)=0$, análogamente si $f$ es multiplicativa $f(1\cdot n)=f(1)f(n)$, $f(1)=1$.\\
+Lo que también ocurre para funciones completamente aditivas, cambiando el producto por una suma.  Una propiedad adicional que será útil para caracterizar estas funciones que si $f$ es aditiva y no identicamente nula, entonces para algún $n$, $f(1\cdot  n)=f(1)+f(n)$, así $f(1)=0$, análogamente si $f$ es multiplicativa $f(1\cdot n)=f(1)f(n)$, $f(1)=1$.\\
 
 Ahora veamos que aunque la función de Von Mangoldt, parece extraña, su definición es natural y nos permite obtener una versión logarítmica del teorema fundamental de la aritmética.
 \begin{theorem}
@@ -203,7 +198,9 @@ $$
 G(x)-G\left(\frac{x}{2}\right)-G\left(\frac{x}{3}\right)=F(x)+F\left(\frac{x}{5}\right)-F\left(\frac{x}{6}\right)+F\left(\frac{x}{7}\right)+\ldots
 $$
 
-Así, en los siguientes pasos debemos eliminar $-F\left(\frac{x}{6}\right)$. Esto se lograría sumando $G\left(\frac{\mathrm{x}}{6}\right)$ y no restándolo. La suma anterior nos muestra además que no necesitamos restar $G\left(\frac{x}{4}\right)$ pues $F\left(\frac{x}{4}\right)$ ya desapareció al restar $G\left(\frac{x}{2}\right)$.\\
+Así, en los siguientes pasos debemos eliminar $-F\left(\frac{x}{6}\right)$. Esto se lograría sumando $G\left(\frac{\mathrm{x}}{6}\right)$ y no restándolo. La suma anterior nos muestra además que no necesitamos restar 
+
+$G\left(\frac{x}{4}\right)$ pues $F\left(\frac{x}{4}\right)$ ya desapareció al restar $G\left(\frac{x}{2}\right)$.\\
 
 
 Así, podemos intuir que necesitamos multiplicar $G(\frac{x}{j})$ en cada sumando, por una función que nos de el signo adecuado (sume y reste, según se necesite) o anule el término, como ocurre en el caso de $G\left(\frac{x}{4}\right)$. Denotemos esta función que estamos buscando como $\mu(x)$. Si suponemos que existe dicha función, entonces:
@@ -243,7 +240,6 @@ Sea $n \geqslant 1$, entonces:
 $$\sum_{\mathrm{d} \mid \mathfrak{n}} \mu(\mathrm{d})=e(n)$$
 
 \end{theorem}
-
 Antes de continuar con la prueba de este resultado notemos que la suma en (2.2) en realidad no recorre los $j\leqslant x$, sino los $j$ que son divisores de $x$ ya que $G$ es función aritmética y por tanto $\frac{x}{j}$ es necesariamente un número natural. Así:
 
 \begin{equation}
@@ -259,22 +255,21 @@ Si $n=1$, entonces $1=e(1)=\mu(1)$, si $n\neq 1$, entonces por el teorema fundam
 \begin{align*}
     \sum_{d\mid n}\mu(d)&=1+\sum_{i}\mu(p_i)+\sum_{i,j}\mu(p_ip_j)+\ldots+\mu(p_1\ldots p_k)\\
     &=1-k+\binom{k}{2}+\ldots+(-1)^k\\
-    &=\sum_{r=1}^k\binom{k}{r}(-1)^r\\
-    &=(1-1)^k\\
-    &=0
+    &=\sum_{r=1}^k\binom{k}{r}(-1)^r=(1-1)^k=0
 .\end{align*}
 
 \end{proof}
 
 Aplicando esto a la función $L(x)$, obtenemos que:
 
-$$\boxed{\psi(x)=\sum_{j\mid n} \mu(j)L \left( \frac{n}{j} \right)}$$
+$$\psi(x)=\sum_{j\mid n} \mu(j)L \left( \frac{n}{j} \right)$$
 
 La fórmula en (2.5) se conoce como inversión de Möbius, las ideas aquí sin embargo fueron abordadas de manera informal, para poder presentar un argumento riguroso, necesitamos, como se menciono antes, introducir la convolución de Dirichlet, que además nos permitirá obtener propiedades importantes de algunas de las funciones aritmética que hemos presentado en esta sección.
 
 \section{Convolución de Dirichlet}
 
 Siguiendo las ideas de la  sección anterior, presentamos la siguiente definición:
+\pagebreak
 
 \begin{definition}
 Sean f y g funciones aritméticas. Definimos la convolución o producto de Dirichlet como: 
@@ -286,9 +281,9 @@ O simplemente $f*g$.
 
 Algunos resultados del capítulo anterior se pueden escribir en términos de convolución, por ejemplo, el TFA se puede presentar como:
 
-$$\boxed{\log n=\sum_{j\mid n}\Lambda(j)=\Lambda * 1}$$
+$$\log n=\sum_{j\mid n}\Lambda(j)=\Lambda * 1$$
 
-donde 1, denota la función constante 1, también $\psi(x)=\mu*L$, pero la convolución no solo se introduce como una manera de simplificar notación, como mencionamos antes, esta tiene propiedades importantes que nos permitirán darle una estructura algebraica a las funciones aritmética. 
+donde 1, denota la función constante 1, también $\psi(x)=\mu*L$, pero la convolución no solo se introduce como una manera de simplificar notación, como mencionamos antes, esta tiene propiedades importantes que nos permitirán darle una estructura algebraica a las funciones aritmética.
 
 \begin{theorem}
 Sean $f$ y $g$ funciones aritméticas. Entonces se cumple lo siguiente
@@ -305,18 +300,17 @@ Sean $f$ y $g$ funciones aritméticas. Entonces se cumple lo siguiente
 
 \end{theorem}
 
+
 \begin{proof}
 
 Primero note que $\displaystyle\sum_{j\mid n} f(j)g \left( \frac{n}{j} \right)=\sum_{jk=n} f(j)g(k)$, ya que en ambos casos la suma recorre los divisores de $n$, luego:
 
 $$\begin{aligned}
-(f * g)(n) & =\sum_{j_1 j_2=n} f\left(j_1\right) g\left(j_2\right) \\
-& =\sum_{j_1 j_2=n} g\left(j_1\right) f\left(j_2\right) \\
+(f * g)(n) & =\sum_{j_1 j_2=n} f\left(j_1\right) g\left(j_2\right )=\sum_{j_1 j_2=n} g\left(j_1\right) f\left(j_2\right) \\
 & =(g * f)(n)
 \end{aligned}$$
 
 Ya que no importa el orden en el la suma recorra los divisores, lo que prueba la conmutatividad. Ahora, recordemos que $e(n)=1$ si $n=1$ y 0 si $n\neq 1$, por tanto:
-
 $$(e*f)(n)=(f*e)(n)=\sum_{j\mid n}f(j)e \left( \frac{n}{j} \right)$$
 
 Así, como $e \left( \dfrac{n}{j} \right)=0$ si $j\neq n$, los términos de la suma son cero excepto cuando $j=n$, 
@@ -340,7 +334,7 @@ $$
 
 \end{proof}
 
-Hemos  probado en particular que la función $e$ es el elemento neutro de la convolución, sabemos además que $\mu *1=e$, es decir la función de Möbius tiene inverso multiplicativo, con estas nuevas herramientas podemos presentar una prueba corta y formal de la fórmula de inversión de Möbius (2.5).\\
+Hemos  probado en particular que la función $e$ es el elemento neutro de la convolución, sabemos además que $\mu *1=e$, es decir la función de Möbius tiene inverso multiplicativo, con estas nuevas herramientas podemos presentar una prueba corta y formal de la fórmula de inversión de Möbius (2.5).
 
 \begin{theorem}[Fórmula de inversión de Möbius]
 Sean $f$ y $g$ funciones aritmética, entonces $f=g*1$ si y solo si $g=\mu* f$.
@@ -375,7 +369,9 @@ Esto nos define $g$ de manera recursiva, lo que concluye el resultado.
 
 \end{proof}
 
+
 Esto nos permite dotar a estas funciones aritmética de una estructura de grupo Abeliano, ya que si $f(1)\neq 0$ y $g(1)\neq 0$, entonces $f*g(1)=f(1)g(1)\neq 0$.\\
+
 
 \begin{theorem}
 Sean $f$ y $g$ funciones aritméticas multiplicativas, entonces $f * g$ también es multiplicativa.
@@ -404,7 +400,7 @@ Así $f * g$ es multiplicativa.
 Si $f$ es multiplicativa, entonces $g=f^{-1}$ también es multiplicativa
 \end{theorem}
 
-Donde $f^{-1}$ denota su inversa, presentaremos una prueba siguiendo a \cite{A.J.Hildebrand}
+Donde $f^{-1}$ denota su inversa, presentaremos una prueba siguiendo a \cite{A.J.Hildebrand}\\
 
 \begin{proof}
 Queremos ver que:
