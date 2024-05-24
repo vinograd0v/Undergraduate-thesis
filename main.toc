@@ -1,8 +1,0 @@
-\babel@toc {spanish}{}\relax 
-\contentsline {chapter}{\numberline {1}Preliminares}{7}{chapter.1}%
-\contentsline {section}{\numberline {1.1}Funciones aritmética}{7}{section.1.1}%
-\contentsline {subsection}{\numberline {1.1.1}La función de Möbius}{10}{subsection.1.1.1}%
-\contentsline {section}{\numberline {1.2}Convolución de Dirichlet}{13}{section.1.2}%
-\contentsline {subsection}{\numberline {1.2.1}La función $\varphi $ de Euler}{17}{subsection.1.2.1}%
-\contentsline {subsection}{\numberline {1.2.2}Las funciones número y suma de divisores}{20}{subsection.1.2.2}%
-\contentsfinish 
