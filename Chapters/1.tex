@@ -71,7 +71,7 @@ Estudiar la probabilidad de, por ejemplo, que un entero sea divisible por un pri
 
 $$\frac{n}{p}-1\leq c\leq\frac{n}{p}+1$$
 
-Luego, $d=\lim_{n \to \infty}\frac{c}{n}=\frac{1}{p}$ por el criterio de comparación. Esto nos dice que la probabilidad de que un entero no sea divisible por $p$ es $1-\frac{1}{p}$, sabemos además que este evento es excluyente, así... La probabilidad de que un número sea primo viene dada por:
+Luego, $d=\lim_{n \to \infty}\dfrac{c}{n}=\dfrac{1}{p}$ por el criterio de comparación. Esto nos dice que la probabilidad de que un entero no sea divisible por $p$ es $1-\dfrac{1}{p}$, sabemos además que este evento es excluyente, así... La probabilidad de que un número sea primo viene dada por:
 
 $$\displaystyle\prod_{p<n}\left( 1-\frac{1}{p} \right)$$
 
@@ -83,20 +83,10 @@ En el siguiente capítulo veremos justamente que $H(n)\thicksim \log n$, esto co
 
  $$\pi(x)\thicksim \dfrac{x}{\log x}$$
 
-Pero, ¿cómo se puede demostrar algo así?, el camino a seguir en un principio es sorprendente y viene del estudio de la función de $\zeta(s)$, vista como función de variable compleja absolutamente convergente si $\Re(s)>1$. El primero en mostrar que estudiar esta función daba un camino hacia una prueba del teorema de los números primos fue Riemann en su famoso articulo "Sobre la cantidad de primos menores que una magnitud dada" \cite{riemann1990ueber}. Allí Riemann presentaría muchas ideas, pero no las desarrollaría y fue el trabajo de los matemáticos en los siguientes 50 años llegar a una demostración, trabajo que culminaría en las demostraciones Hadammar y de la Vallée Poussin que aparecen en 1896, la prueba, vendría del hecho de que $\zeta(1+it)\neq 0$, es decir, la función $\zeta$ no se anulaba en la recta vertical de los complejos con parte real 1, sobre el plano complejo, algo sencillamente maravilloso.\\
+Pero, ¿cómo se puede demostrar algo así?, el camino a seguir en un principio es sorprendente y viene del estudio de la función de $\zeta(s)$, vista como función de variable compleja absolutamente convergente si $\Re(s)>1$. El primero en mostrar que estudiar esta función daba un camino hacia una prueba del teorema de los números primos fue Riemann en su famoso articulo "Sobre la cantidad de primos menores que una magnitud dada" \cite{riemann1990ueber}. Allí Riemann presentaría muchas ideas, pero no las desarrollaría y fue el trabajo de los matemáticos en los siguientes 50 años llegar a una demostración, trabajo que culminaría en las demostraciones Hadammar y de la Vallée Poussin que aparecen en 1896, la prueba, vendría del hecho de que $\zeta(1+it)\neq 0$, es decir, la función $\zeta$ no se anulaba en la recta vertical de los complejos con parte real 1, sobre el plano complejo, algo sencillamente maravilloso. Veremos al final de este trabajo la forma en que este teorema se extiende a progresiones aritmética $a+kq$ con $(a,q)=1$:
 
-Dirichlet por otro lado, en 1837 había probado que dados $a,q \in \N$ tales que $(a,q)=1$, entonces hay infinitos primos en la progresión $a+kq$. La prueba sería basada en las ideas de Euler, estudiar  la divergencia de:
-
-$$\sum_{p \equiv a \bmod q}\frac{1}{p}$$
-
-Sin embargo, Dirichlet, en el artículo de su prueba del teorema de progresiones aritmética afirma que en un principio la prueba que presentó no era la que originalmente pensó; comenta que la prueba usaba argumentos un poco más indirectos y dependía del hecho de que la función $L(s,\chi)$, no se anulaba en los complejos con $\Re(s)=1$, por lo que finalmente, al no poder probarlo, optó por un argumento distinto.\\
-
-Algo natural que se preguntaron los matemáticos es cómo se distribuyen los primos de dicho conjunto o si aquí es válido el TNP, de la Vallée Poussin también en 1896 demostraría que la función contadora de primos restringida sobre la progresión aritmética, ie. $\pi_{a,q}(x)$ tiene el comportamiento asintótico:\\
-
-$$\pi_{a,q}(x)\thicksim \frac{x}{\varphi(q)\log x} $$
+$$\pi_{a,q}(x)\thicksim \frac{x}{\varphi(q)\log x}$$
 
 Donde $\varphi$ es la función phi de Euler, y como hay $\varphi(q)$ clases generadoras de primos, entonces los primos se distribuyen uniformemente en las clases módulo q.\\
-
-La prueba de este resultado no es distinta de la del teorema de los números primos ya que en esencia depende del hecho de que $L(s,\chi)\neq 0$ si $\Re(s)=1$. Así, nuestro trabajo será construir las herramientas para esclarecer estas ideas que concluirán cuando probemos la no nulidad de $L(\chi,s)$ y $\zeta(s)$ en $\Re(s)=1$, la idea es que al final de este trabajo para el lector no sea confuso que el TNP se siga de esto, para ello estudiar las ideas subyacentes será muy importante. Resultará conveniente que el lector esté familiarizado con algunos conceptos de variable compleja, análisis real y teoría de grupos, ya que aunque presentaremos gran parte de los preliminares aquí, no profundizaremos en ellos como sí se haría en un curso de análisis o álgebra.\\
 
 En el capítulo 1 presentaremos algunos preliminares que se pueden consultar en el contenido y estudiaremos un poco la función $\zeta(s)$ y su derivada logarítmica $\dfrac{\zeta^{\prime}(s)}{\zeta(s)}$, veremos que el TNP es equivalente a la afirmación $\psi(x)\thicksim x$, función que también estudiaremos allí. El capítulo 2 será para presentar una prueba del teorema de Dirichlet, las ideas subyacentes y los preliminares de la  prueba también se desarrollarán allí, en los capítulos 3 y 4 se desarrollarán las pruebas del TNP y el TNP sobre progresiones aritmética, estudiaremos la teoría Tauberiana, que nos permitirá dar una prueba sencilla del TNP y donde casi toda  la variable compleja estará escondida en el teorema de Wiener-Ikehara que también presentaremos allí junto con algunas aplicaciones.

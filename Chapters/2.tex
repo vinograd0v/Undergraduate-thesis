@@ -197,10 +197,9 @@ Podemos pensar que continuar restando los términos $G \left( \dfrac{x}{j} \righ
 $$
 G(x)-G\left(\frac{x}{2}\right)-G\left(\frac{x}{3}\right)=F(x)+F\left(\frac{x}{5}\right)-F\left(\frac{x}{6}\right)+F\left(\frac{x}{7}\right)+\ldots
 $$
+Así, en los siguientes pasos debemos eliminar $-F\left(\dfrac{x}{6}\right)$. Esto se lograría sumando $G\left(\dfrac{\mathrm{x}}{6}\right)$ y no restándolo. La suma anterior nos muestra además que no necesitamos restar 
 
-Así, en los siguientes pasos debemos eliminar $-F\left(\frac{x}{6}\right)$. Esto se lograría sumando $G\left(\frac{\mathrm{x}}{6}\right)$ y no restándolo. La suma anterior nos muestra además que no necesitamos restar 
-
-$G\left(\frac{x}{4}\right)$ pues $F\left(\frac{x}{4}\right)$ ya desapareció al restar $G\left(\frac{x}{2}\right)$.\\
+$G\left(\dfrac{x}{4}\right)$ pues $F\left(\dfrac{x}{4}\right)$ ya desapareció al restar $G\left(\dfrac{x}{2}\right)$.\\
 
 
 Así, podemos intuir que necesitamos multiplicar $G(\frac{x}{j})$ en cada sumando, por una función que nos de el signo adecuado (sume y reste, según se necesite) o anule el término, como ocurre en el caso de $G\left(\frac{x}{4}\right)$. Denotemos esta función que estamos buscando como $\mu(x)$. Si suponemos que existe dicha función, entonces:
@@ -422,11 +421,15 @@ $$
 d_2\mid n_2\\ d_1d_2<n}} f(d_1)f(d_2) g \left( \frac{n_1}{d_1} \right)g \left( \frac{n_2}{d_2} \right)+ g(n_1n_2)\\
 &=\sum_{\substack{d_1 \mid n_1 \\
 d_2\mid n_2}} f(d_1)f(d_2) g \left( \frac{n_1}{d_1} \right)g \left( \frac{n_2}{d_2} \right)+ g(n_1n_2)-g(n_1)g(n_2)\\
-& =(f * g)\left(n_1\right)(f * g)\left(n_2\right)+\left(g\left(n_1 n_2\right)-g\left(n_1\right) g\left(n_2\right)\right) \\
-& =e\left(n_1\right) e\left(n_2\right)+\left(g\left(n_1 n_2\right)-g\left(n_1\right) g\left(n_2\right)\right).
+& =(f * g)\left(n_1\right)(f * g)\left(n_2\right)+\left(g\left(n_1 n_2\right)-g\left(n_1\right) g\left(n_2\right)\right)
 \end{aligned}
 $$
-\vspace*{0.3cm}
+
+Luego:
+
+$$g\left(n_1\right) g\left(n_2\right)=e\left(n_1\right) e\left(n_2\right)+g\left(n_1 n_2\right)$$
+
+\vspace*{0.2cm}
 
 Y como $n_1n_2\geq 2$, entonces $n_1\geq 2$ o $n_2\geq 2$, así $e(n_1)e(n_2)=0$, por tanto $g(n_1n_2)=g(n_1)g(n_2)$.
 \end{proof}
@@ -435,9 +438,13 @@ Y como $n_1n_2\geq 2$, entonces $n_1\geq 2$ o $n_2\geq 2$, así $e(n_1)e(n_2)=0$
 Sea $\mathcal{M}$ el conjunto de funciones aritmética multiplicativas, entonces $(\mathcal{M},*)$ es un grupo Abeliano.
 \end{corollary}
 
+\subsection{Propiedades de algunas funciones aritmética}
+
 Finalizaremos esta sección con algunas propiedades importantes de las funciones aritmética que definimos el inicio del capítulo.
 
-\subsection{La función \texorpdfstring{$\varphi$}{Lg} de Euler}
+\vspace*{-0.5cm}
+
+\subsubsection{La función \texorpdfstring{$\varphi$}{Lg} de Euler}
 
 La propiedad del teorema (2.3) nos permite manipular sumas  con condiciones de coprimalidad, es decir sumas sobre los $n$ que son coprimos con un entero $k$ fijo. Considere el conjunto $C_k=\{n \text{ | } (n,k)=1\}$, note que la función característica del conjunto $C_k$ es:
 
@@ -457,7 +464,7 @@ d \mid m}} 1 \\
 &=\mu*N(n)=n \sum_{d \mid n} \frac{\mu(d)}{d} .
 \end{aligned}$$
 
-Es claro que la función $N$ es multiplicativa por definición, luego esta propiedad nos permite probar que la función $\varphi$ es multiplicativa, por el teorema (2.7) basta ver que en efecto $\mu$ lo es, algo en un principio sorprendente teniendo en cuenta que esta propiedad en cursos de álgebra se sigue de:
+Es claro que la función $N$ es multiplicativa por definición, luego esta propiedad nos permite probar que la función $\varphi$ es multiplicativa, por el teorema (2.7) basta ver que en efecto $\mu$ lo es, algo interesante teniendo en cuenta que esta propiedad en cursos de álgebra se sigue de:
 
 $$\Z_{mn}=\Z_m\times \Z_n \quad\text{si}\quad(m,n)=1$$
 
@@ -537,11 +544,17 @@ Esta identidad  también puede probarse usando propiedades  de la convolución:
     \sum_{j\mid n}\varphi(j)=\varphi*1(n)=(N*\mu)*1(n)=N*(\mu*1)(n)=N*e(n)=n
 \end{align*}
 
-\subsection{Las funciones número y suma de divisores}
+\subsubsection{Las funciones número y suma de divisores}
 
-Podemos usar la convolución de manera conveniente para reescribir algunas funciones aritmética, por ejemplo:
+Podemos aplicar la convolución para obtener también propiedades de la funciones suma y número de divisores, por ejemplo:
 
-$$\sigma(n)=\sum_{j\mid n}j=N*1(n)$$
+$$\sigma(n)=\sum_{j\mid n}j=N*1(n) \quad \text{y} \quad \tau(n)=\sum_{j\mid n}1=1*1(n)$$
+
+Note que $\sigma*\varphi=(N*1)*(\mu*N)=(N*e)*N=N*N$, en efecto:
+
+$$\sigma*\varphi(n)=N*N(n)=\sum_{j\mid n}j\cdot\frac{n}{j}=n\sum_{j\mid n}1=n\tau(n)$$
+
+
 
 
 
