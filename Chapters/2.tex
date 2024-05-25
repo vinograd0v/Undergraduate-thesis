@@ -548,13 +548,33 @@ Esta identidad  también puede probarse usando propiedades  de la convolución:
 
 Podemos aplicar la convolución para obtener también propiedades de la funciones suma y número de divisores, por ejemplo:
 
-$$\sigma(n)=\sum_{j\mid n}j=N*1(n) \quad \text{y} \quad \tau(n)=\sum_{j\mid n}1=1*1(n)$$
+\begin{equation}
+\sigma(n)=\sum_{j\mid n}j=N*1(n) \quad \text{y} \quad \tau(n)=\sum_{j\mid n}1=1*1(n)
+\end{equation}
 
 Note que $\sigma*\varphi=(N*1)*(\mu*N)=(N*e)*N=N*N$, en efecto:
 
 $$\sigma*\varphi(n)=N*N(n)=\sum_{j\mid n}j\cdot\frac{n}{j}=n\sum_{j\mid n}1=n\tau(n)$$
 
+Además (1.8) nos dice también que las funciones $\sigma$ y $\tau$ son multiplicativas por ser convolución de funciones multiplicativas.
 
+\begin{theorem}
+Un entero $n$ es primo si y solo si $\sigma(n)+\varphi(n)=n\tau(n)$
+\end{theorem}
 
+\begin{proof}
 
+Si $n$ es primo, entonces $\varphi(n)=n-1$, $\sigma(n)=n+1$ y $\tau(n)=2$, luego es claro que $\sigma(n)+\varphi(n)=n\tau(n)$.Veamos ahora que si $n$ no es primo entonces no se sigue el teorema:\\
 
+Si $n$ no es primo entonces $\varphi(n)<n-1$, ahora note que:
+
+$$\sigma(n)=\sum_{j\mid n}j=1+\sum_{\substack{j\mid n\\ j>1}}j\leq 1+n(\tau(n)-1) $$
+
+Luego:
+
+$$\sigma(n)+\varphi(n)<n-1+1+n\tau(n)-n=n\tau(n)$$
+\end{proof}
+
+Con esto finalizamos esta sección, las ideas de la convolución y muchas propiedades que hemos obtenido aquí también se pueden conseguir al estudiar las series de Dirichlet, no es difícil ver que la convolución controla los términos que aparecen al realizar un producto de dos de estas series. Abordaremos esto más adelante, veremos que la función de Von Mangolth y la función de Möbius apareceren de manera natural también al estudiar las funciones $\dfrac{\zeta^{'}(s)}{\zeta(s)}$ y $\dfrac{1}{\zeta(s)}$.
+
+\section{Sumación Parcial}
