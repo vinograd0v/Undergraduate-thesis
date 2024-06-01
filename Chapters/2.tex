@@ -159,7 +159,7 @@ Note que aplicando el teorema anterior:
 L(x)=\sum_{n\leq x}\log(n)=\sum_{n\leq x}\sum_{j\mid n}\Lambda(j)
 \end{equation}
 
-Ahora vamos a aplicar una técnica muy útil y frecuente en teoría de números, el cambio de orden de sumación, para esto vamos a cambiar $n$ y $d$ de orden en la doble suma en (2.1) y conservaremos la condición $j\mid n$.
+Ahora vamos a aplicar una técnica muy útil y frecuente en teoría de números, el cambio de orden de sumación, para esto vamos a cambiar $n$ y $d$ de orden en la doble suma en (1.1) y conservaremos la condición $j\mid n$.
 
 \begin{align*}
     L(x)&=\sum_{n\leq x}\log(n)=\sum_{n\leq x}\sum_{j\mid n}\Lambda(j)\\
@@ -214,7 +214,7 @@ Además de ello, ya tenemos algunos valores de $\mu$, $\mu(1)=1$, $\mu(2)=\mu(3)
 G\left(\frac{\mathrm{x}}{\mathrm{j}}\right)=\sum_{k\leq \frac{x}{j}} F\left(\frac{x}{j \mathrm{k}}\right)
 \end{equation}
 
-Por tanto al reemplazar (2.3) en (2.2), obtenemos:
+Por tanto al reemplazar (1.3) en (1.2), obtenemos:
 
 \begin{align*}
     F(x)&=\sum_{j \leqslant x} \mu(j)\sum_{jk\leq x} F\left(\frac{x}{j \mathrm{k}}\right)=\sum_{jk\leq x}\mu(j)F \left( \frac{x}{jk} \right)\\
@@ -227,7 +227,7 @@ Finalmente:
 F(x)=F(x)+\sum_{1<n\leq x}F \left( \frac{x}{n} \right)\sum_{jk=n}\mu(j)
 \end{equation}
 
-Para obtener la inversión necesitamos que la doble suma en (2.4) se anule, y dado que no tenemos condiciones sobre $F$, la función $\mu$ debe cumplir que si $n \neq 1$
+Para obtener la inversión necesitamos que la doble suma en (1.4) se anule, y dado que no tenemos condiciones sobre $F$, la función $\mu$ debe cumplir que si $n \neq 1$
 
 $$\sum_{j\mid n}\mu(j)=0$$
 
@@ -239,7 +239,7 @@ Sea $n \geqslant 1$, entonces:
 $$\sum_{\mathrm{d} \mid \mathfrak{n}} \mu(\mathrm{d})=e(n)$$
 
 \end{theorem}
-Antes de continuar con la prueba de este resultado notemos que la suma en (2.2) en realidad no recorre los $j\leqslant x$, sino los $j$ que son divisores de $x$ ya que $G$ es función aritmética y por tanto $\frac{x}{j}$ es necesariamente un número natural. Así:
+Antes de continuar con la prueba de este resultado notemos que la suma en (1.2) en realidad no recorre los $j\leqslant x$, sino los $j$ que son divisores de $x$ ya que $G$ es función aritmética y por tanto $\frac{x}{j}$ es necesariamente un número natural. Así:
 
 \begin{equation}
 F(x)=\sum_{j \mid x} \mu(j) G\left(\frac{x}{j}\right)
@@ -263,7 +263,7 @@ Aplicando esto a la función $L(x)$, obtenemos que:
 
 $$\psi(x)=\sum_{j\mid n} \mu(j)L \left( \frac{n}{j} \right)$$
 
-La fórmula en (2.5) se conoce como inversión de Möbius, las ideas aquí sin embargo fueron abordadas de manera informal, para poder presentar un argumento riguroso, necesitamos, como se menciono antes, introducir la convolución de Dirichlet, que además nos permitirá obtener propiedades importantes de algunas de las funciones aritmética que hemos presentado en esta sección.
+La fórmula en (1.5) se conoce como inversión de Möbius, las ideas aquí sin embargo fueron abordadas de manera informal, para poder presentar un argumento riguroso, necesitamos, como se menciono antes, introducir la convolución de Dirichlet, que además nos permitirá obtener propiedades importantes de algunas de las funciones aritmética que hemos presentado en esta sección.
 
 \section{Convolución de Dirichlet}
 
@@ -333,7 +333,7 @@ $$
 
 \end{proof}
 
-Hemos  probado en particular que la función $e$ es el elemento neutro de la convolución, sabemos además que $\mu *1=e$, es decir la función de Möbius tiene inverso multiplicativo, con estas nuevas herramientas podemos presentar una prueba corta y formal de la fórmula de inversión de Möbius (2.5).
+Hemos  probado en particular que la función $e$ es el elemento neutro de la convolución, sabemos además que $\mu *1=e$, es decir la función de Möbius tiene inverso multiplicativo, con estas nuevas herramientas podemos presentar una prueba corta y formal de la fórmula de inversión de Möbius (1.5).
 
 \begin{theorem}[Fórmula de inversión de Möbius]
 Sean $f$ y $g$ funciones aritmética, entonces $f=g*1$ si y solo si $g=\mu* f$.
@@ -412,7 +412,7 @@ Procedamos por inducción matemática. Sea $n=n_1 n_2$, si $n_1 n_2=1$, entonces
 
 $$g(1\cdot 1)=g(1)=\dfrac{1}{f(1)}=1=g(1)g(1)$$
 
-Supongamos ahora que $g$ satisface (2.7) para todo $k_1k_2\geq 2$ tal que $k_1k_2<n$ y sean $n_1$ y $n_2$ tales que $n_1n_2=n$ y $(n_1,n_2)=1$, por (2.6) tenemos que:
+Supongamos ahora que $g$ satisface (1.7) para todo $k_1k_2\geq 2$ tal que $k_1k_2<n$ y sean $n_1$ y $n_2$ tales que $n_1n_2=n$ y $(n_1,n_2)=1$, por (1.6) tenemos que:
 
 $$
 \begin{aligned}
@@ -446,7 +446,7 @@ Finalizaremos esta sección con algunas propiedades importantes de las funciones
 
 \subsubsection{La función \texorpdfstring{$\varphi$}{Lg} de Euler}
 
-La propiedad del teorema (2.3) nos permite manipular sumas  con condiciones de coprimalidad, es decir sumas sobre los $n$ que son coprimos con un entero $k$ fijo. Considere el conjunto $C_k=\{n \text{ | } (n,k)=1\}$, note que la función característica del conjunto $C_k$ es:
+La propiedad del teorema (1.3) nos permite manipular sumas  con condiciones de coprimalidad, es decir sumas sobre los $n$ que son coprimos con un entero $k$ fijo. Considere el conjunto $C_k=\{n \text{ | } (n,k)=1\}$, note que la función característica del conjunto $C_k$ es:
 
 $$
 \mathbbm{1}_{C_k}(n)=\sum_{d \mid(n, k)} \mu(d)=e((n,k)),
@@ -464,7 +464,7 @@ d \mid m}} 1 \\
 &=\mu*N(n)=n \sum_{d \mid n} \frac{\mu(d)}{d} .
 \end{aligned}$$
 
-Es claro que la función $N$ es multiplicativa por definición, luego esta propiedad nos permite probar que la función $\varphi$ es multiplicativa, por el teorema (2.7) basta ver que en efecto $\mu$ lo es, algo interesante teniendo en cuenta que esta propiedad en cursos de álgebra se sigue de:
+Es claro que la función $N$ es multiplicativa por definición, luego esta propiedad nos permite probar que la función $\varphi$ es multiplicativa, por el teorema (1.7) basta ver que en efecto $\mu$ lo es, algo interesante teniendo en cuenta que esta propiedad en cursos de álgebra se sigue de:
 
 $$\Z_{mn}=\Z_m\times \Z_n \quad\text{si}\quad(m,n)=1$$
 
@@ -558,9 +558,9 @@ $$\sigma*\varphi(n)=N*N(n)=\sum_{j\mid n}j\cdot\frac{n}{j}=n\sum_{j\mid n}1=n\ta
 
 Además (1.8) nos dice también que las funciones $\sigma$ y $\tau$ son multiplicativas por ser convolución de funciones multiplicativas.
 
-\begin{theorem}
+\begin{prop}
 Un entero $n$ es primo si y solo si $\sigma(n)+\varphi(n)=n\tau(n)$
-\end{theorem}
+\end{prop}
 
 \begin{proof}
 
@@ -575,6 +575,11 @@ Luego:
 $$\sigma(n)+\varphi(n)<n-1+1+n\tau(n)-n=n\tau(n)$$
 \end{proof}
 
-Con esto finalizamos esta sección, las ideas de la convolución y muchas propiedades que hemos obtenido aquí también se pueden conseguir al estudiar las series de Dirichlet, no es difícil ver que la convolución controla los términos que aparecen al realizar un producto de dos de estas series. Abordaremos esto más adelante, veremos que la función de Von Mangolth y la función de Möbius apareceren de manera natural también al estudiar las funciones $\dfrac{\zeta^{'}(s)}{\zeta(s)}$ y $\dfrac{1}{\zeta(s)}$.
+\begin{note}
+
+Con esto finalizamos la sección, las ideas de la convolución y muchas propiedades que hemos obtenido aquí también se pueden conseguir al estudiar las series de Dirichlet, no es difícil ver que la convolución controla los términos que aparecen al realizar un producto de dos de estas series. Abordaremos esto más adelante, veremosen particular que la función de Von Mangolth y la función de Möbius apareceren de manera natural también al estudiar las funciones $\dfrac{\zeta^{'}(s)}{\zeta(s)}$ y $\dfrac{1}{\zeta(s)}$.
+\end{note}
 
 \section{Sumación Parcial}
+
+El propio stieltjes
