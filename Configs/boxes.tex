@@ -11,30 +11,11 @@
 
 \theoremstyle{definition}
 
-%\declaretheoremstyle[
-%    headfont=\bfseries\color{black!70!black}, bodyfont=\normalfont,
-%    mdframed={
-%        linewidth=1.5pt,
-%        rightline=true, topline=false, bottomline=false,
-%        linecolor=black, backgroundcolor=black!2!white,
-%    }
-%]{thmbox}
-
 \declaretheoremstyle[headfont=\bfseries, bodyfont=\normalfont, mdframed={ nobreak }]{thmbox}
-
-%\declaretheoremstyle[
-%    headfont=\bfseries\color{black!70!black}, bodyfont=\normalfont,
-%    numbered=no,
-%    mdframed={
-%        linewidth=0pt,
-%        rightline=false, topline=false, bottomline=false,
-%        linecolor=black, backgroundcolor=black!2!white,
-%    },
-%    qed=\qedsymbol
-%]{proofboxes}
 
 \declaretheoremstyle[headfont=\bfseries, bodyfont=\normalfont, numbered=no,qed=\qedsymbol ]{thmproofbox}
 
+\declaretheoremstyle[headfont=\bfseries, bodyfont=\normalfont]{notebox}
 
 \declaretheorem[numberwithin=chapter,style=thmbox, name=Teorema]{theorem}
 \declaretheorem[sibling=theorem,style=thmbox, numbered=no, name=Ejemplo]{eg}
@@ -46,9 +27,8 @@
 \declaretheorem[style=thmproofbox, name=Demostración]{replacementproof}
 \renewenvironment{proof}[1][\proofname]{\vspace{-10pt}\begin{replacementproof}}{\end{replacementproof}}
 
-\declaretheorem[style=thmbox, numbered=no, name=Nota]{note}
+\declaretheorem[style=notebox, numbered=no, name=Nota]{note}
 \declaretheorem[style=thmbox, numbered=no, ]{temp}
-%\declaretheorem[style=thmtikz, numbered=no, name=.]{tikznt}
 
 \newcommand{\bb}[1]{\mathbb{#1}}
 

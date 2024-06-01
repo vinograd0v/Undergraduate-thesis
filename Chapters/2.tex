@@ -107,9 +107,10 @@ Si además la función es completamente multiplicativa:
 
 $$f(n)=f\left(\prod_{i=1}^{m}p_i^{k_i}\right)=\prod_{i=1}^{m} f(p_i)^{k_i} $$
 
-Lo que también ocurre para funciones completamente aditivas, cambiando el producto por una suma.  Una propiedad adicional que será útil para caracterizar estas funciones que si $f$ es aditiva y no identicamente nula, entonces para algún $n$, $f(1\cdot  n)=f(1)+f(n)$, así $f(1)=0$, análogamente si $f$ es multiplicativa $f(1\cdot n)=f(1)f(n)$, $f(1)=1$.\\
+Lo que también ocurre para funciones completamente aditivas, cambiando el producto por una suma.  Una propiedad adicional que será útil para caracterizar estas funciones es que si $f$ es aditiva y no identicamente nula, entonces para algún $n$, $f(1\cdot  n)=f(1)+f(n)$, así $f(1)=0$, análogamente si $f$ es multiplicativa y no identicamente nula $f(1\cdot n)=f(1)f(n)$, $f(1)=1$.\\
 
 Ahora veamos que aunque la función de Von Mangoldt, parece extraña, su definición es natural y nos permite obtener una versión logarítmica del teorema fundamental de la aritmética.
+
 \begin{theorem}
 Dado $n\in \N$, $n>1$ entonces:
 
@@ -159,7 +160,7 @@ Note que aplicando el teorema anterior:
 L(x)=\sum_{n\leq x}\log(n)=\sum_{n\leq x}\sum_{j\mid n}\Lambda(j)
 \end{equation}
 
-Ahora vamos a aplicar una técnica muy útil y frecuente en teoría de números, el cambio de orden de sumación, para esto vamos a cambiar $n$ y $d$ de orden en la doble suma en (1.1) y conservaremos la condición $j\mid n$.
+Ahora vamos a aplicar una técnica muy útil y frecuente en teoría de números, el cambio de orden de sumación, para esto vamos a cambiar $n$ y $d$ de orden en la doble suma (1.1) y conservaremos la condición $j\mid n$.
 
 \begin{align*}
     L(x)&=\sum_{n\leq x}\log(n)=\sum_{n\leq x}\sum_{j\mid n}\Lambda(j)\\
@@ -343,7 +344,7 @@ Sean $f$ y $g$ funciones aritmética, entonces $f=g*1$ si y solo si $g=\mu* f$.
 Note que $f=g*1$ si y solo si $\mu*f=\mu*g*1=g*\mu*1=g*e=g$
 \end{proof}
 
-Sin embargo, no toda función aritmética tiene inverso multiplicativo, el caso más evidente es tomar la función constante $N=0$, note que para toda $f$, $f*N=N$. Esto nos lleva a la pregunta: ¿bajo qué condiciones una función aritmética tiene inverso?, la respuesta podría venir de estudiar las características que no permiten que $N$ lo tenga... A saber, $N$ \textit{se anula en todo punto}, ¿bastaría con que esta función no se anule en todo su dominio para que tenga inversa?, o ¿en algún punto en particular?, la respuesta nos viene del siguiente teorema, basta con que la función no se anule en 1 para poder garantizar además la \textit{unicidad}.\\
+Sin embargo, no toda función aritmética tiene inverso multiplicativo, el caso más evidente es tomar la función constante $N=0$, note que para toda $f$, $f*N=N$. Esto nos lleva a la pregunta: ¿bajo qué condiciones una función aritmética tiene inverso multiplicativo?, la respuesta podría venir de estudiar las características que no permiten que $N$ lo tenga... A saber, $N$ \textit{se anula en todo punto}, ¿bastaría con que esta función no se anule en todo su dominio para que tenga inversa?, o ¿en algún punto en particular?, la respuesta nos viene del siguiente teorema, basta con que la función no se anule en 1 para poder garantizar además la \textit{unicidad}.
 
 \begin{theorem}
  
@@ -452,7 +453,7 @@ $$
 \mathbbm{1}_{C_k}(n)=\sum_{d \mid(n, k)} \mu(d)=e((n,k)),
 $$
 
-Una aplicación de esta propiedad es la siguiente propiedad de la función $\varphi$ de Euler:
+Una aplicación de esto, nos permite obtener la siguiente propiedad de la función $\varphi$ de Euler:
 
 $$\begin{aligned}
 \varphi(n) & =\sum_{\substack{m \leq n \\
@@ -464,9 +465,9 @@ d \mid m}} 1 \\
 &=\mu*N(n)=n \sum_{d \mid n} \frac{\mu(d)}{d} .
 \end{aligned}$$
 
-Es claro que la función $N$ es multiplicativa por definición, luego esta propiedad nos permite probar que la función $\varphi$ es multiplicativa, por el teorema (1.7) basta ver que en efecto $\mu$ lo es, algo interesante teniendo en cuenta que esta propiedad en cursos de álgebra se sigue de:
+Es claro que la función $N$ es multiplicativa por definición, luego esta propiedad nos permite probar que la función $\varphi$ es multiplicativa, por el teorema (1.7) basta ver que en efecto $\mu$ lo es, algo interesante teniendo en cuenta que esta propiedad en cursos de álgebra se sigue de $\Z_{mn}=\Z_m\times \Z_n$ \text{ si } $(m,n)=1$.
 
-$$\Z_{mn}=\Z_m\times \Z_n \quad\text{si}\quad(m,n)=1$$
+
 
 \begin{theorem}
 La función $\mu$ es multiplicativa:
@@ -546,7 +547,7 @@ Esta identidad  también puede probarse usando propiedades  de la convolución:
 
 \subsubsection{Las funciones número y suma de divisores}
 
-Podemos aplicar la convolución para obtener también propiedades de la funciones suma y número de divisores, por ejemplo:
+También  podemos aplicar la convolución para obtener también propiedades de la funciones suma y número de divisores, por ejemplo:
 
 \begin{equation}
 \sigma(n)=\sum_{j\mid n}j=N*1(n) \quad \text{y} \quad \tau(n)=\sum_{j\mid n}1=1*1(n)
@@ -556,7 +557,7 @@ Note que $\sigma*\varphi=(N*1)*(\mu*N)=(N*e)*N=N*N$, en efecto:
 
 $$\sigma*\varphi(n)=N*N(n)=\sum_{j\mid n}j\cdot\frac{n}{j}=n\sum_{j\mid n}1=n\tau(n)$$
 
-Además (1.8) nos dice también que las funciones $\sigma$ y $\tau$ son multiplicativas por ser convolución de funciones multiplicativas.
+Con lo que obtenemos una propiedad  interesante que relaciona estas 3 funciones aritmética, pero  además (1.8) nos dice también que las funciones $\sigma$ y $\tau$ son multiplicativas por ser convolución de funciones multiplicativas. Observemos una última propiedad de estas funciones, que nos permite caracterizar la noción de ser primo.
 
 \begin{prop}
 Un entero $n$ es primo si y solo si $\sigma(n)+\varphi(n)=n\tau(n)$
@@ -577,9 +578,8 @@ $$\sigma(n)+\varphi(n)<n-1+1+n\tau(n)-n=n\tau(n)$$
 
 \begin{note}
 
-Con esto finalizamos la sección, las ideas de la convolución y muchas propiedades que hemos obtenido aquí también se pueden conseguir al estudiar las series de Dirichlet, no es difícil ver que la convolución controla los términos que aparecen al realizar un producto de dos de estas series. Abordaremos esto más adelante, veremosen particular que la función de Von Mangolth y la función de Möbius apareceren de manera natural también al estudiar las funciones $\dfrac{\zeta^{'}(s)}{\zeta(s)}$ y $\dfrac{1}{\zeta(s)}$.
+Con esto finalizamos la sección, las ideas de la convolución y muchas propiedades que hemos obtenido aquí también se pueden conseguir al estudiar las series de Dirichlet que estudiaremos más adelante, no es difícil ver que la convolución controla los términos que aparecen al realizar un producto de dos de estas series. Abordaremos esto más adelante, veremos en particular que la función de Von Mangolth y la función de Möbius aparecen de manera natural también al estudiar las funciones $\dfrac{\zeta^{'}(s)}{\zeta(s)}$ y $\dfrac{1}{\zeta(s)}$.
 \end{note}
 
 \section{Sumación Parcial}
 
-El propio stieltjes
