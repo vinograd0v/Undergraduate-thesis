@@ -678,13 +678,12 @@ $$
 
 \subsection{Algunas propiedades de la integral de Riemann-Stieltjes}
 
-Comencemos por la fórmula de integración por partes:
 
-\begin{theorem}
+\begin{theorem}[Integración por partes]
     Si $f\in \mathcal{R}(\alpha)$ en $[a,b]$ entonces $\alpha \in\mathcal{R}(f)$ en $[a,b]$ y $$\int_{a}^{b}f(x)d\alpha(x)+\int_{a}^{b}\alpha(x)df(x)=f(b)\alpha(b)-f(a)\alpha(a).$$
 \end{theorem}
 
-Por último, bajo ciertas condiciones una integral de Riemann-Stieltjes se puede reducir a una integral de Riemann usual, esto es muy útil puesto que estamos más familiarizados con el cálculo de estas, dichas condiciones son presentadas en el siguiente teorema:
+Bajo ciertas condiciones una integral de Riemann-Stieltjes se puede reducir a una integral de Riemann usual, esto es muy útil puesto que estamos más familiarizados con el cálculo de estas, dichas condiciones son presentadas en el siguiente teorema:
 
 \begin{theorem}\label{reduccion a riemann}
     Sea $ f \in R(\alpha) $ en $[a, b]$, donde $ \alpha \in C^1[a, b]$, entonces,
@@ -818,7 +817,7 @@ $$
 $$
 \end{proof}
 
-Vamos a establecer una conexión entre las dos funciones de Chebyshev, en efecto:
+Ahora vamos a establecer una conexión entre las dos funciones de Chebyshev que definimos antes, en efecto:
 
 $$
 \psi(x)=\sum_{n \leq x} \Lambda(n)=\sum_{m=1}^{\infty} \sum_{p^m \leq x} \Lambda\left(p^m\right)=\sum_{m=1}^{\infty} \sum_{p \leq x^{\frac{1}{m}}} \log p .
