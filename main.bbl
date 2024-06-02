@@ -5,16 +5,17 @@ Bernhard Riemann.
 \newblock On the number of primes less than a given magnitude.
 \newblock {\em Complete Works. Kendrick Press}, 2004.
 
-\bibitem{A.J.Hildebrand}
-A.J. Hildebrand.
-\newblock {\em Introduction to Analytic Number Theory Lecture Notes}.
-\newblock 2005 url: \url{https://bit.ly/3V7a7G0}.
-
 \bibitem{levinson1969motivated}
 Norman Levinson.
 \newblock A motivated account of an elementary proof of the prime number
   theorem.
 \newblock {\em The American Mathematical Monthly}, 76(3):225--245, 1969.
+
+\bibitem{Apostol:105425}
+Tom~M Apostol.
+\newblock {\em {Mathematical analysis; 2nd ed.}}
+\newblock Addison-Wesley series in mathematics. Addison-Wesley, Reading, MA,
+  1974.
 
 \bibitem{pongsriiam2023analytic}
 Prapanpong Pongsriiam.
@@ -25,12 +26,6 @@ Prapanpong Pongsriiam.
 T.M. Apostol.
 \newblock {\em Introduction to Analytic Number Theory}.
 \newblock Undergraduate Texts in Mathematics. Springer New York, 1998.
-
-\bibitem{Apostol:105425}
-Tom~M Apostol.
-\newblock {\em {Mathematical analysis; 2nd ed.}}
-\newblock Addison-Wesley series in mathematics. Addison-Wesley, Reading, MA,
-  1974.
 
 \bibitem{jameson2003prime}
 Graham James~Oscar Jameson.
@@ -71,6 +66,12 @@ Andrew Granville and Greg Martin.
 M~Ram Murty and V~Kumar Murty.
 \newblock {\em Non-vanishing of L-functions and applications}.
 \newblock Springer Science \& Business Media, 2012.
+
+\bibitem{hildebrand2006introduction}
+Adolf~J Hildebrand.
+\newblock Introduction to analytic number theory math 531 lecture notes, fall
+  2005.
+\newblock {\em URL: http://www. math. uiuc. edu/hildebr/ant. Version}, 1, 2006.
 
 \bibitem{iwaniec2021analytic}
 Henryk Iwaniec and Emmanuel Kowalski.

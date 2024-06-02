@@ -576,10 +576,102 @@ Luego:
 $$\sigma(n)+\varphi(n)<n-1+1+n\tau(n)-n=n\tau(n)$$
 \end{proof}
 
-\begin{note}
-
-Con esto finalizamos la sección, las ideas de la convolución y muchas propiedades que hemos obtenido aquí también se pueden conseguir al estudiar las series de Dirichlet que estudiaremos más adelante, no es difícil ver que la convolución controla los términos que aparecen al realizar un producto de dos de estas series. Abordaremos esto más adelante, veremos en particular que la función de Von Mangolth y la función de Möbius aparecen de manera natural también al estudiar las funciones $\dfrac{\zeta^{'}(s)}{\zeta(s)}$ y $\dfrac{1}{\zeta(s)}$.
-\end{note}
-
 \section{Sumación Parcial}
 
+Los resultados que hemos podido obtener hasta el momento solo se centran en casos finitos, en sumas sobre los divisores de un entero $n$ fijo o sobre los $k$ que son primos relativos a $n$, estos son casos privilegiados, nuestro objetivo sigue siendo el TNP, para esto necesitamos poder obtener relaciones asintóticas, algunas funciones como $\mu$ o $\varphi$ aparentan comportamientos caóticos al graficarlas en función de $n$ y por tanto no tiene mucho sentido estudiar un comportamiento asintótico para  ellas, sin embargo, algunas funciones aritmética $f(n)=a_n$ tienen buen comportamiento en la media, en el sentido de que sus sumas parciales:
+
+$$A(x)=\sum_{n\leq x}a_n$$
+
+Tienden a ser suaves  conforme $x\to \infty$ y frecuentemente podemos estudiarlas de manera precisa, ejemplo de esto son $\pi(x)$ o $\psi(x)$. En esta sección estudiaremos algunos de los métodos principales para obtener dichas estimaciones, estimaciones que nos darán un camino a la prueba del TNP.
+
+
+\subsection{La integral de Riemann-Stieltjes}
+
+Como se mencionó anteriormente, probaremos el TNP usando una equivalencia que demostraremos en esta sección, para eso, primero vamos a definir usando como referencia el libro de Apostol \cite{Apostol:105425} la integral de Riemann Stieltjes
+
+\begin{definition}
+    \begin{itemize}\item[i)] Sean $P=\{x_0,x_1,...,x_n\}\in\mathcal{P}[a,b]$ (las particiones del intervalo $[a,b]$) y   $t_{k}\in [x_{k-1},x_k]$ cualesquiera. 
+    
+    Una suma de la forma $$S(P,f,\alpha)=\sum_{k=1}^{n}f(t_k)\Delta \alpha_k$$ se denomina \textbf{suma de Riemann-Stieltjes} de $f$ con respecto a $\alpha$ en $[a,b]$.
+    
+    \item[ii)] Decimos que $f$ es \textbf{Riemann-Integrable} con respecto a $\alpha$ en $[a,b]$, y escribimos ``$f\in \mathcal{R}(\alpha)$ en $[a,b]$'', si existe $A\in \mathbb R$ que satisface que:\\ 
+    para todo $\varepsilon>0$ existe $P_{\varepsilon}\in \mathcal{P}[a,b]$ tal que si para toda $P\supset P_{\varepsilon}$ y para cualquier elección de puntos $t_{k}\in [x_{k-1},x_k]$, entonces $$\mid S(P,f,\alpha) - A\mid <\varepsilon.$$
+    \end{itemize}
+\end{definition}
+
+\begin{note}
+    Observe que cuando un número $A$ existe, es único y se denota por $$\int_a^b fd\alpha \quad \text{o} \quad \int_{a}^{b} f(x)d\alpha(x).$$ 
+La función $f$ es llamada \textit{integrando} y la función $\alpha$ es llamada \textit{integrador}. En el caso de que exista $A$ diremos que existe \textit{la integral de Riemann-Stieltjes} de $f$ con respecto a $\alpha$ en $[a,b]$. 
+\end{note}
+
+
+Note que la integral de Riemann no es más que un caso particular, cuando $\alpha(x)=x$, la utilidad de esta integral en teoría analítica de números se debe a que cualquier suma finita se puede escribir como una integral de Riemann-Stieltjes.\\
+
+\begin{theorem}
+  Sea $\alpha$ una función escalonada definida en $[a, b]$ con salto $\alpha_k$ en $x_k$.\\
+  
+Sea $f$ una función definida en $[a, b]$ tal que $f$ y $\alpha$ no sean ambas discontinuas a la derecha o a la izquierda de cada $x_k$. Entonces $\int_a^b f d \alpha$ existe y se tiene
+$$
+\int_a^b f(x) d \alpha(x)=\sum_{k=1}^n f\left(x_k\right) \alpha_k
+$$
+\end{theorem}
+
+La prueba de esto nuevamente se encuentra en \cite{Apostol:105425}, allí también se encuentran algunas de las propiedades de esta integral que usaremos en esta sección, estas son el "Teorema de reducción a una integral de Riemann" \text{ y } la "\text{}Integración por partes" que se presentarán a continuación.\\
+
+\subsection{Algunas propiedades de la integral de Riemann-Stieltjes}
+
+\begin{theorem}
+  Sea $\alpha$ una función escalonada definida en $[a, b]$ con salto $\alpha_k$ en $x_k$.\\
+  
+Sea $f$ una función definida en $[a, b]$ tal que $f$ y $\alpha$ no sean ambas discontinuas a la derecha o a la izquierda de cada $x_k$. Entonces $\int_a^b f d \alpha$ existe y se tiene
+$$
+\int_a^b f(x) d \alpha(x)=\sum_{k=1}^n f\left(x_k\right) \alpha_k
+$$
+\end{theorem}
+
+
+Comencemos por la fórmula de integración por partes, tenemos que esta se enuncia de la siguiente manera:
+\begin{theorem}
+    Si $f\in \mathcal{R}(\alpha)$ en $[a,b]$ entonces $\alpha \in\mathcal{R}(f)$ en $[a,b]$ y $$\int_{a}^{b}f(x)d\alpha(x)+\int_{a}^{b}\alpha(x)df(x)=f(b)\alpha(b)-f(a)\alpha(a).$$
+\end{theorem}
+
+\begin{proof}
+    Sea $\varepsilon>0$ arbitrario. Como, tenemos por hipótesis que $\int_{a}^{b}fd\alpha$ existe, entonces existe una $P_{\varepsilon}\in \mathcal{P}[a,b]$ tal que para toda $P'\supset P_\varepsilon$, por lo cual tenemos que $$\biggm|S(P',f,\varepsilon) - \int_{a}^{b}fd\alpha\biggm|<\varepsilon.$$
+    
+    Tomando la suma de Riemann-Stieltjes de $\alpha$ con respecto a $f$ en $[a,b]$ dada por $S(P,\alpha,f)$ donde $P\supset P_\varepsilon$. Se tiene que,
+    \begin{align*}
+        S(P,\alpha,f)
+        &= \sum_{k=1}^{n}\alpha(t_k)\Delta f_k
+        \\
+        &= \sum_{k=1}^{n}\alpha(t_k)f(x_k) - \sum_{k=1}^{n}\alpha(t_k)f(x_{k-1}). 
+    \end{align*}
+    Adicionalmente se tiene que:  
+    \begin{align*}
+        f(b)\alpha(b)-f(a)\alpha(a)
+        &= \sum_{k=1}^{n}f(x_k)\alpha(x_k)-f(x_{k-1})\alpha(x_{k-1})
+        \\
+        &= \sum_{k=1}^{n}\Delta (f\alpha)_k
+        \\
+        &= \sum_{k=1}^{n}f(x_k)\alpha(x_k)-\sum_{k=1}^{n}f(x_{k-1})\alpha(x_{k-1})
+    \end{align*}
+    Por lo cual 
+    \begin{align*}
+        f(b)\alpha(b)-f(a)\alpha(a)-S(P,\alpha,f)&=\sum_{k=1}^{n}f(x_k)\alpha(x_k)-\sum_{k=1}^{n}f(x_{k-1})\alpha(x_{k-1})\\&-\sum_{k=1}^{n}\alpha(t_k)f(x_k) + \sum_{k=1}^{n}\alpha(t_k)f(x_{k-1})\\
+        \text{Para $\quad P'=P\cup\{t_k | k=1,2,\cdots ,n\}$}&=\sum_{k=1}^{n}f(x_k)[\alpha(x_k)-\alpha(t_k)]\\
+        &+ \sum_{k=1}^{n}f(x_{k-1})[\alpha(t_{k})-\alpha(x_{k-1})]\\
+        &=\sum_{k=1}^{n}f(x_k)[\alpha(x_k)-\alpha(t_k)] + \sum_{k=1}^{n}f(x_{k-1})[\alpha(t_{k})-\alpha(x_{k-1})]\\
+        &=S(P',f,\alpha)
+    \end{align*}
+
+    Por lo cual podemos decir que 
+    $$\biggm|f(b)\alpha(b)-f(a)\alpha(a)-S(P,\alpha,f)-\int_{a}^{b}fd\alpha\biggm|<\varepsilon$$
+    Esto quiere decir que, $\int_{a}^{b}\alpha df$ existe y luego como$$\biggm|S(P,\alpha,f)+\int_{a}^{b}fd\alpha +f(a)\alpha(a)-f(b)\alpha(b)\biggm|<\varepsilon$$
+    Entonces $$\int_{a}^{b}\alpha df=f(b)\alpha(b)-f(a)\alpha(a)-\int_{a}^{b}fd\alpha.$$
+\end{proof}
+Con esto quedó demostrada la integración por partes en una Integral de Riemann-Stieljes.\\
+Ahora vamos a enunciar el teorema de ``reducción a Riemann'', la demostración de este hecho se puede encontrar en \cite{Apostol:105425}.
+\begin{theorem}
+    Sea $ f \in R(\alpha) $ en $[a, b]$, donde $ \alpha \in \mathbb{C}^1[a, b]$, entonces,
+$ \int_{a}^{b} f(x)\alpha'(x)dx$
+existe y\[ \int_{a}^{b} f \,d\alpha = \int_{a}^{b} f(x)\alpha'(x)dx \]
+\end{theorem}
