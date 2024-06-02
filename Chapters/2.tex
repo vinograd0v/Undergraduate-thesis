@@ -582,15 +582,40 @@ Los resultados que hemos podido obtener hasta el momento solo se centran en caso
 
 $$A(x)=\sum_{n\leq x}a_n$$
 
-Tienden a ser suaves  conforme $x\to \infty$ y frecuentemente podemos estudiarlas de manera precisa, ejemplo de esto son $\pi(x)$ o $\psi(x)$. En esta sección estudiaremos algunos de los métodos principales para obtener dichas estimaciones, estimaciones que nos darán un camino a la prueba del TNP.
+Tienden a ser suaves  conforme $x\to \infty$ y frecuentemente podemos estudiarlas de manera precisa, ejemplo de esto son $\pi(x)$ o $\psi(x)$. En esta sección estudiaremos algunos de los métodos principales para obtener dichas estimaciones, estimaciones que nos darán un camino a la prueba del TNP.\\
 
+Sea $f:(a,b) \longrightarrow \mathbb{R}$ una función real, denotamos:
+   \begin{align*}
+       f(c-)&=\lim_{x \rightarrow c^-} f(x), \hspace{0.1cm} c \in (a,b] \notag \\
+       f(c+)&=\lim_{x \rightarrow c^+} f(x), \hspace{0.1cm} c \in [a,b) 
+   \end{align*}
+
+\begin{definition}
+    Sea $f$ una función real definida en $[a,b]$. Suponga que $f(x+)$ y $f(x-)$ existen para todo $x \in (a,b)$. Definimos: 
+       \begin{itemize}
+           \item $f(x)-f(x-)$: Salto a izquierda de $f$ en $x$.
+           \item $f(x+)-f(x)$: Salto a derecha de $f$ en $x$.
+           \item $[f(x)-f(x-)]+[f(x+)-f(x)]=f(x+)-f(x-)$: Salto de $f$ en $x$.
+       \end{itemize}
+\end{definition}
 
 \subsection{La integral de Riemann-Stieltjes}
 
-Como se mencionó anteriormente, probaremos el TNP usando una equivalencia que demostraremos en esta sección, para eso, primero vamos a definir usando como referencia el libro de Apostol \cite{Apostol:105425} la integral de Riemann Stieltjes
+Sean $P=\{x_0,x_1,...,x_n\}\in\mathcal{P}[a,b]$ (las particiones del intervalo $[a,b]$) y   $t_{k}\in [x_{k-1},x_k]$ cualesquiera. Una suma de la forma $$S(P,f)=\sum_{k=1}^{n}f(t_k)\Delta x_k$$ Se denomina \textbf{suma de Riemann} de $f$ en $[a,b]$, recordamos que $\Delta x_k=x_k-x_{k-1}$.\\
+
+La integral usual se define como el límite de las sumas de Riemann, esta definición nos da una correspondencia importante: Toda integral de Riemann se puede ver como el límite de una suma, una serie.\\
+
+Sin embargo, no toda suma se puede ver como una integral bajo esta definición, si tenemos una con una condición de sumación sobre, por ejemplo, los números primos, no hay un camino claro para expresarla como una integral, la solución a este problema viene de generalizar la noción de integral.\\
+
+\pagebreak
+
+La propiedad deseada la obtendremos de la integral de Riemann-Stieltjes.
 
 \begin{definition}
-    \begin{itemize}\item[i)] Sean $P=\{x_0,x_1,...,x_n\}\in\mathcal{P}[a,b]$ (las particiones del intervalo $[a,b]$) y   $t_{k}\in [x_{k-1},x_k]$ cualesquiera. 
+\phantom{uwu}
+\begin{itemize}
+
+    \item[i)] Sean $P=\{x_0,x_1,...,x_n\}\in\mathcal{P}[a,b]$ (las particiones del intervalo $[a,b]$) y   $t_{k}\in [x_{k-1},x_k]$ cualesquiera. 
     
     Una suma de la forma $$S(P,f,\alpha)=\sum_{k=1}^{n}f(t_k)\Delta \alpha_k$$ se denomina \textbf{suma de Riemann-Stieltjes} de $f$ con respecto a $\alpha$ en $[a,b]$.
     
@@ -599,79 +624,136 @@ Como se mencionó anteriormente, probaremos el TNP usando una equivalencia que d
     \end{itemize}
 \end{definition}
 
-\begin{note}
-    Observe que cuando un número $A$ existe, es único y se denota por $$\int_a^b fd\alpha \quad \text{o} \quad \int_{a}^{b} f(x)d\alpha(x).$$ 
-La función $f$ es llamada \textit{integrando} y la función $\alpha$ es llamada \textit{integrador}. En el caso de que exista $A$ diremos que existe \textit{la integral de Riemann-Stieltjes} de $f$ con respecto a $\alpha$ en $[a,b]$. 
-\end{note}
+Donde $\Delta\alpha_k=\alpha(x_k)-\alpha(x_{k-1})$, cuando $A$ existe, es único y se denota por $$\int_a^b fd\alpha \quad \text{o} \quad \int_{a}^{b} f(x)d\alpha(x).$$ 
+La función $f$ es llamada \textit{integrando} y la función $\alpha$ es llamada \textit{integrador}.\\
 
 
-Note que la integral de Riemann no es más que un caso particular, cuando $\alpha(x)=x$, la utilidad de esta integral en teoría analítica de números se debe a que cualquier suma finita se puede escribir como una integral de Riemann-Stieltjes.\\
+Note que la integral de Riemann no es más que un caso particular de la de Riemann-Stieltjes, cuando $\alpha(x)=x$.\\
 
-\begin{theorem}
+\begin{theorem}[\cite{Apostol:105425}, Teorema 7.11]
   Sea $\alpha$ una función escalonada definida en $[a, b]$ con salto $\alpha_k$ en $x_k$.\\
   
-Sea $f$ una función definida en $[a, b]$ tal que $f$ y $\alpha$ no sean ambas discontinuas a la derecha o a la izquierda de cada $x_k$. Entonces $\int_a^b f d \alpha$ existe y se tiene
+Sea $f$ una función definida en $[a, b]$ tal que $f$ y $\alpha$ no sean ambas discontinuas a la derecha o a la izquierda de cada $x_k$. Entonces $\displaystyle\int_a^b f d \alpha$ existe y se tiene que:
 $$
 \int_a^b f(x) d \alpha(x)=\sum_{k=1}^n f\left(x_k\right) \alpha_k
 $$
 \end{theorem}
 
-La prueba de esto nuevamente se encuentra en \cite{Apostol:105425}, allí también se encuentran algunas de las propiedades de esta integral que usaremos en esta sección, estas son el "Teorema de reducción a una integral de Riemann" \text{ y } la "\text{}Integración por partes" que se presentarán a continuación.\\
+La prueba de esto se encuentra en \cite{Apostol:105425}, sin embargo, nos será útil explorar la idea.\\
+
+Note que $\alpha$ es constante en los intervalos $(x_{k-1},x_k)$, luego por intervalos la integral es 0 ya que para cualquier suma de Riemann-Stieltjes, $S(P,f,\alpha)$=0. Así, para conocer el valor de la integral entonces solo tendríamos que sumar el valor que toma alrededor de cada $x_k$.\\
+
+Supongamos que $\alpha$ tiene salto $\alpha_k $ en un punto $x_k\in [a,b]$, no es difícil ver que:
+
+$$\int_a^bfd\alpha=f(x_k)[\alpha(x_k+)-\alpha(x_{k}-)]=f(x_k)\alpha_k$$
+
+La prueba de esto se encuentra también en \cite{Apostol:105425} [Teorema 7.9], en efecto si repetimos esto para cada $x_k$ obtenemos la suma deseada.\\
+
+Sea $f$ continua en $[0,\infty]$, el teorema anterior nos permite expresar la suma $\displaystyle\sum_{n=1}^Na_nf(n)$ como una integral de Riemann Stieltjes considerando sus sumas parciales:
+
+$$\displaystyle\sum_{n=1}^Na_nf(n)=\int_0^Nf(x)dA(x)$$
+
+
+\begin{note}
+El límite inferior de la integral puede ser cualquier número en el intervalo [0, 1) y el superior cualquier número en [N, N+1)
+\end{note}
+
+\begin{eg}
+\phantom{uwu}
+\begin{itemize}
+\item Si se toma $\alpha(x)=[x]$, entonces
+$$
+\int_a^b f(x) d[x]=\sum_{a<n \leq b} f(n)
+$$
+
+\item Si se toma $\alpha(x)=\pi(x)$, la función contadora de primos, que tiene un salto de 1 en cada p primo, entonces
+$$
+\int_a^b f(x) d \pi(x)=\sum_{a<p \leq b} f(p)
+$$
+\end{itemize}
+\end{eg}
+
+Con ayuda de esto vamos a obtener una representación integral de la función contadora de primos y también la equivalencia esperada, estas propiedades se seguirán del teorema de sumación parcial de Abel, este teorema resultará ser una aplicación de la fórmula de integración por partes para integrales de Riemann-Stieltjes.
 
 \subsection{Algunas propiedades de la integral de Riemann-Stieltjes}
 
-\begin{theorem}
-  Sea $\alpha$ una función escalonada definida en $[a, b]$ con salto $\alpha_k$ en $x_k$.\\
-  
-Sea $f$ una función definida en $[a, b]$ tal que $f$ y $\alpha$ no sean ambas discontinuas a la derecha o a la izquierda de cada $x_k$. Entonces $\int_a^b f d \alpha$ existe y se tiene
-$$
-\int_a^b f(x) d \alpha(x)=\sum_{k=1}^n f\left(x_k\right) \alpha_k
-$$
-\end{theorem}
+Comencemos por la fórmula de integración por partes:
 
-
-Comencemos por la fórmula de integración por partes, tenemos que esta se enuncia de la siguiente manera:
 \begin{theorem}
     Si $f\in \mathcal{R}(\alpha)$ en $[a,b]$ entonces $\alpha \in\mathcal{R}(f)$ en $[a,b]$ y $$\int_{a}^{b}f(x)d\alpha(x)+\int_{a}^{b}\alpha(x)df(x)=f(b)\alpha(b)-f(a)\alpha(a).$$
 \end{theorem}
 
-\begin{proof}
-    Sea $\varepsilon>0$ arbitrario. Como, tenemos por hipótesis que $\int_{a}^{b}fd\alpha$ existe, entonces existe una $P_{\varepsilon}\in \mathcal{P}[a,b]$ tal que para toda $P'\supset P_\varepsilon$, por lo cual tenemos que $$\biggm|S(P',f,\varepsilon) - \int_{a}^{b}fd\alpha\biggm|<\varepsilon.$$
-    
-    Tomando la suma de Riemann-Stieltjes de $\alpha$ con respecto a $f$ en $[a,b]$ dada por $S(P,\alpha,f)$ donde $P\supset P_\varepsilon$. Se tiene que,
-    \begin{align*}
-        S(P,\alpha,f)
-        &= \sum_{k=1}^{n}\alpha(t_k)\Delta f_k
-        \\
-        &= \sum_{k=1}^{n}\alpha(t_k)f(x_k) - \sum_{k=1}^{n}\alpha(t_k)f(x_{k-1}). 
-    \end{align*}
-    Adicionalmente se tiene que:  
-    \begin{align*}
-        f(b)\alpha(b)-f(a)\alpha(a)
-        &= \sum_{k=1}^{n}f(x_k)\alpha(x_k)-f(x_{k-1})\alpha(x_{k-1})
-        \\
-        &= \sum_{k=1}^{n}\Delta (f\alpha)_k
-        \\
-        &= \sum_{k=1}^{n}f(x_k)\alpha(x_k)-\sum_{k=1}^{n}f(x_{k-1})\alpha(x_{k-1})
-    \end{align*}
-    Por lo cual 
-    \begin{align*}
-        f(b)\alpha(b)-f(a)\alpha(a)-S(P,\alpha,f)&=\sum_{k=1}^{n}f(x_k)\alpha(x_k)-\sum_{k=1}^{n}f(x_{k-1})\alpha(x_{k-1})\\&-\sum_{k=1}^{n}\alpha(t_k)f(x_k) + \sum_{k=1}^{n}\alpha(t_k)f(x_{k-1})\\
-        \text{Para $\quad P'=P\cup\{t_k | k=1,2,\cdots ,n\}$}&=\sum_{k=1}^{n}f(x_k)[\alpha(x_k)-\alpha(t_k)]\\
-        &+ \sum_{k=1}^{n}f(x_{k-1})[\alpha(t_{k})-\alpha(x_{k-1})]\\
-        &=\sum_{k=1}^{n}f(x_k)[\alpha(x_k)-\alpha(t_k)] + \sum_{k=1}^{n}f(x_{k-1})[\alpha(t_{k})-\alpha(x_{k-1})]\\
-        &=S(P',f,\alpha)
-    \end{align*}
+Por último, bajo ciertas condiciones una integral de Riemann-Stieltjes se puede reducir a una integral de Riemann usual, esto es muy útil puesto que estamos más familiarizados con el cálculo de estas, dichas condiciones son presentadas en el siguiente teorema:
 
-    Por lo cual podemos decir que 
-    $$\biggm|f(b)\alpha(b)-f(a)\alpha(a)-S(P,\alpha,f)-\int_{a}^{b}fd\alpha\biggm|<\varepsilon$$
-    Esto quiere decir que, $\int_{a}^{b}\alpha df$ existe y luego como$$\biggm|S(P,\alpha,f)+\int_{a}^{b}fd\alpha +f(a)\alpha(a)-f(b)\alpha(b)\biggm|<\varepsilon$$
-    Entonces $$\int_{a}^{b}\alpha df=f(b)\alpha(b)-f(a)\alpha(a)-\int_{a}^{b}fd\alpha.$$
-\end{proof}
-Con esto quedó demostrada la integración por partes en una Integral de Riemann-Stieljes.\\
-Ahora vamos a enunciar el teorema de ``reducción a Riemann'', la demostración de este hecho se puede encontrar en \cite{Apostol:105425}.
-\begin{theorem}
-    Sea $ f \in R(\alpha) $ en $[a, b]$, donde $ \alpha \in \mathbb{C}^1[a, b]$, entonces,
-$ \int_{a}^{b} f(x)\alpha'(x)dx$
+\begin{theorem}\label{reduccion a riemann}
+    Sea $ f \in R(\alpha) $ en $[a, b]$, donde $ \alpha \in C^1[a, b]$, entonces,
+$ \displaystyle\int_{a}^{b} f(x)\alpha'(x)dx$
 existe y\[ \int_{a}^{b} f \,d\alpha = \int_{a}^{b} f(x)\alpha'(x)dx \]
 \end{theorem}
+
+Las pruebas de estos teoremas se encuentran también en \cite{Apostol:105425}, por lo que no las presentaremos aquí para no extendernos demasiado en la teoría de esta sección, con estas propiedades ya podemos presentar una prueba  del teorema de  sumación de Abel.
+
+\begin{theorem}\label{Teorema sumacion de Abel}
+Sea $a_n$ función aritmética y $f\in C^1[1,x]$, entonces:
+
+$$
+\sum_{n \leq x} a_n f(n)=A(x) f(x)-\int_1^x A(t) f^{\prime}(t) d t .
+$$
+\end{theorem}
+
+\begin{proof}
+Tenemos que:
+
+$$\sum_{n \leq x} a_n f(n)=\int_0^xf(t)dA(t)=f(x)A(x)-\int_0^xA(t)df(t)$$
+
+Ya que $A(x)=0$ para todo $x\in [0,1)$, en efecto:
+
+\begin{align*}
+    \sum_{n \leq x} a_n f(n)&=f(x)A(x)-\int_1^xA(t)df(t)\\
+    &=f(x)A(x)-\int_1^xA(t)f^{'}(t)dt
+.\end{align*}
+
+Por  el teorema \ref{reduccion a riemann}.
+\end{proof}
+
+\begin{definition}
+Sea $x\in \mathbb{N}$, con $x>1$, definimos la función contadora de primos $\pi(x)$ como: 
+
+    $$\pi(x)=\displaystyle\sum_{p\leq x}1$$
+\end{definition}
+
+
+ La fórmula de sumación  de Abel tiene un gran poder teórico que explotaremos en distintos lugares de este trabajo. Por lo pronto ella será esencial para para estimar $\vartheta(x)$ y $\pi(x)$, de donde obtendremos la equivalencia deseada.
+
+\begin{theorem}
+Tenemos las siguientes identidades:
+    $$
+    \begin{aligned}
+    & \vartheta(x)=\pi(x) \log x-\int_2^x \frac{\pi(t)}{t} d t, \\
+    & \pi(x)=\frac{\vartheta(x)}{\log x}+\int_2^x \frac{\vartheta(t)}{t \log ^2 t} d t .
+    \end{aligned}
+    $$
+\end{theorem}
+
+\begin{proof}
+Sea  $\mathbbm{1}_{p}$ la función característica del conjunto de primos. Tenemos entonces las siguientes igualdades:
+
+$$\vartheta(x)=\sum_{n \leqslant x} \mathbbm{1}_p(n) \log (n)\quad \text{y}\quad \pi(x)=\sum_{n \leqslant x} \mathbbm{1}_p(n)$$
+
+Fijemos $x \geqslant 2$. Por la fórmula de sumación de Abel y como $\pi(t)=0$ para todo $t<2$, tenemos que:
+$$
+\begin{aligned}
+\vartheta(x) & =\pi(x) \log (x)-\int_1^x \frac{\pi(t)}{t} d t \\
+& =\pi(x) \log (x)-\int_2^x \frac{\pi(t)}{t} d t
+\end{aligned}
+$$
+
+Notando que $\pi(x)=\displaystyle\sum_{n \leqslant x} \dfrac{\mathbbm{1}_p(n) \log (n)}{\log (n)}$ y que $\vartheta(t)=0$ para todo $t<2$ tenemos que:
+
+$$
+\begin{aligned}
+\pi(x) & =\frac{\vartheta(x)}{\log (x)}+\int_1^x \frac{\vartheta(t)}{t \log ^2(t)} d t \\
+& =\frac{\vartheta(x)}{\log (x)}+\int_2^x \frac{\vartheta(t)}{t \log ^2(t)} d t
+\end{aligned}
+$$
+\end{proof}
