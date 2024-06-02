@@ -717,6 +717,65 @@ Ya que $A(x)=0$ para todo $x\in [0,1)$, en efecto:
 Por  el teorema \ref{reduccion a riemann}.
 \end{proof}
 
+\section{Algunas estimaciones básicas}
+
+Vamos a ver algunas aplicaciones de la teoría que hemos presentado, algunas de estas ya las habíamos mencionado antes, por ejemplo, el comportamiento asintótico de las sumas de la serie armónica.\\
+
+Vamos a ver que $\displaystyle\sum_{n \leq x} \frac{1}{n} =\log x+\gamma+O\left(\frac{1}{x}\right)$, donde $\gamma=\displaystyle\lim_{n \to \infty} \left( \sum_{n=1}^{n}\frac{1}{n} -\log n\right)$ conocida como la constante de Euler-Mascheroni\\
+
+Sea $a_n=1$ y $f(x)=\dfrac{1}{x}$, así $A(x)=[x]$ y al usar la sumación parcial tenemos que:
+
+
+$$
+\begin{aligned}
+\sum_{n \leq x} \frac{1}{n} & =\frac{[x]}{x}+\int_1^x \frac{[t]}{t^2} d t \\
+& =\frac{x-\{x\}}{x}+\int_1^x \frac{t-\{t\}}{t^2} d t
+\end{aligned}
+$$
+
+Donde $\{x\}$ denota la parte fraccionaria de $x$, es decir $\{x\}=x-[x]$, note que $\{x\}=O(1)$, luego:
+
+\begin{align*}
+   \sum_{n \leq x} \frac{1}{n}&=1+O\left(\frac{1}{x}\right)+\log x-\int_1^x \frac{\{t\}}{t^2} d t\\
+   &=1+O\left(\frac{1}{x}\right)+\log x-\left(\int_1^{\infty} \frac{\{t\}}{t^2} d t-\int_x^{\infty} \frac{\{t\}}{t^2} d t\right)
+.\end{align*}
+
+Basta ver que 1-$\displaystyle\int_1^{\infty}\frac{\{x\}}{x^2}dx=\gamma$ ya que la otra integral también es del orden de $O\left(\dfrac{1}{x}\right)$, en efecto:
+
+$$
+\begin{aligned}
+r & =\lim _{n \rightarrow \infty}\left(\sum_{k=1}^n \frac{1}{k}-\log n\right) \\
+& =\lim _{n \rightarrow \infty}\left(1+\sum_{1<k \leq n} \frac{1}{k}-\log n\right) \\
+& =1+\lim _{n \rightarrow \infty}\left(\int_1^n \frac{1}{x} d[x]-\int_1^n \frac{1}{x} d x\right) \\
+& =1+\lim _{n \rightarrow \infty}\left(\int_1^n \frac{[x]}{x^2} d x-\int_1^n \frac{1}{x} d x\right)\\
+&=1-\int_1^{\infty}\dfrac{\{x\}}{x^2}dx
+\end{aligned}
+$$
+
+Esto concluye el resultado que mencionamos en la introducción, $H(n)\thicksim \log n$. Veamos otro ejemplo:
+
+\begin{eg}
+Estimación de las sumas parciales de $\log n$:
+
+$$
+\sum_{n \leq x} \log n=x \log x-x+O(\log x) .
+$$
+
+Sea $a_n=1$ y $f(x)=\log x$, así $A(x)=[x]$, luego:
+$$
+\begin{aligned}
+\sum_{n \leq x} \log n & =[x] \log x-\int_1^x \frac{[t]}{t} d t \\
+& =(x-O(1)) \log x-\int_1^x \frac{t-O(1)}{t} d t \\
+& =x \log x-O(\log x)-(x-1)+O(\log x) \\
+& =x \log x-x+O(\log x) .
+\end{aligned}
+$$
+\end{eg}
+
+\subsection{Una equivalencia importante}
+
+Vamos a obtener finalmente que el TNP es equivalente a la afirmación $\psi(x)\thicksim x$
+
 \begin{definition}
 Sea $x\in \mathbb{N}$, con $x>1$, definimos la función contadora de primos $\pi(x)$ como: 
 
@@ -724,9 +783,9 @@ Sea $x\in \mathbb{N}$, con $x>1$, definimos la función contadora de primos $\pi
 \end{definition}
 
 
- La fórmula de sumación  de Abel tiene un gran poder teórico que explotaremos en distintos lugares de este trabajo. Por lo pronto ella será esencial para para estimar $\vartheta(x)$ y $\pi(x)$, de donde obtendremos la equivalencia deseada.
+ Como vimos antes, la fórmula de sumación  de Abel tiene un gran poder teórico que explotaremos en distintos lugares de este trabajo. Por lo pronto ella será esencial para para estimar $\vartheta(x)$ y $\pi(x)$, de donde obtendremos la equivalencia deseada.
 
-\begin{theorem}
+\begin{theorem}\label{rep integral de pi x}
 Tenemos las siguientes identidades:
     $$
     \begin{aligned}
@@ -758,3 +817,131 @@ $$
 \end{aligned}
 $$
 \end{proof}
+
+Vamos a establecer una conexión entre las dos funciones de Chebyshev, en efecto:
+
+$$
+\psi(x)=\sum_{n \leq x} \Lambda(n)=\sum_{m=1}^{\infty} \sum_{p^m \leq x} \Lambda\left(p^m\right)=\sum_{m=1}^{\infty} \sum_{p \leq x^{\frac{1}{m}}} \log p .
+$$
+
+Note que la suma sobre $m$ realmente es finita porque la suma sobre $p$, se  detiene cuando $x^{\frac{1}{m}}<2$, es decir, cuando $m>\log_2(x)$, entonces:
+
+\begin{align}
+    \psi(x)=\sum_{m \leq \log _2 x} \sum_{p \leq x^{\frac{1}{m}}} \log p=\sum_{m \leq \log _2 x} \vartheta\left(x^{\frac{1}{m}}\right)
+\end{align}
+
+\begin{theorem}
+    Si $x>0$ se tiene que:
+$$
+0 \leq \frac{\psi(x)}{x}-\frac{\vartheta(x)}{x} \leq \frac{\log ^2 x}{\sqrt{x} \log 4} .
+$$
+\end{theorem}
+
+
+\begin{proof}
+
+Por (1.10) se sigue que:
+
+    $$
+\psi(x)=\sum_{2 \leq m \leq \log _2 x} \vartheta\left(x^{\frac{1}{m}}\right)+\vartheta(x) .
+$$
+
+Ya que si $m=1$ entonces $\vartheta(x^{\frac{1}{m}})=\vartheta(x)$, luego:
+
+$$
+\psi(x)-\vartheta(x)=\sum_{2 \leq m \leq \log _2 x} \vartheta\left(x^{\frac{1}{m}}\right)\geq  0.
+$$
+
+Ahora por definición de $\vartheta:$
+
+$$
+\vartheta(x)=\sum_{p \leq x} \log p\leq x \log x .
+$$
+
+Entonces
+
+\begin{align*}
+    0 \leq \psi(x)-\vartheta(x) &\leq \sum_{2 \leq m \leq \log _2 x} x^{\frac{1}{m}} \log x^{\frac{1}{m}} \\
+    &\leq \sqrt{x} \sum_{2 \leq m \leq \log _2 x} \log x^{\frac{1}{m}}\\
+    &\leq \sqrt{x}(\log_2(x)\log(\sqrt{x}))\\
+    &=\frac{\sqrt{x}\log^2 x}{\log(4)}
+\end{align*}
+\end{proof}
+
+\begin{theorem}
+    La afirmación $\psi(x)\thicksim x$ es equivalente a $\vartheta(x)\thicksim x$
+\end{theorem}
+
+\begin{proof}
+    Por el teorema anterior:
+
+    $$0\leq \dfrac{\psi(x)}{x}-\dfrac{\vartheta(x)}{x}\leq \dfrac{\log^2(x)}{\sqrt{x}\log(4)}$$
+
+    y como $\lim_{x\to \infty} \dfrac{\log^2(x)}{\sqrt{x}\log(4)}=0$, entonces cuando $x\to \infty$ se tiene que $\dfrac{\psi(x)}{x}-\dfrac{\vartheta(x)}{x}=0$, lo que concluye el resultado.
+\end{proof}
+
+
+\begin{theorem}
+\label{equivalencia tnp}
+    Las siguientes afirmaciones son equivalentes:
+    \begin{itemize}
+        \item[i)] $\pi(x)\thicksim \dfrac{x}{\log(x)}$
+
+        \item [ii)] $\vartheta(x)\thicksim x$
+
+        \item[iii)] $\psi(x)\thicksim x$
+    \end{itemize}    
+\end{theorem}
+
+Por el teorema anterior basta ver que $i \leftrightarrow ii$\\
+
+ \begin{proof} Por el teorema \ref{rep integral de pi x} y dado que estamos trabajando con aproximaciones asintóticas, podemos asumir que $x\geq 2$, se sigue que:
+
+ \begin{align}
+     \frac{\vartheta(x)}{x}=\frac{\pi(x) \log (x)}{x}-\frac{1}{x} \int_2^x \frac{\pi(t)}{t} d t
+ \end{align}
+ \begin{align}
+     \frac{\pi(x) \log (x)}{x}=\frac{\vartheta(x)}{x}+\frac{\log (x)}{x} \int_2^x \frac{\vartheta(t)}{t \log ^2(t)} d t
+ \end{align}
+
+Basta con ver que las integrales de (1.11) y (1.12) van a 0 , cuando $x \rightarrow \infty$.\\
+
+$(\rightarrow)$ Por hipótesis $\dfrac{\pi(x)}{x}\left(\dfrac{1}{\log (x)}\right)^{-1}=1$ cuando $x \rightarrow \infty$. Esto es equivalente a decir que $\dfrac{\pi(t)}{t}=O\left(\dfrac{1}{\log (t)}\right)$. Luego para todo $x \geq 2$ positivo fijo tenemos que:
+$$
+\frac{1}{x} \int_2^{\mathrm{x}} \frac{\pi(\mathrm{t})}{\mathrm{t}} \mathrm{dt}=O\left(\frac{1}{\mathrm{x}} \int_2^{\mathrm{x}} \frac{1}{\log (\mathrm{t})} \mathrm{dt}\right)
+$$
+
+Note que:
+$$
+\begin{aligned}
+\int_2^x \frac{1}{\log (t)} d t & \leq \int_2^{\sqrt{x}} \frac{1}{\log (t)} d t+\int_{\sqrt{x}}^x \frac{1}{\log (t)} d t \\
+& \leq \frac{\sqrt{x}}{\log (2)}+\frac{x-\sqrt{x}}{\log (\sqrt{x})}
+\end{aligned}
+$$
+
+Luego
+$$
+\frac{1}{x} \int_2^x \frac{1}{\log (t)} d t \leq \frac{1}{\sqrt{x} \log (2)}+\frac{1}{\log (\sqrt{x})}-\frac{1}{\sqrt{x} \log (\sqrt{x})}
+$$
+
+Así, cuando $x \rightarrow \infty, \dfrac{1}{x} \displaystyle \int_2^x \frac{1}{\log (t)} d t=0$.\\
+
+$(\leftarrow)$ Análogamente $\vartheta(\mathrm{t})=$ $O(\mathrm{t})$. Por tanto:
+
+$$
+\frac{\log (x)}{x} \int_2^x \frac{\vartheta(t)}{t \log ^2(t)} d t=O\left(\frac{\log (x)}{x} \int_2^x \frac{1}{t \log ^2(t)} d t\right)
+$$
+ 
+ La integral en $O$ se puede acotar de manera análoga a la anterior:
+ 
+$$
+\begin{aligned}
+\int_2^x \frac{1}{t \log ^2(t)} d t & =\int_2^{\sqrt{x}} \frac{1}{t \log ^2(t)} d t+\int_{\sqrt{x}}^x \frac{1}{t \log ^2(t)} d t \\
+& \leq \frac{\sqrt{x}}{\log ^2(2)}+\frac{x-\sqrt{x}}{\log ^2(\sqrt{x})}
+\end{aligned}
+$$
+
+Multiplicando ambos lados por $\dfrac{\log (x)}{x}$, podemos ver que si $x \rightarrow \infty$, $\dfrac{\log (x)}{x}\displaystyle \int_2^x \frac{1}{t \log ^2(t)}=0$
+\end{proof}
+
+\textcolor{red}{En esta parte faltaría antes de todo introducir todo lo de notación o grande y eso, porque pues se usa  y no lo he ni definido.}
