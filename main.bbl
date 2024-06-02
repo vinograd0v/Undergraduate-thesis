@@ -5,6 +5,12 @@ Bernhard Riemann.
 \newblock On the number of primes less than a given magnitude.
 \newblock {\em Complete Works. Kendrick Press}, 2004.
 
+\bibitem{hildebrand2006introduction}
+Adolf~J Hildebrand.
+\newblock Introduction to analytic number theory math 531 lecture notes, fall
+  2005.
+\newblock {\em URL: http://www. math. uiuc. edu/hildebr/ant. Version}, 1, 2006.
+
 \bibitem{levinson1969motivated}
 Norman Levinson.
 \newblock A motivated account of an elementary proof of the prime number
@@ -66,12 +72,6 @@ Andrew Granville and Greg Martin.
 M~Ram Murty and V~Kumar Murty.
 \newblock {\em Non-vanishing of L-functions and applications}.
 \newblock Springer Science \& Business Media, 2012.
-
-\bibitem{hildebrand2006introduction}
-Adolf~J Hildebrand.
-\newblock Introduction to analytic number theory math 531 lecture notes, fall
-  2005.
-\newblock {\em URL: http://www. math. uiuc. edu/hildebr/ant. Version}, 1, 2006.
 
 \bibitem{iwaniec2021analytic}
 Henryk Iwaniec and Emmanuel Kowalski.

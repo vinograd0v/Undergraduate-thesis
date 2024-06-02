@@ -136,7 +136,7 @@ $$
 \lim _{x \rightarrow \infty} \frac{1}{x} \sum_{n \leq x} \Lambda(n)=1 .
 $$
 
-Esta equivalencia nos dará el camino a la prueba del teorema de los números primos, lo que la convierte en una función aritmética muy importante.\cite{A.J.Hildebrand}
+Esta equivalencia nos dará el camino a la prueba del teorema de los números primos, lo que la convierte en una función aritmética muy importante.\cite{hildebrand2006introduction}
 
 \begin{definition}
 
@@ -400,7 +400,7 @@ Así $f * g$ es multiplicativa.
 Si $f$ es multiplicativa, entonces $g=f^{-1}$ también es multiplicativa
 \end{theorem}
 
-Donde $f^{-1}$ denota su inversa, presentaremos una prueba siguiendo a \cite{A.J.Hildebrand}\\
+Donde $f^{-1}$ denota su inversa, presentaremos una prueba siguiendo a \cite{hildebrand2006introduction}\\
 
 \begin{proof}
 Queremos ver que:
@@ -645,14 +645,17 @@ Note que $\alpha$ es constante en los intervalos $(x_{k-1},x_k)$, luego por inte
 
 Supongamos que $\alpha$ tiene salto $\alpha_k $ en un punto $x_k\in [a,b]$, no es difícil ver que:
 
-$$\int_a^bfd\alpha=f(x_k)[\alpha(x_k+)-\alpha(x_{k}-)]=f(x_k)\alpha_k$$
+\begin{equation}
+\int_a^bfd\alpha=f(x_k)[\alpha(x_k+)-\alpha(x_{k}-)]=f(x_k)\alpha_k
+\end{equation}
 
 La prueba de esto se encuentra también en \cite{Apostol:105425} [Teorema 7.9], en efecto si repetimos esto para cada $x_k$ obtenemos la suma deseada.\\
 
-Sea $f$ continua en $[0,\infty]$, el teorema anterior nos permite expresar la suma $\displaystyle\sum_{n=1}^Na_nf(n)$ como una integral de Riemann Stieltjes considerando sus sumas parciales:
+Sea $f$ continua en $[0,N]$, el teorema anterior nos permite expresar la suma $\displaystyle\sum_{n=1}^Na_nf(n)$ como una integral de Riemann Stieltjes considerando sus sumas parciales:
 
 $$\displaystyle\sum_{n=1}^Na_nf(n)=\int_0^Nf(x)dA(x)$$
 
+Ya que al aplicar (1.9) tomando como integrador las sumas parciales tenemos que $A(n+)-A(n-)=A(n+1)-A(n)=a_n$, luego en cada paso la integral toma el valor $a_nf(n)$.\\
 
 \begin{note}
 El límite inferior de la integral puede ser cualquier número en el intervalo [0, 1) y el superior cualquier número en [N, N+1)
@@ -672,8 +675,6 @@ $$
 $$
 \end{itemize}
 \end{eg}
-
-Con ayuda de esto vamos a obtener una representación integral de la función contadora de primos y también la equivalencia esperada, estas propiedades se seguirán del teorema de sumación parcial de Abel, este teorema resultará ser una aplicación de la fórmula de integración por partes para integrales de Riemann-Stieltjes.
 
 \subsection{Algunas propiedades de la integral de Riemann-Stieltjes}
 

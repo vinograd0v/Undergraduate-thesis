@@ -1,0 +1,12 @@
+\babel@toc {spanish}{}\relax 
+\contentsline {chapter}{\numberline {1}Preliminares}{6}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Funciones aritmética}{6}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}La función de Möbius}{9}{subsection.1.1.1}%
+\contentsline {section}{\numberline {1.2}Convolución de Dirichlet}{12}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}Propiedades de algunas funciones aritmética}{16}{subsection.1.2.1}%
+\contentsline {subsubsection}{La función $\varphi $ de Euler}{16}{subsection.1.2.1}%
+\contentsline {subsubsection}{Las funciones número y suma de divisores}{19}{thmt@dummyctr.dummy.26}%
+\contentsline {section}{\numberline {1.3}Sumación Parcial}{19}{section.1.3}%
+\contentsline {subsection}{\numberline {1.3.1}La integral de Riemann-Stieltjes}{20}{subsection.1.3.1}%
+\contentsline {subsection}{\numberline {1.3.2}Algunas propiedades de la integral de Riemann-Stieltjes}{22}{subsection.1.3.2}%
+\contentsfinish 
