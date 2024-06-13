@@ -21,7 +21,7 @@ Ya que todo número natural puede escribirse de manera única como producto de p
 
 $$\sum_{n=1}^{\infty}\frac{1}{n^2}=\frac{\pi^2}{6}$$
 
-La idea que tuvo Euler provenía de estudiar la serie de Taylor de la $\sin x$:
+La idea que tuvo Euler para este problema provenía de estudiar la serie de Taylor de la $\sin x$:
 
 $$\sin x=x-\frac{x^3}{3!}+\frac{x^5}{5!}-\frac{x^7}{7!}\pm \ldots$$
 
@@ -57,13 +57,11 @@ Conjeturado de manera independiente por Gauss (1792) y Legendre (1798), el teore
 
 $$\lim_{x \to \infty}\dfrac{\pi(x)\log x}{x}=1 \quad \text{o en notación asintótica} \quad \pi(x)\thicksim \dfrac{x}{\log x}$$
 
-\vspace*{1cm}
-
 Una interpretación heurística de este teorema viene de estudiar la densidad de un conjunto de números naturales. Dado $N\subseteq \N$, la \text{densidad natural} de $N$ la definimos como:
 
-$$d=\lim_{n\to \infty}\frac{|\{m\leq n \text{ | }m\in N\}|}{n}, \quad \text{siempre que exista el límite}$$
+$$d=\lim_{n\to \infty}\frac{|\{m\leq n \text{ : }m\in N\}|}{n}, \quad \text{siempre que exista el límite}$$
 
-Estudiar la probabilidad de, por ejemplo, que un entero sea divisible por un primo $p$ será equivalente a calcular la densidad del conjunto de enteros que cumple esta propiedad, veamos esto. Dado $n$, sea  $c$ el número de enteros $m\leq n$ tal que $p\mid m$, sabemos por un simple conteo que:
+Note que estudiar la probabilidad de, por ejemplo, que un entero sea divisible por un primo $p$ será equivalente a calcular la densidad del conjunto de enteros que cumple esta propiedad, veamos esto. Dado $n$, sea  $c$ el número de enteros $m\leq n$ tal que $p\mid m$, sabemos por un simple conteo que:
 
 $$\frac{n}{p}-1\leq c\leq\frac{n}{p}+1$$
 
@@ -71,18 +69,54 @@ Luego, $d=\displaystyle\lim_{n \to \infty}\dfrac{c}{n}=\dfrac{1}{p}$ por el crit
 
 $$\displaystyle\prod_{p<n}\left( 1-\frac{1}{p} \right)$$
 
-Queremos ver que esto crece como $\dfrac{1}{\log n}$, para esto podemos invertir el producto anterior, nuevamente tenemos que:
+Para estimar el crecimiento asintótico de este producto una buena idea sería invertirlo, En efecto:
 
 $$\prod_{p<n} \dfrac{1}{1-p^{-1}}=\prod_{p<n} \left(1+\dfrac{1}{p}+\dfrac{1}{p^2}+\dfrac{1}{p^3}+\ldots\right)=\sum_{k<n}\frac{1}{k}=H(n)$$
 
-En el siguiente capítulo veremos justamente que $H(n)\thicksim \log n$, esto concluye lo que queríamos ver: \text{la probabilidad de que un número sea primo es} $\dfrac{1}{\log n}$, \textit{es inversamente proporcional a su longitud}. ie:
+En el siguiente capítulo veremos justamente que $H(n)\thicksim \log n$, esto nos dice que \text{la probabilidad de que un número sea primo es} $(\log n)^{-1}$, más aún:
 
- $$\pi(x)\thicksim \dfrac{x}{\log x}$$
+$$\pi(x)\thicksim \dfrac{x}{\log x}$$
 
-Pero, ¿cómo se puede demostrar algo así?, el camino a seguir en un principio es sorprendente y viene del estudio de la función de $\zeta(s)$, vista como función de variable compleja absolutamente convergente si $\Re(s)>1$. El primero en mostrar que estudiar esta función daba un camino hacia una prueba del teorema de los números primos fue Riemann en su famoso articulo "Sobre la cantidad de primos menores que una magnitud dada" \cite{riemann1990ueber}. Allí Riemann presentaría muchas ideas, pero no las desarrollaría y fue el trabajo de los matemáticos en los siguientes 50 años llegar a una demostración, trabajo que culminaría en las demostraciones Hadammar y de la Vallée Poussin que aparecen en 1896, la prueba, vendría del hecho de que $\zeta(1+it)\neq 0$, es decir, la función $\zeta$ no se anulaba en la recta vertical de los complejos con parte real 1, sobre el plano complejo, algo sencillamente maravilloso. Veremos al final de este trabajo la forma en que este teorema se extiende a progresiones aritmética $a+kq$ con $(a,q)=1$:
+Pero esto no es una prueba del TNP, entonces ¿cómo se puede demostrar algo así?, el camino a seguir en un principio es sorprendente y viene del estudio de la función de $\zeta(s)$, vista como función de variable compleja absolutamente convergente si $\Re(s)>1$. El primero en mostrar que estudiar esta función daba un camino hacia una prueba del teorema de los números primos fue Riemann en su famoso articulo "Sobre la cantidad de primos menores que una magnitud dada" \cite{riemann1990ueber}. Allí Riemann presentaría muchas ideas, pero no las desarrollaría y fue el trabajo de los matemáticos en los siguientes 50 años llegar a una demostración, trabajo que culminaría en las demostraciones Hadammar y de la Vallée Poussin que aparecen en 1896, la prueba, vendría del hecho de que $\zeta(1+it)\neq 0$, es decir, la función $\zeta$ no se anulaba en la recta vertical de los complejos con parte real 1, algo sencillamente maravilloso.\\
 
-$$\pi_{a,q}(x)\thicksim \frac{x}{\varphi(q)\log x}$$
+Veremos al final de este trabajo la forma en que este teorema se extiende a progresiones aritmética $a+kq$ con $(a,q)=1$:
 
-Donde $\varphi$ es la función phi de Euler, y como hay $\varphi(q)$ clases generadoras de primos, entonces los primos se distribuyen uniformemente en las clases módulo q.\\
+$$\pi(a,q,x)\thicksim \frac{x}{\varphi(q)\log x}$$
 
+Donde $\varphi$ es la función phi de Euler, y como hay $\varphi(q)$ clases generadoras de primos, entonces los primos se distribuyen uniformemente en las clases módulo q. Esta es una versión más fuerte que el TNP original, y será nuestro objetivo conseguirla.
+
+
+\section*{Notación}
+
+
+
+\begin{itemize}[label=$\bullet$]
+
+\item $\displaystyle\sum_p$ Denota que la suma se hace sobre el conjunto de los números primos, análogamente $\displaystyle\prod_p$.
+
+\item Denota $\log x$, la función logaritmo natural.
+
+\item $f(x)=O\left(g(x)\right)$
+
+Existe una constante $M>0$ tal que $|f(x)|\leq Mg(x)$ para todo $x$ en un dominio específico.
+
+\item $f(x)\ll g(x)$: \quad $f(x)=O(g(x))$
+
+\item $f(x)=o(g(x))$: \quad $\displaystyle\lim_{x \to \infty}\frac{f(x)}{g(x)}=0$
+
+\item $f(x)\asymp g(x)$: \quad $f(x)\ll g(x)$ y $g(x)\ll f(x)$
+
+\item $f(x)\thicksim g(x)$ denota $\displaystyle \lim_{x \to \infty} \frac{f(x)}{g(x)}=1$
+
+\item Denotamos por $(a,b)$ el máximo común divisor de $a$ y $b$.
+
+\item $\mathbbm{1}_{\mathcal{K}}$ denota la función indicadora (caraterística) de $\mathcal{K}$.
+
+\item $\N, \quad \Z^{+}$:\quad el conjunto de los enteros positivos.
+
+\item $a^k\mid\mid b$: \quad $a^k\mid b$ y $a^{k+1}\nmid b$
+\end{itemize}
+
+\begin{comment}
 En el capítulo 1 presentaremos algunos preliminares que se pueden consultar en el contenido y estudiaremos un poco la función $\zeta(s)$ y su derivada logarítmica $\dfrac{\zeta^{\prime}(s)}{\zeta(s)}$, veremos que el TNP es equivalente a la afirmación $\psi(x)\thicksim x$, función que también estudiaremos allí. El capítulo 2 será para presentar una prueba del teorema de Dirichlet, las ideas subyacentes y los preliminares de la  prueba también se desarrollarán allí, en los capítulos 3 y 4 se desarrollarán las pruebas del TNP y el TNP sobre progresiones aritmética, estudiaremos la teoría Tauberiana, que nos permitirá dar una prueba sencilla del TNP y donde casi toda  la variable compleja estará escondida en el teorema de Wiener-Ikehara que también presentaremos allí junto con algunas aplicaciones.
+\end{comment}
