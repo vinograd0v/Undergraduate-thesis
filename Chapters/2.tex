@@ -599,6 +599,16 @@ Sea $f:(a,b) \longrightarrow \mathbb{R}$ una función real, denotamos:
        \end{itemize}
 \end{definition}
 
+\begin{note}
+Diremos que $f(x)=O(g(x))$ cuando existen constantes $M>0$ y $x_0$ tales que para todo $x>x_0$, se cumple que $|f(x)| \leq M|g(x)|$, es decir, nuestro dominio específico es $x>x_0$.\\
+\end{note}
+
+Una \textbf{fórmula asintótica} para $f(x)$ es una expresión de la forma $f(x) \sim g(x)$, mientras que una \textbf{estimación asintótica} para $f(x)$ es una expresión del tipo $f(x)=$ $g(x)+O(R(x))$, donde $g(x)$ representa el término principal y $R(x)$ el término de error. La notación $O$ grande nos permite entonces controlar el error de estimaciones asintóticas de manera precisa, cosa que no ocurre con $o$ pequeña, recordemos que:
+
+$$f(x)=o(g(x)): \quad \displaystyle \lim_{x \to \infty} \frac{f(x)}{g(x)}=0$$
+
+Eso intuitivamente nos dice que $f(x)$ ``crece más lento'' que $g(x)$, pero esto no nos da tanta información acerca de $f$ con O grande. 
+
 \subsection{La integral de Riemann-Stieltjes}
 
 Sean $P=\{x_0,x_1,...,x_n\}\in\mathcal{P}[a,b]$ (las particiones del intervalo $[a,b]$) y   $t_{k}\in [x_{k-1},x_k]$ cualesquiera. Una suma de la forma $$S(P,f)=\sum_{k=1}^{n}f(t_k)\Delta x_k$$ Se denomina \textbf{suma de Riemann} de $f$ en $[a,b]$, recordamos que $\Delta x_k=x_k-x_{k-1}$.\\
@@ -606,8 +616,6 @@ Sean $P=\{x_0,x_1,...,x_n\}\in\mathcal{P}[a,b]$ (las particiones del intervalo $
 La integral usual se define como el límite de las sumas de Riemann, esta definición nos da una correspondencia importante: Toda integral de Riemann se puede ver como el límite de una suma, una serie.\\
 
 Sin embargo, no toda suma se puede ver como una integral bajo esta definición, si tenemos una con una condición de sumación sobre, por ejemplo, los números primos, no hay un camino claro para expresarla como una integral, la solución a este problema viene de generalizar la noción de integral.\\
-
-\pagebreak
 
 La propiedad deseada la obtendremos de la integral de Riemann-Stieltjes.
 
@@ -943,4 +951,47 @@ $$
 Multiplicando ambos lados por $\dfrac{\log (x)}{x}$, podemos ver que si $x \rightarrow \infty$, $\dfrac{\log (x)}{x}\displaystyle \int_2^x \frac{1}{t \log ^2(t)}=0$
 \end{proof}
 
-\textcolor{red}{En esta parte faltaría antes de todo introducir todo lo de notación o grande y eso, porque pues se usa  y no lo he ni definido.}
+Finalizaremos con una aplicación interesante de la fórmula de sumación de Abel:
+
+\begin{prop}[Fórmula de Stirling]
+Si $n$ es un entero positivo, entonces:
+
+$$n!=C \sqrt{n} n^n e^{-n}\left(1+O\left(\frac{1}{n}\right)\right)$$
+\end{prop}
+
+\begin{proof}
+Por el teorema \ref{Teorema sumacion de Abel}:
+
+\begin{align*}
+    \sum_{k\leq n}\log k&=n\log n-n+1+\int_1^n\frac{\{t\}}{t}dt\\
+    &=n\log n -n+1+\dfrac{1}{2}\log n+\int_1^n \frac{s(t)}{t}dt
+\end{align*}
+
+Donde $s(t)=\{t\}-\frac{1}{2}$, note que aplicando integración por partes:
+
+\begin{align*}
+\int_1^n \frac{s(t)}{t}=\left.\frac{S(t)}{t}\right|_1 ^n+\int_1^n \frac{S(t)}{t^2} dt
+\end{align*}
+
+Donde $S(t)=\displaystyle\int_1^t s(y)dy$, tenemos que $\displaystyle\left.\frac{S(t)}{t}\right|_1 ^n=0$ ya que $s(t)$ es una función periódica de periodo 1 y $\displaystyle\int_k^{k+1}s(t)dt=0$ para todo entero $k$. Note que $|S(t)|\leq \dfrac{1}{2}$, de esto se sigue que:
+
+\begin{align*}
+\int_1^n \frac{s(t)}{t}dt&=\int_1^n\frac{S(t)}{t^2}=\int_1^{\infty}\frac{S(t)}{t^2}dt-\int_n^{\infty}\frac{S(t)}{t^2}dt\\
+&=c+O\left(\frac{1}{x}\right) && \left(|S(t)|\leq \frac{1}{2}\right)
+\end{align*}
+
+Por tanto:
+
+$$\sum_{k\leq n}\log k=n \log n-n+\frac{1}{2} \log n+c+O\left(\frac{1}{n}\right)$$
+
+De esto se sigue que:
+
+\begin{align*}
+    n!&=exp{\displaystyle\left(\sum_{k\leq n}\log k\right)}\\
+    &=exp{\displaystyle \left(n \log n-n+\frac{1}{2} \log n+c+O\left(\frac{1}{n}\right)\right)}\\
+    &=C\sqrt{n}n^ne^{-n}\left(1+O\left(\frac{1}{n}\right)\right)
+.\end{align*}
+
+\end{proof}
+
+Se puede ver que $C=\sqrt{2\pi}$, sin embargo no abordaremos eso en este trabajo.
