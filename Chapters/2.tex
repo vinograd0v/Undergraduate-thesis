@@ -995,3 +995,76 @@ De esto se sigue que:
 \end{proof}
 
 Se puede ver que $C=\sqrt{2\pi}$, sin embargo no abordaremos eso en este trabajo.
+
+\section{Series de Dirichlet}
+
+Dada una función aritmética $f$, se le pueden asignar a esta dos tipos de series importantes:
+
+$$
+\begin{aligned}
+& E_f(z)=\sum_{n=1}^{\infty} f(n) z^n, \\
+& D_f(s)=\sum_{n=1}^{\infty} \frac{f(n)}{n^s},
+\end{aligned}
+$$
+estas son llamadas funciones generatrices de $f$.
+Las series de potencia generatrices fueron introducidas por Euler con el propósito de estudiar problemas de naturaleza aditiva, esto ya que tienen la siguiente propiedad:\\
+
+Dadas $E_f(z)$ y $E_g(z)$ las series de potencias para $f$ y $g$, entonces su producto está dado por
+$$
+E_f(z) E_g(z)=\sum_{n=1}^{\infty} h(n) z^n,
+$$
+donde
+$$
+h(n)=\sum_{a+b=n} f(a) g(b) .
+$$
+
+Note que $h(n)$ se parece al producto de Dirichlet, pero en una versión aditiva, por eso estas series toman un papel importante para este tipo de problemas.\\
+
+Sin embargo, nuestro interés son las series $D_f$, estas fueron introducidas por Dirichlet en su trabajo sobre primos en progresiones aritmética y son particularmente útiles cuando $f$ es una función multiplicativa, además que en el producto de estas aparece la convolución multiplicativa que vimos en el capítulo anterior por lo que a través de estas podemos obtener las propiedades de $f(n)$.\\
+
+Con lo que se mencionó antes parece entonces que toda la teoría se conecta, y que de cierta forma esto solo es una forma diferente de atacar los mismos problemas, sin embargo, este no es el caso, las propiedades analíticas de una serie de Dirichlet, vista como función de variable compleja $s$ pueden ser explotadas para obtener información importante acerca del comportamiento de las sumas parciales de funciones aritmética:
+
+$$\sum_{n\leq x}f(n)$$
+
+\begin{definition}
+
+Sea $f$ una función aritmética, la serie:
+
+$$F(s)=\sum_{n=1}^{\infty}\frac{f(n)}{n^s}$$
+
+Es llamada \textit{serie de Dirichlet asociada a} f
+
+\end{definition}
+
+La variable $s$ es usualmente escrita como $s=\sigma+it$ con $\sigma=\Re(s)$ y $t=\Im(s)$, la serie de Dirichlet más popular es la función zeta de Riemann $\zeta(s)$, definida como la serie de Dirichlet asociada a la constante 1:
+
+$$\zeta(s)=\sum_{n=1}^{\infty} \frac{1}{n^s}, \quad (\sigma>1) $$
+
+\subsection{Propiedades algebraicas}
+
+\begin{theorem}\label{proddirich}
+Sean $f$ y $g$ las funciones aritmética asociadas a $F(s)$ y $G(s)$. Sea $h=f*g$ la convolución de $f$ y $g$ y $H(s)$ su serie de Dirichlet asociada. Si $F(s)$ y $G(s)$ convergen absolutamente en algún punto $s$, entonces también $H(s)$ y $H(s)=F(s)G(s)$. 
+\end{theorem}
+
+\begin{proof}
+Note que por la convergencia absoluta:
+$$
+\begin{aligned}
+F(s) G(s) &=\sum_{k=1}^{\infty} \frac{f(k)}{k^s}\sum_{m=1}^{\infty} \frac{g(m)}{m^s} \\
+&=\sum_{k=1}^{\infty} \sum_{m=1}^{\infty} \frac{f(k) g(m)}{k^s m^s} \\
+& =\sum_{n=1}^{\infty} \frac{1}{n^s} \sum_{k m=n} f(k) g(m)=\sum_{n=1}^{\infty} \frac{(f * g)(n)}{n^s},
+\end{aligned}
+$$
+
+Además:
+
+$$
+\begin{aligned}
+\sum_{n=1}^{\infty}\left|\frac{h(n)}{n^s}\right| & \leq \sum_{n=1}^{\infty} \frac{1}{\left|n^s\right|} \sum_{k m=n}|f(k)||g(m)| \\
+& =\left(\sum_{k=1}^{\infty}\left|\frac{f(k)}{k^s}\right|\right)\left(\sum_{m=1}^{\infty}\left|\frac{g(m)}{m^s}\right|\right)\\
+&<\infty
+\end{aligned}
+$$
+\end{proof}
+
+Es muy importante tener en cuenta que esto no se puede garantizar sin la convergencia absoluta.
