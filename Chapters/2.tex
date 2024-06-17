@@ -1052,7 +1052,7 @@ $$
 \begin{aligned}
 F(s) G(s) &=\sum_{k=1}^{\infty} \frac{f(k)}{k^s}\sum_{m=1}^{\infty} \frac{g(m)}{m^s} \\
 &=\sum_{k=1}^{\infty} \sum_{m=1}^{\infty} \frac{f(k) g(m)}{k^s m^s} \\
-& =\sum_{n=1}^{\infty} \frac{1}{n^s} \sum_{k m=n} f(k) g(m)=\sum_{n=1}^{\infty} \frac{(f * g)(n)}{n^s},
+& =\sum_{n=1}^{\infty} \frac{1}{n^s} \sum_{k m=n} f(k) g(m)=\sum_{n=1}^{\infty} \frac{f * g(n)}{n^s},
 \end{aligned}
 $$
 
@@ -1067,4 +1067,23 @@ $$
 $$
 \end{proof}
 
-Es muy importante tener en cuenta que esto no se puede garantizar sin la convergencia absoluta.
+Es muy importante tener en cuenta que esto no se puede garantizar sin la convergencia absoluta, ya que los reordenamientos que realizamos en la prueba no son posibles.
+
+\begin{corollary}
+
+Sean $f$ una función aritmética con serie de Dirichlet asociada $F(s)$, $g$ tal que $f*g=e$ y $G(s)$ la serie de Dirichlet asociada a $g$, entonces $G(s)=\dfrac{1}{F(s)}$ en cualquier punto $s$ en el que $F(s)$ y $G(s)$ sean ambas absolutamente convergentes.
+
+\end{corollary}
+\pagebreak
+
+\begin{proof}
+Note que la serie de Dirichlet asociada a $e$ es 1, luego por el teorema anterior:
+
+$$1=\sum_{n=1}^{\infty} \frac{e(n)}{n^s}=\sum_{n=1}^{\infty} \frac{f*g(n)}{n^s}=F(s)G(s)$$
+\end{proof}
+
+\begin{note}
+La convergencia absoluta de \( F(s) \) no implica la de la serie de Dirichlet asociada con su inversa. Por ejemplo, la función definida por \( f(1)=1 \), \( f(2)=-1 \), y \( f(n)=0 \) para \( n \geq 3 \) tiene la serie de Dirichlet \( F(s)=1-2^{-s} \), que converge para todo $s$. Sin embargo, la serie de Dirichlet de la inversa de Dirichlet de \( f \) es \( \dfrac{1}{F(s)} = (1-2^{-s})^{-1} = \displaystyle\sum_{k=0}^{\infty} \frac{1}{2^{ks}} \), que converge absolutamente en \( \sigma > 0 \), pero no en el semiplano \( \sigma \leq 0 \), ya que es una serie geométrica. \cite{hildebrand2006introduction}
+\end{note}
+
+\subsection{Propiedades analíticas}
