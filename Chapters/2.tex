@@ -1086,8 +1086,74 @@ $$1=\sum_{n=1}^{\infty} \frac{e(n)}{n^s}=\sum_{n=1}^{\infty} \frac{f*g(n)}{n^s}=
 La convergencia absoluta de \( F(s) \) no implica la de la serie de Dirichlet asociada con su inversa. Por ejemplo, la función definida por \( f(1)=1 \), \( f(2)=-1 \), y \( f(n)=0 \) para \( n \geq 3 \) tiene la serie de Dirichlet \( F(s)=1-2^{-s} \), que converge para todo $s$. Sin embargo, la serie de Dirichlet de la inversa de Dirichlet de \( f \) es \( \dfrac{1}{F(s)} = (1-2^{-s})^{-1} = \displaystyle\sum_{k=0}^{\infty} \frac{1}{2^{ks}} \), que converge absolutamente en \( \sigma > 0 \), pero no en el semiplano \( \sigma \leq 0 \), ya que es una serie geométrica. \cite{hildebrand2006introduction}
 \end{note}
 
+Si tomamos una serie de potencias $F(x)$, sabemos por lo menos tres cosas de ella:
+
+\begin{itemize}[label=$\bullet$]
+    \item $F$ tiene un disco de convergencia, 
+
+    \item En el interior del disco, $F$ converge absolutamente.
+
+    \item En el interior del disco, $F$ es una función analítica \cite{Apostol:105425}
+\end{itemize}
+
+Nuestro objetivo ahora es lograr obtener propiedades similares para series de Dirichlet.
 \subsection{Propiedades analíticas}
 
-Aquí empieza la parte en la que no sé variable compleja, pero toca aprender...
+Primero note que $\displaystyle x^{\displaystyle  s}=e^{\displaystyle s\log x}=e^{\displaystyle(\sigma+it)\log x}=x^{\displaystyle\sigma}e^{\displaystyle it\log{x}}$, por tanto $|\displaystyle x^{\displaystyle s}|=|x^{\displaystyle\sigma}|$ ya que:
+\begin{align*}
+     \left|e^{\displaystyle i\theta}\right|&=|cos(\theta)+i\sin(\theta)|\\
+     &=cos^2(\theta)+sin^2(\theta)\\
+     &=1
+ .\end{align*} 
 
+luego $\left| e^{\displaystyle it\log x}\right|=1$. Esto muestra que la convergencia absoluta de una serie de Dirichlet está determinada únicamente por $\sigma$.
 
+\begin{eg}[Convergencia de $\zeta(s)$]
+Note que:
+
+$$\sum_{n=1}^{\infty} \left|\frac{1}{n^s}\right|=\sum_{n=1}^{\infty} \left|\frac{1}{n^{\sigma}}\right|=\sum_{n=1}^{\infty} \frac{1}{n^{\sigma}}$$
+
+Si $\sigma=1$ sabemos que la serie diverge, en otro caso, la serie converge si y solo si la integral:
+
+$$\int_1^{\infty}\frac{1}{x^\sigma}dx=\lim_{n \to \infty}\left.\dfrac{x^{1-\sigma}}{1-\sigma}\right|_1^{n}=\lim _{n \rightarrow \infty} \frac{n^{1-\sigma}}{1-\sigma}-\frac{1}{1-\sigma}$$
+
+Luego, es claro que $\zeta(s)$ converge absolutamente si $\sigma>1$ y diverge  si $\sigma\leq 1$
+\end{eg}
+
+\begin{definition}
+Sea $\Omega$ un abierto en $\C$ y $f:\Omega \to \C$, la \textit{derivada} de $f$ en $z_0\in \Omega$ está dada por:
+
+$$f^{\prime}(z_0)=\lim_{z \to z_0} \frac{f(z)-f(z_0)}{z-z_0}$$
+
+Si el límite existe. Diremos que $f$ es \textit{diferenciable} en $z_0$
+\end{definition}
+
+Si $f$ es diferenciable en todo punto de una vecindad de $z_0$, entonces diremos que $f$ es \textit{holomorfa} en $z_0$. Si $f$ es holomorfa en todo punto de un abierto $U\subseteq\Omega$, diremos que $f$ es holomorfa en $U$. Finalmente si $f$ es holomorfa en $\Omega$, diremos que es holomorfa.\\
+
+Por otro lado, $f$ se dice analítica en $z_0$, si existe un abierto $U\subseteq \Omega$ tal que $z_0\in U$ y
+
+$$f(z)=\sum_{n=0}^{\infty} a_n (z-z_0)^n$$
+
+para todo $z\in U$, si $f$ es analítica en todo punto de $U$, entonces decimos que es analítica  en $U$.
+
+\begin{theorem}
+Sea $\Omega$ un abierto en $\C$ y $f: \Omega \to \C$, entonces $f$ es holomorfa en $\Omega$ si y solo si $f$ es analítica  en $\Omega$.
+\end{theorem}
+
+Este teorema nos dice que analítica y holomorfa son dos definiciones equivalentes, no entraremos aquí en los detalles de este teorema, el lector que esté interesado puede consultar la prueba de esto en \cite{stein2010complex}.
+
+\begin{theorem}
+Sea $f:\N \to \C$, supongamos que la serie:
+
+$$F(s)=\sum_{n=1}^{\infty} \left| \frac{f(n)}{n^s}\right|$$
+
+No converge, ni diverge para  todo $s\in \C$, entonces existe un $\sigma_a\in \R$ tal que $F(s)$ converge para todo $\sigma>\sigma_a$ y diverge para todo $\sigma<\sigma_a$
+\end{theorem}
+
+\begin{proof}
+Siguiendo a \cite{pongsriiam2023analytic}, sea $|n^s|=n^{\sigma}$, si $\sigma>\sigma_0$, entonces $|n^s|\geq n^{\sigma_0}$, así $|f(n)n^{-s}|\leq|f(n)|n^{-\sigma_0}$. Por el criterio de comparación, si $F(s)$ converge para $s=\sigma_0+i t_0$, entonces converge para todo $s$ con parte real $\sigma\geq\sigma_0$. Considere el conjunto:
+
+$$A:\left\{a\in R : \sum_{n=1}^{\infty} \left|\frac{f(n)}{n^a}\right|<\infty\right\}$$
+
+Como $F(s)$ no diverge para  todo $s\in\C $, entonces $A$ es no vacío, además tiene un mínimo ya que $F(s)$ no converge  para todo $s\in C$, sea $\sigma_a$ el mínimo de $A$. Si $s\in C$ tiene parte real $\sigma< \sigma_a$, entonces $\sigma\not\in A$, $F(s)$ diverge. Análogamente si $s$ tiene parte real $\sigma>\sigma_a$, entonces $\sigma>a$ para algún $a\in A$, $F(s)$ converge.
+\end{proof}
