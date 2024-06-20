@@ -636,7 +636,7 @@ Donde $\Delta\alpha_k=\alpha(x_k)-\alpha(x_{k-1})$, cuando $A$ existe, es único
 La función $f$ es llamada \textit{integrando} y la función $\alpha$ es llamada \textit{integrador}.\\
 
 
-Note que la integral de Riemann no es más que un caso particular de la de Riemann-Stieltjes, cuando $\alpha(x)=x$.\\
+Note que la integral de Riemann no es más que un caso particular de la de Riemann-Stieltjes, cuando $\alpha(x)=x$, esta integral y sus propiedades se suelen estudiar en un curso de Análisis II, aquí recordaremos algunas de  las más importantes.\\
 
 \begin{theorem}[\cite{Apostol:105425}, Teorema 7.11]
   Sea $\alpha$ una función escalonada definida en $[a, b]$ con salto $\alpha_k$ en $x_k$.\\
@@ -1018,9 +1018,9 @@ $$
 h(n)=\sum_{a+b=n} f(a) g(b) .
 $$
 
-Note que $h(n)$ se parece al producto de Dirichlet, pero en una versión aditiva, por eso estas series toman un papel importante para este tipo de problemas.\\
+Note que $h(n)$ se parece la convolución de Dirichlet, pero en una versión aditiva, por eso estas series toman un papel importante para este tipo de problemas.\\
 
-Sin embargo, nuestro interés son las series $D_f$, estas fueron introducidas por Dirichlet en su trabajo sobre primos en progresiones aritmética y son particularmente útiles cuando $f$ es una función multiplicativa, además que en el producto de estas aparece la convolución multiplicativa que vimos en el capítulo anterior por lo que a través de estas podemos obtener las propiedades de $f(n)$.\\
+Sin embargo, nuestro interés son las series $D_f$, estas fueron introducidas por Dirichlet en su trabajo sobre primos en progresiones aritmética y son particularmente útiles cuando $f$ es una función multiplicativa, además que en el producto de estas aparece la convolución multiplicativa que vimos en el capítulo anterior por lo que a través de estas podemos obtener propiedades de $f(n)$ como en la sección 1.2\\
 
 Con lo que se mencionó antes parece entonces que toda la teoría se conecta, y que de cierta forma esto solo es una forma diferente de atacar los mismos problemas, sin embargo, este no es el caso, las propiedades analíticas de una serie de Dirichlet, vista como función de variable compleja $s$ pueden ser explotadas para obtener información importante acerca del comportamiento de las sumas parciales de funciones aritmética:
 
@@ -1140,7 +1140,11 @@ para todo $z\in U$, si $f$ es analítica en todo punto de $U$, entonces decimos 
 Sea $\Omega$ un abierto en $\C$ y $f: \Omega \to \C$, entonces $f$ es holomorfa en $\Omega$ si y solo si $f$ es analítica  en $\Omega$.
 \end{theorem}
 
-Este teorema nos dice que analítica y holomorfa son dos definiciones equivalentes, no entraremos aquí en los detalles de este teorema, el lector que esté interesado puede consultar la prueba de esto en \cite{stein2010complex}.
+Este teorema nos dice que analítica y holomorfa son dos definiciones equivalentes, no entraremos aquí en los detalles de este teorema, el lector que esté interesado puede consultar la prueba de esto en \cite{stein2010complex}.\\
+
+
+El conjunto de puntos $s=\sigma+it$ con $\sigma>a$ es llamado semiplano, veremos que toda serie de Dirichlet tiene un semiplano $\sigma>\sigma_c$ en el que la serie converge y otro semiplano $\sigma>\sigma_a$ en el que la serie converge absolutamente. Las constantes $\sigma_c$ y $\sigma_a$ son llamas abscisa de convergencia y abscisa de convergencia absoluta respectivamente. Si la serie de Dirichlet converge para todo $s\in \C$, decimos que $\sigma_c=-\infty$, si no converge para todo $s\in \C$, decimos que $\sigma_c=\infty$, de manera análoga lo haremos con la convergencia absoluta.\cite{pongsriiam2023analytic}
+
 
 \begin{theorem}
 Sea $f:\N \to \C$, supongamos que la serie:
@@ -1151,9 +1155,38 @@ No converge, ni diverge para  todo $s\in \C$, entonces existe un $\sigma_a\in \R
 \end{theorem}
 
 \begin{proof}
-Siguiendo a \cite{pongsriiam2023analytic}, sea $|n^s|=n^{\sigma}$, si $\sigma>\sigma_0$, entonces $|n^s|\geq n^{\sigma_0}$, así $|f(n)n^{-s}|\leq|f(n)|n^{-\sigma_0}$. Por el criterio de comparación, si $F(s)$ converge para $s=\sigma_0+i t_0$, entonces converge para todo $s$ con parte real $\sigma\geq\sigma_0$. Considere el conjunto:
+Sea $|n^s|=n^{\sigma}$, si $\sigma>\sigma_0$, entonces $|n^s|\geq n^{\sigma_0}$, así $|f(n)n^{-s}|\leq|f(n)|n^{-\sigma_0}$. Por el criterio de comparación, si $F(s)$ converge para $s=\sigma_0+i t_0$, entonces converge para todo $s$ con parte real $\sigma\geq\sigma_0$. Considere el conjunto:
 
 $$A:\left\{a\in R : \sum_{n=1}^{\infty} \left|\frac{f(n)}{n^a}\right|<\infty\right\}$$
 
-Como $F(s)$ no diverge para  todo $s\in\C $, entonces $A$ es no vacío, además tiene un mínimo ya que $F(s)$ no converge  para todo $s\in C$, sea $\sigma_a$ el mínimo de $A$. Si $s\in C$ tiene parte real $\sigma< \sigma_a$, entonces $\sigma\not\in A$, $F(s)$ diverge. Análogamente si $s$ tiene parte real $\sigma>\sigma_a$, entonces $\sigma>a$ para algún $a\in A$, $F(s)$ converge.
+Como $F(s)$ no diverge para  todo $s\in\C $, entonces $A$ es no vacío, además tiene un mínimo ya que $F(s)$ no converge  para todo $s\in C$, sea $\sigma_a$ el mínimo de $A$. Si $s\in C$ tiene parte real $\sigma< \sigma_a$, entonces $\sigma\not\in A$, $F(s)$ diverge. Análogamente si $s$ tiene parte real $\sigma>\sigma_a$, entonces $\sigma>a$ para algún $a\in A$, $F(s)$ converge.\\
 \end{proof}
+
+
+\begin{definition}
+Decimos que una serie de funciones $\{f_n\}:S\to \C$ converge uniformemente a $f$ en $S$ si, para todo $\varepsilon>0$, existe un $N_\varepsilon$ tal que si $n>N_\epsilon$ implica que
+    $$|f_n(x)-f(x)|<\varepsilon\ \ \ \ \text{para cada $x$ in $S$}$$
+\end{definition}
+
+Lo importante a resaltar en la definición anterior es  que nos indica que para cualquier $\varepsilon$, podemos encontrar un $N_\varepsilon$ tal de ese punto en adelante, la sucesión de funciones está muy cerca de $f$ para todo $x\in S$, es decir que ese $N_\varepsilon$ no depende del punto $x$, es uniforme, cosa que no ocurre con la convergencia puntual.
+
+\begin{theorem}
+Sean $\Omega$ un abierto en $\C$, $(f_n)$ una sucesión de funciones analíticas definidas en $\Omega$, y $f:\Omega\to\C$. Si $(f_n)$ converge absolutamente a $f$ en cualquier subconjunto compacto de $\Omega$, entonces $f$ es analítica en $\Omega$ y la sucesión $(f_n^{\prime})$ también converge uniformemente a $f^{\prime}$ en cualquier subconjunto compacto de $\Omega$.
+\end{theorem}
+
+La prueba de este resultado se puede consultar  en \cite{stein2010complex}.
+\begin{comment}
+\begin{theorem}
+Sea $\Omega\subseteq \C$ un abierto y sea $f:\Omega\to \C$ una función analítica, si $f(s_n)=0$ para infinitos puntos de $(s_n)$ y $(s_n)$ converge a $x\in \Omega$, entonces $f(s)=0$ para todo $s\in \Omega$
+\end{theorem}
+\end{comment}
+
+
+\begin{theorem}
+Suponga que la serie $F(s)=\displaystyle\sum_{n=1}^{\infty} \frac{f(n)}{n^s}$ converge en el punto $s=s_0$ y sea $H>0$, entonces $F(s)$ converge uniformemente en $S$, donde $S$ es el conjunto:
+
+$$S=\{s\in \C : \sigma>\sigma_0 \text{ y } |t-t_0|\leq H(\sigma-\sigma_0)\}$$
+\end{theorem}
+\begin{center}
+\input{Graphics/Dirichlet1}
+\end{center}
