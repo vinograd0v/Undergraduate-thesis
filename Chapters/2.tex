@@ -687,7 +687,7 @@ $$
 \subsection{Algunas propiedades de la integral de Riemann-Stieltjes}
 
 
-\begin{theorem}[Integración por partes]
+\begin{theorem}[Integración por partes]\label{integrac partes}
     Si $f\in \mathcal{R}(\alpha)$ en $[a,b]$ entonces $\alpha \in\mathcal{R}(f)$ en $[a,b]$ y $$\int_{a}^{b}f(x)d\alpha(x)+\int_{a}^{b}\alpha(x)df(x)=f(b)\alpha(b)-f(a)\alpha(a).$$
 \end{theorem}
 
@@ -1190,3 +1190,53 @@ $$S=\{s\in \C : \sigma>\sigma_0 \text{ y } |t-t_0|\leq H(\sigma-\sigma_0)\}$$
 \begin{center}
 \input{Graphics/Dirichlet1}
 \end{center}
+
+\begin{proof}
+Sean $H>0$, $\varepsilon>0$ dado y $1<M<N$, como la serie converge en $s=s_0$, entonces:
+
+$$\sum_{M<n \leq N} f(n) n^{-s_0} n^{s_0-s}=\int_M^N t^{s_0-s} d A(t)=\int_M^N t^{s_0-s} d(A(t)-A(M))$$
+
+Con $A(t)=\displaystyle\sum_{n \leq t} f(n) n^{-s_0}$, luego:
+$$
+\begin{aligned}
+\sum_{M<n \leq N} f(n) n^{-s} & =\frac{A(N)-A(M)}{N^{s-s_0}}- \int_M^N(A(t)-A(M)) d(t^{s_0-s})\\
+&=\frac{A(N)-A(M)}{N^{s-s_0}}-(s_0-s)\int_M^N(A(t)-A(M))t^{s_0-s-1}dt
+\end{aligned}
+$$
+
+Tenemos que $A(t)$ converge cuando $t\to\infty$, luego $A(N)-A(M)$ y $A(t)-A(M)$ convergen a 0 cuando $M,N\to \infty$. Así, para $M, N$ suficientemente grandes y $\sigma>\sigma_0$:
+
+$$|A(N)-A(M)|<\frac{\varepsilon}{(H+2)}, \quad|A(t)-A(M)|<\frac{\varepsilon}{H+2}$$
+
+De esto se sigue que:
+
+$$\begin{aligned}
+\left|\sum_{M<n \leq N} \frac{f(n)}{n^s}\right|&<\frac{\varepsilon}{H+2}+\frac{\varepsilon}{H+2}\left|s-s_0\right| \int_M^{\infty} t^{\sigma_0-\sigma-1} d t\\
+&=\frac{\varepsilon}{H+2}+\frac{\varepsilon\left|s-s_0\right|}{(H+2)\left(\sigma-\sigma_0\right) M^{\sigma-\sigma_0}}\\
+&\leq\left(1+\frac{\left|s-s_0\right|}{\sigma-\sigma_0}\right) \frac{\varepsilon}{H+2} .
+\end{aligned}$$
+
+Queremos ver que $\left|\displaystyle\sum_{M<n \leq N} f(n) n^{-s}\right|<\varepsilon$, así el teorema se sigue de el teorema de Cauchy para convergencia uniforme de series, En efecto:
+
+$$\left|s-s_0\right|=\left|\left(\sigma-\sigma_0\right)+i\left(t-t_0\right)\right| \leq \sigma-\sigma_0+\left|t-t_0\right| \leq\sigma-\sigma_0+H(\sigma-\sigma_0)\leq(H+1)\left(\sigma-\sigma_0\right)$$
+
+Así:
+
+$$\left|\sum_{M<n \leq N} \frac{f(n)}{n^s}\right|<(1+(H+1))\frac{\varepsilon}{H+2}=\epsilon$$
+\end{proof}
+
+
+Note que haciendo $H$ suficientemente grande obtenemos que $F(s)$ converge para todo  $s$ en el semiplano $\sigma>\sigma_0$, geométricamente lo que hacemos es abrir el cono de la región $S$ para obtener este semiplano.
+
+\begin{theorem}
+Supongamos que $F(s)=\displaystyle\sum_{n=1}^{\infty} f(n)n^{-s}$ no converge para todo $s\in \C$ ni diverge para todo $s\in\C$, entonces existe $\sigma_c\in \R$ tal que $F(s)$ converge para todo $s$ con $\sigma>\sigma_0$ y diverge para todo $\sigma<\sigma_0$.
+\end{theorem}
+
+
+\begin{proof}
+Como mencionamos antes, tomando $H$ suficientemente grande vemos que si $F(s)$ converge en $s=s_0$, entonces por el teorema anterior $F(s)$ converge para todo $\sigma>\sigma_0$, por tanto, de manera análoga a la prueba del teorema 1.26, consideremos el conjunto:
+
+$$A=\left\{a \in \mathbb{R} : \sum_{n=1}^{\infty} f(n) n^{-a} \text { converges }\right\}$$
+
+Nuevamente  consideremos $\sigma_c$ el mínimo de $A$, si $s$ tiene parte real $\sigma>\sigma_c$, entonces $\sigma>a$ para algún $a\in A$, luego $F(s)$ converge, si $s$ tiene parte real $\sigma<\sigma_c$, entonces $\sigma<\dfrac{\sigma+\sigma_c}{2}<\sigma_c$ y como $\sigma_c$ es el mínimo, $\dfrac{\sigma+\sigma_c}{2}\not\in A$, lo que implica que $F(s)$ diverge.
+\end{proof}
