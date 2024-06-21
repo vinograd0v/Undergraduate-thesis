@@ -23,15 +23,20 @@ Tom~M Apostol.
 \newblock Addison-Wesley series in mathematics. Addison-Wesley, Reading, MA,
   1974.
 
+\bibitem{pongsriiam2023analytic}
+Prapanpong Pongsriiam.
+\newblock {\em Analytic Number Theory for Beginners}, volume 103.
+\newblock American Mathematical Society, 2023.
+
 \bibitem{stein2010complex}
 E.M. Stein and R.~Shakarchi.
 \newblock {\em Complex Analysis}.
 \newblock Princeton lectures in analysis. Princeton University Press, 2010.
 
-\bibitem{pongsriiam2023analytic}
-Prapanpong Pongsriiam.
-\newblock {\em Analytic Number Theory for Beginners}, volume 103.
-\newblock American Mathematical Society, 2023.
+\bibitem{montgomery2007multiplicative}
+Hugh~L Montgomery and Robert~C Vaughan.
+\newblock {\em Multiplicative number theory I: Classical theory}.
+\newblock Number~97. Cambridge university press, 2007.
 
 \bibitem{apostol1998introduction}
 T.M. Apostol.

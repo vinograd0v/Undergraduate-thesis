@@ -1134,14 +1134,7 @@ Por otro lado, $f$ se dice analítica en $z_0$, si existe un abierto $U\subseteq
 
 $$f(z)=\sum_{n=0}^{\infty} a_n (z-z_0)^n$$
 
-para todo $z\in U$, si $f$ es analítica en todo punto de $U$, entonces decimos que es analítica  en $U$.
-
-\begin{theorem}
-Sea $\Omega$ un abierto en $\C$ y $f: \Omega \to \C$, entonces $f$ es holomorfa en $\Omega$ si y solo si $f$ es analítica  en $\Omega$.
-\end{theorem}
-
-Este teorema nos dice que analítica y holomorfa son dos definiciones equivalentes, no entraremos aquí en los detalles de este teorema, el lector que esté interesado puede consultar la prueba de esto en \cite{stein2010complex}.\\
-
+para todo $z\in U$, si $f$ es analítica en todo punto de $U$, entonces decimos que es analítica  en $U$.\\
 
 El conjunto de puntos $s=\sigma+it$ con $\sigma>a$ es llamado semiplano, veremos que toda serie de Dirichlet tiene un semiplano $\sigma>\sigma_c$ en el que la serie converge y otro semiplano $\sigma>\sigma_a$ en el que la serie converge absolutamente. Las constantes $\sigma_c$ y $\sigma_a$ son llamas abscisa de convergencia y abscisa de convergencia absoluta respectivamente. Si la serie de Dirichlet converge para todo $s\in \C$, decimos que $\sigma_c=-\infty$, si no converge para todo $s\in \C$, decimos que $\sigma_c=\infty$, de manera análoga lo haremos con la convergencia absoluta.\cite{pongsriiam2023analytic}
 
@@ -1174,13 +1167,12 @@ Lo importante a resaltar en la definición anterior es  que nos indica que para 
 Sean $\Omega$ un abierto en $\C$, $(f_n)$ una sucesión de funciones analíticas definidas en $\Omega$, y $f:\Omega\to\C$. Si $(f_n)$ converge absolutamente a $f$ en cualquier subconjunto compacto de $\Omega$, entonces $f$ es analítica en $\Omega$ y la sucesión $(f_n^{\prime})$ también converge uniformemente a $f^{\prime}$ en cualquier subconjunto compacto de $\Omega$.
 \end{theorem}
 
-La prueba de este resultado se puede consultar  en \cite{stein2010complex}.
+No entraremos en los detalles de esta prueba aquí, el lector interesado la puede  consultar en \cite{stein2010complex}.
 \begin{comment}
 \begin{theorem}
 Sea $\Omega\subseteq \C$ un abierto y sea $f:\Omega\to \C$ una función analítica, si $f(s_n)=0$ para infinitos puntos de $(s_n)$ y $(s_n)$ converge a $x\in \Omega$, entonces $f(s)=0$ para todo $s\in \Omega$
 \end{theorem}
 \end{comment}
-
 
 \begin{theorem}
 Suponga que la serie $F(s)=\displaystyle\sum_{n=1}^{\infty} \frac{f(n)}{n^s}$ converge en el punto $s=s_0$ y sea $H>0$, entonces $F(s)$ converge uniformemente en $S$, donde $S$ es el conjunto:
@@ -1226,7 +1218,7 @@ $$\left|\sum_{M<n \leq N} \frac{f(n)}{n^s}\right|<(1+(H+1))\frac{\varepsilon}{H+
 \end{proof}
 
 
-Note que haciendo $H$ suficientemente grande obtenemos que $F(s)$ converge para todo  $s$ en el semiplano $\sigma>\sigma_0$, geométricamente lo que hacemos es abrir el cono de la región $S$ para obtener este semiplano.
+Note que haciendo $H$ suficientemente grande obtenemos que $F(s)$ converge para todo  $s$ en el semiplano $\sigma>\sigma_0$, geométricamente lo que hacemos es abrir el cono de la región $S$ para obtener este semiplano.\cite{montgomery2007multiplicative}
 
 \begin{theorem}
 Supongamos que $F(s)=\displaystyle\sum_{n=1}^{\infty} f(n)n^{-s}$ no converge para todo $s\in \C$ ni diverge para todo $s\in\C$, entonces existe $\sigma_c\in \R$ tal que $F(s)$ converge para todo $s$ con $\sigma>\sigma_0$ y diverge para todo $\sigma<\sigma_0$.
@@ -1234,9 +1226,52 @@ Supongamos que $F(s)=\displaystyle\sum_{n=1}^{\infty} f(n)n^{-s}$ no converge pa
 
 
 \begin{proof}
-Como mencionamos antes, tomando $H$ suficientemente grande vemos que si $F(s)$ converge en $s=s_0$, entonces por el teorema anterior $F(s)$ converge para todo $\sigma>\sigma_0$, por tanto, de manera análoga a la prueba del teorema 1.26, consideremos el conjunto:
+Como mencionamos antes, tomando $H$ suficientemente grande vemos que si $F(s)$ converge en $s=s_0$, entonces por el teorema anterior $F(s)$ converge para todo $\sigma>\sigma_0$, por tanto, de manera análoga a la prueba del teorema 1.25, consideremos el conjunto:
 
 $$A=\left\{a \in \mathbb{R} : \sum_{n=1}^{\infty} f(n) n^{-a} \text { converges }\right\}$$
 
 Nuevamente  consideremos $\sigma_c$ el mínimo de $A$, si $s$ tiene parte real $\sigma>\sigma_c$, entonces $\sigma>a$ para algún $a\in A$, luego $F(s)$ converge, si $s$ tiene parte real $\sigma<\sigma_c$, entonces $\sigma<\dfrac{\sigma+\sigma_c}{2}<\sigma_c$ y como $\sigma_c$ es el mínimo, $\dfrac{\sigma+\sigma_c}{2}\not\in A$, lo que implica que $F(s)$ diverge.
 \end{proof}
+
+\begin{eg}
+Supongamos que la suma:
+
+$$\sum_{n\leq x}f(n) \text{ está acotada para  todo }x\in [1,\infty)$$
+
+Tenemos que $n^{-s}$ para $\sigma>0$ es decreciente, luego dado $\sigma_0>0$, tenemos que $\displaystyle\sum_{n=1}^{\infty}f(n)n^{-\sigma_0}$ converge por el criterio de Dirichlet y por el teorema anterior $F(s)$ converge para todo $S$ con $\sigma>\sigma_0$, haciendo $\sigma_0$ arbitrariamente pequeño, obtenemos que $F(s)$  converge en el semiplano $\sigma>0$
+\end{eg}
+
+El siguiente resultado nos da una propiedad que esperábamos, podemos derivar término a término:
+
+\begin{corollary}
+Sea $F(s)=\sum_{n=1}^{\infty} f(n)n^{-s}$ para todo $s\in \C$ con $\sigma>\sigma_c$, entonces $F(s)$ es analítica en el semiplano $\sigma>\sigma_c$ y $F^{\prime}(s)$ se puede obtener derivando término a término, es decir:
+
+$$F(s)=-\sum_{n=1}^{\infty}\frac{f(n)\log n}{n^s} \quad \text{para todo } s \text{ con } \sigma>\sigma_c$$
+\end{corollary}
+
+
+\begin{proof}
+Sea $A$ un compacto en el semiplano $\sigma>\sigma_c$, tomemos $s_0$ con parte real $\sigma_0$ tal que $\sigma_c<\sigma_0<\min\{\Re(s): s\in A\}$, como $F(s)$ converge en $s_0$, entonces por el Teorema 1.27, $F(s)$ converge uniformemente en la región $S=\{s\in \C : \sigma>\sigma_0 \text{ y } |t-t_0|\leq H(\sigma-\sigma_0)\}$. Sabemos que $A$ es acotado porque es compacto, luego existe un $H>0$ tal que $A\subset S$, basta tomar un $H$ suficientemente grande. De  esto se sigue que $F(s)$ converge uniformemente en cualquier compacto $A$ del semiplano $\sigma>\sigma_c$, por el Teorema 1.26, $F(s)$ es analítica en el semiplano $\sigma>\sigma_0$, $F^{\prime}(s)$ se puede obtener derivando término a término:
+
+$$F^{\prime}(s)=-\sum_{n=1}^{\infty} f(n)(\log n) n^{-s}$$
+\begin{center}
+\input{Graphics/Analítica1}
+\end{center}
+\end{proof}
+
+\begin{corollary}
+La función zeta de Riemann es analítica en el semiplano $\sigma>1$. Luego:
+
+$$\zeta^{\prime}(s)=-\sum_{n=1}^{\infty}\frac{\log n}{n^s} \text{ para todo } s \in \mathbb{C} \text{ con } \sigma>1$$
+\end{corollary}
+
+Recordemos que el TFA en términos de convolución nos dice que $\log n=\Lambda*1$, por tanto:
+
+$$\zeta^{\prime}(s)=-\sum_{n=1}^{\infty}\frac{\log n}{n^s}=-\sum_{n=1}^{\infty}\frac{\Lambda *1(n)}{n^s}=-\sum_{n=1}^{\infty}\frac{\Lambda(n)}{n^s}\sum_{n=1}^{\infty} \frac{1}{n^s} $$
+
+Luego en el semiplano donde  ambas series de Dirichlet convergen, la derivada logarítmica de $\zeta(s)$ es:
+
+
+$$\frac{\zeta^{\prime}(s)}{\zeta(s)}=-\sum_{n=1}^{\infty} \frac{\Lambda(n)}{n^s}$$
+
+Estudiaremos esto más a detalle después.
