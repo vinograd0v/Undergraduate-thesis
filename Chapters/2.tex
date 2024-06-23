@@ -107,7 +107,7 @@ Si además la función es completamente multiplicativa:
 
 $$f(n)=f\left(\prod_{i=1}^{m}p_i^{k_i}\right)=\prod_{i=1}^{m} f(p_i)^{k_i} $$
 
-Lo que también ocurre para funciones completamente aditivas, cambiando el producto por una suma.  Una propiedad adicional que será útil para caracterizar estas funciones es que si $f$ es aditiva y no identicamente nula, entonces para algún $n$, $f(1\cdot  n)=f(1)+f(n)$, así $f(1)=0$, análogamente si $f$ es multiplicativa y no identicamente nula $f(1\cdot n)=f(1)f(n)$, $f(1)=1$.\\
+Lo que también ocurre para funciones completamente aditivas, cambiando el producto por una suma.  Una propiedad adicional que será útil para caracterizar estas funciones es que si $f$ es aditiva y no idénticamente nula, entonces para algún $n$, $f(1\cdot  n)=f(1)+f(n)$, así $f(1)=0$, análogamente si $f$ es multiplicativa y no idénticamente nula $f(1\cdot n)=f(1)f(n)$, $f(1)=1$.\\
 
 Ahora veamos que aunque la función de Von Mangoldt, parece extraña, su definición es natural y nos permite obtener una versión logarítmica del teorema fundamental de la aritmética.
 
@@ -1101,8 +1101,7 @@ Nuestro objetivo ahora es lograr obtener propiedades similares para series de Di
 
 Primero note que $\displaystyle x^{\displaystyle  s}=e^{\displaystyle s\log x}=e^{\displaystyle(\sigma+it)\log x}=x^{\displaystyle\sigma}e^{\displaystyle it\log{x}}$, por tanto $|\displaystyle x^{\displaystyle s}|=|x^{\displaystyle\sigma}|$ ya que:
 \begin{align*}
-     \left|e^{\displaystyle i\theta}\right|&=|cos(\theta)+i\sin(\theta)|\\
-     &=cos^2(\theta)+sin^2(\theta)\\
+     \left|e^{ i\theta}\right|&=|cos(\theta)+i\sin(\theta)|\\
      &=1
  .\end{align*} 
 
@@ -1168,11 +1167,6 @@ Sean $\Omega$ un abierto en $\C$, $(f_n)$ una sucesión de funciones analíticas
 \end{theorem}
 
 No entraremos en los detalles de esta prueba aquí, el lector interesado la puede  consultar en \cite{stein2010complex}.
-\begin{comment}
-\begin{theorem}
-Sea $\Omega\subseteq \C$ un abierto y sea $f:\Omega\to \C$ una función analítica, si $f(s_n)=0$ para infinitos puntos de $(s_n)$ y $(s_n)$ converge a $x\in \Omega$, entonces $f(s)=0$ para todo $s\in \Omega$
-\end{theorem}
-\end{comment}
 
 \begin{theorem}
 Suponga que la serie $F(s)=\displaystyle\sum_{n=1}^{\infty} \frac{f(n)}{n^s}$ converge en el punto $s=s_0$ y sea $H>0$, entonces $F(s)$ converge uniformemente en $S$, donde $S$ es el conjunto:
@@ -1244,9 +1238,9 @@ Tenemos que $n^{-s}$ para $\sigma>0$ es decreciente, luego dado $\sigma_0>0$, te
 El siguiente resultado nos da una propiedad que esperábamos, podemos derivar término a término:
 
 \begin{corollary}
-Sea $F(s)=\sum_{n=1}^{\infty} f(n)n^{-s}$ para todo $s\in \C$ con $\sigma>\sigma_c$, entonces $F(s)$ es analítica en el semiplano $\sigma>\sigma_c$ y $F^{\prime}(s)$ se puede obtener derivando término a término, es decir:
+Sea $F(s)=\displaystyle\sum_{n=1}^{\infty} f(n)n^{-s}$ para todo $s\in \C$ con $\sigma>\sigma_c$, entonces $F(s)$ es analítica en el semiplano $\sigma>\sigma_c$ y $F^{\prime}(s)$ se puede obtener derivando término a término, es decir:
 
-$$F(s)=-\sum_{n=1}^{\infty}\frac{f(n)\log n}{n^s} \quad \text{para todo } s \text{ con } \sigma>\sigma_c$$
+$$F^{\prime}(s)=-\sum_{n=1}^{\infty}\frac{f(n)\log n}{n^s} \quad \text{para todo } s \text{ con } \sigma>\sigma_c$$
 \end{corollary}
 
 
@@ -1259,6 +1253,10 @@ $$F^{\prime}(s)=-\sum_{n=1}^{\infty} f(n)(\log n) n^{-s}$$
 \end{center}
 \end{proof}
 
+\begin{note}
+Por lo anterior, $F^{\prime}(s)$ tiene la misma abscisa de convergencia que $F(s)$, note que el corolario anterior también se tiene si consideramos $s$ en el semiplano de convergencia absoluta, la prueba es exactamente la misma, resaltamos esto porque además nos dice que $F^{\prime}(s)$ tiene la misma abscisa de convergencia absoluta que $F(s)$, esto nos será útil después.\cite{apostol1998introduction}
+\end{note}
+
 \begin{corollary}
 La función zeta de Riemann es analítica en el semiplano $\sigma>1$. Luego:
 
@@ -1269,9 +1267,72 @@ Recordemos que el TFA en términos de convolución nos dice que $\log n=\Lambda*
 
 $$\zeta^{\prime}(s)=-\sum_{n=1}^{\infty}\frac{\log n}{n^s}=-\sum_{n=1}^{\infty}\frac{\Lambda *1(n)}{n^s}=-\sum_{n=1}^{\infty}\frac{\Lambda(n)}{n^s}\sum_{k=1}^{\infty} \frac{1}{k^s} $$
 
-Luego en el semiplano donde  ambas series de Dirichlet convergen, la derivada logarítmica de $\zeta(s)$ es:
+El paso anterior, en el que separamos la convolución como un producto depende de que ambas series sean absolutamente convergentes en el punto $s$. No tenemos de momento una abscisa de convergencia absoluta  para la serie de Dirichlet asociada a la función de Von Mangolth, Afortunadamente, no es difícil ver que también $\sigma_a=1$. Note que para todo $n\in \N$, $|\Lambda(n)|\leq \log n$ y como la serie de Dirichlet de $\log(n)$ es $-\zeta^{\prime}(s)$ que tiene abscisa de convergencia absoluta $\sigma_a=1$, entonces:
 
+$$\sum_{n=1}^{\infty} \frac{\Lambda(n)}{n^s}\quad \text{converge absolutamente si } \sigma>1$$
+
+Luego el paso que hicimos es válido en el semiplano $\sigma>1$, por tanto:
 
 $$\frac{\zeta^{\prime}(s)}{\zeta(s)}=-\sum_{n=1}^{\infty} \frac{\Lambda(n)}{n^s}$$
 
-Estudiaremos esto más a detalle después.
+Esta es la derivada logarítmica, una serie de Dirichlet que será muy importante en la prueba del teorema de los números primos. El siguiente teorema nos da una relación importante entre $\sigma_c$ y $\sigma_a$.
+
+\begin{theorem}
+Sea $F(s)$ una serie de Dirichlet, entonces $\sigma_c\leq\sigma_a\leq \sigma_c+1$
+\end{theorem}
+
+\begin{proof}
+Es claro que si $F(s)$ es absolutamente convergente, entonces $\sigma_a\geq \sigma_c$, veamos la otra desigualdad. Note que la serie $\displaystyle \sum_{n=1}^{\infty} f(n)n^{-\sigma_c-\epsilon}$ converge para todo $\epsilon>0$, por tanto $f(n)n^{-\sigma_c-\epsilon}$ converge a 0 cuando $n\to \infty$. Es decir, existe un $N>0$ tal que $|f(n)|<n^{\sigma_c+\epsilon}$ para todo $n\geq N$, luego:
+
+$$\left|\frac{f(n)}{n^{\sigma+1+2\epsilon}}\right|<\frac{1}{n^{1+\epsilon}}$$
+
+Tenemos que la serie $\displaystyle \sum_{n=1}^{\infty} n^{-1-\epsilon}$ converge, luego por criterio de comparación, la serie:
+
+$$\sum_{n=1}^{\infty} \frac{f(n)}{n^{\sigma_c+2\epsilon+1}} \quad\text{converge absolutamente}$$
+
+Esto es, $\sigma_a\leq \sigma_c+1+2\epsilon$, para todo $\epsilon>0$, luego obtenemos $\sigma_a\leq \sigma_c+1$
+\end{proof}
+
+\begin{theorem}[Unicidad]
+
+Sean $F(s)$ y $G(s)$ las series de Dirichlet asociadas a $f$ y $g$ respectivamente, si $F(s)$ y $G(s)$ tienen abscisa de convergencia finita y además $F(s)=G(s)$ para  todo $s$ con $\sigma$ suficientemente grande. Entonces $f(n)=g(n)$.
+\end{theorem}
+
+\begin{proof}
+Sea $h(n)=f(n)-g(n)$ y $H(s)=F(s)-G(s)$ su serie de Dirichlet, por hipótesis, existe un $\sigma_0$ tal que $H(s)$ converge en el semiplano $\sigma>\sigma_0$ y $H(s)$ es idénticamente nula en este semiplano, queremos ver que $h(n)=n$ para todo $n\in \N$. Supongamos que $h(n)$ no es idénticamente nula y sea $N$ el mínimo entero positivo tal que $h(n)\neq 0$, entonces:
+
+\begin{align*}
+    &H(s)=\frac{h(N)}{N^s}+\sum_{n=N+1}^{\infty} \frac{h(n)}{n^s},\\
+    &h(N)=N^s H(s)-N^s \sum_{n=N+1}^{\infty} h(n) n^{-s}
+.\end{align*}
+
+De esto se sigue que para todo $\sigma>\sigma_0$, $h(N)=-N^{\sigma}\displaystyle \sum_{n=N+1}^{\infty} h(n) n^{-\sigma}.$ y por tanto:
+
+$$\left|h(N)\right|\leq\sum_{n=N+1}^{\infty} |h(n)|\left(\frac{N}{n}\right)^{\sigma}
+    $$
+
+Tomando $\sigma=\sigma_0+\lambda$ con $\lambda\geq 0$, tenemos que para todo $n\geq N+1$:
+
+$$\left(\frac{N}{n}\right)^{\sigma}=\left(\frac{N}{n}\right)^{\lambda}\left(\frac{N}{n}\right)^{\sigma_0}\leq \left(\frac{N}{N+1}\right)^{\lambda}\left(\frac{N}{n}\right)^{\sigma_0}$$
+
+Luego:
+
+$$\begin{aligned}
+\left|h(N)\right|&\leq \left(\frac{N}{N+1}\right)^{\lambda}\sum_{n=N+1}^{\infty} |h(n)|\left(\frac{N}{n}\right)^{\sigma_0}=N^{\sigma_0}\left(\frac{N}{N+1}\right)^{\lambda}\sum_{n=N+1}^{\infty} |h(n)|n^{-\sigma_0}\\
+&=C\left(\frac{N}{N+1}\right)^{\lambda}
+\end{aligned}
+    $$
+
+Donde $C$ es una constante que no depende de $\lambda$ dado que la serie $\displaystyle \sum_{n=N+1}^{\infty} |h(n)|n^{-\sigma_0}$ converge. Note que:
+
+$$\lim_{\lambda\to \infty} C\left(\frac{N}{N+1}\right)^{\lambda}=0$$
+
+Luego $h(N)=0$, contradicción. $f(n)=g(n)$ para todo $n\in \N$.\\
+\end{proof}
+
+Con estas propiedades nos basta para lo que queremos mostrar en este trabajo, sin embargo hay muchas otras propiedades analíticas de las series de Dirichlet que son útiles en otros contextos y además muy interesantes, algunas fuentes en las que se pueden consultar son \cite{apostol1998introduction} y \cite{montgomery2007multiplicative}. Antes hemos mencionado el desarrollo en producto que obtuvo Euler de la función $\zeta(s)$, es posible obtener un resultado similar para series de Dirichlet de funciones multiplicativas, este hecho será muy importante para probar la divergencia de la serie de los recíprocos de los números primos, lo que motivará más tarde las ideas de Dirichlet sobre primos en progresiones aritmética.
+
+\subsection{El producto de Euler}
+
+Para este punto debemos asumir algunos resultados de convergencia de productos infinitos, resultados que son bien conocidos, sin embargo, vamos a recordarlos por completitud. Dicho esto no presentaremos pruebas, estos resultados se estudian bien a detalle en \cite{Apostol:105425}, allí se encuentran pruebas detalladas y el lector interesado puede consultarlas.
+
