@@ -1002,14 +1002,13 @@ Dada una función aritmética $f$, se le pueden asignar a esta dos tipos de seri
 
 $$
 \begin{aligned}
-& E_f(z)=\sum_{n=1}^{\infty} f(n) z^n, \\
-& D_f(s)=\sum_{n=1}^{\infty} \frac{f(n)}{n^s},
+& E(z)=\sum_{n=1}^{\infty} f(n) z^n, \\
+& F(s)=\sum_{n=1}^{\infty} \frac{f(n)}{n^s},
 \end{aligned}
 $$
 estas son llamadas funciones generatrices de $f$.
 Las series de potencia generatrices fueron introducidas por Euler con el propósito de estudiar problemas de naturaleza aditiva, esto ya que tienen la siguiente propiedad:\\
 
-Dadas $E_f(z)$ y $E_g(z)$ las series de potencias para $f$ y $g$, entonces su producto está dado por
 $$
 E_f(z) E_g(z)=\sum_{n=1}^{\infty} h(n) z^n,
 $$
@@ -1020,9 +1019,9 @@ $$
 
 Note que $h(n)$ se parece la convolución de Dirichlet, pero en una versión aditiva, por eso estas series toman un papel importante para este tipo de problemas.\\
 
-Sin embargo, nuestro interés son las series $D_f$, estas fueron introducidas por Dirichlet en su trabajo sobre primos en progresiones aritmética y son particularmente útiles cuando $f$ es una función multiplicativa, además que en el producto de estas aparece la convolución multiplicativa que vimos en el capítulo anterior por lo que a través de estas podemos obtener propiedades de $f(n)$ como en la sección 1.2\\
+Sin embargo, nuestro interés son las series $F(s)$, estas fueron introducidas por Dirichlet en su trabajo sobre primos en progresiones aritmética y son particularmente útiles cuando $f$ es una función multiplicativa ya que entre muchas cosas, en el producto de dos de  estas aparece la convolución multiplicativa que vimos antes, por lo que a través de estas podemos obtener propiedades de $f(n)$ como en la sección 1.2.\\
 
-Con lo que se mencionó antes parece entonces que toda la teoría se conecta, y que de cierta forma esto solo es una forma diferente de atacar los mismos problemas, sin embargo, este no es el caso, las propiedades analíticas de una serie de Dirichlet, vista como función de variable compleja $s$ pueden ser explotadas para obtener información importante acerca del comportamiento de las sumas parciales de funciones aritmética:
+Con lo que se mencionó antes parece que toda la teoría se conecta, y que de cierta forma esto solo es una forma diferente de atacar los mismos problemas, sin embargo, este no es el caso, las propiedades analíticas de una serie de Dirichlet, vista como función de variable compleja $s$ pueden ser explotadas para obtener información importante acerca del comportamiento de las sumas parciales de funciones aritmética:
 
 $$\sum_{n\leq x}f(n)$$
 
@@ -1083,7 +1082,7 @@ $$1=\sum_{n=1}^{\infty} \frac{e(n)}{n^s}=\sum_{n=1}^{\infty} \frac{f*g(n)}{n^s}=
 \end{proof}
 
 \begin{note}
-La convergencia absoluta de \( F(s) \) no implica la de la serie de Dirichlet asociada con su inversa. Por ejemplo, la función definida por \( f(1)=1 \), \( f(2)=-1 \), y \( f(n)=0 \) para \( n \geq 3 \) tiene la serie de Dirichlet \( F(s)=1-2^{-s} \), que converge para todo $s$. Sin embargo, la serie de Dirichlet de la inversa de Dirichlet de \( f \) es \( \dfrac{1}{F(s)} = (1-2^{-s})^{-1} = \displaystyle\sum_{k=0}^{\infty} \frac{1}{2^{ks}} \), que converge absolutamente en \( \sigma > 0 \), pero no en el semiplano \( \sigma \leq 0 \), ya que es una serie geométrica. \cite{hildebrand2006introduction}
+La convergencia absoluta de \( F(s) \) no implica la de la serie de Dirichlet asociada con su inversa. Por ejemplo, la función definida por \( f(1)=1 \), \( f(2)=-1 \), y \( f(n)=0 \) para \( n \geq 3 \) tiene la serie de Dirichlet \( F(s)=1-2^{-s} \), que converge para todo $s$. Sin embargo, la serie de Dirichlet de la inversa de Dirichlet de \( f \) es \( \dfrac{1}{F(s)} = (1-2^{-s})^{-1} = \displaystyle\sum_{k=0}^{\infty} \frac{1}{2^{ks}} \), que converge absolutamente en \( \sigma > 0 \), pero no en el semiplano \( \sigma \leq 0 \), ya que es una serie geométrica. \cite{hildebrand2006introduction}\\
 \end{note}
 
 Si tomamos una serie de potencias $F(x)$, sabemos por lo menos tres cosas de ella:
@@ -1330,11 +1329,36 @@ $$\lim_{\lambda\to \infty} C\left(\frac{N}{N+1}\right)^{\lambda}=0$$
 Luego $h(N)=0$, contradicción. $f(n)=g(n)$ para todo $n\in \N$.\\
 \end{proof}
 
-Con estas propiedades nos basta para lo que queremos mostrar en este trabajo, sin embargo hay muchas otras propiedades analíticas de las series de Dirichlet que son útiles en otros contextos y además muy interesantes, algunas fuentes en las que se pueden consultar son \cite{apostol1998introduction} y \cite{montgomery2007multiplicative}. Antes hemos mencionado el desarrollo en producto que obtuvo Euler de la función $\zeta(s)$, es posible obtener un resultado similar para series de Dirichlet de funciones multiplicativas, este hecho será muy importante para probar la divergencia de la serie de los recíprocos de los números primos, lo que motivará más tarde las ideas de Dirichlet sobre primos en progresiones aritmética.
+Con estas propiedades nos basta para lo que queremos mostrar en este trabajo, sin embargo hay muchas otras propiedades analíticas de las series de Dirichlet que son útiles en otros contextos y además muy interesantes, algunas fuentes en las que se pueden consultar son \cite{apostol1998introduction} y \cite{montgomery2007multiplicative}.
 
 \subsection{El producto de Euler}
 
+Ya habíamos mencionado antes que las series de Dirichlet son particularmente útiles cuando $f$ es una función multiplicativa, ya que en este caso vemos a ver que:
+
+$$
+F(s)=\prod_p\left(1+\frac{f(p)}{p^s}+\frac{f\left(p^2\right)}{p^{2 s}}++\frac{f\left(p^3\right)}{p^{3 s}}+\cdots\right),
+$$
+
+siempre que las series sobre los primos y el producto converjan absolutamente. Adicionalmente, si $f$ es completamente multiplicativa:
+
+$$F(s)=\prod_p(1-f(p))^{-1}.$$
+
+Este resultado es llamado producto de Euler, curiosamente no porque Euler lo haya demostrado, sino porque el primer resultado de este estilo fue dado por Euler, para la función $\zeta(s)$, $s>1$. Como sabemos, este resultado es muy importante para  poder probar la divergencia de la serie de los recíprocos de los números primos, por lo que requerimos la versión general para  poder presentar una prueba del teorema de Dirichlet en nuestro siguiente capítulo.\\
+
+
 Para este punto debemos asumir algunos resultados de convergencia de productos infinitos, resultados que son bien conocidos, sin embargo, vamos a recordarlos por completitud. Dicho esto no presentaremos pruebas, estos resultados se estudian bien a detalle en \cite{Apostol:105425}, allí se encuentran pruebas detalladas y el lector interesado puede consultarlas.
 
+\begin{definition}
+Decimos que el producto $\displaystyle \prod_{n=1}^{\infty} a_n$ converge si:
+\begin{itemize}[label=$\bullet$]
+\item Existe $k\in \N$ tal que $a_n\neq 0$ para todo $n\geq k$ y
+\item $\displaystyle\lim_{m \to \infty} \prod_{n=k}^{m}a_n$ existe y es  no nulo.
+\end{itemize}
+\end{definition}
 
+De la definición anterior tenemos que un producto $\displaystyle\prod_{n=1}^{\infty} a_n$ converge a 0 si y solo si existe un $n$ tal que $a_n=0$ y hay solo una cantidad finita de $a_n$ de esta forma, así tomando $N=\max\{n: a_n=0\}$ el $\lim_{m \to \infty} \displaystyle\prod_{k=N+1}^{m}a_N$ existe y es no nulo. Por ejemplo, el producto:
+
+$$(0)(1)(1)(1)(1)\cdots$$
+
+Pero los productos $(0)(1)(0)(1)(0)(1)\cdots$ y $(0)(1)(2)(3)(4)\cdots$ no convergen.\cite{pongsriiam2023analytic}
 
