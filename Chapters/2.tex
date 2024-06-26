@@ -1358,7 +1358,23 @@ Decimos que el producto $\displaystyle \prod_{n=1}^{\infty} a_n$ converge si:
 
 De la definición anterior tenemos que un producto $\displaystyle\prod_{n=1}^{\infty} a_n$ converge a 0 si y solo si existe un $n$ tal que $a_n=0$ y hay solo una cantidad finita de $a_n$ de esta forma, así tomando $N=\max\{n: a_n=0\}$ el $\lim_{m \to \infty} \displaystyle\prod_{k=N+1}^{m}a_N$ existe y es no nulo. Por ejemplo, el producto:
 
-$$(0)(1)(1)(1)(1)\cdots$$
+$$(0)(1)(1)(1)(1)\cdots \quad \text{converge a 0.}$$
 
-Pero los productos $(0)(1)(0)(1)(0)(1)\cdots$ y $(0)(1)(2)(3)(4)\cdots$ no convergen.\cite{pongsriiam2023analytic}
+Pero los productos $(0)(1)(0)(1)(0)(1)\cdots$ y $(0)(1)(2)(3)(4)\cdots$ no convergen \cite{pongsriiam2023analytic}. De manera análoga a lo que ocurre con series, si el producto $\displaystyle\prod_{n=1}^{\infty} a_n$ converge, entonces $a_n$ converge a 1. Nos interesa caracterizar la convergencia de los productos de la forma $\displaystyle \prod_{n=1}^{\infty} (1+a_n)$, note que por lo anterior $a_n$ converge a 0.
 
+\begin{definition}
+Sea $a_n$ una sucesión de números complejos. El producto $\displaystyle\prod_{n=1}^{\infty} (1+a_n)$ es absolutamente convergente si $\displaystyle\prod_{n=1}^{\infty} (1+\left|a_n\right|)$ es convergente.
+\end{definition}
+
+En productos infinitos también la convergencia absoluta implica convergencia.
+
+\begin{theorem}
+Si la serie $\displaystyle\sum_{n=1}^{\infty} |a_n|$ converge, entonces el producto $\displaystyle\prod_{n=1}^{\infty} (1+|a_n|)$ converge.
+\end{theorem}
+
+Como mencionamos, no se presentará una prueba de este resultado, el lector puede consultarla en \cite{Apostol:105425}.
+
+\begin{theorem}
+Sea $f$ una función aritmética multiplicativa si $\sum_{n=1}^{\infty} f(n)$ converge absolutamente, entonces
+$$\sum_{n=1}^{\infty} f(n)=\prod_p\left(1+f(p)+f\left(p^2\right)+\cdots\right)$$
+\end{theorem}
