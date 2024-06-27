@@ -1375,6 +1375,111 @@ Si la serie $\displaystyle\sum_{n=1}^{\infty} |a_n|$ converge, entonces el produ
 Como mencionamos, no se presentará una prueba de este resultado, el lector puede consultarla en \cite{Apostol:105425}.
 
 \begin{theorem}
-Sea $f$ una función aritmética multiplicativa si $\sum_{n=1}^{\infty} f(n)$ converge absolutamente, entonces
+Sea $f$ una función aritmética multiplicativa si $\displaystyle\sum_{n=1}^{\infty} f(n)$ converge absolutamente, entonces
 $$\sum_{n=1}^{\infty} f(n)=\prod_p\left(1+f(p)+f\left(p^2\right)+\cdots\right)$$
+
+Si $f$ es completamente multiplicativa, entonces:
+
+$$\sum_{n=1}^{\infty} f(n)=\prod_p(1-f(p))^{-1}$$
 \end{theorem}
+
+\begin{proof}
+Note que:
+
+\begin{equation}
+\sum_{p}\left|f(p)+f(p^2)+\ldots\right|\leq \sum_p \left|f(p)\right|+\sum_p \left|f(p^2)\right|+\ldots\leq\sum_{n=2}^{\infty} \left|f(n)\right|
+\end{equation}
+
+La serie en la derecha de (1.13) converge, entonces $\displaystyle\prod_p\left(1+f(p)+f\left(p^2\right)+\cdots\right)$ converge absolutamente. Como $f$ es multiplicativa tenemos que:
+
+\begin{equation}
+\begin{aligned}
+P(x)&=\prod_{p\leq x}\left(1+f(p)+f(p^2)+\ldots\right)=\prod_{p\leq x}\left(1+\sum_{k=1}^{\infty} f(p^k)\right)\\
+&=1+\sum_{k_1=1}^{\infty}f(p_1^{k_1})+\sum_{k_2=1}^{\infty}f(p_2^{k_2})+\sum_{k_1=1}^{\infty} f(p_1^{k_1})\sum_{k_2=1}^{\infty} f(p_2^{k_2})+\ldots\\
+&=\sum_{k_1=0}^{\infty}\ldots \sum_{k_t=0}^{\infty}(f(p_1^{k_1})\ldots f(p_t^{k_t}))\\
+&=\sum_{k_1=0}^{\infty}\ldots \sum_{k_t=0}^{\infty}(f(p_1^{k_1}\ldots p_t^{k_t}))
+\end{aligned}
+\end{equation}
+
+En efecto podemos obtener el término 1 tomando $k_1=k_2=\ldots=k_t=0$ ya que $f(1)=1$ porque $f$ es multiplicativa. Note ahora que dado el conjunto $A$ de los enteros positivos con todos sus factores primos menores o iguales a $x$, el producto se puede escribir de manera compacta como:
+
+$$P(x)=\sum_{n\in A}f(n)$$
+
+En efecto, dado $B$ el conjunto de los enteros positivos con al menos un factor primo mayor que $x$:
+
+$$
+\left|\sum_{n=1}^{\infty} f(n)-P(x)\right| \leq \sum_{n \in B}|f(n)| \leq \sum_{n>x}|f(n)|=\sum_{n=1}^{\infty}|f(n)|-\sum_{n \leq x}|f(n)|
+$$
+
+Lo que converge a $0$ cuando $x\to \infty$, luego $P(x)$ converge a $\displaystyle \sum_{n=1}^{\infty} f(n)$ cuando $x\to \infty$. Si $f$ es completamente  multiplicativa, $f(p^k)=f(p)^k$, aplicando esto a (1.14) obtenemos lo deseado:
+
+$$P(x)=\prod_p\left(1+f(p)+(f(p))^2+(f(p))^3+\cdots\right)=\prod(1-f(p))^{-1}$$
+
+Ya que las series $\displaystyle\sum_{k=0}^{\infty}f(p_t^{k_t})$ en (1.14) se vuelven geométricas, cada una convergiendo a $(1-f(p_t))^{-1}$, $\left|f(p_t)\right|<1
+    $, luego:
+
+$$\sum_{n=1}^{\infty} f(n)=\prod_{n=1}^{\infty} (1-f(p))^{-1}$$
+\end{proof}
+
+\begin{corollary}[Producto de Euler]
+Sea $f$ una función aritmética y $F(s)$ su serie de Dirichlet, supongamos que $F(s)$ converge absolutamente para $\sigma>\sigma_a$. Si $f$ es  multiplicativa:
+
+$$
+\sum_{n=1}^{\infty} f(n) n^{-s}=\prod_p\left(1+f(p) p^{-s}+f\left(p^2\right) p^{-2 s}+\cdots\right)
+$$
+
+Si $f$ es completamente multiplicativa:
+
+$$
+\sum_{n=1}^{\infty} f(n) n^{-s}=\prod_p\left(1-f(p) p^{-s}\right)^{-1} \quad \text { for } \sigma>\sigma_a .
+$$
+
+Y cada producto es absolutamente convergente para $\sigma>\sigma_a$
+\end{corollary}
+
+La prueba es esencialmente trivial, basta considerar:
+
+$$F(s)=\sum_{n=1}^{\infty} f_s(n)=\sum_{n=1}^{\infty} \frac{f(n)}{n^s}$$
+
+Y aplicar el teorema anterior a $f_s$, note que si $f$ es multiplicativa o completamente multiplicativa, también $f_s$.
+
+\begin{corollary}
+Sea $s\in \C$ tal que $\sigma>1$, entonces:
+
+$$\zeta(s)=\prod_{p}\left(1-\frac{1}{p^s}\right)^{-1} $$
+\end{corollary}
+
+Observemos lo siguiente:
+
+$$\begin{aligned}
+\frac{1}{\zeta(s)} & =\prod_{p \in \mathbb{P}}\left(1-\frac{1}{p^s}\right) \\
+& =\left(1-\frac{1}{2^s}\right)\left(1-\frac{1}{3^s}\right)\left(1-\frac{1}{5^s}\right) \ldots \\
+& =1-\sum_{p} p^{-s}+\sum_{\substack{p, q\\p\neq q}} p^{-s} q^{-s}-\ldots \\
+& =\sum_{n=1}^{\infty} \frac{\mu(n)}{n^s}
+\end{aligned}$$
+
+Hemos probado unicidad en series de Dirichlet, esto nos permite obtener una prueba alternativa de $\mu*1=e$. En efecto:
+
+$$\sum_{n=1}^{\infty} \frac{e(n)}{n^s}=1=\sum_{n=1}^{\infty} \frac{\mu(n)}{n^s}\zeta(s)=\sum_{n=1}^{\infty} \frac{\mu*1(n)}{n^s}$$
+
+Otro ejemplo de  esto es:
+
+$$\begin{aligned}
+\frac{\zeta(s-1)}{\zeta(s)} & =\prod_{p} \frac{\left(1-p^{-s}\right)}{\left(1-p^{-s+1}\right)} \\
+&=\prod_{p}\left(1-\frac{1}{p^s}\right)\left(\sum_{k=0}^{\infty}\dfrac{p^k}{p^{ks}}\right)\\
+& =\prod_{p}\left(1-\frac{1}{p^s}\right)\left[1+\frac{p}{p^s}+\frac{p^2}{p^{2 s}}+\ldots\right] \\
+& =\prod_{p}\left(\left[1+\frac{p}{p^s}+\frac{p^2}{p^{2 s}}+\ldots\right]-\left[\frac{1}{p^s}+\frac{p}{p^{2 s}}+\frac{p^2}{p^{3 s}}+\ldots\right]\right) \\
+& =\prod_{p }\left[1+\left(1-\frac{1}{p}\right)\left(\frac{p}{p^s}+\frac{p^2}{p^{2 s}}+\ldots\right)\right] \\
+&=\prod_{p }\left[1+\frac{p-1}{p^s}+\frac{p^2-p}{p^{2 s}}+\ldots\right]\\
+& =\sum_{n=1}^{\infty}f(n)n^{-s}.
+\end{aligned}$$
+
+Donde $f(n)$ es tal que $f(p^{k})=p^{k}-p^{k-1}$, luego, $f(n)=\varphi(n)$, ahora note que:
+
+$$\zeta(s-1)=\sum_{n=1}^{\infty} \frac{1}{n^{s-1}}=\sum_{n=1}^{\infty} \frac{n}{n^s}$$
+
+Así:
+
+$$\frac{\zeta(s-1)}{\zeta(s)}=\sum_{n=1}^{\infty} \frac{\varphi(n)}{n^s}=\sum_{n=1}^{\infty} \frac{n}{n^s}\sum_{n=1}^{\infty} \frac{\mu(n)}{n^s}=\sum_{n=1}^{\infty} \frac{\mu*N(n)}{n^s}$$
+
+Y por el teorema de unicidad, $\mu*N=\varphi$. Esto muestra sin lugar a dudas el poder teórico de las series de Dirichlet, cuando tenemos propiedades adecuadas, podemos obtener mucha información de las funciones aritmética asociadas. Pero esto no es todo, mostraré una propiedad adicional, toda serie de Dirichlet se puede ver como una integral de Riemann-Stieltjes y bajo ciertas condiciones esta integral tomará la forma de una transformada de Laplace. Este hecho tomará particular importancia en la prueba del TNP.
