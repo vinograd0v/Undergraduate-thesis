@@ -1562,8 +1562,32 @@ Note que tomando $x=e^t$, $dx=e^tdt$
 
 $$\sum_{n=1}^{\infty} \frac{f(n)}{n^s}=s\int_0^{\infty}S(e^{t})e^{-st}dt$$
 
-la serie de Dirichlet toma forma de transformada de Laplace. Aunque esto parezca una propiedad cualquiera, Korevaar y Zagier aplicaron esto para obtener una prueba corta del TNP en la que no es necesario el teorema tauberiano de Wiener-Ikehara \cite{zagier1997newman}, estas ideas también son las que se siguen en el libro de Pongsriiam \cite{pongsriiam2023analytic}.\\
+la serie de Dirichlet toma forma de transformada de Laplace. Aunque esto parezca una propiedad cualquiera, Korevaar y Zagier aplicaron esto para obtener una prueba corta del TNP en la que no es necesario el teorema Tauberiano de Wiener-Ikehara \cite{zagier1997newman}, estas ideas también son las que se siguen en el libro de Pongsriiam \cite{pongsriiam2023analytic}.\\
 
 Ahora, vamos usar  todo lo anterior para obtener propiedades de $\zeta(s)$ que necesitamos para la prueba del TNP.
 
 \section{La función zeta de Riemann}
+
+\begin{theorem}[Propiedades]
+Sea $s\in\C$ tal que $\sigma>1$, entonces:
+
+\begin{itemize}[]
+\item[i)] $\zeta(s)\neq 0$
+\item[ii)] $\displaystyle\zeta^{\prime}(s)=-\sum_{n=1}^{\infty} \frac{\log n}{n^s}$
+\item[iii)] $\displaystyle\frac{\zeta^{\prime}(s)}{\zeta(s)}=-\sum_{n=1}^{\infty} \frac{\Lambda(n)}{n^s}$
+\end{itemize}
+\end{theorem}
+
+Las propiedades (ii) y (iii) ya las hemos probado antes, basta ver (i).\\
+
+\begin{proof}
+Como $\sigma>1$, entonces:
+
+$$\zeta(s)=\prod_p  \frac{1}{1-p^{-s}} $$
+
+donde el producto es absolutamente convergente, note que:
+
+$$\frac{1}{1-p^{-s}}=\frac{p^s}{p^s-1}=1+\frac{1}{p^s-1}$$
+
+entonces el producto no tiene factores nulos, luego no converge a 0, $\zeta(s)\neq 0$
+\end{proof}
