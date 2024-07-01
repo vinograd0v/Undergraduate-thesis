@@ -1591,3 +1591,61 @@ $$\frac{1}{1-p^{-s}}=\frac{p^s}{p^s-1}=1+\frac{1}{p^s-1}$$
 
 entonces el producto no tiene factores nulos, luego no converge a 0, $\zeta(s)\neq 0$
 \end{proof}
+
+\begin{theorem}
+Sea $s\in \C$ tal que $\sigma>1$, entonces:
+
+$$\zeta(s)=\frac{s}{s-1}-s\int_1^{\infty}\frac{\{t\}}{t^{s+1}}dt$$
+\end{theorem}
+
+\begin{proof}
+Tenemos que $\zeta(s)=\displaystyle s\int_1^{\infty}\frac{[t]}{t^{s+1}}dt$, como $[t]=t-\{t\}$, entonces:
+
+\begin{align*}
+\zeta(s)&=s\int_1^{\infty}\frac{t-\{t\}}{t^{s+1}}\\
+&=s\int_1^{\infty}\frac{1}{t^s}dt-s\int_1^{\infty}\frac{\{t\}}{t^{s+1}}dt\\
+&=\frac{s}{s-1}-s\int_1^{\infty}\frac{\{t\}}{t^{s+1}}dt
+\end{align*}
+\end{proof}
+
+\begin{theorem}[Extensión analítica]
+La representación integral de $\zeta(s)$ nos da una extensión analítica al semiplano $\sigma>0$ con un polo simple en $s=1$ con residuo 1.
+\end{theorem}
+
+\begin{proof}
+Note que $s\to \dfrac{s}{s-1}=1+\dfrac{1}{s-1}$ es analítica en el semiplano $\sigma>0$ excepto por un polo simple en $s=1$ con residuo 1. Basta ver que la función:
+
+$$f(s)=\int_1^{\infty}\frac{\{t\}}{t^{s+1}}dt$$
+
+es analítica en el semiplano $\sigma>0$. Para cada $n\in \N$, sea $f_n(s)=\displaystyle\int_1^{n}\frac{\{t\}}{t^{s+1}}dt$, tenemos que:
+
+$$f_n(s)=\int_1^{n}\{t\}e^{\displaystyle-(s+1)\log t}dt=\int_1^{n}\sum_{n=0}^{\infty}\frac{\{t\}(-\log t)^n(s+1)^n}{n!}dt$$
+
+donde la suma dentro de la integral es la serie de Taylor de $e^x$ que sabemos tiene radio de convergencia infinito. Queremos ver que $f_n$ es una sucesión de funciones analíticas, para lo que basta ver que podemos introducir la integral en la serie de potencias, además queremos ver que $f_n\to f$ uniformemente en cualquier subconjunto compacto de $\sigma>0$. En efecto:
+
+$$\begin{aligned}
+\sum_{n=0}^{\infty}\left|\frac{\{t\}(-\log t)^n(s+1)^n}{n!}\right| & \leq \sum_{n=0}^{\infty} \frac{(|\log t|(|s|+1))^n}{n!} \\
+& =e^{\displaystyle\left| \log t\right|(|s|+1)}=t^{|s|+1}
+\end{aligned}$$
+
+entonces 
+
+$$\int_1^m \sum_{n=0}^{\infty}\left|\frac{\{t\}(-\log t)^n(s+1)^n}{n!}\right| d t \leq \int_1^m t^{|s|+1} d t<\infty$$
+
+luego por convergencia absoluta:
+
+$$f_m(s)=\sum_{n=0}^{\infty} \frac{(s+1)^n}{n!} \int_1^m\{t\}(-\log t)^n d t.$$
+
+Sea $s\in \C$ con $\sigma\geq\delta>0$. Dado $\epsilon>0$, sea $N=(\delta\epsilon)^{-\frac{1}{\delta}}$, entonces para todo $n>N$:
+
+\begin{align*}
+\left|f(s)-f_n(s)\right| &\leq \int_n^{\infty} \left|\frac{\{t\}}{t^{s+1}}\right| d t \leq \int_n^{\infty}\frac{1}{t^{\sigma+1}}\leq \frac{1}{\sigma n^\sigma}\\
+&\leq \frac{1}{\delta n^\delta}\\
+&<\frac{1}{\delta(\delta\epsilon)^{-\frac{1}{\delta}\delta}}=\epsilon
+\end{align*}
+
+como $N$ no depende de $s$, $f_n$ converge uniformemente a $f$ en el semiplano $\sigma\geq\delta$, en particular sobre cualquier compacto de $\sigma>0$, por el Teorema 1.26 $f(s)$ es analítica en el semiplano $\sigma>0$.
+
+\end{proof}
+
+\subsection{La ecuación funcional}
