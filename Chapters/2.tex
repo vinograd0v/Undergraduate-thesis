@@ -1431,7 +1431,7 @@ $$
 Si $f$ es completamente multiplicativa:
 
 $$
-\sum_{n=1}^{\infty} f(n) n^{-s}=\prod_p\left(1-f(p) p^{-s}\right)^{-1} \quad \text { for } \sigma>\sigma_a .
+\sum_{n=1}^{\infty} f(n) n^{-s}=\prod_p\left(1-f(p) p^{-s}\right)^{-1}
 $$
 
 Y cada producto es absolutamente convergente para $\sigma>\sigma_a$
@@ -1624,17 +1624,17 @@ $$f_n(s)=\int_1^{n}\{t\}e^{\displaystyle-(s+1)\log t}dt=\int_1^{n}\sum_{n=0}^{\i
 donde la suma dentro de la integral es la serie de Taylor de $e^x$ que sabemos tiene radio de convergencia infinito. Queremos ver que $f_n$ es una sucesión de funciones analíticas, para lo que basta ver que podemos introducir la integral en la serie de potencias, además queremos ver que $f_n\to f$ uniformemente en cualquier subconjunto compacto de $\sigma>0$. En efecto:
 
 $$\begin{aligned}
-\sum_{n=0}^{\infty}\left|\frac{\{t\}(-\log t)^n(s+1)^n}{n!}\right| & \leq \sum_{n=0}^{\infty} \frac{(|\log t|(|s|+1))^n}{n!} \\
+\sum_{m=0}^{\infty}\left|\frac{\{t\}(-\log t)^m(s+1)^m}{m!}\right| & \leq \sum_{m=0}^{\infty} \frac{(|\log t|(|s|+1))^m}{m!} \\
 & =e^{\displaystyle\left| \log t\right|(|s|+1)}=t^{|s|+1}
 \end{aligned}$$
 
 entonces 
 
-$$\int_1^m \sum_{n=0}^{\infty}\left|\frac{\{t\}(-\log t)^n(s+1)^n}{n!}\right| d t \leq \int_1^m t^{|s|+1} d t<\infty$$
+$$\int_1^n \sum_{m=0}^{\infty}\left|\frac{\{t\}(-\log t)^m(s+1)^m}{m!}\right| d t \leq \int_1^n t^{|s|+1} d t<\infty$$
 
 luego por convergencia absoluta:
 
-$$f_m(s)=\sum_{n=0}^{\infty} \frac{(s+1)^n}{n!} \int_1^m\{t\}(-\log t)^n d t.$$
+$$f_n(s)=\sum_{m=0}^{\infty} \frac{(s+1)^m}{m!} \int_1^n\{t\}(-\log t)^m d t.$$
 
 Sea $s\in \C$ con $\sigma\geq\delta>0$. Dado $\epsilon>0$, sea $N=(\delta\epsilon)^{-\frac{1}{\delta}}$, entonces para todo $n>N$:
 
@@ -1649,3 +1649,5 @@ como $N$ no depende de $s$, $f_n$ converge uniformemente a $f$ en el semiplano $
 \end{proof}
 
 \subsection{La ecuación funcional}
+
+Esta parte es opcional, no es necesaria para  la prueba del TNP, no estoy seguro de ponerla.
