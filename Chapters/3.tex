@@ -4,3 +4,113 @@
 \vspace{-0.7cm}
 
 \cleanchapterquote{...Dirichlet creó una parte nueva en las matemáticas, la aplicación de las series infinitas que Fourier ha introducido en la teoría del calor en la exploración de las propiedades de los números primos. Él ha descubierto una variedad de teoremas que ... son los pilares de las nuevas teorías}{C. G. J. Jacobi}{}
+
+El teorema de Dirichlet afirma que dados $a,n,k \in \N$ tal que $(a,n)=1$, hay infinitos primos de la forma $ak+n$. El primer resultado sobre la infinitud de los números primos se remonta a Euclides. Supongamos que hay una cantidad  finita de primos, podemos contarlos... $p_1,p_2,\ldots,p_n$, note que $p_1p_2\ldots p_n+1$ es primo ya que si $p_i\mid p_1p_2\ldots p_n+ 1$ para algún $1\leq i\leq n$, entonces:
+
+$$1=p_i(K-(p_1\ldots p_{i-1}p_{i+1}\ldots p_n)),$$
+
+luego $p_i\mid 1$, una contradicción, es decir, siempre podemos construir un primo $p_{n+1}$ con los $n$ primos anteriores, entonces son infinitos.\\
+
+Intentemos replicar este argumento para probar que hay infinitos primos de la forma $4k+1$, supongamos que hay finitos primos de la forma $4k+1$, $p_1,p_2,\ldots,p_n$, debemos construir un nuevo primo de  la forma $4k+1$ para que funcione el argumento de Euclides, sin embargo la expresión  $p_1p_2\ldots p_n+1$ no siempre es de la forma $4k+1$, por ejemplo $5\times13+1=66$, que es congruente a 2 módulo 4, de hecho con esta expresión siempre conseguimos pares. Requerimos una expresión nueva, por ejemplo, podríamos hacer $2p_1\ldots p_n+1$, pero también falla, note que $2\times5\times13+1=131$ que es un primo de la forma $4k+3$.\\
+
+\begin{prop}
+
+Sea $n\in \Z$, todo divisor primo impar de $n^2+1$ es de la forma $4k+1$. 
+\end{prop}
+
+\begin{proof}
+Suponga que existe $p=4k+3$ primo tal que $p\mid n^2+1$, entonces $n^2\equiv -1 \pmod{p}$, luego por el pequeño teorema de Fermat:
+
+$$\pmod{p}: 1\equiv n^{ p-1}\equiv (n^{2})^{2k+1}\equiv (-1)^{2k+1}\equiv -1,$$
+
+así $2\equiv 0 \pmod{p}$, esto es $p=2$, contradicción.
+
+\end{proof}
+
+Con el teorema anterior sabemos que la expresión que buscamos es $N=(2p_1\ldots p_n)^2+1$ ya que de esta forma obtenemos un número cuyos divisores primos son de la forma $4k+1$, basta ver que ningún $p_i$ con $1\leq i\leq n$ divide a $N$.\\
+
+Supongamos que $p_i\mid N$, luego $p_i(K-4p_1^2\ldots p_i\ldots p_n^2)=1$ una contradicción, entonces $N$ es un primo de la forma $4k+1$. Continuar replicando este argumento es inviable cuando trabajamos con primos módulo un entero $n$ arbitrario, además no nos sirve para atacar el panorama general, la prueba de este teorema llegaría de una idea totalmente distinta...
+
+
+\begin{theorem}[Euler]
+La serie $\displaystyle\sum_p \dfrac{1}{p}$ diverge
+\end{theorem}
+
+\begin{proof}
+Por el producto de Euler:
+    $$
+\log (\zeta(s))=\sum_p^{\infty}\left(\displaystyle\sum_{k=1}^{\infty} \dfrac{1}{k(p)^{k s}}\right)=\sum_p
+\dfrac{1}{p^s}+\sum_{p}\left(\sum_{k=2}^{\infty}\dfrac{1}{kp^{ks}}\right),$$
+
+note que si hacemos $\lim_{s\to 1^{+}} \log(\zeta(s))$, entonces usando que la armónica diverge, tenemos que:
+
+$$
+\infty=\sum_p
+\dfrac{1}{p}+\sum_{p}\left(\sum_{k=2}^{\infty}\dfrac{1}{kp^{k}}\right)$$
+
+y luego como
+
+\begin{align*}
+    \sum_{p}\left(\sum_{k=2}^{\infty}\dfrac{1}{kp^{k}}\right)&\leq \sum_{p}\left(\sum_{k=2}^{\infty}\dfrac{1}{p^{k}}\right)\\
+    &\leq\sum_{p}\dfrac{1}{p^2}\left(\dfrac{p}{p-1}\right)\\
+    &\leq \sum_{p}\dfrac{1}{p(p-1)}\leq \sum_{n=1}^{\infty}\dfrac{1}{n^2-n}.
+\end{align*}
+
+Por criterio de comparación del límite la última serie converge ya que $\lim_{n\to \infty}\dfrac{n^2}{n^2-n}=1$, y sabemos que la serie $\displaystyle\sum_{n=1}^{\infty}\dfrac{1}{n^2}=\dfrac{\pi^2}{6}$, entonces:
+
+$$
+\infty=\sum_p
+\dfrac{1}{p}+ K,$$
+
+con $K \in \mathbb{R}$ ya que vimos que la serie converge, lo cual nos dice que la suma de los recíprocos de los primos diverge, y por lo tanto podemos decir que los primos son infinitos. 
+\end{proof}
+
+La idea de Dirichlet es replicar este argumento de Euler para probar que hay infinitos primos de la forma $4k+1$, para ello define la siguiente serie:
+
+$$
+L(s, \chi)=\sum_{n=1}^{\infty} \frac{\chi(n)}{n^s},
+$$
+
+donde, $\chi(n)$ es la función indicadora de la progresión:
+
+$$
+\chi(a)= \begin{cases}0 & \text { if } a \text { es par } \\ 1 & \text { if } a \equiv 1 \bmod 4 \\ -1 & \text { if } a \equiv 3 \bmod 4\end{cases}
+$$
+
+note que $\chi$ es completamente multiplicativa, entonces:
+
+$$
+L(s, \chi)=\prod_p \frac{1}{1-\chi(p) p^{-s}}.
+$$
+
+Siguiendo los pasos de la prueba anterior obtenemos
+
+\begin{align*}
+    \log L(s, \chi)&=\sum_p \frac{\chi(p)}{p^s}+g_1(s, \chi)\\
+    &=\sum_{p\equiv 1(4)}\frac{1}{p^s}- \sum_{p\equiv 3(4)}\frac{1}{p^s}+g_1(s,\chi)
+.\end{align*}
+
+donde $g_1(s,\chi)$ es convergente cuando $s\to 1^{+}$, además:
+
+$$\log \zeta(s)=\sum_p \frac{1}{p^s}+g(s),$$
+
+así:
+
+$$\begin{aligned}
+& \log \zeta(s)+\log L(s, \chi)=2 \sum_{p \equiv 1(4)} \frac{1}{p^s}+\left(\frac{1}{2^s}+g(s)+g_1(s, \chi)\right) \\
+& \log \zeta(s)-\log L(s, \chi)=2 \sum_{p \equiv 3(4)} \frac{1}{p^s}+\left(\frac{1}{2^s}+g(s)-g_1(s, \chi)\right).
+\end{aligned}$$
+
+Tomando $\lim_{s\to 1^{+}}$ como antes podemos probar  que hay infinitos primos de la forma $4k+1$ y $4k+3$ ya que el término restante converge, sin embargo debemos garantizar algo, que $L(1,\chi)$ converge y es distinto de 0. Para esto note  que:
+
+\begin{align*}
+    \sum_{n=1}^{\infty}\dfrac{\chi(n)}{n}=\sum_{n=1}^{\infty}\dfrac{(-1)^n}{2n+1}=\arctan(1)=\dfrac{\pi}{4}
+.\end{align*}
+
+Así concluimos la prueba. Este camino a seguir parece fructifero, pero no es sencillo, tiene dos problemas importantes que resolver y de los cuales nos encargaremos en este capítulo:
+
+\begin{itemize}
+\item[1)] La función $\chi$ no siempre resulta multiplicativa módulo $n$
+\item[2)] Nuestro argumento depende de  probar que $L(1,\chi)\neq 0$
+\end{itemize}
+
