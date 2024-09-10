@@ -42,27 +42,22 @@ Por el producto de Euler:
 \log (\zeta(s))=\sum_p^{\infty}\left(\displaystyle\sum_{k=1}^{\infty} \dfrac{1}{k(p)^{k s}}\right)=\sum_p
 \dfrac{1}{p^s}+\sum_{p}\left(\sum_{k=2}^{\infty}\dfrac{1}{kp^{ks}}\right),$$
 
-note que si hacemos $\lim_{s\to 1^{+}} \log(\zeta(s))$, entonces usando que la armónica diverge, tenemos que:
-
-$$
-\infty=\sum_p
-\dfrac{1}{p}+\sum_{p}\left(\sum_{k=2}^{\infty}\dfrac{1}{kp^{k}}\right)$$
-
-y luego como
+note que:
 
 \begin{align*}
-    \sum_{p}\left(\sum_{k=2}^{\infty}\dfrac{1}{kp^{k}}\right)&\leq \sum_{p}\left(\sum_{k=2}^{\infty}\dfrac{1}{p^{k}}\right)\\
-    &\leq\sum_{p}\dfrac{1}{p^2}\left(\dfrac{p}{p-1}\right)\\
-    &\leq \sum_{p}\dfrac{1}{p(p-1)}\leq \sum_{n=1}^{\infty}\dfrac{1}{n^2-n}.
+    \sum_{p}\left(\sum_{k=2}^{\infty}\dfrac{1}{kp^{ks}}\right)&\leq \sum_{p}\left(\sum_{k=2}^{\infty}\dfrac{1}{p^{ks}}\right)\\
+    &\leq\sum_{p}\dfrac{1}{p^s}\left(\dfrac{1}{p^s-1}\right)\\
+    &\leq \sum_{p}\dfrac{1}{p^s(p^s-1)}\leq \sum_{n=1}^{\infty}\dfrac{1}{n^s(n^s-1)}.
 \end{align*}
 
-Por criterio de comparación del límite la última serie converge ya que $\lim_{n\to \infty}\dfrac{n^2}{n^2-n}=1$, y sabemos que la serie $\displaystyle\sum_{n=1}^{\infty}\dfrac{1}{n^2}=\dfrac{\pi^2}{6}$, entonces:
+La última serie converge siempre que $\Re(s)>\dfrac{1}{2}$, entonces por la divergencia de la serie armónica, tomando el límite cuando $s\to 1^+$
 
 $$
-\infty=\sum_p
-\dfrac{1}{p}+ K,$$
+\infty=\lim_{s\to 1^+}\log(\zeta(s))=\lim_{s\to 1^+}\sum_p
+\dfrac{1}{p^s}+\sum_{p}\left(\sum_{k=2}^{\infty}\dfrac{1}{kp^{ks}}\right)=\sum_p
+\dfrac{1}{p}+ O(1),$$
 
-con $K \in \mathbb{R}$ ya que vimos que la serie converge, lo cual nos dice que la suma de los recíprocos de los primos diverge, y por lo tanto podemos decir que los primos son infinitos. 
+lo cual nos dice que la suma de los recíprocos de los primos diverge, y por lo tanto podemos decir que los primos son infinitos. 
 \end{proof}
 
 La idea de Dirichlet es replicar este argumento de Euler para probar que hay infinitos primos de la forma $4k+1$, para ello define la siguiente serie:
@@ -71,10 +66,10 @@ $$
 L(s, \chi)=\sum_{n=1}^{\infty} \frac{\chi(n)}{n^s},
 $$
 
-donde, $\chi(n)$ es la función indicadora de la progresión:
+donde, $\chi(n)$ es la función indicadora:
 
 $$
-\chi(a)= \begin{cases}0 & \text { if } a \text { es par } \\ 1 & \text { if } a \equiv 1 \bmod 4 \\ -1 & \text { if } a \equiv 3 \bmod 4\end{cases}
+\chi(a)= \begin{cases}0 & \text { si } a \text { es par } \\ 1 & \text { si } a \equiv 1 \bmod 4 \\ -1 & \text { si } a \equiv 3 \bmod 4\end{cases}
 $$
 
 note que $\chi$ es completamente multiplicativa, entonces:
@@ -86,11 +81,11 @@ $$
 Siguiendo los pasos de la prueba anterior obtenemos
 
 \begin{align*}
-    \log L(s, \chi)&=\sum_p \frac{\chi(p)}{p^s}+g_1(s, \chi)\\
+    \log L(s, \chi)&=\sum_p \frac{\chi(p)}{p^s}+\sum_p\sum_{k=2}^{\infty}\dfrac{\chi(k)}{kp^{ks}}\\
     &=\sum_{p\equiv 1(4)}\frac{1}{p^s}- \sum_{p\equiv 3(4)}\frac{1}{p^s}+g_1(s,\chi)
 .\end{align*}
 
-donde $g_1(s,\chi)$ es convergente cuando $s\to 1^{+}$, además:
+donde no es difícil ver que $g_1(s,\chi)$ es convergente cuando $s\to 1^{+}$ ya que la serie de Dirichlet de $|\chi(n)|$ es menor o igual que $\zeta(s)$, además:
 
 $$\log \zeta(s)=\sum_p \frac{1}{p^s}+g(s),$$
 
@@ -101,7 +96,7 @@ $$\begin{aligned}
 & \log \zeta(s)-\log L(s, \chi)=2 \sum_{p \equiv 3(4)} \frac{1}{p^s}+\left(\frac{1}{2^s}+g(s)-g_1(s, \chi)\right).
 \end{aligned}$$
 
-Tomando $\lim_{s\to 1^{+}}$ como antes podemos probar  que hay infinitos primos de la forma $4k+1$ y $4k+3$ ya que el término restante converge, sin embargo debemos garantizar algo, que $L(1,\chi)$ converge y es distinto de 0. Para esto note  que:
+Tomando $\lim_{s\to 1^{+}}$ como antes se verifica que hay infinitos primos de la forma $4k+1$ y $4k+3$ ya que el término restante converge, sin embargo debemos garantizar algo, que $L(1,\chi)$ converge y es distinto de 0. Para esto note  que:
 
 \begin{align*}
     \sum_{n=1}^{\infty}\dfrac{\chi(n)}{n}=\sum_{n=1}^{\infty}\dfrac{(-1)^n}{2n+1}=\arctan(1)=\dfrac{\pi}{4}
@@ -110,8 +105,8 @@ Tomando $\lim_{s\to 1^{+}}$ como antes podemos probar  que hay infinitos primos 
 Así concluimos la prueba. Este camino a seguir parece fructifero, pero no es sencillo, tiene dos problemas importantes que resolver y de los cuales nos encargaremos en este capítulo:
 
 \begin{itemize}
-\item[1)] La función $\chi$ no siempre resulta multiplicativa módulo $n$
-\item[2)] Nuestro argumento depende de  probar que $L(1,\chi)\neq 0$
+\item[1)] La función $\chi$ no siempre resulta completamente multiplicativa módulo $n$
+\item[2)] Nuestro argumento depende de  probar que $L(1,\chi)\neq 0$.
 \end{itemize}
 
-
+Entonces para dar una prueba del teorema en un panorama general debemos  solucionar estos inconvenientes, para el primero de estos probaremos que las funciones $\chi$ llamadas carácteres de Dirichlet satisfacen condiciones de ortogonalidad y dualidad, lo que nos permitirá hacer ¡Análisis de Fourier!.

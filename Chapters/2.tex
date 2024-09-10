@@ -607,7 +607,9 @@ Una \textbf{fórmula asintótica} para $f(x)$ es una expresión de la forma $f(x
 
 $$f(x)=o(g(x)): \quad \displaystyle \lim_{x \to \infty} \frac{f(x)}{g(x)}=0$$
 
-Eso intuitivamente nos dice que $f(x)$ ``crece más lento'' que $g(x)$, pero esto no nos da tanta información acerca de $f$ con O grande. 
+Eso intuitivamente nos dice que $f(x)$ ``crece más lento'' que $g(x)$, pero esto no nos da tanta información acerca de $f$ con O grande, ya que no sabemos la ``velocidad'' con la que este cociente tiende a 0.\\
+
+Las estimaciones con O también son más fáciles de trabajar y manipular que las estimaciones con o. Por ejemplo, las O se pueden ``sacar'' de integrales o sumas, siempre que las funciones involucradas sean no negativas, mientras que tales manipulaciones generalmente no se permiten con las o.\\
 
 \subsection{La integral de Riemann-Stieltjes}
 
@@ -751,7 +753,7 @@ Basta ver que 1-$\displaystyle\int_1^{\infty}\frac{\{x\}}{x^2}dx=\gamma$ ya que 
 
 $$
 \begin{aligned}
-r & =\lim _{n \rightarrow \infty}\left(\sum_{k=1}^n \frac{1}{k}-\log n\right) \\
+\gamma & =\lim _{n \rightarrow \infty}\left(\sum_{k=1}^n \frac{1}{k}-\log n\right) \\
 & =\lim _{n \rightarrow \infty}\left(1+\sum_{1<k \leq n} \frac{1}{k}-\log n\right) \\
 & =1+\lim _{n \rightarrow \infty}\left(\int_1^n \frac{1}{x} d[x]-\int_1^n \frac{1}{x} d x\right) \\
 & =1+\lim _{n \rightarrow \infty}\left(\int_1^n \frac{[x]}{x^2} d x-\int_1^n \frac{1}{x} d x\right)\\
@@ -1613,7 +1615,7 @@ La representación integral de $\zeta(s)$ nos da una extensión analítica al se
 \end{theorem}
 
 \begin{proof}
-Note que $s\to \dfrac{s}{s-1}=1+\dfrac{1}{s-1}$ es analítica en el semiplano $\sigma>0$ excepto por un polo simple en $s=1$ con residuo 1. Basta ver que la función:
+Note que $\dfrac{s}{s-1}=1+\dfrac{1}{s-1}$ es analítica en el semiplano $\sigma>0$ excepto por un polo simple en $s=1$ con residuo 1. Basta ver que la función:
 
 $$f(s)=\int_1^{\infty}\frac{\{t\}}{t^{s+1}}dt$$
 
