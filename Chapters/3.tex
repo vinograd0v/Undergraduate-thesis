@@ -40,7 +40,7 @@ La serie $\displaystyle\sum_p \dfrac{1}{p}$ diverge
 Por el producto de Euler:
     $$
 \log (\zeta(s))=\sum_p^{\infty}\left(\displaystyle\sum_{k=1}^{\infty} \dfrac{1}{k(p)^{k s}}\right)=\sum_p
-\dfrac{1}{p^s}+\sum_{p}\left(\sum_{k=2}^{\infty}\dfrac{1}{kp^{ks}}\right),$$
+\dfrac{1}{p^s}+\sum_{p}\left(\sum_{k=2}^{\infty}\dfrac{1}{kp^{ks}}\right), \quad \Re(s)>1$$
 
 note que:
 
@@ -102,11 +102,140 @@ Tomando $\lim_{s\to 1^{+}}$ como antes se verifica que hay infinitos primos de l
     \sum_{n=1}^{\infty}\dfrac{\chi(n)}{n}=\sum_{n=1}^{\infty}\dfrac{(-1)^n}{2n+1}=\arctan(1)=\dfrac{\pi}{4}
 .\end{align*}
 
-Así concluimos la prueba. Este camino a seguir parece fructifero, pero no es sencillo, tiene dos problemas importantes que resolver y de los cuales nos encargaremos en este capítulo:
+Este camino parece fructífero, intentemos replicar esto en un caso general, sea $f(n)$ la función característica de la progresión aritmética, es decir
+
+$$
+f(n)=\left\{\begin{array}{lll}
+1, & n \equiv a & \pmod{m} \\
+0, & n \not \equiv a & \pmod{m}
+\end{array}\right.
+$$
+
+en el caso de que $f(n)$ sea completamente multiplicativa tendríamos un producto de Euler
+
+$$
+\sum_{n=1}^{\infty} \frac{f(n)}{n^s}=\prod_p\left(1-\frac{f(p)}{p^s}\right)^{-1}, \quad \Re(s)>1
+$$
+
+y así por argumentos análogos a los de Euler se tendría que
+
+$$\log \left(\sum_{n=1}^{\infty} \frac{f(n)}{n^s}\right)=\sum_{p \equiv a(m)} \frac{1}{p^s}+O(1)$$
+
+Lamentablemente, $f(n)$ generalmente no es multiplicativa, dicho esto, tenemos dos problemas importantes para obtener una prueba por este camino y que debemos resolver.
 
 \begin{itemize}
-\item[1)] La función $\chi$ no siempre resulta completamente multiplicativa módulo $n$
-\item[2)] Nuestro argumento depende de  probar que $L(1,\chi)\neq 0$.
+\item[1)] La función $f$ como característica de la progresión no siempre resulta completamente multiplicativa módulo $n$
+\item[2)] Nuestro argumento depende de  probar que la serie de Dirichlet asociada a $f$ no se anula en $s=1$.
 \end{itemize}
 
-Entonces para dar una prueba del teorema en un panorama general debemos  solucionar estos inconvenientes, para el primero de estos probaremos que las funciones $\chi$ llamadas carácteres de Dirichlet satisfacen condiciones de ortogonalidad y dualidad, lo que nos permitirá hacer ¡Análisis de Fourier!.
+Para el primero de estos inconvenientes estudiaremos los caracteres de un grupo y en particular los caracteres de Dirichlet, estos veremos que poseen propiedades de ortogonalidad, lo que nos permitirá hacer ¡Análisis de Fourier! y representar a la función $f$ característica de la progresión en su serie de Fourier como una combinación lineal finita de funciones multiplicativas (los caracteres de $G$), con esto en mente veamos primero unos preliminares sobre caracteres que necesitaremos en la prueba.
+
+\section{Carácteres de Dirichlet}
+
+Primero vamos a presentar definición formal de la idea de carácter.\\
+
+\begin{definition}
+Sea $G$ un grupo, $\chi$ es un carácter de $G$ si $\chi: G\to \C^{x}$ y satisface que para todo $a,b\in G$, $\chi(ab)=\chi(a)\chi(b)$, es decir, un homomorfismo de $G$ en $\C^{x}$.
+\end{definition}
+
+ El homomorfismo trivial que mapea a todo $g\in G$ al 1 lo llamaremos ``carácter trivial'' denotado $\chi_0$.\\
+
+ \begin{definition}
+ Dado un grupo $G$, definimos el conjunto de todos los caracteres de $G$, denotado como $\widehat{G}$. También definimos la multiplicación en $\widehat{G}$ como:
+
+$$\chi_1\chi_2(g)=\chi_1(g)\chi_2(g) \quad \text{para todo } \chi_1,\chi_2\in \widehat{G} \quad \text{y } g\in G$$
+
+ \end{definition}
+
+ Recordemos que para todo $x \in \mathbb{R}, e^{ix}=\cos x+i \sin x$ y decimos $e(x)$ para denotar $e^{2 \pi i x}$. Por ejemplo, $e(1 / n)$ es una raíz $n$-ésima de la unidad. Una caracterización de los caracteres de un grupo cíclico finito es la siguiente.
+
+\begin{theorem}
+Sea $G$ un grupo cíclico de orden $n$ generado por $g$, $G=\langle g\rangle$, entonces hay exactamente $n$ caracteres $\chi_0,\ldots,\chi_{n-1}$ de $G$, dados por $\chi_m(g^k)=e\left((mk)/n\right)$ para todo $0\leq m\leq n-1$ y $k\in \Z$, esto es 
+$$\chi_0(g^k)=1, \chi_1(g^k)=e(k/n),\chi_2(g^k)=e(2k/n),\ldots,\chi_{n-1}(g^k)=e((n-1)k/n)$$
+\end{theorem}
+
+\begin{proof}
+Sea $\chi$ un carácter de $G$, tenemos que $\chi(g)^n=\chi(g^n)=\chi(1)=1$, esto es que $\chi(g)$ es una raíz $n-$ésima de la unidad, luego $\chi(g)=e(m/n)$ para algún $0\leq m\leq n-1$, dado  que $G$ es cíclico y generado por $g$, entonces $\chi$ está totalmente determinado por $\chi(g)$ y $\chi(g)^k=\chi(g^k)=e((km)/n)$ para todo $k\in \Z$, esto es $\chi=\chi_m$, Así si $\chi$ es un carácter de $G$, $\chi$ debe ser uno de los $\chi_0,\ldots,\chi_{n-1}$.Ahora veamos que $\chi_0,\ldots,\chi_{n-1}$ están bien definidos y son caracteres distintos de $G$.\\
+
+En efecto si $g^{k_1}=g^{k_2}$ entonces $k_1\equiv k_2\pmod{n}$, luego $\chi_m(g^{k_1})=e\left((mk_1)/n\right)=e\left((mk_2)/n\right)=\chi_m(g^{k_2})$ para todo $0\leq m\leq n-1$, por tanto $\chi_0,\ldots,\chi_{n-1}$ están bien definidos en $G$. Dados $0\leq m_1,m_2\leq n-1$ con $m_1\neq m_2$, entonces:
+
+$$\displaystyle\chi_{m_1}(g)=e\left(\frac{m_1}{n}\right)\neq e\left(\frac{m_2}{n}\right)=\chi_{m_2}(g),$$
+
+como $\chi_{m_1}$ y $\chi_{m_2}$ están totalmente determinados por $\chi_{m_1}(g)$ y $\chi_{m_2}(g)$, entonces $\chi_0,\ldots\chi_{n-1}$ son todos distintos.\\
+
+Finalmente debemos ver que dado $\chi_m$ con $0\leq m\leq n-1$, $\chi_m$ es homomorfismo de $G$ en $\C^{x}$, en efecto dados $a,b\in G$, $a=g^{k_1}$ y $b=g^{k_2}$. Note que:
+
+\begin{align*}
+\chi_m(ab)&=\chi_m(g^{k_1}g^{k_2})\\
+&=\chi_m(g^{k_1+g_2})\\
+&=e\left(\frac{m(k_1+k_2)}{n}\right)\\
+&=e\left(\frac{mk_1}{n}\right)e\left(\frac{mk_2}{n}\right)\\
+&=\chi_m(a)\chi_m(b)
+.\end{align*}
+
+Esto es, $\chi_m$ es homomorfismo.
+\end{proof}
+
+\begin{theorem}
+Sea $G$ un grupo, el  conjunto $\widehat{G}$ es un grupo abeliano bajo la multiplicación.
+\end{theorem}
+
+\begin{proof}
+El carácter principal $\chi_0$ de $G$ es la identidad de $\widehat{G}$ ya que dado $a\in g$ $\chi_m\chi_0(a)=\chi_m(a)\chi_0(a)=\chi_m(a)$ con $0\leq m\leq n-1$, además note que la función $\chi^{-1}=1/\chi(g)$ es también un carácter y por lo tanto tenemos inversos en $\widehat{G}$, Además $\widehat{G}$ es cerrado bajo la multiplicación, note que:
+
+\begin{align*}
+     \chi_{m_1}\chi_{m_2}(ab)&=\chi_{m_1}(ab)\chi_{m_2}(ab)\\
+     &=\chi_{m_1}(a)\chi_{m_1}(b)\chi_{m_2}(a)\chi_{m_2}(b)\\
+     &=\chi_{m_1}\chi_{m_2}(a)\chi_{m_1}\chi_{m_2}(b)
+      .\end{align*}
+
+    La conmutatividad y asociatividad se siguen de manera análoga usando la conmutatividad y asociatividad de $\C^{x}$.\\
+\end{proof}
+
+
+\begin{note}
+Por el teorema anterior, dado que $\widehat{G}$ es grupo, lo llamaremos grupo dual de $G$.\\
+
+La inversa de $\chi$ en la prueba del anterior, denotada  como $\chi^{-1}$ en algunos casos se escribe también como $\overline{\chi}$, la razón de esto es que si $G$ es un grupo abeliano finito entonces $|\chi(g)|=1$, así $\chi^{-1}(g)=1/\chi(g)=\overline{\chi(g)}$ por propiedad de la norma en los complejos. Así la función $\overline{\chi}$ definida como $\overline{\chi}(g)=\overline{\chi(g)}$ y la función $\chi^{-1}$ son iguales. \cite{pongsriiam2023analytic}
+\end{note}
+
+\begin{theorem}
+Sea $G=\left\langle g\right\rangle$ un grupo cíclico de orden $n$, entonces:
+
+\begin{itemize}
+\item[(i)] Dado un carácter $\chi$ de $G$:
+
+$$
+\sum_{g \in G} \chi(g)= \begin{cases}n, & \text { if } \chi=\chi_0 \\ 0, & \text { e.o.c }\end{cases}
+$$
+
+\item[(ii)] Dado $a \in G$:
+
+$$
+\sum_{\chi \in \widehat{G}} \chi(a)= \begin{cases}n, & \text { if } a=1 \\ 0, & \text { e.o.c }\end{cases}
+$$
+
+\item[(iii)] $\widehat{G}$ es un grupo cíclico generado por $\chi_1$.
+\end{itemize}
+
+\end{theorem}
+
+
+\begin{proof}
+(i) Note que dado un carácter $\chi$ no trivial de $G$, existe un $0\leq m\leq n-1$ tal que $\chi=\chi_m$. Si $m\neq 0$
+
+$$\sum_{g \in G} \chi(g)=\sum_{k=0}^{n-1} \chi_m\left(g_0^k\right)=\sum_{k=0}^{n-1} e\left(\frac{m k}{n}\right)=\sum_{k=0}^{n-1}\left(e\left(\frac{m}{n}\right)\right)^k=\dfrac{1-e(m)}{1-e\left(\dfrac{m}{n}\right)},$$
+
+y $1-e(m)=1-cos(2\pi m)=0$ para todo $m=1,\ldots,n-1$, si $m=0$ entonces:
+
+$$\sum_{k=0}^{n-1} \chi_m\left(g_0^k\right)=\sum_{k=0}^{n-1} 1=n.$$
+
+(ii) Sea $a\in G$, $a=g^{k}$ para algún $k=0,1,\ldots,n-1$, en efecto:
+
+$$\sum_{\chi \in \widehat{G}} \chi(a)=\sum_{m=0}^{n-1} \chi_m(a)=\sum_{m=0}^{n-1} \chi_m\left(g^k\right)=\sum_{m=0}^{n-1} e\left(\frac{m k}{n}\right),$$
+
+análogamente se ve que esta suma es $n$ si $k=0$ y es 0 si $k\neq 0$, y el valor $k=0$ corresponde a $g^{0}=1$. Para (iii) note que por el teorema 2.3:
+
+$$\widehat{G}=\left\{\chi_0, \chi_1, \ldots, \chi_{n-1}\right\}=\left\{\chi_1^0, \chi_1, \chi_1^2, \ldots, \chi_1^{n-1}\right\}=\left\langle\chi_1\right\rangle$$
+
+\end{proof}
