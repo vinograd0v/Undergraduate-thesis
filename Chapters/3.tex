@@ -128,7 +128,7 @@ Lamentablemente, $f(n)$ generalmente no es multiplicativa, dicho esto, tenemos d
 \item[2)] Nuestro argumento depende de  probar que la serie de Dirichlet asociada a $f$ no se anula en $s=1$.
 \end{itemize}
 
-Para el primero de estos inconvenientes estudiaremos los caracteres de un grupo y en particular los caracteres de Dirichlet, estos veremos que poseen propiedades de ortogonalidad, lo que nos permitirá hacer ¡Análisis de Fourier! y representar a la función $f$ característica de la progresión en su serie de Fourier como una combinación lineal finita de funciones multiplicativas (los caracteres de $G$), con esto en mente veamos primero unos preliminares sobre caracteres que necesitaremos en la prueba.
+Para el primero de estos inconvenientes estudiaremos los caracteres de un grupo y en particular los caracteres de Dirichlet, estos veremos que poseen propiedades de ortogonalidad, lo que nos permitirá hacer ¡Análisis de Fourier! y representar a la función $f$ característica de la progresión en su serie de Fourier como una combinación lineal finita de funciones multiplicativas (los caracteres), con esto en mente veamos primero unos preliminares sobre caracteres que necesitaremos en la prueba.
 
 \section{Carácteres de Dirichlet}
 
@@ -206,13 +206,13 @@ Sea $G=\left\langle g\right\rangle$ un grupo cíclico de orden $n$, entonces:
 \item[(i)] Dado un carácter $\chi$ de $G$:
 
 $$
-\sum_{g \in G} \chi(g)= \begin{cases}n, & \text { if } \chi=\chi_0 \\ 0, & \text { e.o.c }\end{cases}
+\sum_{g \in G} \chi(g)= \begin{cases}n, & \text { si } \chi=\chi_0 \\ 0, & \text { e.o.c }\end{cases}
 $$
 
 \item[(ii)] Dado $a \in G$:
 
 $$
-\sum_{\chi \in \widehat{G}} \chi(a)= \begin{cases}n, & \text { if } a=1 \\ 0, & \text { e.o.c }\end{cases}
+\sum_{\chi \in \widehat{G}} \chi(a)= \begin{cases}n, & \text { si } a=1 \\ 0, & \text { e.o.c }\end{cases}
 $$
 
 \item[(iii)] $\widehat{G}$ es un grupo cíclico generado por $\chi_1$.
@@ -239,3 +239,5 @@ análogamente se ve que esta suma es $n$ si $k=0$ y es 0 si $k\neq 0$, y el valo
 $$\widehat{G}=\left\{\chi_0, \chi_1, \ldots, \chi_{n-1}\right\}=\left\{\chi_1^0, \chi_1, \chi_1^2, \ldots, \chi_1^{n-1}\right\}=\left\langle\chi_1\right\rangle$$
 
 \end{proof}
+
+$$$$
