@@ -5,85 +5,84 @@
 
 \cleanchapterquote{La matemática posee no solo verdad, sino también belleza suprema; una belleza fría y austera, como aquella de la escultura, sin apelación a ninguna parte de nuestra naturaleza débil, sin los adornos magníficos de la pintura o la música, pero sublime y pura, y capaz de una perfección severa como solo las mejores artes pueden presentar}{Bertrand Russel}{}\\
 
-Alrededor del año 300 a.c Euclides prueba que hay infinitos números primos, establece que si los primos son finitos, entonces el producto $p_1\ldots p_n+1$ no es divisible por ningún primo $p_1,\ldots,p_n$, de esta manera siempre se puede construir un número primo adicional. En el siglo XVIII Euler prueba que hay infinitos primos usando la divergencia de la serie armónica, si asumimos que hay un número finito de números primos, entonces el siguiente producto es finito:
+Alrededor del año 300 a.C. Euclides prueba que hay infinitos números primos, establece que si los primos son finitos, entonces el producto $p_1\ldots p_n+1$ no es divisible por ningún primo $p_1,\ldots,p_n$, de esta manera siempre se puede construir un número primo adicional. En el siglo XVIII Euler prueba que hay infinitos primos usando la divergencia de la serie armónica, si asumimos que hay un número finito de números primos, entonces el siguiente producto es finito:
 
-$$\prod_p \dfrac{1}{1-p^{-1}}$$
+$$\prod_p \dfrac{1}{1-p^{-1}}.$$
 
-Ahora note que el término del producto es a lo que converge una serie geométrica y dado que $|p^{-1}|<1$, entonces:
+Ahora note que el término del producto es a lo que converge una serie geométrica y dado que $|p^{-1}|<1$, entonces
 
 \begin{align*}
     \infty>\prod_p \dfrac{1}{1-p^{-1}}&=\prod_p \left(\sum_{k=0}^{\infty}\dfrac{1}{p^k}\right)=\prod_p \left(1+\dfrac{1}{p}+\dfrac{1}{p^2}+\dfrac{1}{p^3}+\ldots\right)\\
     &=\sum_{n=1}^{\infty}\dfrac{1}{n}\\
     &=\infty
-.\end{align*}
+,\end{align*}
 
-Ya que todo número natural puede escribirse de manera única como producto de potencias de primos, esto nos lleva a una evidente contradicción. Euler consigue este argumento ya que venía de estudiar problemas similares, como la convergencia de la serie:
+ya que todo número natural puede escribirse de manera única como producto de potencias de primos, esto nos lleva a una evidente contradicción. Euler consigue este argumento ya que venía de estudiar problemas similares, como la convergencia de la serie
 
-$$\sum_{n=1}^{\infty}\frac{1}{n^2}=\frac{\pi^2}{6}$$
+$$\sum_{n=1}^{\infty}\frac{1}{n^2}=\frac{\pi^2}{6}.$$
 
-La idea que tuvo Euler para este problema provenía de estudiar la serie de Taylor de la $\sin x$:
+La idea que tuvo Euler para este problema provenía de estudiar la serie de Taylor de la función $\sin x$
 
-$$\sin x=x-\frac{x^3}{3!}+\frac{x^5}{5!}-\frac{x^7}{7!}\pm \ldots$$
+$$\sin x=x-\frac{x^3}{3!}+\frac{x^5}{5!}-\frac{x^7}{7!}\pm \ldots,$$
 
-Así:
+así
 
 $$\frac{\sin x}{x}=1-\frac{x^2}{3!}+\frac{x^4}{5!}-\frac{x^6}{7!}\pm\ldots$$
 
-En este punto es donde hace un salto de fe pensando que el polinomio de Taylor se puede escribir como un producto infinito si lo factorizamos sobre sus raíces, ie. Las  raíces de $\dfrac{\sin x}{x}$, asume que lo que ocurre para polinomios finitos también se tiene para infinitos, obteniendo que:
+En este punto es donde hace un salto de fe, pensando que el polinomio de Taylor se puede escribir como un producto infinito si lo factorizamos sobre sus raíces, ie. Las  raíces de $\dfrac{\sin x}{x}$, asume que lo que ocurre para polinomios finitos también se tiene para polinomios infinitos, obteniendo que
 
 \begin{align*}
     \frac{\sin x}{x}&=1-\frac{x^2}{3!}+\frac{x^4}{5!}-\frac{x^6}{7!}\pm\ldots\\
     &=\left(1+\frac{x}{\pi}\right)\left(1-\frac{x}{\pi}\right)\left(1+\frac{x}{2\pi}\right)\left(1-\frac{x}{2\pi}\right)\left(1+\frac{x}{3\pi}\right)\left(1-\frac{x}{3\pi}\right)\ldots\\
-&=\left(1-\frac{x^2}{\pi^2}\right)\left(1-\frac{x^2}{2^2\pi^2}\right)\left(1-\frac{x^2}{3^2\pi^2}\right)\ldots
+&=\left(1-\frac{x^2}{\pi^2}\right)\left(1-\frac{x^2}{2^2\pi^2}\right)\left(1-\frac{x^2}{3^2\pi^2}\right)\ldots,
 \end{align*}
+luego comparando el coeficiente de $x^2$ en la serie con el de el producto:
 
-Luego comparando el coeficiente de $x^2$ en la serie con el de el producto:
+$$\frac{1}{3!}=\frac{1}{\pi^2}\left(1+\frac{1}{2^2}+\frac{1}{3^2}+\ldots\right).$$
 
-$$\frac{1}{3!}=\frac{1}{\pi^2}\left(1+\frac{1}{2^2}+\frac{1}{3^2}+\ldots\right)$$
+Esta idea que le daría la ``solución'' al problema se formaliza a través del teorema de factorización de Weierstrass. Euler seguiría estudiando este problema por mucho tiempo y lo generalizaría a través de la serie absolutamente convergente
 
-Esta idea que le daría la ``solución'' al problema se formaliza a través del teorema de factorización de Weierstrass. Euler seguiría estudiando este problema por mucho tiempo y lo generalizaría a través de la serie absolutamente convergente:
-
-$$\zeta(s)=\sum_{n=1}^{\infty}\frac{1}{n^s}, \quad s>1$$
+$$\zeta(s)=\sum_{n=1}^{\infty}\frac{1}{n^s}, \quad s>1.$$
 
 Tiempo después encuentra una fórmula para obtener los valores de esta función en los números pares, ie. $\zeta(2s)$ y también obtuvo su desarrollo como producto:
 
-$$\zeta(s)=\prod_{p}\frac{1}{1-p^{-s}}$$
+$$\zeta(s)=\prod_{p}\frac{1}{1-p^{-s}}.$$
 
 Esto le permitió demostrar la divergencia de la serie $\displaystyle \sum_p\frac{1}{p}$, un argumento directo y totalmente analítico de que hay infinitos números primos.\\
 
 Estas ideas llamaron la atención de dos matemáticos muy importantes, Dirichlet y Riemann. Dirichlet usó estas ideas para probar su teorema de progresiones aritmética, Riemann por otro lado estudió íntimamente la función $\zeta(s)$, le asignó a $s$ un número complejo y también la llevó a tener su fama actual al lanzar su conocida conjetura, pero, ¿esto qué tiene que ver con el teorema de los números primos?.\\
 
-Conjeturado de manera independiente por Gauss (1792) y Legendre (1798), el teorema de los números primos nos permite entender el comportamiento asintótico de la función contadora de  primos $\pi(x)$, nos dice  que para números grandes, la cantidad de primos menores que $x$ se puede aproximar por $\dfrac{x}{\log x}$, escrito de manera formal:
+Conjeturado de manera independiente por Gauss (1792) y Legendre (1798), el teorema de los números primos nos permite entender el comportamiento asintótico de la función contadora de  primos $\pi(x)$, nos dice  que para números grandes, la cantidad de primos menores que $x$ se puede aproximar por $\dfrac{x}{\log x}$, escrito de manera formal
 
-$$\lim_{x \to \infty}\dfrac{\pi(x)\log x}{x}=1 \quad \text{o en notación asintótica} \quad \pi(x)\thicksim \dfrac{x}{\log x}$$
+$$\lim_{x \to \infty}\dfrac{\pi(x)\log x}{x}=1 \quad \text{o en notación asintótica} \quad \pi(x)\thicksim \dfrac{x}{\log x}.$$
 
 Una interpretación heurística de este teorema viene de estudiar la densidad de un conjunto de números naturales. Dado $N\subseteq \N$, la \text{densidad natural} de $N$ la definimos como:
 
-$$d=\lim_{n\to \infty}\frac{|\{m\leq n \text{ : }m\in N\}|}{n}, \quad \text{siempre que exista el límite}$$
+$$d=\lim_{n\to \infty}\frac{|\{m\leq n \text{ : }m\in N\}|}{n}, \quad \text{siempre que exista el límite}.$$
 
 Note que estudiar la probabilidad de, por ejemplo, que un entero sea divisible por un primo $p$ será equivalente a calcular la densidad del conjunto de enteros que cumple esta propiedad, veamos esto. Dado $n$, sea  $c$ el número de enteros $m\leq n$ tal que $p\mid m$, sabemos por un simple conteo que:
 
-$$\frac{n}{p}-1\leq c\leq\frac{n}{p}+1$$
+$$\frac{n}{p}-1\leq c\leq\frac{n}{p}+1.$$
 
 Luego, $d=\displaystyle\lim_{n \to \infty}\dfrac{c}{n}=\dfrac{1}{p}$ por el criterio de comparación. Esto nos dice que la probabilidad de que un entero no sea divisible por $p$ es $1-\dfrac{1}{p}$, sabemos además que este evento es excluyente, así... La probabilidad de que un número sea primo viene dada por:
 
-$$\displaystyle\prod_{p<n}\left( 1-\frac{1}{p} \right)$$
+$$\displaystyle\prod_{p<n}\left( 1-\frac{1}{p} \right).$$
 
 Para estimar el crecimiento asintótico de este producto una buena idea sería invertirlo, En efecto:
 
-$$\prod_{p<n} \dfrac{1}{1-p^{-1}}=\prod_{p<n} \left(1+\dfrac{1}{p}+\dfrac{1}{p^2}+\dfrac{1}{p^3}+\ldots\right)=\sum_{k<n}\frac{1}{k}=H(n)$$
+$$\prod_{p<n} \dfrac{1}{1-p^{-1}}=\prod_{p<n} \left(1+\dfrac{1}{p}+\dfrac{1}{p^2}+\dfrac{1}{p^3}+\ldots\right)=\sum_{k<n}\frac{1}{k}=H(n),$$
 
-En el siguiente capítulo veremos justamente que $H(n)\thicksim \log n$, esto nos dice que \text{la probabilidad de que un número sea primo es} $(\log n)^{-1}$, más aún:
+en el siguiente capítulo veremos justamente que $H(n)\thicksim \log n$, esto nos dice que \text{la probabilidad de que un número sea primo es} $(\log n)^{-1}$, más aún:
 
-$$\pi(x)\thicksim \dfrac{x}{\log x}$$
+$$\pi(x)\thicksim \dfrac{x}{\log x}.$$
 
-Pero esto no es una prueba del TNP, entonces ¿cómo se puede demostrar algo así?, el camino a seguir en un principio es sorprendente y viene del estudio de la función de $\zeta(s)$, vista como función de variable compleja absolutamente convergente si $\Re(s)>1$. El primero en mostrar que estudiar esta función daba un camino hacia una prueba del teorema de los números primos fue Riemann en su famoso articulo "Sobre la cantidad de primos menores que una magnitud dada" \cite{riemann1990ueber}. Allí Riemann presentaría muchas ideas, pero no las desarrollaría y fue el trabajo de los matemáticos en los siguientes 50 años llegar a una demostración, trabajo que culminaría en las demostraciones Hadammar y de la Vallée Poussin que aparecen en 1896, la prueba, vendría del hecho de que $\zeta(1+it)\neq 0$, es decir, la función $\zeta$ no se anulaba en la recta vertical de los complejos con parte real 1, algo sencillamente maravilloso.\\
+Pero esto no es una prueba del TNP, entonces ¿cómo se puede demostrar algo así?, el camino a seguir en un principio es sorprendente y viene del estudio de la función de $\zeta(s)$, vista como función de variable compleja absolutamente convergente si $\Re(s)>1$. El primero en mostrar que estudiar esta función daba un camino hacia una prueba del teorema de los números primos fue Riemann en su famoso articulo "Sobre la cantidad de primos menores que una magnitud dada"  \cite{riemann1990ueber}. Allí Riemann presentaría muchas ideas, pero no las desarrollaría y fue el trabajo de los matemáticos en los siguientes 50 años llegar a una demostración, trabajo que culminaría en las demostraciones Hadammar y de la Vallée Poussin que aparecen en 1896, la prueba, vendría del hecho de que $\zeta(1+it)\neq 0$, es decir, la función $\zeta$ no se anula en la recta vertical de los complejos con parte real 1, algo sencillamente maravilloso.\\
 
-Veremos al final de este trabajo la forma en que este teorema se extiende a progresiones aritmética $a+kq$ con $(a,q)=1$:
+Veremos al final de este trabajo la forma en que este teorema se extiende a progresiones aritmética $a+kq$ con $(a,q)=1$, donde
 
-$$\pi(a,q,x)\thicksim \frac{x}{\varphi(q)\log x}$$
+$$\pi(a,q,x)\thicksim \frac{x}{\varphi(q)\log x},$$
 
-Donde $\varphi$ es la función phi de Euler, y como hay $\varphi(q)$ clases generadoras de primos, entonces los primos se distribuyen uniformemente en las clases módulo q. Esta es una versión más fuerte que el TNP original, y será nuestro objetivo conseguirla.\\
+con $\varphi$ denotando la función Phi de Euler, y como hay $\varphi(q)$ clases generadoras de primos, entonces los primos se distribuyen uniformemente en las clases módulo q. Esta es una versión más fuerte que el TNP original, y será nuestro objetivo conseguirla.\\
 
 Sería ideal que el lector de este trabajo esté familiarizado con algunos conceptos del Análisis y del Álgebra, particularmente hago énfasis en un curso de Análisis II y de Variable Compleja, esto hará que la lectura sea  mucho más agradable.
 
@@ -130,6 +129,14 @@ Existe una constante $M>0$ tal que $|f(x)|\leq Mg(x)$ para todo $x$ en un domini
 \item $\pi(x)$: la función contadora  de primos.
 
 \item $li(x)=\displaystyle\int_2^x\frac{dt}{\log t}$: la función logaritmo integral.
+
+\item $\displaystyle\sum_{p\equiv a (n)}$ en este trabajo denota $\displaystyle\sum_{p\equiv a \pmod{n}}$.
+
+\item Sea $f:(a,b) \longrightarrow \mathbb{R}$ una función real, denotamos:
+   \begin{align*}
+       f(c-)&=\lim_{x \rightarrow c^-} f(x), \hspace{0.1cm} c \in (a,b] \notag \\
+       f(c+)&=\lim_{x \rightarrow c^+} f(x), \hspace{0.1cm} c \in [a,b).
+   \end{align*}
 \end{itemize}
 
 \begin{note}

@@ -11,21 +11,21 @@ Para comenzar con este capítulo presentaremos el teorema fundamental de la arit
 \begin{theorem}[TFA]
 Todo entero $n>1$ se puede escribir como producto de primos de manera única salvo el orden de los factores, es decir:
 
-$$n=\prod_{j=1}^{m}p_j^{k_j}$$
+$$n=\prod_{j=1}^{m}p_j^{k_j}.$$
 \end{theorem}
 
 Escribiremos $p^m\mid\mid n$ siempre que si $p^m\mid n$ entonces $p^{m+1}\nmid n$, es decir, $p^m$ es la potencia exacta que divide a $n$, esto nos permite escribir el TFA como:
 
-$$n= \prod_{p^m\mid\mid n}p^m$$
+$$n= \prod_{p^m\mid\mid n}p^m.$$
 
 \section{Funciones aritmética}
 
 \begin{definition}
-Una función aritmética es una función con dominio los naturales y rango $\R$ o $\C$, es decir $a$ es función aritmética si:
+Una función aritmética es una función con dominio los naturales y codominio $\R$ o $\C$, es decir $a$ es función aritmética si
 
-$$f:\N \to \mathbb{F}$$
+$$a:\N \to \mathbb{F},$$
 
-con $\mathbb{F}=\C$ o $\mathbb{F}=\R$
+con $\mathbb{F}=\C$ o $\mathbb{F}=\R$.
 \end{definition}
 
 Esta definición nos muestra que las funciones aritmética no son más que sucesiones de números reales o complejos, en algunos casos será útil considerarlas de esta  manera y de manera análoga a  las sucesiones las denotaremos como $a_n$, donde cada $a_n$ representa $f(n)$. Veamos algunos ejemplos importantes:
@@ -33,7 +33,7 @@ Esta definición nos muestra que las funciones aritmética no son más que suces
 \begin{itemize}
 \item[$\bullet$] \textbf{Función constante k:}
 
-$$k(n)=k, \text{ para todo } n \in \N $$
+$$k(n)=k, \text{ para todo } n \in \N. $$
 
 \item[$\bullet$] \textbf{Función unidad:}
 
@@ -44,11 +44,11 @@ $$e(n)=\begin{cases}
 
 \item[$\bullet$] \textbf{Función número de divisores:} $\tau(n)$, el número de divisores positivos de $n$ (incluyendo 1 y n)
 
-$$\tau(n)=\sum_{j\mid n}1$$
+$$\tau(n)=\sum_{j\mid n}1.$$
 
 \item[$\bullet$] \textbf{Función suma de divisores:} $\sigma(n)$, la suma de los divisores positivos de $n$
 
-$$\sigma(n)=\sum_{j\mid n}j$$
+$$\sigma(n)=\sum_{j\mid n}j.$$
 
 \item[$\bullet$] \textbf{Función de Möbius:} $\mu(n)$, se define como
 
@@ -60,15 +60,15 @@ $$\mu(n)=\begin{cases}
 
 \item[$\bullet$] \textbf{Función phi de Euler:} $\varphi(n)$, el número de enteros positivos $m\leq n$ que son primos relativos a n ($(m,n)=1$)
 
-$$\varphi(n)=\sum_{\substack{m=1 \\(m, n)=1}}^n 1$$
+$$\varphi(n)=\sum_{\substack{m=1 \\(m, n)=1}}^n 1.$$
 
 \item[$\bullet$]\textbf{Función de Von Mangoldt:} $\Lambda(n)$, se define como
 
-$$\Lambda(n)= \begin{cases}\log p & n=p^m \\ 0 & \text { en otro caso }\end{cases}$$
+$$\Lambda(n)= \begin{cases}\log p & n=p^m \\ 0 & \text { en otro caso. }\end{cases}$$
 
 \item[$\bullet$]\textbf{Función identidad:} $N(n)$, la función identidad se define como:
 
-$$N(n)=n$$ 
+$$N(n)=n.$$ 
 
 \end{itemize}
 
@@ -96,41 +96,41 @@ Si una función aditiva o multiplicativa satisface la  propiedad para cualquier 
 \begin{proof}
 Supongamos que $f$ es aditiva y $n>1$, por el TFA:
 
-$$f(n)=f\left(\prod_{p^m\mid\mid n}p^m\right)=\sum_{p^m\mid \mid n} f(p^{m})$$
+$$f(n)=f\left(\prod_{p^m\mid\mid n}p^m\right)=\sum_{p^m\mid \mid n} f(p^{m}).$$
 
 Ahora, si $f$ es multiplicativa:
 
-$$f(n)=f\left(\prod_{p^m\mid\mid n}p^m\right)=\prod_{p^m\mid\mid n}f(p^m) $$
+$$f(n)=f\left(\prod_{p^m\mid\mid n}p^m\right)=\prod_{p^m\mid\mid n}f(p^m).$$
 \end{proof}
 
 Si además la función es completamente multiplicativa:
 
-$$f(n)=f\left(\prod_{i=1}^{m}p_i^{k_i}\right)=\prod_{i=1}^{m} f(p_i)^{k_i} $$
+$$f(n)=f\left(\prod_{i=1}^{m}p_i^{k_i}\right)=\prod_{i=1}^{m} f(p_i)^{k_i},$$
 
-Lo que también ocurre para funciones completamente aditivas, cambiando el producto por una suma.  Una propiedad adicional que será útil para caracterizar estas funciones es que si $f$ es aditiva y no idénticamente nula, entonces para algún $n$, $f(1\cdot  n)=f(1)+f(n)$, así $f(1)=0$, análogamente si $f$ es multiplicativa y no idénticamente nula $f(1\cdot n)=f(1)f(n)$, $f(1)=1$.\\
+lo que también ocurre para funciones completamente aditivas, cambiando el producto por una suma.  Una propiedad adicional que será útil para caracterizar estas funciones es que si $f$ es aditiva y no idénticamente nula, entonces para algún $n$, $f(1\cdot  n)=f(1)+f(n)$, así $f(1)=0$, análogamente si $f$ es multiplicativa y no idénticamente nula $f(1\cdot n)=f(1)f(n)$, $f(1)=1$.\\
 
 Ahora veamos que aunque la función de Von Mangoldt, parece extraña, su definición es natural y nos permite obtener una versión logarítmica del teorema fundamental de la aritmética.
 
 \begin{theorem}
 Dado $n\in \N$, $n>1$ entonces:
 
-$$\log(n)=\sum_{j\mid n}\Lambda(j)$$
+$$\log(n)=\sum_{j\mid n}\Lambda(j).$$
 \end{theorem}
 
 \begin{proof}
 
 Note que si $n>1$, entonces por el TFA:
 
-$$\log(n)=k_1\log(p_1)+\ldots+k_m\log(p_m)$$
+$$\log(n)=k_1\log(p_1)+\ldots+k_m\log(p_m),$$
 
- Los $p_j$ de la igualdad son los primos de su descomposición y $k_j$ sus potencias respectivas. Así, esta igualdad nos dice que en el cálculo de $\log(n)$ solo importan los valores del $\log$ en los divisores primos o potencias de primos, luego:
+ donde los $p_j$ de la igualdad son los primos de su descomposición y $k_j$ sus potencias respectivas. Así, esta igualdad nos dice que en el cálculo de $\log(n)$ solo importan los valores del $\log$ en los divisores primos o potencias de primos, luego:
 
- $$\log(n)=\sum_{j\mid n}\Lambda(j)$$
+ $$\log(n)=\sum_{j\mid n}\Lambda(j).$$
 \end{proof}
 
-Sin embargo, la principal motivación para introducir la función de Von Mangoldt es que sus sumas parciales $\displaystyle\sum_{n \leq x} \Lambda(n)$ son la suma ponderada de las potencias primos $p^m \leq x$, tomando como peso $\log p$, el peso correcto para compensar la densidad de primos. No es difícil demostrar que las potencias $p^m$ con $(m \geq 2)$ contribuyen poco en la suma anterior.\\
+Sin embargo, la principal motivación para introducir la función de Von Mangoldt es que sus sumas parciales $\displaystyle\sum_{n \leq x} \Lambda(n)$ son la suma ponderada de las potencias de primos $p^m \leq x$, tomando como peso $\log p$, el peso correcto para compensar la densidad de primos. No es difícil demostrar que las potencias $p^m$ con $(m \geq 2)$ contribuyen poco en la suma anterior.\\
 
-De hecho, estudiar el comportamiento asintótico de la suma anterior resultará equivalente a estudiar el de la función de contadora de primos $\pi(x)$; de hecho, el TNP es equivalente a la afirmación
+De hecho, estudiar el comportamiento asintótico de la suma anterior resultará equivalente a estudiar el de la función de contadora de primos $\pi(x)$; aún más, el TNP es equivalente a la afirmación
 
 $$
 \lim _{x \rightarrow \infty} \frac{1}{x} \sum_{n \leq x} \Lambda(n)=1 .
@@ -142,25 +142,25 @@ Esta equivalencia nos dará el camino a la prueba del teorema de los números pr
 
 Las funciones $\psi(x)$ y $\vartheta(x)$ de Chevyshev se definen como sigue:
 
-$$\vartheta(x)=\sum_{p\leq x}\log p, \quad \quad \psi(x)=\sum_{n \leq x} \Lambda(n)$$
+$$\vartheta(x)=\sum_{p\leq x}\log p, \quad \quad \psi(x)=\sum_{n \leq x} \Lambda(n).$$
 
 \end{definition}
 
 \subsection{La función de Möbius}
 
-Es natural preguntarse por la definición de la función de Möbius, ya que de todas parece ser la más extraña, uno se preguntaría si hay una forma de motivarla... En efecto:\\
+Es natural preguntarse por la definición de la función de Möbius, ya que de todas parece ser la más extraña, uno se preguntaría si hay una forma de motivarla... \\
 
 Consideremos la función: 
 
-$$L(x)=\sum_{n\leq x}\log(n)$$
+$$L(x)=\sum_{n\leq x}\log(n).$$
 
-Note que aplicando el teorema anterior:
+Note que aplicando el teorema anterior
 
 \begin{equation}
-L(x)=\sum_{n\leq x}\log(n)=\sum_{n\leq x}\sum_{j\mid n}\Lambda(j)
+L(x)=\sum_{n\leq x}\log(n)=\sum_{n\leq x}\sum_{j\mid n}\Lambda(j).
 \end{equation}
 
-Ahora vamos a aplicar una técnica muy útil y frecuente en teoría de números, el cambio de orden de sumación, para esto vamos a cambiar $n$ y $d$ de orden en la doble suma (1.1) y conservaremos la condición $j\mid n$.
+Vamos a aplicar una técnica muy útil y frecuente en teoría de números, el cambio de orden de sumación, para esto vamos a cambiar $n$ y $j$ de orden en la doble suma (1.1) y conservaremos la condición $j\mid n$.
 
 \begin{align*}
     L(x)&=\sum_{n\leq x}\log(n)=\sum_{n\leq x}\sum_{j\mid n}\Lambda(j)\\
@@ -168,85 +168,84 @@ Ahora vamos a aplicar una técnica muy útil y frecuente en teoría de números,
 j \mid n}} \Lambda(j)\\
 &=\sum_{j \leq x} \Lambda(j) \sum_{\substack{n \leq x \\
 j \mid n}} 1
-.\end{align*}
+,\end{align*}
 
-Ahora, ¿cuántos enteros positivos $n\leq x$ hay tal que $j\mid n$?, pues exactamente $\dfrac{x}{j}$, así:
+ahora, ¿cuántos enteros positivos $n\leq x$ hay tal que $j\mid n$?, pues exactamente $\dfrac{x}{j}$, así
 
 \begin{align*}
-    L(x)&=\sum_{j\leq x}\Lambda(j)\sum_{m\leq \frac{x}{j}}1\\
+    L(x)&=\sum_{j\leq x}\Lambda(j)\sum_{m\leq \frac{x}{j}}1,\\
 \end{align*}
-
-Y cambiando nuevamente el orden de sumación:
+y cambiando nuevamente el orden de sumación
 
 \begin{align*}
     L(x)&=\sum_{m\leq x}\sum_{j\leq \frac{x}{m}}\Lambda(j)\\
-    &=\sum_{m\leq x}\psi\left(\frac{x}{m}\right)
+    &=\sum_{m\leq x}\psi\left(\frac{x}{m}\right).
 \end{align*}
 
 Esta identidad la abordaremos más adelante, pero de momento sabemos que podemos escribir a $L(x)$ en términos de $\psi(x)$, ¿y si queremos lo opuesto?, ie. a $\psi(x)$ en términos de  $L(x)$, ¿podemos \textbf{invertir} el papel de las funciones?. Vamos a abordar esta pregunta poniéndola en un contexto más general.\\
 
 Siguiendo a \cite{levinson1969motivated}, supongamos $F(x)$ y $G(x)$ funciones aritmética con $G(x)=\displaystyle\sum_{n\leq x}F\left(\dfrac{x}{n}\right)$, tenemos que:
 
-$$G \left( \frac{x}{2} \right)=F \left( \dfrac{x}{2} \right)+F \left( \frac{x}{4} \right)+F \left( \frac{x}{6} \right)+\ldots$$
+$$G \left( \frac{x}{2} \right)=F \left( \dfrac{x}{2} \right)+F \left( \frac{x}{4} \right)+F \left( \frac{x}{6} \right)+\ldots,$$
 
-Así:
+así:
 
-$$G(x)-G \left( \frac{x}{2} \right)=F(x)+F \left( \dfrac{x}{3} \right)+F \left( \dfrac{x}{5} \right)+\ldots$$
+$$G(x)-G \left( \frac{x}{2} \right)=F(x)+F \left( \dfrac{x}{3} \right)+F \left( \dfrac{x}{5} \right)+\ldots,$$
 
-Podemos pensar que continuar restando los términos $G \left( \dfrac{x}{j} \right)$ nos permitirá obtener la inversión, sin embargo el término $G \left( \dfrac{x}{3} \right)$ contiene a $F \left( \dfrac{x}{6} \right)$, por tanto:
+podemos pensar que continuar restando los términos $G \left( \dfrac{x}{j} \right)$ nos permitirá obtener la inversión, sin embargo el término $G \left( \dfrac{x}{3} \right)$ contiene a $F \left( \dfrac{x}{6} \right)$, por tanto
 
 $$
-G(x)-G\left(\frac{x}{2}\right)-G\left(\frac{x}{3}\right)=F(x)+F\left(\frac{x}{5}\right)-F\left(\frac{x}{6}\right)+F\left(\frac{x}{7}\right)+\ldots
+G(x)-G\left(\frac{x}{2}\right)-G\left(\frac{x}{3}\right)=F(x)+F\left(\frac{x}{5}\right)-F\left(\frac{x}{6}\right)+F\left(\frac{x}{7}\right)+\ldots,
 $$
-Así, en los siguientes pasos debemos eliminar $-F\left(\dfrac{x}{6}\right)$. Esto se lograría sumando $G\left(\dfrac{\mathrm{x}}{6}\right)$ y no restándolo. La suma anterior nos muestra además que no necesitamos restar 
+así, en los siguientes pasos debemos eliminar $-F\left(\dfrac{x}{6}\right)$. Esto se lograría sumando $G\left(\dfrac{\mathrm{x}}{6}\right)$ y no restándolo. La suma anterior nos muestra además que no necesitamos restar 
 
 $G\left(\dfrac{x}{4}\right)$ pues $F\left(\dfrac{x}{4}\right)$ ya desapareció al restar $G\left(\dfrac{x}{2}\right)$.\\
 
 
-Así, podemos intuir que necesitamos multiplicar $G(\frac{x}{j})$ en cada sumando, por una función que nos de el signo adecuado (sume y reste, según se necesite) o anule el término, como ocurre en el caso de $G\left(\frac{x}{4}\right)$. Denotemos esta función que estamos buscando como $\mu(x)$. Si suponemos que existe dicha función, entonces:
+Así, podemos intuir que necesitamos multiplicar $G(\frac{x}{j})$ en cada sumando, por una función que nos de el signo adecuado (sume y reste, según se necesite) o anule el término, como ocurre en el caso de $G\left(\frac{x}{4}\right)$. Denotemos esta función que estamos buscando como $\mu(x)$. Si suponemos que existe dicha función, entonces
 
 \begin{equation}
-F(x)=\sum_{j \leqslant x} \mu(j) G\left(\frac{x}{j}\right)
+F(x)=\sum_{j \leqslant x} \mu(j) G\left(\frac{x}{j}\right).
 \end{equation}
 
-Además de ello, ya tenemos algunos valores de $\mu$, $\mu(1)=1$, $\mu(2)=\mu(3)=-1, \mu(4)=0$ y $\mu(6)=1$. Podemos de momento darnos cuenta que estos valores parecen coincidir con los que obtendríamos al evaluar la función de Möbius, lo cual no es ninguna coincidencia, sin embargo aún no podemos afirmar que son en esencia la misma función. Note que por la definición de $G$:
+Además, ya tenemos algunos valores de $\mu$, $\mu(1)=1$, $\mu(2)=\mu(3)=-1, \mu(4)=0$ y $\mu(6)=1$. Podemos de momento darnos cuenta que estos valores parecen coincidir con los que obtendríamos al evaluar la función de Möbius, lo cual no es ninguna coincidencia, sin embargo aún no podemos afirmar que son en esencia la misma función. Note que por la definición de $G$
 
 \begin{equation}
-G\left(\frac{\mathrm{x}}{\mathrm{j}}\right)=\sum_{k\leq \frac{x}{j}} F\left(\frac{x}{j \mathrm{k}}\right)
+G\left(\frac{\mathrm{x}}{\mathrm{j}}\right)=\sum_{k\leq \frac{x}{j}} F\left(\frac{x}{j \mathrm{k}}\right),
 \end{equation}
 
-Por tanto al reemplazar (1.3) en (1.2), obtenemos:
+por tanto al reemplazar (1.3) en (1.2), obtenemos:
 
 \begin{align*}
     F(x)&=\sum_{j \leqslant x} \mu(j)\sum_{jk\leq x} F\left(\frac{x}{j \mathrm{k}}\right)=\sum_{jk\leq x}\mu(j)F \left( \frac{x}{jk} \right)\\
     &=\sum_{n\leq x}F \left( \frac{x}{n} \right)\sum_{jk=n}\mu(j)
 .\end{align*}
 
-Finalmente:
+Finalmente
 
 \begin{equation}
-F(x)=F(x)+\sum_{1<n\leq x}F \left( \frac{x}{n} \right)\sum_{jk=n}\mu(j)
+F(x)=F(x)+\sum_{1<n\leq x}F \left( \frac{x}{n} \right)\sum_{jk=n}\mu(j).
 \end{equation}
 
 Para obtener la inversión necesitamos que la doble suma en (1.4) se anule, y dado que no tenemos condiciones sobre $F$, la función $\mu$ debe cumplir que si $n \neq 1$
 
-$$\sum_{j\mid n}\mu(j)=0$$
+$$\sum_{jk= n}\mu(j)=0$$
 
 En efecto, \textit{la función que cumple esta propiedad es... la función de Möbius}.
 
 \begin{theorem}
-Sea $n \geqslant 1$, entonces:
+Sea $n \geqslant 1$, entonces
 
-$$\sum_{\mathrm{d} \mid \mathfrak{n}} \mu(\mathrm{d})=e(n)$$
+$$\sum_{\mathrm{d} \mid \mathfrak{n}} \mu(\mathrm{d})=e(n).$$
 
 \end{theorem}
-Antes de continuar con la prueba de este resultado notemos que la suma en (1.2) en realidad no recorre los $j\leqslant x$, sino los $j$ que son divisores de $x$ ya que $G$ es función aritmética y por tanto $\frac{x}{j}$ es necesariamente un número natural. Así:
+Antes de continuar con la prueba de este resultado notemos que la suma en (1.2) en realidad no recorre los $j\leqslant x$, sino los $j$ que son divisores de $x$ ya que $G$ es función aritmética y por tanto $\frac{x}{j}$ es necesariamente un número natural. Así
 
 \begin{equation}
 F(x)=\sum_{j \mid x} \mu(j) G\left(\frac{x}{j}\right)
 \end{equation}
 
-Esta suma sobre los divisores de $n$ llevará el nombre de convolución o producto de Dirichlet y nos permitirá darle al conjunto de las funciones aritmética una estructura de Monoide Abeliano, estas ideas sin embargo las estudiaremos en la  siguiente sección. Ahora continuemos con la prueba.\\
+Esta suma sobre los divisores de $n$ llevará el nombre de convolución o producto de Dirichlet y nos permitirá darle al conjunto de las funciones aritmética una estructura de monoide abeliano, estas ideas sin embargo las estudiaremos en la  siguiente sección. Ahora continuemos con la prueba.\\
 
 \begin{proof}
 
@@ -260,9 +259,9 @@ Si $n=1$, entonces $1=e(1)=\mu(1)$, si $n\neq 1$, entonces por el teorema fundam
 
 \end{proof}
 
-Aplicando esto a la función $L(x)$, obtenemos que:
+Aplicando esto a la función $L(x)$, obtenemos que
 
-$$\psi(x)=\sum_{j\mid n} \mu(j)L \left( \frac{n}{j} \right)$$
+$$\psi(x)=\sum_{j\mid n} \mu(j)L \left( \frac{n}{j} \right).$$
 
 La fórmula en (1.5) se conoce como inversión de Möbius, las ideas aquí sin embargo fueron abordadas de manera informal, para poder presentar un argumento riguroso, necesitamos, como se menciono antes, introducir la convolución de Dirichlet, que además nos permitirá obtener propiedades importantes de algunas de las funciones aritmética que hemos presentado en esta sección.
 
@@ -272,16 +271,16 @@ Siguiendo las ideas de la  sección anterior, presentamos la siguiente definici�
 \pagebreak
 
 \begin{definition}
-Sean f y g funciones aritméticas. Definimos la convolución o producto de Dirichlet como: 
+Sean f y g funciones aritméticas. Definimos la convolución o producto de Dirichlet como
 
 $$(f*g)(n)=\sum_{\mathrm{d} \mid \mathrm{n}} \mathrm{f}(\mathrm{d}) \mathrm{g}\left(\frac{\mathrm{n}}{\mathrm{d}}\right).$$
 
 O simplemente $f*g$.
 \end{definition}
 
-Algunos resultados del capítulo anterior se pueden escribir en términos de convolución, por ejemplo, el TFA se puede presentar como:
+Algunos resultados del capítulo anterior se pueden escribir en términos de convolución, por ejemplo, el TFA se puede presentar como
 
-$$\log n=\sum_{j\mid n}\Lambda(j)=\Lambda * 1$$
+$$\log n=\sum_{j\mid n}\Lambda(j)=\Lambda * 1,$$
 
 donde 1, denota la función constante 1, también $\psi(x)=\mu*L$, pero la convolución no solo se introduce como una manera de simplificar notación, como mencionamos antes, esta tiene propiedades importantes que nos permitirán darle una estructura algebraica a las funciones aritmética.
 
@@ -303,19 +302,19 @@ Sean $f$ y $g$ funciones aritméticas. Entonces se cumple lo siguiente
 
 \begin{proof}
 
-Primero note que $\displaystyle\sum_{j\mid n} f(j)g \left( \frac{n}{j} \right)=\sum_{jk=n} f(j)g(k)$, ya que en ambos casos la suma recorre los divisores de $n$, luego:
+Primero note que $\displaystyle\sum_{j\mid n} f(j)g \left( \frac{n}{j} \right)=\sum_{jk=n} f(j)g(k)$, ya que en ambos casos la suma recorre los divisores de $n$, luego
 
 $$\begin{aligned}
 (f * g)(n) & =\sum_{j_1 j_2=n} f\left(j_1\right) g\left(j_2\right )=\sum_{j_1 j_2=n} g\left(j_1\right) f\left(j_2\right) \\
-& =(g * f)(n)
+& =(g * f)(n).
 \end{aligned}$$
 
-Ya que no importa el orden en el la suma recorra los divisores, lo que prueba la conmutatividad. Ahora, recordemos que $e(n)=1$ si $n=1$ y 0 si $n\neq 1$, por tanto:
-$$(e*f)(n)=(f*e)(n)=\sum_{j\mid n}f(j)e \left( \frac{n}{j} \right)$$
+Ya que no importa el orden en el la suma recorra los divisores, lo que prueba la conmutatividad. Ahora, recordemos que $e(n)=1$ si $n=1$ y 0 si $n\neq 1$, por tanto
+$$(e*f)(n)=(f*e)(n)=\sum_{j\mid n}f(j)e \left( \frac{n}{j} \right).$$
 
 Así, como $e \left( \dfrac{n}{j} \right)=0$ si $j\neq n$, los términos de la suma son cero excepto cuando $j=n$, 
 
-$$(e*f)(n)=(f*e)(n)=\sum_{j\mid n}f(j)e \left( \frac{n}{j} \right)=f(n)=f$$
+$$(e*f)(n)=(f*e)(n)=\sum_{j\mid n}f(j)e \left( \frac{n}{j} \right)=f(n)=f.$$
 
 Para probar la asociatividad, considere $N=g*h$ y $M=f*g$, luego
 
@@ -328,13 +327,13 @@ $$
 & =\sum_{j_1 j_3 j_4=n} f\left(j_3\right) g\left(j_4\right) h\left(j_1\right)\\
 & =\sum_{j_1 j_2=n}\left(\sum_{j_3 j_4=j_2} f\left(j_3\right) g\left(j_4\right)\right) h\left(j_1\right)\\
 & =\sum_{j_1 j_2=n} M\left(j_2\right) h\left(j_1\right)\\
-&=(M * h)(n)
+&=(M * h)(n).
 \end{aligned}
 $$
 
 \end{proof}
 
-Hemos  probado en particular que la función $e$ es el elemento neutro de la convolución, sabemos además que $\mu *1=e$, es decir la función de Möbius tiene inverso multiplicativo, con estas nuevas herramientas podemos presentar una prueba corta y formal de la fórmula de inversión de Möbius (1.5).
+Hemos  probado en particular que la función $e$ es el elemento neutro de la convolución, sabemos además que $\mu *1=e$, es decir la función de Möbius tiene inverso multiplicativo, con estas nuevas herramientas podemos presentar una prueba corta y rigurosa de la fórmula de inversión de Möbius (1.5).
 
 \begin{theorem}[Fórmula de inversión de Möbius]
 Sean $f$ y $g$ funciones aritmética, entonces $f=g*1$ si y solo si $g=\mu* f$.
@@ -357,13 +356,13 @@ Note que si $n=1$, entonces $f(1)g(1)=e(1)=1$, así $g(1)=\dfrac{1}{f(1)}$, ahor
 
 \begin{equation}
 0=\sum_{d\mid n}g(d)f \left( \frac{n}{d} \right)=\sum_{\substack{d \mid n \\
-d<n}} f\left(\frac{n}{d}\right) g(d)+f(1) g(n)
+d<n}} f\left(\frac{n}{d}\right) g(d)+f(1) g(n),
 \end{equation}
 
-Así:
+así
 
 $$g(n) =\frac{-1}{f(1)} \sum_{\substack{d \mid n \\
-d<n}} f\left(\frac{n}{d}\right) g(d)$$
+d<n}} f\left(\frac{n}{d}\right) g(d).1$$
 
 Esto nos define $g$ de manera recursiva, lo que concluye el resultado.
 
@@ -378,7 +377,7 @@ Sean $f$ y $g$ funciones aritméticas multiplicativas, entonces $f * g$ también
 \end{theorem}
 
 \begin{proof}
-Sean $x, y \in \mathbb{N}$ tal que $(x, y)=1$. Note que cada divisor $d \mid xy$ puede escribirse de manera única como $d=mn$ donde $m \mid x$ y $n \mid y$, además $(m, n)=1$ y $\left(\dfrac{x}{m}, \dfrac{y}{n}\right)=1$. Por lo tanto
+Sean $x, y \in \mathbb{N}$ tal que $(x, y)=1$. Note que cada divisor $d \mid xy$ puede escribirse de manera única como $d=mn$ donde $m \mid x$ y $n \mid y$, además $(m, n)=1$ y $\left(\dfrac{x}{m}, \dfrac{y}{n}\right)=1$, por lo tanto
 
 $$
 \begin{aligned}
@@ -397,7 +396,7 @@ Así $f * g$ es multiplicativa.
 
 
 \begin{theorem}
-Si $f$ es multiplicativa, entonces $g=f^{-1}$ también es multiplicativa
+Si $f$ es multiplicativa, entonces $g=f^{-1}$ también es multiplicativa.
 \end{theorem}
 
 Donde $f^{-1}$ denota su inversa, presentaremos una prueba siguiendo a \cite{hildebrand2006introduction}\\
@@ -409,9 +408,9 @@ Queremos ver que:
 g(n_1n_2)=g(n_1)g(n_2) \quad \text{si} \quad (n_1,n_2)=1.
 \end{equation}
 
-Procedamos por inducción matemática. Sea $n=n_1 n_2$, si $n_1 n_2=1$, entonces $n_1=n_2=1$, luego:
+Procedamos por inducción matemática. Sea $n=n_1 n_2$, si $n_1 n_2=1$, entonces $n_1=n_2=1$, luego
 
-$$g(1\cdot 1)=g(1)=\dfrac{1}{f(1)}=1=g(1)g(1)$$
+$$g(1\cdot 1)=g(1)=\dfrac{1}{f(1)}=1=g(1)g(1).$$
 
 Supongamos ahora que $g$ satisface (1.7) para todo $k_1k_2\geq 2$ tal que $k_1k_2<n$ y sean $n_1$ y $n_2$ tales que $n_1n_2=n$ y $(n_1,n_2)=1$, por (1.6) tenemos que:
 
@@ -422,17 +421,17 @@ $$
 d_2\mid n_2\\ d_1d_2<n}} f(d_1)f(d_2) g \left( \frac{n_1}{d_1} \right)g \left( \frac{n_2}{d_2} \right)+ g(n_1n_2)\\
 &=\sum_{\substack{d_1 \mid n_1 \\
 d_2\mid n_2}} f(d_1)f(d_2) g \left( \frac{n_1}{d_1} \right)g \left( \frac{n_2}{d_2} \right)+ g(n_1n_2)-g(n_1)g(n_2)\\
-& =(f * g)\left(n_1\right)(f * g)\left(n_2\right)+\left(g\left(n_1 n_2\right)-g\left(n_1\right) g\left(n_2\right)\right)
+& =(f * g)\left(n_1\right)(f * g)\left(n_2\right)+\left(g\left(n_1 n_2\right)-g\left(n_1\right) g\left(n_2\right)\right),
 \end{aligned}
 $$
 
-Luego:
+luego:
 
-$$g\left(n_1\right) g\left(n_2\right)=e\left(n_1\right) e\left(n_2\right)+g\left(n_1 n_2\right)$$
+$$g\left(n_1\right) g\left(n_2\right)=e\left(n_1\right) e\left(n_2\right)+g\left(n_1 n_2\right),$$
 
 \vspace*{0.2cm}
 
-Y como $n_1n_2\geq 2$, entonces $n_1\geq 2$ o $n_2\geq 2$, así $e(n_1)e(n_2)=0$, por tanto $g(n_1n_2)=g(n_1)g(n_2)$.
+y como $n_1n_2\geq 2$, entonces $n_1\geq 2$ o $n_2\geq 2$, así $e(n_1)e(n_2)=0$, por tanto $g(n_1n_2)=g(n_1)g(n_2)$.
 \end{proof}
 
 \begin{corollary}
@@ -465,7 +464,7 @@ d \mid m}} 1 \\
 &=\mu*N(n)=n \sum_{d \mid n} \frac{\mu(d)}{d} .
 \end{aligned}$$
 
-Es claro que la función $N$ es multiplicativa por definición, luego esta propiedad nos permite probar que la función $\varphi$ es multiplicativa, por el teorema (1.7) basta ver que en efecto $\mu$ lo es, algo interesante teniendo en cuenta que esta propiedad en cursos de álgebra se sigue de $\Z_{mn}=\Z_m\times \Z_n$ \text{ si } $(m,n)=1$.
+Es claro que la función $N$ es multiplicativa por definición, luego esta propiedad nos permite probar que la función $\varphi$ es multiplicativa, por el teorema (1.7) basta ver que en efecto $\mu$ lo es.
 
 
 
@@ -475,7 +474,7 @@ La función $\mu$ es multiplicativa:
 
 \begin{proof}
 
-Supongamos que $n=n_1n_2$, si $n=1$, entonces $n_1=n_2=1$, $\mu(n)=\mu(n_1)\mu(n_2)=1$. Ahora supongamos que $\mu(k)=\mu(k_1)\mu(k_2)$, para todo $k=k_1k_2$ tal que $1<k<n$ y $(k_1,k_2)=1$ y sean $n_1,n_2$ tales que $n_1n_2=n$ y $(n_1,n_2)=1$, tenemos que:
+Supongamos que $n=n_1n_2$, si $n=1$, entonces $n_1=n_2=1$, $\mu(n)=\mu(n_1)\mu(n_2)=1$. Ahora supongamos que $\mu(k)=\mu(k_1)\mu(k_2)$, para todo $k=k_1k_2$ tal que $1<k<n$ y $(k_1,k_2)=1$ y sean $n_1,n_2$ tales que $n_1n_2=n$ y $(n_1,n_2)=1$, tenemos que
 
 \begin{align*}
     0&=\sum_{d\mid n_1n_2}\mu(d)\\
@@ -503,7 +502,7 @@ La función $\varphi(n)$ tiene las siguientes propiedades:
 
 i) Como $\varphi=\mu* N$, se sigue del teorema anterior.\\
 
-ii) Note que si $n=p^k$, entonces:
+ii) Note que si $n=p^k$, entonces
 
 \begin{align*}
     \varphi(p^k)&=p^k\sum_{j\mid p^k}\frac{\mu(j)}{j}\\
@@ -511,7 +510,7 @@ ii) Note que si $n=p^k$, entonces:
     &=p^k \left(1-\frac{1}{p}\right)=p^k-p^{k-1}
 .\end{align*}
 
-iii) Sea $n>1$, por el TFA se sigue que:
+iii) Sea $n>1$, por el TFA se sigue que
 
 \begin{align*}
     \varphi(n)&= \varphi \left( \prod_{p^m\mid\mid n}p^m \right)\\
@@ -530,7 +529,7 @@ $$n=\sum_{j\mid n}\varphi(j)$$
 \end{theorem}
 
 \begin{proof}
-La afirmación se puede  escribir como $N=\varphi*1$, como estas funciones son multiplicativas, entonces basta ver que la identidad se tiene en las potencias de primos, en efecto:
+La afirmación se puede  escribir como $N=\varphi*1$, como estas funciones son multiplicativas, entonces basta ver que la identidad se tiene en las potencias de primos, en efecto
 
 \begin{align*}
     \sum_{j\mid p^m}\varphi(j)&=\varphi(1)+\varphi(p)+\varphi(p^2)+\varphi(p^3)+\ldots+\varphi(p^m)\\
@@ -539,10 +538,10 @@ La afirmación se puede  escribir como $N=\varphi*1$, como estas funciones son m
 .\end{align*}
 \end{proof}
 
-Esta identidad  también puede probarse usando propiedades  de la convolución:
+Esta identidad  también puede probarse usando propiedades  de la convolución
 
 \begin{align*}
-    \sum_{j\mid n}\varphi(j)=\varphi*1(n)=(N*\mu)*1(n)=N*(\mu*1)(n)=N*e(n)=n
+    \sum_{j\mid n}\varphi(j)=\varphi*1(n)=(N*\mu)*1(n)=N*(\mu*1)(n)=N*e(n)=n.
 \end{align*}
 
 \subsubsection{Las funciones número y suma de divisores}
@@ -550,48 +549,42 @@ Esta identidad  también puede probarse usando propiedades  de la convolución:
 También  podemos aplicar la convolución para obtener también propiedades de la funciones suma y número de divisores, por ejemplo:
 
 \begin{equation}
-\sigma(n)=\sum_{j\mid n}j=N*1(n) \quad \text{y} \quad \tau(n)=\sum_{j\mid n}1=1*1(n)
+\sigma(n)=\sum_{j\mid n}j=N*1(n) \quad \text{y} \quad \tau(n)=\sum_{j\mid n}1=1*1(n).
 \end{equation}
 
 Note que $\sigma*\varphi=(N*1)*(\mu*N)=(N*e)*N=N*N$, en efecto:
 
-$$\sigma*\varphi(n)=N*N(n)=\sum_{j\mid n}j\cdot\frac{n}{j}=n\sum_{j\mid n}1=n\tau(n)$$
+$$\sigma*\varphi(n)=N*N(n)=\sum_{j\mid n}j\cdot\frac{n}{j}=n\sum_{j\mid n}1=n\tau(n).$$
 
-Con lo que obtenemos una propiedad  interesante que relaciona estas 3 funciones aritmética, pero  además (1.8) nos dice también que las funciones $\sigma$ y $\tau$ son multiplicativas por ser convolución de funciones multiplicativas. Observemos una última propiedad de estas funciones, que nos permite caracterizar la noción de ser primo.
+Con lo que obtenemos una propiedad  interesante que relaciona estas 3 funciones aritmética, pero  además (1.8) nos dice también que las funciones $\sigma$ y $\tau$ son multiplicativas por ser convolución de funciones multiplicativas. Observemos una última propiedad de estas funciones, que nos permite caracterizar la noción de primalidad.
 
 \begin{prop}
-Un entero $n$ es primo si y solo si $\sigma(n)+\varphi(n)=n\tau(n)$
+Un entero $n$ es primo si y solo si $\sigma(n)+\varphi(n)=n\tau(n)$.
 \end{prop}
 
 \begin{proof}
 
-Si $n$ es primo, entonces $\varphi(n)=n-1$, $\sigma(n)=n+1$ y $\tau(n)=2$, luego es claro que $\sigma(n)+\varphi(n)=n\tau(n)$.Veamos ahora que si $n$ no es primo entonces no se sigue el teorema:\\
+Si $n$ es primo, entonces $\varphi(n)=n-1$, $\sigma(n)=n+1$ y $\tau(n)=2$, luego es claro que $\sigma(n)+\varphi(n)=n\tau(n)$. Veamos ahora que si $n$ no es primo entonces no se sigue el teorema\\
 
-Si $n$ no es primo entonces $\varphi(n)<n-1$, ahora note que:
+Si $n$ no es primo entonces $\varphi(n)<n-1$, ahora note que
 
-$$\sigma(n)=\sum_{j\mid n}j=1+\sum_{\substack{j\mid n\\ j>1}}j\leq 1+n(\tau(n)-1) $$
+$$\sigma(n)=\sum_{j\mid n}j=1+\sum_{\substack{j\mid n\\ j>1}}j\leq 1+n(\tau(n)-1).$$
 
 Luego:
 
-$$\sigma(n)+\varphi(n)<n-1+1+n\tau(n)-n=n\tau(n)$$
+$$\sigma(n)+\varphi(n)<n-1+1+n\tau(n)-n=n\tau(n).$$
 \end{proof}
 
 \section{Sumación Parcial}
 
 Los resultados que hemos podido obtener hasta el momento solo se centran en casos finitos, en sumas sobre los divisores de un entero $n$ fijo o sobre los $k$ que son primos relativos a $n$, estos son casos privilegiados, nuestro objetivo sigue siendo el TNP, para esto necesitamos poder obtener relaciones asintóticas, algunas funciones como $\mu$ o $\varphi$ aparentan comportamientos caóticos al graficarlas en función de $n$ y por tanto no tiene mucho sentido estudiar un comportamiento asintótico para  ellas, sin embargo, algunas funciones aritmética $f(n)=a_n$ tienen buen comportamiento en la media, en el sentido de que sus sumas parciales:
 
-$$A(x)=\sum_{n\leq x}a_n$$
+$$A(x)=\sum_{n\leq x}a_n.$$
 
 Tienden a ser suaves  conforme $x\to \infty$ y frecuentemente podemos estudiarlas de manera precisa, ejemplo de esto son $\pi(x)$ o $\psi(x)$. En esta sección estudiaremos algunos de los métodos principales para obtener dichas estimaciones, estimaciones que nos darán un camino a la prueba del TNP.\\
 
-Sea $f:(a,b) \longrightarrow \mathbb{R}$ una función real, denotamos:
-   \begin{align*}
-       f(c-)&=\lim_{x \rightarrow c^-} f(x), \hspace{0.1cm} c \in (a,b] \notag \\
-       f(c+)&=\lim_{x \rightarrow c^+} f(x), \hspace{0.1cm} c \in [a,b) 
-   \end{align*}
-
 \begin{definition}
-    Sea $f$ una función real definida en $[a,b]$. Suponga que $f(x+)$ y $f(x-)$ existen para todo $x \in (a,b)$. Definimos: 
+    Sea $f$ una función real definida en $[a,b]$. Suponga que $f(x+)$ y $f(x-)$ existen para todo $x \in (a,b)$. Definimos
        \begin{itemize}
            \item $f(x)-f(x-)$: Salto a izquierda de $f$ en $x$.
            \item $f(x+)-f(x)$: Salto a derecha de $f$ en $x$.
@@ -605,15 +598,15 @@ Diremos que $f(x)=O(g(x))$ cuando existen constantes $M>0$ y $x_0$ tales que par
 
 Una \textbf{fórmula asintótica} para $f(x)$ es una expresión de la forma $f(x) \sim g(x)$, mientras que una \textbf{estimación asintótica} para $f(x)$ es una expresión del tipo $f(x)=$ $g(x)+O(R(x))$, donde $g(x)$ representa el término principal y $R(x)$ el término de error. La notación $O$ grande nos permite entonces controlar el error de estimaciones asintóticas de manera precisa, cosa que no ocurre con $o$ pequeña, recordemos que:
 
-$$f(x)=o(g(x)): \quad \displaystyle \lim_{x \to \infty} \frac{f(x)}{g(x)}=0$$
+$$f(x)=o(g(x)): \quad \displaystyle \lim_{x \to \infty} \frac{f(x)}{g(x)}=0.$$
 
-Eso intuitivamente nos dice que $f(x)$ ``crece más lento'' que $g(x)$, pero esto no nos da tanta información acerca de $f$ con O grande, ya que no sabemos la ``velocidad'' con la que este cociente tiende a 0.\\
+Esto intuitivamente nos dice que $f(x)$ ``crece más lento'' que $g(x)$, pero esto no nos da tanta información acerca de $f$ con O grande, ya que no sabemos la ``velocidad'' con la que este cociente tiende a 0.\\
 
 Las estimaciones con O también son más fáciles de trabajar y manipular que las estimaciones con o. Por ejemplo, las O se pueden ``sacar'' de integrales o sumas, siempre que las funciones involucradas sean no negativas, mientras que tales manipulaciones generalmente no se permiten con las o.\\
 
 \subsection{La integral de Riemann-Stieltjes}
 
-Sean $P=\{x_0,x_1,...,x_n\}\in\mathcal{P}[a,b]$ (las particiones del intervalo $[a,b]$) y   $t_{k}\in [x_{k-1},x_k]$ cualesquiera. Una suma de la forma $$S(P,f)=\sum_{k=1}^{n}f(t_k)\Delta x_k$$ Se denomina \textbf{suma de Riemann} de $f$ en $[a,b]$, recordamos que $\Delta x_k=x_k-x_{k-1}$.\\
+Sean $P=\{x_0,x_1,...,x_n\}\in\mathcal{P}[a,b]$ (las particiones del intervalo $[a,b]$) y   $t_{k}\in [x_{k-1},x_k]$ cualesquiera. Una suma de la forma $$S(P,f)=\sum_{k=1}^{n}f(t_k)\Delta x_k,$$ se denomina \textbf{suma de Riemann} de $f$ en $[a,b]$, recordamos que $\Delta x_k=x_k-x_{k-1}$.\\
 
 La integral usual se define como el límite de las sumas de Riemann, esta definición nos da una correspondencia importante: Toda integral de Riemann se puede ver como el límite de una suma, una serie.\\
 
@@ -627,10 +620,10 @@ La propiedad deseada la obtendremos de la integral de Riemann-Stieltjes.
 
     \item[i)] Sean $P=\{x_0,x_1,...,x_n\}\in\mathcal{P}[a,b]$ (las particiones del intervalo $[a,b]$) y   $t_{k}\in [x_{k-1},x_k]$ cualesquiera. 
     
-    Una suma de la forma $$S(P,f,\alpha)=\sum_{k=1}^{n}f(t_k)\Delta \alpha_k$$ se denomina \textbf{suma de Riemann-Stieltjes} de $f$ con respecto a $\alpha$ en $[a,b]$.
+    Una suma de la forma $$S(P,f,\alpha)=\sum_{k=1}^{n}f(t_k)\Delta \alpha_k,$$ se denomina \textbf{suma de Riemann-Stieltjes} de $f$ con respecto a $\alpha$ en $[a,b]$.
     
-    \item[ii)] Decimos que $f$ es \textbf{Riemann-Integrable} con respecto a $\alpha$ en $[a,b]$, y escribimos ``$f\in \mathcal{R}(\alpha)$ en $[a,b]$'', si existe $A\in \mathbb R$ que satisface que:\\ 
-    para todo $\varepsilon>0$ existe $P_{\varepsilon}\in \mathcal{P}[a,b]$ tal que si para toda $P\supset P_{\varepsilon}$ y para cualquier elección de puntos $t_{k}\in [x_{k-1},x_k]$, entonces $$\mid S(P,f,\alpha) - A\mid <\varepsilon.$$
+    \item[ii)] Decimos que $f$ es \textbf{Riemann-Integrable} con respecto a $\alpha$ en $[a,b]$, y escribimos ``$f\in \mathcal{R}(\alpha)$ en $[a,b]$'', si existe $A\in \mathbb R$ que satisface que\\ 
+    Para todo $\varepsilon>0$ existe $P_{\varepsilon}\in \mathcal{P}[a,b]$ tal que si para toda $P\supset P_{\varepsilon}$ y para cualquier elección de puntos $t_{k}\in [x_{k-1},x_k]$, entonces $$\mid S(P,f,\alpha) - A\mid <\varepsilon.$$
     \end{itemize}
 \end{definition}
 
@@ -645,7 +638,7 @@ Note que la integral de Riemann no es más que un caso particular de la de Riema
   
 Sea $f$ una función definida en $[a, b]$ tal que $f$ y $\alpha$ no sean ambas discontinuas a la derecha o a la izquierda de cada $x_k$. Entonces $\displaystyle\int_a^b f d \alpha$ existe y se tiene que:
 $$
-\int_a^b f(x) d \alpha(x)=\sum_{k=1}^n f\left(x_k\right) \alpha_k
+\int_a^b f(x) d \alpha(x)=\sum_{k=1}^n f\left(x_k\right) \alpha_k.
 $$
 \end{theorem}
 
@@ -656,16 +649,16 @@ Note que $\alpha$ es constante en los intervalos $(x_{k-1},x_k)$, luego por inte
 Supongamos que $\alpha$ tiene salto $\alpha_k $ en un punto $x_k\in [a,b]$, no es difícil ver que:
 
 \begin{equation}
-\int_a^bfd\alpha=f(x_k)[\alpha(x_k+)-\alpha(x_{k}-)]=f(x_k)\alpha_k
+\int_a^bfd\alpha=f(x_k)[\alpha(x_k+)-\alpha(x_{k}-)]=f(x_k)\alpha_k.
 \end{equation}
 
 La prueba de esto se encuentra también en \cite{Apostol:105425} [Teorema 7.9], en efecto si repetimos esto para cada $x_k$ obtenemos la suma deseada.\\
 
-Sea $f$ continua en $[0,N]$, el teorema anterior nos permite expresar la suma $\displaystyle\sum_{n=1}^Na_nf(n)$ como una integral de Riemann Stieltjes considerando sus sumas parciales:
+Sea $f$ continua en $[0,N]$, el teorema anterior nos permite expresar la suma $\displaystyle\sum_{n=1}^Na_nf(n)$ como una integral de Riemann Stieltjes considerando sus sumas parciales
 
-$$\displaystyle\sum_{n=1}^Na_nf(n)=\int_0^Nf(x)dA(x)$$
+$$\displaystyle\sum_{n=1}^Na_nf(n)=\int_0^Nf(x)dA(x).$$
 
-Ya que al aplicar (1.9) tomando como integrador las sumas parciales tenemos que $A(n+)-A(n-)=A(n+1)-A(n)=a_n$, luego en cada paso la integral toma el valor $a_nf(n)$.\\
+Ya que al aplicar (1.9) tomando como integrador las sumas parciales tenemos que $A(n+)-A(n-)=A(n)-A(n-1)=a_n$, luego en cada paso la integral toma el valor $a_nf(n)$.\\
 
 \begin{note}
 El límite inferior de la integral puede ser cualquier número en el intervalo [0, 1) y el superior cualquier número en [N, N+1)
@@ -676,12 +669,12 @@ El límite inferior de la integral puede ser cualquier número en el intervalo [
 \begin{itemize}
 \item Si se toma $\alpha(x)=[x]$, entonces
 $$
-\int_a^b f(x) d[x]=\sum_{a<n \leq b} f(n)
+\int_a^b f(x) d[x]=\sum_{a<n \leq b} f(n).
 $$
 
 \item Si se toma $\alpha(x)=\pi(x)$, la función contadora de primos, que tiene un salto de 1 en cada p primo, entonces
 $$
-\int_a^b f(x) d \pi(x)=\sum_{a<p \leq b} f(p)
+\int_a^b f(x) d \pi(x)=\sum_{a<p \leq b} f(p).
 $$
 \end{itemize}
 \end{eg}
@@ -698,12 +691,14 @@ Bajo ciertas condiciones una integral de Riemann-Stieltjes se puede reducir a un
 \begin{theorem}\label{reduccion a riemann}
     Sea $ f \in R(\alpha) $ en $[a, b]$, donde $ \alpha \in C^1[a, b]$, entonces,
 $ \displaystyle\int_{a}^{b} f(x)\alpha'(x)dx$
-existe y\[ \int_{a}^{b} f \,d\alpha = \int_{a}^{b} f(x)\alpha'(x)dx \]
+existe y
+
+\[ \int_{a}^{b} f \,d\alpha = \int_{a}^{b} f(x)\alpha'(x)dx. \]
 \end{theorem}
 
 Las pruebas de estos teoremas se encuentran también en \cite{Apostol:105425}, por lo que no las presentaremos aquí para no extendernos demasiado en la teoría de esta sección, con estas propiedades ya podemos presentar una prueba  del teorema de  sumación de Abel.
 
-\begin{theorem}\label{Teorema sumacion de Abel}
+\begin{theorem}[Sumación parcial de Abel]\label{Teorema sumacion de Abel}
 Sea $a_n$ función aritmética y $f\in C^1[1,x]$, entonces:
 
 $$
@@ -714,9 +709,9 @@ $$
 \begin{proof}
 Tenemos que:
 
-$$\sum_{n \leq x} a_n f(n)=\int_0^xf(t)dA(t)=f(x)A(x)-\int_0^xA(t)df(t)$$
+$$\sum_{n \leq x} a_n f(n)=\int_0^xf(t)dA(t)=f(x)A(x)-\int_0^xA(t)df(t),$$
 
-Ya que $A(x)=0$ para todo $x\in [0,1)$, en efecto:
+ya que $A(x)=0$ para todo $x\in [0,1)$, en efecto
 
 \begin{align*}
     \sum_{n \leq x} a_n f(n)&=f(x)A(x)-\int_1^xA(t)df(t)\\
@@ -730,26 +725,26 @@ Por  el teorema \ref{reduccion a riemann}.
 
 Vamos a ver algunas aplicaciones de la teoría que hemos presentado, algunas de estas ya las habíamos mencionado antes, por ejemplo, el comportamiento asintótico de las sumas de la serie armónica.\\
 
-Vamos a ver que $\displaystyle\sum_{n \leq x} \frac{1}{n} =\log x+\gamma+O\left(\frac{1}{x}\right)$, donde $\gamma=\displaystyle\lim_{n \to \infty} \left( \sum_{n=1}^{n}\frac{1}{n} -\log n\right)$ conocida como la constante de Euler-Mascheroni\\
+Vamos a ver que $\displaystyle\sum_{n \leq x} \frac{1}{n} =\log x+\gamma+O\left(\frac{1}{x}\right)$, donde $\gamma=\displaystyle\lim_{n \to \infty} \left( \sum_{n=1}^{n}\frac{1}{n} -\log n\right)$ conocida como la constante de Euler-Mascheroni.\\
 
-Sea $a_n=1$ y $f(x)=\dfrac{1}{x}$, así $A(x)=[x]$ y al usar la sumación parcial tenemos que:
+Sea $a_n=1$ y $f(x)=\dfrac{1}{x}$, así $A(x)=[x]$ y al usar la sumación parcial tenemos que
 
 
 $$
 \begin{aligned}
 \sum_{n \leq x} \frac{1}{n} & =\frac{[x]}{x}+\int_1^x \frac{[t]}{t^2} d t \\
-& =\frac{x-\{x\}}{x}+\int_1^x \frac{t-\{t\}}{t^2} d t
+& =\frac{x-\{x\}}{x}+\int_1^x \frac{t-\{t\}}{t^2} d t.
 \end{aligned}
 $$
 
-Donde $\{x\}$ denota la parte fraccionaria de $x$, es decir $\{x\}=x-[x]$, note que $\{x\}=O(1)$, luego:
+Donde $\{x\}$ denota la parte fraccionaria de $x$, es decir $\{x\}=x-[x]$, note que $\{x\}=O(1)$, luego
 
 \begin{align*}
    \sum_{n \leq x} \frac{1}{n}&=1+O\left(\frac{1}{x}\right)+\log x-\int_1^x \frac{\{t\}}{t^2} d t\\
    &=1+O\left(\frac{1}{x}\right)+\log x-\left(\int_1^{\infty} \frac{\{t\}}{t^2} d t-\int_x^{\infty} \frac{\{t\}}{t^2} d t\right)
 .\end{align*}
 
-Basta ver que 1-$\displaystyle\int_1^{\infty}\frac{\{x\}}{x^2}dx=\gamma$ ya que la otra integral también es del orden de $O\left(\dfrac{1}{x}\right)$, en efecto:
+Basta ver que 1-$\displaystyle\int_1^{\infty}\frac{\{x\}}{x^2}dx=\gamma$ ya que la otra integral también es del orden de $O\left(\dfrac{1}{x}\right)$, en efecto
 
 $$
 \begin{aligned}
@@ -757,18 +752,14 @@ $$
 & =\lim _{n \rightarrow \infty}\left(1+\sum_{1<k \leq n} \frac{1}{k}-\log n\right) \\
 & =1+\lim _{n \rightarrow \infty}\left(\int_1^n \frac{1}{x} d[x]-\int_1^n \frac{1}{x} d x\right) \\
 & =1+\lim _{n \rightarrow \infty}\left(\int_1^n \frac{[x]}{x^2} d x-\int_1^n \frac{1}{x} d x\right)\\
-&=1-\int_1^{\infty}\dfrac{\{x\}}{x^2}dx
+&=1-\int_1^{\infty}\dfrac{\{x\}}{x^2}dx.
 \end{aligned}
 $$
 
 Esto concluye el resultado que mencionamos en la introducción, $H(n)\thicksim \log n$. Veamos otro ejemplo:
 
 \begin{eg}
-Estimación de las sumas parciales de $\log n$:
-
-$$
-\sum_{n \leq x} \log n=x \log x-x+O(\log x) .
-$$
+Estimación de las sumas parciales de $\log n$:\\
 
 Sea $a_n=1$ y $f(x)=\log x$, así $A(x)=[x]$, luego:
 $$
@@ -788,7 +779,7 @@ Vamos a obtener finalmente que el TNP es equivalente a la afirmación $\psi(x)\t
 \begin{definition}
 Sea $x\in \mathbb{N}$, con $x>1$, definimos la función contadora de primos $\pi(x)$ como: 
 
-    $$\pi(x)=\displaystyle\sum_{p\leq x}1$$
+    $$\pi(x)=\displaystyle\sum_{p\leq x}1.$$
 \end{definition}
 
 
