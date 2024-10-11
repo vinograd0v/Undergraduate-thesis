@@ -785,8 +785,8 @@ Sea $x\in \mathbb{N}$, con $x>1$, definimos la función contadora de primos $\pi
 
  Como vimos antes, la fórmula de sumación  de Abel tiene un gran poder teórico que explotaremos en distintos lugares de este trabajo. Por lo pronto ella será esencial para para estimar $\vartheta(x)$ y $\pi(x)$, de donde obtendremos la equivalencia deseada.
 
-\begin{theorem}\label{rep integral de pi x}
-Tenemos las siguientes identidades:
+\begin{theorem}Dado $x\geq 2$\label{rep integral de pi x}
+
     $$
     \begin{aligned}
     & \vartheta(x)=\pi(x) \log x-\int_2^x \frac{\pi(t)}{t} d t, \\
@@ -798,36 +798,36 @@ Tenemos las siguientes identidades:
 \begin{proof}
 Sea  $\mathbbm{1}_{p}$ la función característica del conjunto de primos. Tenemos entonces las siguientes igualdades:
 
-$$\vartheta(x)=\sum_{n \leqslant x} \mathbbm{1}_p(n) \log (n)\quad \text{y}\quad \pi(x)=\sum_{n \leqslant x} \mathbbm{1}_p(n)$$
+$$\vartheta(x)=\sum_{n \leqslant x} \mathbbm{1}_p(n) \log (n)\quad \text{y}\quad \pi(x)=\sum_{n \leqslant x} \mathbbm{1}_p(n).$$
 
-Fijemos $x \geqslant 2$. Por la fórmula de sumación de Abel y como $\pi(t)=0$ para todo $t<2$, tenemos que:
+Fijemos $x \geqslant 2$. Por la fórmula de sumación de Abel y como $\pi(t)=0$ para todo $t<2$, tenemos que
 $$
 \begin{aligned}
 \vartheta(x) & =\pi(x) \log (x)-\int_1^x \frac{\pi(t)}{t} d t \\
-& =\pi(x) \log (x)-\int_2^x \frac{\pi(t)}{t} d t
+& =\pi(x) \log (x)-\int_2^x \frac{\pi(t)}{t} d t.
 \end{aligned}
 $$
 
-Notando que $\pi(x)=\displaystyle\sum_{n \leqslant x} \dfrac{\mathbbm{1}_p(n) \log (n)}{\log (n)}$ y que $\vartheta(t)=0$ para todo $t<2$ tenemos que:
+Notando que $\pi(x)=\displaystyle\sum_{n \leqslant x} \dfrac{\mathbbm{1}_p(n) \log (n)}{\log (n)}$ y que $\vartheta(t)=0$ para todo $t<2$ tenemos que
 
 $$
 \begin{aligned}
 \pi(x) & =\frac{\vartheta(x)}{\log (x)}+\int_1^x \frac{\vartheta(t)}{t \log ^2(t)} d t \\
-& =\frac{\vartheta(x)}{\log (x)}+\int_2^x \frac{\vartheta(t)}{t \log ^2(t)} d t
+& =\frac{\vartheta(x)}{\log (x)}+\int_2^x \frac{\vartheta(t)}{t \log ^2(t)} d t.
 \end{aligned}
 $$
 \end{proof}
 
-Ahora vamos a establecer una conexión entre las dos funciones de Chebyshev que definimos antes, en efecto:
+Ahora vamos a establecer una conexión entre las dos funciones de Chebyshev que definimos antes, en efecto
 
 $$
 \psi(x)=\sum_{n \leq x} \Lambda(n)=\sum_{m=1}^{\infty} \sum_{p^m \leq x} \Lambda\left(p^m\right)=\sum_{m=1}^{\infty} \sum_{p \leq x^{\frac{1}{m}}} \log p .
 $$
 
-Note que la suma sobre $m$ realmente es finita porque la suma sobre $p$, se  detiene cuando $x^{\frac{1}{m}}<2$, es decir, cuando $m>\log_2(x)$, entonces:
+Note que la suma sobre $m$ realmente es finita porque la suma sobre $p$, se  detiene cuando $x^{\frac{1}{m}}<2$, es decir, cuando $m>\log_2(x)$, entonces
 
 \begin{align}
-    \psi(x)=\sum_{m \leq \log _2 x} \sum_{p \leq x^{\frac{1}{m}}} \log p=\sum_{m \leq \log _2 x} \vartheta\left(x^{\frac{1}{m}}\right)
+    \psi(x)=\sum_{m \leq \log _2 x} \sum_{p \leq x^{\frac{1}{m}}} \log p=\sum_{m \leq \log _2 x} \vartheta\left(x^{\frac{1}{m}}\right).
 \end{align}
 
 \begin{theorem}
@@ -846,13 +846,13 @@ Por (1.10) se sigue que:
 \psi(x)=\sum_{2 \leq m \leq \log _2 x} \vartheta\left(x^{\frac{1}{m}}\right)+\vartheta(x) .
 $$
 
-Ya que si $m=1$ entonces $\vartheta(x^{\frac{1}{m}})=\vartheta(x)$, luego:
+Ya que si $m=1$ entonces $\vartheta(x^{\frac{1}{m}})=\vartheta(x)$, luego
 
 $$
 \psi(x)-\vartheta(x)=\sum_{2 \leq m \leq \log _2 x} \vartheta\left(x^{\frac{1}{m}}\right)\geq  0.
 $$
 
-Ahora por definición de $\vartheta:$
+Ahora por definición de $\vartheta$
 
 $$
 \vartheta(x)=\sum_{p \leq x} \log p\leq x \log x .
@@ -864,12 +864,12 @@ Entonces
     0 \leq \psi(x)-\vartheta(x) &\leq \sum_{2 \leq m \leq \log _2 x} x^{\frac{1}{m}} \log x^{\frac{1}{m}} \\
     &\leq \sqrt{x} \sum_{2 \leq m \leq \log _2 x} \log x^{\frac{1}{m}}\\
     &\leq \sqrt{x}(\log_2(x)\log(\sqrt{x}))\\
-    &=\frac{\sqrt{x}\log^2 x}{\log(4)}
+    &=\frac{\sqrt{x}\log^2 x}{\log(4)}.
 \end{align*}
 \end{proof}
 
 \begin{theorem}
-    La afirmación $\psi(x)\thicksim x$ es equivalente a $\vartheta(x)\thicksim x$
+    La afirmación $\psi(x)\thicksim x$ es equivalente a $\vartheta(x)\thicksim x$.
 \end{theorem}
 
 \begin{proof}
@@ -885,51 +885,51 @@ Entonces
 \label{equivalencia tnp}
     Las siguientes afirmaciones son equivalentes:
     \begin{itemize}
-        \item[i)] $\pi(x)\thicksim \dfrac{x}{\log(x)}$
+        \item[i)] $\pi(x)\thicksim \dfrac{x}{\log(x)}$.
 
-        \item [ii)] $\vartheta(x)\thicksim x$
+        \item [ii)] $\vartheta(x)\thicksim x$.
 
-        \item[iii)] $\psi(x)\thicksim x$
+        \item[iii)] $\psi(x)\thicksim x$.
     \end{itemize}    
 \end{theorem}
 
-Por el teorema anterior basta ver que $i \leftrightarrow ii$\\
+Por el teorema anterior basta ver que $i$ es equivalente a $ii$\\
 
- \begin{proof} Por el teorema \ref{rep integral de pi x} y dado que estamos trabajando con aproximaciones asintóticas, podemos asumir que $x\geq 2$, se sigue que:
+ \begin{proof} Por el teorema \ref{rep integral de pi x} y dado que estamos trabajando con aproximaciones asintóticas, podemos asumir que $x\geq 2$, se sigue que
 
  \begin{align}
-     \frac{\vartheta(x)}{x}=\frac{\pi(x) \log (x)}{x}-\frac{1}{x} \int_2^x \frac{\pi(t)}{t} d t
+     \frac{\vartheta(x)}{x}=\frac{\pi(x) \log (x)}{x}-\frac{1}{x} \int_2^x \frac{\pi(t)}{t} d t.
  \end{align}
  \begin{align}
-     \frac{\pi(x) \log (x)}{x}=\frac{\vartheta(x)}{x}+\frac{\log (x)}{x} \int_2^x \frac{\vartheta(t)}{t \log ^2(t)} d t
+     \frac{\pi(x) \log (x)}{x}=\frac{\vartheta(x)}{x}+\frac{\log (x)}{x} \int_2^x \frac{\vartheta(t)}{t \log ^2(t)} d t.
  \end{align}
 
 Basta con ver que las integrales de (1.11) y (1.12) van a 0 , cuando $x \rightarrow \infty$.\\
 
-$(\rightarrow)$ Por hipótesis $\dfrac{\pi(x)}{x}\left(\dfrac{1}{\log (x)}\right)^{-1}=1$ cuando $x \rightarrow \infty$. Esto es equivalente a decir que $\dfrac{\pi(t)}{t}=O\left(\dfrac{1}{\log (t)}\right)$. Luego para todo $x \geq 2$ positivo fijo tenemos que:
+$(\rightarrow)$ Por hipótesis $\dfrac{\pi(x)}{x}\left(\dfrac{1}{\log (x)}\right)^{-1}=1$ cuando $x \rightarrow \infty$. Esto es equivalente a decir que $\dfrac{\pi(t)}{t}=O\left(\dfrac{1}{\log (t)}\right)$. Luego para todo $x \geq 2$ positivo fijo tenemos que
 $$
-\frac{1}{x} \int_2^{\mathrm{x}} \frac{\pi(\mathrm{t})}{\mathrm{t}} \mathrm{dt}=O\left(\frac{1}{\mathrm{x}} \int_2^{\mathrm{x}} \frac{1}{\log (\mathrm{t})} \mathrm{dt}\right)
+\frac{1}{x} \int_2^{\mathrm{x}} \frac{\pi(\mathrm{t})}{\mathrm{t}} \mathrm{dt}=O\left(\frac{1}{\mathrm{x}} \int_2^{\mathrm{x}} \frac{1}{\log (\mathrm{t})} \mathrm{dt}\right).
 $$
 
-Note que:
+Note que
 $$
 \begin{aligned}
 \int_2^x \frac{1}{\log (t)} d t & \leq \int_2^{\sqrt{x}} \frac{1}{\log (t)} d t+\int_{\sqrt{x}}^x \frac{1}{\log (t)} d t \\
-& \leq \frac{\sqrt{x}}{\log (2)}+\frac{x-\sqrt{x}}{\log (\sqrt{x})}
+& \leq \frac{\sqrt{x}}{\log (2)}+\frac{x-\sqrt{x}}{\log (\sqrt{x})},
 \end{aligned}
 $$
 
-Luego
+luego
 $$
-\frac{1}{x} \int_2^x \frac{1}{\log (t)} d t \leq \frac{1}{\sqrt{x} \log (2)}+\frac{1}{\log (\sqrt{x})}-\frac{1}{\sqrt{x} \log (\sqrt{x})}
+\frac{1}{x} \int_2^x \frac{1}{\log (t)} d t \leq \frac{1}{\sqrt{x} \log (2)}+\frac{1}{\log (\sqrt{x})}-\frac{1}{\sqrt{x} \log (\sqrt{x})},
 $$
 
-Así, cuando $x \rightarrow \infty, \dfrac{1}{x} \displaystyle \int_2^x \frac{1}{\log (t)} d t=0$.\\
+así, cuando $x \rightarrow \infty, \dfrac{1}{x} \displaystyle \int_2^x \frac{1}{\log (t)} d t=0$.\\
 
-$(\leftarrow)$ Análogamente $\vartheta(\mathrm{t})=$ $O(\mathrm{t})$. Por tanto:
+$(\leftarrow)$ Análogamente $\vartheta(\mathrm{t})=$ $O(\mathrm{t})$. Por tanto
 
 $$
-\frac{\log (x)}{x} \int_2^x \frac{\vartheta(t)}{t \log ^2(t)} d t=O\left(\frac{\log (x)}{x} \int_2^x \frac{1}{t \log ^2(t)} d t\right)
+\frac{\log (x)}{x} \int_2^x \frac{\vartheta(t)}{t \log ^2(t)} d t=O\left(\frac{\log (x)}{x} \int_2^x \frac{1}{t \log ^2(t)} d t\right),
 $$
  
  La integral en $O$ se puede acotar de manera análoga a la anterior:
@@ -938,18 +938,18 @@ $$
 \begin{aligned}
 \int_2^x \frac{1}{t \log ^2(t)} d t & =\int_2^{\sqrt{x}} \frac{1}{t \log ^2(t)} d t+\int_{\sqrt{x}}^x \frac{1}{t \log ^2(t)} d t \\
 & \leq \frac{\sqrt{x}}{\log ^2(2)}+\frac{x-\sqrt{x}}{\log ^2(\sqrt{x})}
-\end{aligned}
+\end{aligned}.
 $$
 
-Multiplicando ambos lados por $\dfrac{\log (x)}{x}$, podemos ver que si $x \rightarrow \infty$, $\dfrac{\log (x)}{x}\displaystyle \int_2^x \frac{1}{t \log ^2(t)}=0$
+Multiplicando ambos lados por $\dfrac{\log (x)}{x}$, podemos ver que si $x \rightarrow \infty$, $\dfrac{\log (x)}{x}\displaystyle \int_2^x \frac{1}{t \log ^2(t)}=0$.
 \end{proof}
 
 Finalizaremos con una aplicación interesante de la fórmula de sumación de Abel:
 
 \begin{prop}[Fórmula de Stirling]
-Si $n$ es un entero positivo, entonces:
+Si $n$ es un entero positivo, entonces
 
-$$n!=C \sqrt{n} n^n e^{-n}\left(1+O\left(\frac{1}{n}\right)\right)$$
+$$n!=C \sqrt{n} n^n e^{-n}\left(1+O\left(\frac{1}{n}\right)\right).$$
 \end{prop}
 
 \begin{proof}
@@ -957,28 +957,27 @@ Por el teorema \ref{Teorema sumacion de Abel}:
 
 \begin{align*}
     \sum_{k\leq n}\log k&=n\log n-n+1+\int_1^n\frac{\{t\}}{t}dt\\
-    &=n\log n -n+1+\dfrac{1}{2}\log n+\int_1^n \frac{s(t)}{t}dt
+    &=n\log n -n+1+\dfrac{1}{2}\log n+\int_1^n \frac{s(t)}{t}dt,
 \end{align*}
 
-Donde $s(t)=\{t\}-\frac{1}{2}$, note que aplicando integración por partes:
+donde $s(t)=\{t\}-\frac{1}{2}$, note que aplicando integración por partes
 
 \begin{align*}
-\int_1^n \frac{s(t)}{t}=\left.\frac{S(t)}{t}\right|_1 ^n+\int_1^n \frac{S(t)}{t^2} dt
+\int_1^n \frac{s(t)}{t}=\left.\frac{S(t)}{t}\right|_1 ^n+\int_1^n \frac{S(t)}{t^2} dt,
 \end{align*}
 
-Donde $S(t)=\displaystyle\int_1^t s(y)dy$, tenemos que $\displaystyle\left.\frac{S(t)}{t}\right|_1 ^n=0$ ya que $s(t)$ es una función periódica de periodo 1 y $\displaystyle\int_k^{k+1}s(t)dt=0$ para todo entero $k$. Note que $|S(t)|\leq \dfrac{1}{2}$, de esto se sigue que:
+donde $S(t)=\displaystyle\int_1^t s(y)dy$, tenemos que $\displaystyle\left.\frac{S(t)}{t}\right|_1 ^n=0$ ya que $s(t)$ es una función periódica de periodo 1 y $\displaystyle\int_k^{k+1}s(t)dt=0$ para todo entero $k$. Note que $|S(t)|\leq \dfrac{1}{2}$, de esto se sigue que
 
 \begin{align*}
 \int_1^n \frac{s(t)}{t}dt&=\int_1^n\frac{S(t)}{t^2}=\int_1^{\infty}\frac{S(t)}{t^2}dt-\int_n^{\infty}\frac{S(t)}{t^2}dt\\
-&=c+O\left(\frac{1}{x}\right) && \left(|S(t)|\leq \frac{1}{2}\right)
+&=c+O\left(\frac{1}{x}\right). && \left(|S(t)|\leq \frac{1}{2}\right)
 \end{align*}
 
 Por tanto:
 
-$$\sum_{k\leq n}\log k=n \log n-n+\frac{1}{2} \log n+c+O\left(\frac{1}{n}\right)$$
+$$\sum_{k\leq n}\log k=n \log n-n+\frac{1}{2} \log n+c+O\left(\frac{1}{n}\right),$$
 
-De esto se sigue que:
-
+en efecto
 \begin{align*}
     n!&=exp{\displaystyle\left(\sum_{k\leq n}\log k\right)}\\
     &=exp{\displaystyle \left(n \log n-n+\frac{1}{2} \log n+c+O\left(\frac{1}{n}\right)\right)}\\
@@ -1014,23 +1013,23 @@ Note que $h(n)$ se parece la convolución de Dirichlet, pero en una versión adi
 
 Sin embargo, nuestro interés son las series $F(s)$, estas fueron introducidas por Dirichlet en su trabajo sobre primos en progresiones aritmética y son particularmente útiles cuando $f$ es una función multiplicativa ya que entre muchas cosas, en el producto de dos de  estas aparece la convolución multiplicativa que vimos antes, por lo que a través de estas podemos obtener propiedades de $f(n)$ como en la sección 1.2.\\
 
-Con lo que se mencionó antes parece que toda la teoría se conecta, y que de cierta forma esto solo es una forma diferente de atacar los mismos problemas, sin embargo, este no es el caso, las propiedades analíticas de una serie de Dirichlet, vista como función de variable compleja $s$ pueden ser explotadas para obtener información importante acerca del comportamiento de las sumas parciales de funciones aritmética:
+Con lo que se mencionó antes parece que toda la teoría se conecta, y que de cierta forma esto solo es una forma diferente de atacar los mismos problemas, sin embargo, este no es el caso, las propiedades analíticas de una serie de Dirichlet, vista como función de variable compleja $s$ pueden ser explotadas para obtener información importante acerca del comportamiento de las sumas parciales de funciones aritmética
 
-$$\sum_{n\leq x}f(n)$$
+$$\sum_{n\leq x}f(n).$$
 
 \begin{definition}
 
-Sea $f$ una función aritmética, la serie:
+Sea $f$ una función aritmética, la serie
 
-$$F(s)=\sum_{n=1}^{\infty}\frac{f(n)}{n^s}$$
+$$F(s)=\sum_{n=1}^{\infty}\frac{f(n)}{n^s},$$
 
-Es llamada \textit{serie de Dirichlet asociada a} f
+es llamada \textit{serie de Dirichlet asociada a} $f$.
 
 \end{definition}
 
 La variable $s$ es usualmente escrita como $s=\sigma+it$ con $\sigma=\Re(s)$ y $t=\Im(s)$, la serie de Dirichlet más popular es la función zeta de Riemann $\zeta(s)$, definida como la serie de Dirichlet asociada a la constante 1:
 
-$$\zeta(s)=\sum_{n=1}^{\infty} \frac{1}{n^s}, \quad (\sigma>1) $$
+$$\zeta(s)=\sum_{n=1}^{\infty} \frac{1}{n^s}.\quad (\sigma>1) $$
 
 \subsection{Propiedades algebraicas}
 
@@ -1048,13 +1047,13 @@ F(s) G(s) &=\sum_{k=1}^{\infty} \frac{f(k)}{k^s}\sum_{m=1}^{\infty} \frac{g(m)}{
 \end{aligned}
 $$
 
-Además:
+además:
 
 $$
 \begin{aligned}
 \sum_{n=1}^{\infty}\left|\frac{h(n)}{n^s}\right| & \leq \sum_{n=1}^{\infty} \frac{1}{\left|n^s\right|} \sum_{k m=n}|f(k)||g(m)| \\
 & =\left(\sum_{k=1}^{\infty}\left|\frac{f(k)}{k^s}\right|\right)\left(\sum_{m=1}^{\infty}\left|\frac{g(m)}{m^s}\right|\right)\\
-&<\infty
+&<\infty.
 \end{aligned}
 $$
 \end{proof}
@@ -1071,7 +1070,7 @@ Sean $f$ una función aritmética con serie de Dirichlet asociada $F(s)$, $g$ ta
 \begin{proof}
 Note que la serie de Dirichlet asociada a $e$ es 1, luego por el teorema anterior:
 
-$$1=\sum_{n=1}^{\infty} \frac{e(n)}{n^s}=\sum_{n=1}^{\infty} \frac{f*g(n)}{n^s}=F(s)G(s)$$
+$$1=\sum_{n=1}^{\infty} \frac{e(n)}{n^s}=\sum_{n=1}^{\infty} \frac{f*g(n)}{n^s}=F(s)G(s).$$
 \end{proof}
 
 \begin{note}
@@ -1100,30 +1099,30 @@ Primero note que $\displaystyle x^{\displaystyle  s}=e^{\displaystyle s\log x}=e
 luego $\left| e^{\displaystyle it\log x}\right|=1$. Esto muestra que la convergencia absoluta de una serie de Dirichlet está determinada únicamente por $\sigma$.
 
 \begin{eg}[Convergencia de $\zeta(s)$]
-Note que:
+Note que
 
-$$\sum_{n=1}^{\infty} \left|\frac{1}{n^s}\right|=\sum_{n=1}^{\infty} \left|\frac{1}{n^{\sigma}}\right|=\sum_{n=1}^{\infty} \frac{1}{n^{\sigma}}$$
+$$\sum_{n=1}^{\infty} \left|\frac{1}{n^s}\right|=\sum_{n=1}^{\infty} \left|\frac{1}{n^{\sigma}}\right|=\sum_{n=1}^{\infty} \frac{1}{n^{\sigma}}.$$
 
 Si $\sigma=1$ sabemos que la serie diverge, en otro caso, la serie converge si y solo si la integral:
 
-$$\int_1^{\infty}\frac{1}{x^\sigma}dx=\lim_{n \to \infty}\left.\dfrac{x^{1-\sigma}}{1-\sigma}\right|_1^{n}=\lim _{n \rightarrow \infty} \frac{n^{1-\sigma}}{1-\sigma}-\frac{1}{1-\sigma}$$
+$$\int_1^{\infty}\frac{1}{x^\sigma}dx=\lim_{n \to \infty}\left.\dfrac{x^{1-\sigma}}{1-\sigma}\right|_1^{n}=\lim _{n \rightarrow \infty} \frac{n^{1-\sigma}}{1-\sigma}-\frac{1}{1-\sigma}.$$
 
-Luego, es claro que $\zeta(s)$ converge absolutamente si $\sigma>1$ y diverge  si $\sigma\leq 1$
+Luego, es claro que $\zeta(s)$ converge absolutamente si $\sigma>1$ y diverge  si $\sigma\leq 1$.
 \end{eg}
 
 \begin{definition}
-Sea $\Omega$ un abierto en $\C$ y $f:\Omega \to \C$, la \textit{derivada} de $f$ en $z_0\in \Omega$ está dada por:
+Sea $\Omega$ un abierto en $\C$ y $f:\Omega \to \C$, la \textit{derivada} de $f$ en $z_0\in \Omega$ está dada por
 
 $$f^{\prime}(z_0)=\lim_{z \to z_0} \frac{f(z)-f(z_0)}{z-z_0}$$
 
-Si el límite existe. Diremos que $f$ es \textit{diferenciable} en $z_0$
+Si el límite existe. Diremos que $f$ es \textit{diferenciable} en $z_0$.
 \end{definition}
 
 Si $f$ es diferenciable en todo punto de una vecindad de $z_0$, entonces diremos que $f$ es \textit{holomorfa} en $z_0$. Si $f$ es holomorfa en todo punto de un abierto $U\subseteq\Omega$, diremos que $f$ es holomorfa en $U$. Finalmente si $f$ es holomorfa en $\Omega$, diremos que es holomorfa.\\
 
 Por otro lado, $f$ se dice analítica en $z_0$, si existe un abierto $U\subseteq \Omega$ tal que $z_0\in U$ y
 
-$$f(z)=\sum_{n=0}^{\infty} a_n (z-z_0)^n$$
+$$f(z)=\sum_{n=0}^{\infty} a_n (z-z_0)^n,$$
 
 para todo $z\in U$, si $f$ es analítica en todo punto de $U$, entonces decimos que es analítica  en $U$.\\
 
@@ -1131,28 +1130,21 @@ El conjunto de puntos $s=\sigma+it$ con $\sigma>a$ es llamado semiplano, veremos
 
 
 \begin{theorem}
-Sea $f:\N \to \C$, supongamos que la serie:
+Sea $f:\N \to \C$, supongamos que la serie
 
-$$F(s)=\sum_{n=1}^{\infty} \left| \frac{f(n)}{n^s}\right|$$
+$$F(s)=\sum_{n=1}^{\infty} \left| \frac{f(n)}{n^s}\right|,$$
 
-No converge, ni diverge para  todo $s\in \C$, entonces existe un $\sigma_a\in \R$ tal que $F(s)$ converge para todo $\sigma>\sigma_a$ y diverge para todo $\sigma<\sigma_a$
+no converge, ni diverge para  todo $s\in \C$, entonces existe un $\sigma_a\in \R$ tal que $F(s)$ converge para todo $\sigma>\sigma_a$ y diverge para todo $\sigma<\sigma_a$
 \end{theorem}
 
 \begin{proof}
-Sea $|n^s|=n^{\sigma}$, si $\sigma>\sigma_0$, entonces $|n^s|\geq n^{\sigma_0}$, así $|f(n)n^{-s}|\leq|f(n)|n^{-\sigma_0}$. Por el criterio de comparación, si $F(s)$ converge para $s=\sigma_0+i t_0$, entonces converge para todo $s$ con parte real $\sigma\geq\sigma_0$. Considere el conjunto:
+Sea $|n^s|=n^{\sigma}$, si $\sigma>\sigma_0$, entonces $|n^s|\geq n^{\sigma_0}$, así $|f(n)n^{-s}|\leq|f(n)|n^{-\sigma_0}$. Por el criterio de comparación, si $F(s)$ converge para $s=\sigma_0+i t_0$, entonces converge para todo $s$ con parte real $\sigma\geq\sigma_0$. Considere el conjunto
 
-$$A:\left\{a\in R : \sum_{n=1}^{\infty} \left|\frac{f(n)}{n^a}\right|<\infty\right\}$$
+$$A:\left\{a\in R : \sum_{n=1}^{\infty} \left|\frac{f(n)}{n^a}\right|<\infty\right\}.$$
 
 Como $F(s)$ no diverge para  todo $s\in\C $, entonces $A$ es no vacío, además tiene un mínimo ya que $F(s)$ no converge  para todo $s\in C$, sea $\sigma_a$ el mínimo de $A$. Si $s\in C$ tiene parte real $\sigma< \sigma_a$, entonces $\sigma\not\in A$, $F(s)$ diverge. Análogamente si $s$ tiene parte real $\sigma>\sigma_a$, entonces $\sigma>a$ para algún $a\in A$, $F(s)$ converge.\\
 \end{proof}
 
-
-\begin{definition}
-Decimos que una serie de funciones $\{f_n\}:S\to \C$ converge uniformemente a $f$ en $S$ si, para todo $\varepsilon>0$, existe un $N_\varepsilon$ tal que si $n>N_\epsilon$ implica que
-    $$|f_n(x)-f(x)|<\varepsilon\ \ \ \ \text{para cada $x$ in $S$}$$
-\end{definition}
-
-Lo importante a resaltar en la definición anterior es  que nos indica que para cualquier $\varepsilon$, podemos encontrar un $N_\varepsilon$ tal de ese punto en adelante, la sucesión de funciones está muy cerca de $f$ para todo $x\in S$, es decir que ese $N_\varepsilon$ no depende del punto $x$, es uniforme, cosa que no ocurre con la convergencia puntual.
 
 \begin{theorem}
 Sean $\Omega$ un abierto en $\C$, $(f_n)$ una sucesión de funciones analíticas definidas en $\Omega$, y $f:\Omega\to\C$. Si $(f_n)$ converge absolutamente a $f$ en cualquier subconjunto compacto de $\Omega$, entonces $f$ es analítica en $\Omega$ y la sucesión $(f_n^{\prime})$ también converge uniformemente a $f^{\prime}$ en cualquier subconjunto compacto de $\Omega$.
@@ -1163,30 +1155,30 @@ No entraremos en los detalles de esta prueba aquí, el lector interesado la pued
 \begin{theorem}
 Suponga que la serie $F(s)=\displaystyle\sum_{n=1}^{\infty} \frac{f(n)}{n^s}$ converge en el punto $s=s_0$ y sea $H>0$, entonces $F(s)$ converge uniformemente en $S$, donde $S$ es el conjunto:
 
-$$S=\{s\in \C : \sigma>\sigma_0 \text{ y } |t-t_0|\leq H(\sigma-\sigma_0)\}$$
+$$S=\{s\in \C : \sigma>\sigma_0 \text{ y } |t-t_0|\leq H(\sigma-\sigma_0)\}.$$
 \end{theorem}
 \begin{center}
 \input{Graphics/Dirichlet1}
 \end{center}
 
 \begin{proof}
-Sean $H>0$, $\varepsilon>0$ dado y $1<M<N$, como la serie converge en $s=s_0$, entonces:
+Sean $H>0$, $\varepsilon>0$ dado y $1<M<N$, como la serie converge en $s=s_0$, entonces
 
-$$\sum_{M<n \leq N} f(n) n^{-s_0} n^{s_0-s}=\int_M^N t^{s_0-s} d A(t)=\int_M^N t^{s_0-s} d(A(t)-A(M))$$
+$$\sum_{M<n \leq N} f(n) n^{-s_0} n^{s_0-s}=\int_M^N t^{s_0-s} d A(t)=\int_M^N t^{s_0-s} d(A(t)-A(M)),$$
 
-Con $A(t)=\displaystyle\sum_{n \leq t} f(n) n^{-s_0}$, luego:
+con $A(t)=\displaystyle\sum_{n \leq t} f(n) n^{-s_0}$, luego
 $$
 \begin{aligned}
 \sum_{M<n \leq N} f(n) n^{-s} & =\frac{A(N)-A(M)}{N^{s-s_0}}- \int_M^N(A(t)-A(M)) d(t^{s_0-s})\\
-&=\frac{A(N)-A(M)}{N^{s-s_0}}-(s_0-s)\int_M^N(A(t)-A(M))t^{s_0-s-1}dt
+&=\frac{A(N)-A(M)}{N^{s-s_0}}-(s_0-s)\int_M^N(A(t)-A(M))t^{s_0-s-1}dt.
 \end{aligned}
 $$
 
-Tenemos que $A(t)$ converge cuando $t\to\infty$, luego $A(N)-A(M)$ y $A(t)-A(M)$ convergen a 0 cuando $M,N\to \infty$. Así, para $M, N$ suficientemente grandes y $\sigma>\sigma_0$:
+Tenemos que $A(t)$ converge cuando $t\to\infty$, luego $A(N)-A(M)$ y $A(t)-A(M)$ convergen a 0 cuando $M,N\to \infty$. Así, para $M, N$ suficientemente grandes y $\sigma>\sigma_0$
 
-$$|A(N)-A(M)|<\frac{\varepsilon}{(H+2)}, \quad|A(t)-A(M)|<\frac{\varepsilon}{H+2}$$
+$$|A(N)-A(M)|<\frac{\varepsilon}{(H+2)}, \quad|A(t)-A(M)|<\frac{\varepsilon}{H+2},$$
 
-De esto se sigue que:
+de esto se sigue que:
 
 $$\begin{aligned}
 \left|\sum_{M<n \leq N} \frac{f(n)}{n^s}\right|&<\frac{\varepsilon}{H+2}+\frac{\varepsilon}{H+2}\left|s-s_0\right| \int_M^{\infty} t^{\sigma_0-\sigma-1} d t\\
@@ -1194,13 +1186,13 @@ $$\begin{aligned}
 &\leq\left(1+\frac{\left|s-s_0\right|}{\sigma-\sigma_0}\right) \frac{\varepsilon}{H+2} .
 \end{aligned}$$
 
-Queremos ver que $\left|\displaystyle\sum_{M<n \leq N} f(n) n^{-s}\right|<\varepsilon$, así el teorema se sigue de el teorema de Cauchy para convergencia uniforme de series, En efecto:
+Queremos ver que $\left|\displaystyle\sum_{M<n \leq N} f(n) n^{-s}\right|<\varepsilon$, así el teorema se sigue de el teorema de Cauchy para convergencia uniforme de series, en efecto
 
-$$\left|s-s_0\right|=\left|\left(\sigma-\sigma_0\right)+i\left(t-t_0\right)\right| \leq \sigma-\sigma_0+\left|t-t_0\right| \leq\sigma-\sigma_0+H(\sigma-\sigma_0)\leq(H+1)\left(\sigma-\sigma_0\right)$$
+$$\left|s-s_0\right|=\left|\left(\sigma-\sigma_0\right)+i\left(t-t_0\right)\right| \leq \sigma-\sigma_0+\left|t-t_0\right| \leq\sigma-\sigma_0+H(\sigma-\sigma_0)\leq(H+1)\left(\sigma-\sigma_0\right),$$
 
-Así:
+así:
 
-$$\left|\sum_{M<n \leq N} \frac{f(n)}{n^s}\right|<(1+(H+1))\frac{\varepsilon}{H+2}=\epsilon$$
+$$\left|\sum_{M<n \leq N} \frac{f(n)}{n^s}\right|<(1+(H+1))\frac{\varepsilon}{H+2}=\epsilon.$$
 \end{proof}
 
 
@@ -1214,17 +1206,17 @@ Supongamos que $F(s)=\displaystyle\sum_{n=1}^{\infty} f(n)n^{-s}$ no converge pa
 \begin{proof}
 Como mencionamos antes, tomando $H$ suficientemente grande vemos que si $F(s)$ converge en $s=s_0$, entonces por el teorema anterior $F(s)$ converge para todo $\sigma>\sigma_0$, por tanto, de manera análoga a la prueba del teorema 1.25, consideremos el conjunto:
 
-$$A=\left\{a \in \mathbb{R} : \sum_{n=1}^{\infty} f(n) n^{-a} \text { converges }\right\}$$
+$$A=\left\{a \in \mathbb{R} : \sum_{n=1}^{\infty} f(n) n^{-a} \text { converge }\right\}.$$
 
 Nuevamente  consideremos $\sigma_c$ el mínimo de $A$, si $s$ tiene parte real $\sigma>\sigma_c$, entonces $\sigma>a$ para algún $a\in A$, luego $F(s)$ converge, si $s$ tiene parte real $\sigma<\sigma_c$, entonces $\sigma<\dfrac{\sigma+\sigma_c}{2}<\sigma_c$ y como $\sigma_c$ es el mínimo, $\dfrac{\sigma+\sigma_c}{2}\not\in A$, lo que implica que $F(s)$ diverge.
 \end{proof}
 
 \begin{eg}
-Supongamos que la suma:
+Supongamos que la suma
 
-$$\sum_{n\leq x}f(n) \text{ está acotada para  todo }x\in [1,\infty)$$
+$$\sum_{n\leq x}f(n) \text{ está acotada para  todo }x\in [1,\infty).$$
 
-Tenemos que $n^{-s}$ para $\sigma>0$ es decreciente, luego dado $\sigma_0>0$, tenemos que $\displaystyle\sum_{n=1}^{\infty}f(n)n^{-\sigma_0}$ converge por el criterio de Dirichlet y por el teorema anterior $F(s)$ converge para todo $S$ con $\sigma>\sigma_0$, haciendo $\sigma_0$ arbitrariamente pequeño, obtenemos que $F(s)$  converge en el semiplano $\sigma>0$
+Tenemos que $n^{-s}$ para $\sigma>0$ es decreciente, luego dado $\sigma_0>0$, tenemos que $\displaystyle\sum_{n=1}^{\infty}f(n)n^{-\sigma_0}$ converge por el criterio de Dirichlet y por el teorema anterior $F(s)$ converge para todo $S$ con $\sigma>\sigma_0$, haciendo $\sigma_0$ arbitrariamente pequeño, obtenemos que $F(s)$  converge en el semiplano $\sigma>0$.
 \end{eg}
 
 El siguiente resultado nos da una propiedad que esperábamos, podemos derivar término a término:
@@ -1232,14 +1224,14 @@ El siguiente resultado nos da una propiedad que esperábamos, podemos derivar t�
 \begin{corollary}
 Sea $F(s)=\displaystyle\sum_{n=1}^{\infty} f(n)n^{-s}$ para todo $s\in \C$ con $\sigma>\sigma_c$, entonces $F(s)$ es analítica en el semiplano $\sigma>\sigma_c$ y $F^{\prime}(s)$ se puede obtener derivando término a término, es decir:
 
-$$F^{\prime}(s)=-\sum_{n=1}^{\infty}\frac{f(n)\log n}{n^s} \quad \text{para todo } s \text{ con } \sigma>\sigma_c$$
+$$F^{\prime}(s)=-\sum_{n=1}^{\infty}\frac{f(n)\log n}{n^s} \quad \text{para todo } s \text{ con } \sigma>\sigma_c.$$
 \end{corollary}
 
 
 \begin{proof}
 Sea $A$ un compacto en el semiplano $\sigma>\sigma_c$, tomemos $s_0$ con parte real $\sigma_0$ tal que $\sigma_c<\sigma_0<\min\{\Re(s): s\in A\}$, como $F(s)$ converge en $s_0$, entonces por el Teorema 1.27, $F(s)$ converge uniformemente en la región $S=\{s\in \C : \sigma>\sigma_0 \text{ y } |t-t_0|\leq H(\sigma-\sigma_0)\}$. Sabemos que $A$ es acotado porque es compacto, luego existe un $H>0$ tal que $A\subset S$, basta tomar un $H$ suficientemente grande. De  esto se sigue que $F(s)$ converge uniformemente en cualquier compacto $A$ del semiplano $\sigma>\sigma_c$, por el Teorema 1.26, $F(s)$ es analítica en el semiplano $\sigma>\sigma_0$, $F^{\prime}(s)$ se puede obtener derivando término a término:
 
-$$F^{\prime}(s)=-\sum_{n=1}^{\infty} f(n)(\log n) n^{-s}$$
+$$F^{\prime}(s)=-\sum_{n=1}^{\infty} f(n)(\log n) n^{-s}.$$
 \begin{center}
 \input{Graphics/Analítica1}
 \end{center}
@@ -1250,39 +1242,39 @@ Por lo anterior, $F^{\prime}(s)$ tiene la misma abscisa de convergencia que $F(s
 \end{note}
 
 \begin{corollary}
-La función zeta de Riemann es analítica en el semiplano $\sigma>1$. Luego:
+La función zeta de Riemann es analítica en el semiplano $\sigma>1$. Luego
 
-$$\zeta^{\prime}(s)=-\sum_{n=1}^{\infty}\frac{\log n}{n^s} \text{ para todo } s \in \mathbb{C} \text{ con } \sigma>1$$
+$$\zeta^{\prime}(s)=-\sum_{n=1}^{\infty}\frac{\log n}{n^s} \text{ para todo } s \in \mathbb{C} \text{ con } \sigma>1.$$
 \end{corollary}
 
-Recordemos que el TFA en términos de convolución nos dice que $\log n=\Lambda*1$, por tanto:
+Recordemos que el TFA en términos de convolución nos dice que $\log n=\Lambda*1$, por tanto
 
-$$\zeta^{\prime}(s)=-\sum_{n=1}^{\infty}\frac{\log n}{n^s}=-\sum_{n=1}^{\infty}\frac{\Lambda *1(n)}{n^s}=-\sum_{n=1}^{\infty}\frac{\Lambda(n)}{n^s}\sum_{k=1}^{\infty} \frac{1}{k^s} $$
+$$\zeta^{\prime}(s)=-\sum_{n=1}^{\infty}\frac{\log n}{n^s}=-\sum_{n=1}^{\infty}\frac{\Lambda *1(n)}{n^s}=-\sum_{n=1}^{\infty}\frac{\Lambda(n)}{n^s}\sum_{k=1}^{\infty} \frac{1}{k^s}.$$
 
-El paso anterior, en el que separamos la convolución como un producto depende de que ambas series sean absolutamente convergentes en el punto $s$. No tenemos de momento una abscisa de convergencia absoluta  para la serie de Dirichlet asociada a la función de Von Mangolth, Afortunadamente, no es difícil ver que también $\sigma_a=1$. Note que para todo $n\in \N$, $|\Lambda(n)|\leq \log n$ y como la serie de Dirichlet de $\log(n)$ es $-\zeta^{\prime}(s)$ que tiene abscisa de convergencia absoluta $\sigma_a=1$, entonces:
+El paso anterior, en el que separamos la convolución como un producto depende de que ambas series sean absolutamente convergentes en el punto $s$. No tenemos de momento una abscisa de convergencia absoluta  para la serie de Dirichlet asociada a la función de Von Mangolth, Afortunadamente, no es difícil ver que también $\sigma_a=1$. Note que para todo $n\in \N$, $|\Lambda(n)|\leq \log n$ y como la serie de Dirichlet de $\log(n)$ es $-\zeta^{\prime}(s)$ que tiene abscisa de convergencia absoluta $\sigma_a=1$, entonces
 
-$$\sum_{n=1}^{\infty} \frac{\Lambda(n)}{n^s}\quad \text{converge absolutamente si } \sigma>1$$
+$$\sum_{n=1}^{\infty} \frac{\Lambda(n)}{n^s}\quad \text{converge absolutamente si } \sigma>1.$$
 
-Luego el paso que hicimos es válido en el semiplano $\sigma>1$, por tanto:
+El paso que hicimos es válido en el semiplano $\sigma>1$, por tanto:
 
 $$\frac{\zeta^{\prime}(s)}{\zeta(s)}=-\sum_{n=1}^{\infty} \frac{\Lambda(n)}{n^s}$$
 
-Esta es la derivada logarítmica, una serie de Dirichlet que será muy importante en la prueba del teorema de los números primos. El siguiente teorema nos da una relación importante entre $\sigma_c$ y $\sigma_a$.
+Esta es la derivada logarítmica de $\zeta(s)$, una serie de Dirichlet que será muy importante en la prueba del teorema de los números primos. El siguiente teorema nos da una relación importante entre $\sigma_c$ y $\sigma_a$.
 
 \begin{theorem}
 Sea $F(s)$ una serie de Dirichlet, entonces $\sigma_c\leq\sigma_a\leq \sigma_c+1$
 \end{theorem}
 
 \begin{proof}
-Es claro que si $F(s)$ es absolutamente convergente, entonces $\sigma_a\geq \sigma_c$, veamos la otra desigualdad. Note que la serie $\displaystyle \sum_{n=1}^{\infty} f(n)n^{-\sigma_c-\epsilon}$ converge para todo $\epsilon>0$, por tanto $f(n)n^{-\sigma_c-\epsilon}$ converge a 0 cuando $n\to \infty$. Es decir, existe un $N>0$ tal que $|f(n)|<n^{\sigma_c+\epsilon}$ para todo $n\geq N$, luego:
+Es claro que si $F(s)$ es absolutamente convergente, entonces $\sigma_a\geq \sigma_c$, veamos la otra desigualdad. Note que la serie $\displaystyle \sum_{n=1}^{\infty} f(n)n^{-\sigma_c-\epsilon}$ converge para todo $\epsilon>0$, por tanto $f(n)n^{-\sigma_c-\epsilon}$ converge a 0 cuando $n\to \infty$. Es decir, existe un $N>0$ tal que $|f(n)|<n^{\sigma_c+\epsilon}$ para todo $n\geq N$, luego
 
-$$\left|\frac{f(n)}{n^{\sigma+1+2\epsilon}}\right|<\frac{1}{n^{1+\epsilon}}$$
+$$\left|\frac{f(n)}{n^{\sigma+1+2\epsilon}}\right|<\frac{1}{n^{1+\epsilon}}.$$
 
-Tenemos que la serie $\displaystyle \sum_{n=1}^{\infty} n^{-1-\epsilon}$ converge, luego por criterio de comparación, la serie:
+Tenemos que la serie $\displaystyle \sum_{n=1}^{\infty} n^{-1-\epsilon}$ converge, luego por criterio de comparación, la serie
 
-$$\sum_{n=1}^{\infty} \frac{f(n)}{n^{\sigma_c+2\epsilon+1}} \quad\text{converge absolutamente}$$
+$$\sum_{n=1}^{\infty} \frac{f(n)}{n^{\sigma_c+2\epsilon+1}} \quad\text{converge absolutamente},$$
 
-Esto es, $\sigma_a\leq \sigma_c+1+2\epsilon$, para todo $\epsilon>0$, luego obtenemos $\sigma_a\leq \sigma_c+1$
+esto es, $\sigma_a\leq \sigma_c+1+2\epsilon$, para todo $\epsilon>0$, luego obtenemos $\sigma_a\leq \sigma_c+1$.
 \end{proof}
 
 \begin{theorem}[Unicidad]
@@ -1291,33 +1283,33 @@ Sean $F(s)$ y $G(s)$ las series de Dirichlet asociadas a $f$ y $g$ respectivamen
 \end{theorem}
 
 \begin{proof}
-Sea $h(n)=f(n)-g(n)$ y $H(s)=F(s)-G(s)$ su serie de Dirichlet, por hipótesis, existe un $\sigma_0$ tal que $H(s)$ converge en el semiplano $\sigma>\sigma_0$ y $H(s)$ es idénticamente nula en este semiplano, queremos ver que $h(n)=n$ para todo $n\in \N$. Supongamos que $h(n)$ no es idénticamente nula y sea $N$ el mínimo entero positivo tal que $h(n)\neq 0$, entonces:
+Sea $h(n)=f(n)-g(n)$ y $H(s)=F(s)-G(s)$ su serie de Dirichlet, por hipótesis, existe un $\sigma_0$ tal que $H(s)$ converge en el semiplano $\sigma>\sigma_0$ y $H(s)$ es idénticamente nula en este semiplano, queremos ver que $h(n)=n$ para todo $n\in \N$. Supongamos que $h(n)$ no es idénticamente nula y sea $N$ el mínimo entero positivo tal que $h(n)\neq 0$, entonces
 
 \begin{align*}
     &H(s)=\frac{h(N)}{N^s}+\sum_{n=N+1}^{\infty} \frac{h(n)}{n^s},\\
     &h(N)=N^s H(s)-N^s \sum_{n=N+1}^{\infty} h(n) n^{-s}
 .\end{align*}
 
-De esto se sigue que para todo $\sigma>\sigma_0$, $h(N)=-N^{\sigma}\displaystyle \sum_{n=N+1}^{\infty} h(n) n^{-\sigma}.$ y por tanto:
+De esto se sigue que para todo $\sigma>\sigma_0$, $h(N)=-N^{\sigma}\displaystyle \sum_{n=N+1}^{\infty} h(n) n^{-\sigma}.$ y por tanto
 
-$$\left|h(N)\right|\leq\sum_{n=N+1}^{\infty} |h(n)|\left(\frac{N}{n}\right)^{\sigma}
+$$\left|h(N)\right|\leq\sum_{n=N+1}^{\infty} |h(n)|\left(\frac{N}{n}\right)^{\sigma},
     $$
 
-Tomando $\sigma=\sigma_0+\lambda$ con $\lambda\geq 0$, tenemos que para todo $n\geq N+1$:
+tomando $\sigma=\sigma_0+\lambda$ con $\lambda\geq 0$, tenemos que para todo $n\geq N+1$
 
-$$\left(\frac{N}{n}\right)^{\sigma}=\left(\frac{N}{n}\right)^{\lambda}\left(\frac{N}{n}\right)^{\sigma_0}\leq \left(\frac{N}{N+1}\right)^{\lambda}\left(\frac{N}{n}\right)^{\sigma_0}$$
+$$\left(\frac{N}{n}\right)^{\sigma}=\left(\frac{N}{n}\right)^{\lambda}\left(\frac{N}{n}\right)^{\sigma_0}\leq \left(\frac{N}{N+1}\right)^{\lambda}\left(\frac{N}{n}\right)^{\sigma_0},$$
 
-Luego:
+luego:
 
 $$\begin{aligned}
 \left|h(N)\right|&\leq \left(\frac{N}{N+1}\right)^{\lambda}\sum_{n=N+1}^{\infty} |h(n)|\left(\frac{N}{n}\right)^{\sigma_0}=N^{\sigma_0}\left(\frac{N}{N+1}\right)^{\lambda}\sum_{n=N+1}^{\infty} |h(n)|n^{-\sigma_0}\\
-&=C\left(\frac{N}{N+1}\right)^{\lambda}
+&=C\left(\frac{N}{N+1}\right)^{\lambda},
 \end{aligned}
     $$
 
-Donde $C$ es una constante que no depende de $\lambda$ dado que la serie $\displaystyle \sum_{n=N+1}^{\infty} |h(n)|n^{-\sigma_0}$ converge. Note que:
+donde $C$ es una constante que no depende de $\lambda$ dado que la serie $\displaystyle \sum_{n=N+1}^{\infty} |h(n)|n^{-\sigma_0}$ converge. Note que
 
-$$\lim_{\lambda\to \infty} C\left(\frac{N}{N+1}\right)^{\lambda}=0$$
+$$\lim_{\lambda\to \infty} C\left(\frac{N}{N+1}\right)^{\lambda}=0.$$
 
 Luego $h(N)=0$, contradicción. $f(n)=g(n)$ para todo $n\in \N$.\\
 \end{proof}
@@ -1326,13 +1318,13 @@ Con estas propiedades nos basta para lo que queremos mostrar en este trabajo, si
 
 \subsection{El producto de Euler}
 
-Ya habíamos mencionado antes que las series de Dirichlet son particularmente útiles cuando $f$ es una función multiplicativa, ya que en este caso vemos a ver que:
+Ya habíamos mencionado antes que las series de Dirichlet son particularmente útiles cuando $f$ es una función multiplicativa, ya que en este caso vemos a ver que
 
 $$
 F(s)=\prod_p\left(1+\frac{f(p)}{p^s}+\frac{f\left(p^2\right)}{p^{2 s}}++\frac{f\left(p^3\right)}{p^{3 s}}+\cdots\right),
 $$
 
-siempre que las series sobre los primos y el producto converjan absolutamente. Adicionalmente, si $f$ es completamente multiplicativa:
+siempre que las series sobre los primos y el producto converjan absolutamente. Adicionalmente, si $f$ es completamente multiplicativa
 
 $$F(s)=\prod_p(1-f(p))^{-1}.$$
 
@@ -1349,11 +1341,11 @@ Decimos que el producto $\displaystyle \prod_{n=1}^{\infty} a_n$ converge si:
 \end{itemize}
 \end{definition}
 
-De la definición anterior tenemos que un producto $\displaystyle\prod_{n=1}^{\infty} a_n$ converge a 0 si y solo si existe un $n$ tal que $a_n=0$ y hay solo una cantidad finita de $a_n$ de esta forma, así tomando $N=\max\{n: a_n=0\}$ el $\lim_{m \to \infty} \displaystyle\prod_{k=N+1}^{m}a_N$ existe y es no nulo. Por ejemplo, el producto:
+De la definición anterior tenemos que un producto $\displaystyle\prod_{n=1}^{\infty} a_n$ converge a 0 si y solo si existe un $n$ tal que $a_n=0$ y hay solo una cantidad finita de $a_n$ de esta forma, así tomando $N=\max\{n: a_n=0\}$ el $\lim_{m \to \infty} \displaystyle\prod_{k=N+1}^{m}a_N$ existe y es no nulo. Por ejemplo, el producto
 
-$$(0)(1)(1)(1)(1)\cdots \quad \text{converge a 0.}$$
+$$(0)(1)(1)(1)(1)\cdots \quad \text{converge a 0,}$$
 
-Pero los productos $(0)(1)(0)(1)(0)(1)\cdots$ y $(0)(1)(2)(3)(4)\cdots$ no convergen \cite{pongsriiam2023analytic}. De manera análoga a lo que ocurre con series, si el producto $\displaystyle\prod_{n=1}^{\infty} a_n$ converge, entonces $a_n$ converge a 1. Nos interesa caracterizar la convergencia de los productos de la forma $\displaystyle \prod_{n=1}^{\infty} (1+a_n)$, note que por lo anterior $a_n$ converge a 0.
+pero los productos $(0)(1)(0)(1)(0)(1)\cdots$ y $(0)(1)(2)(3)(4)\cdots$ no convergen \cite{pongsriiam2023analytic}. De manera análoga a lo que ocurre con series, si el producto $\displaystyle\prod_{n=1}^{\infty} a_n$ converge, entonces $a_n$ converge a 1. Nos interesa caracterizar la convergencia de los productos de la forma $\displaystyle \prod_{n=1}^{\infty} (1+a_n)$, note que por lo anterior $a_n$ converge a 0.
 
 \begin{definition}
 Sea $a_n$ una sucesión de números complejos. El producto $\displaystyle\prod_{n=1}^{\infty} (1+a_n)$ es absolutamente convergente si $\displaystyle\prod_{n=1}^{\infty} (1+\left|a_n\right|)$ es convergente.
@@ -1369,49 +1361,49 @@ Como mencionamos, no se presentará una prueba de este resultado, el lector pued
 
 \begin{theorem}
 Sea $f$ una función aritmética multiplicativa si $\displaystyle\sum_{n=1}^{\infty} f(n)$ converge absolutamente, entonces
-$$\sum_{n=1}^{\infty} f(n)=\prod_p\left(1+f(p)+f\left(p^2\right)+\cdots\right)$$
+$$\sum_{n=1}^{\infty} f(n)=\prod_p\left(1+f(p)+f\left(p^2\right)+\cdots\right).$$
 
-Si $f$ es completamente multiplicativa, entonces:
+Si $f$ es completamente multiplicativa, entonces
 
-$$\sum_{n=1}^{\infty} f(n)=\prod_p(1-f(p))^{-1}$$
+$$\sum_{n=1}^{\infty} f(n)=\prod_p(1-f(p))^{-1}.$$
 \end{theorem}
 
 \begin{proof}
 Note que:
 
 \begin{equation}
-\sum_{p}\left|f(p)+f(p^2)+\ldots\right|\leq \sum_p \left|f(p)\right|+\sum_p \left|f(p^2)\right|+\ldots\leq\sum_{n=2}^{\infty} \left|f(n)\right|
+\sum_{p}\left|f(p)+f(p^2)+\ldots\right|\leq \sum_p \left|f(p)\right|+\sum_p \left|f(p^2)\right|+\ldots\leq\sum_{n=2}^{\infty} \left|f(n)\right|.
 \end{equation}
 
-La serie en la derecha de (1.13) converge, entonces $\displaystyle\prod_p\left(1+f(p)+f\left(p^2\right)+\cdots\right)$ converge absolutamente. Como $f$ es multiplicativa tenemos que:
+La serie en la derecha de (1.13) converge, entonces $\displaystyle\prod_p\left(1+f(p)+f\left(p^2\right)+\cdots\right)$ converge absolutamente. Como $f$ es multiplicativa tenemos que
 
 \begin{equation}
 \begin{aligned}
 P(x)&=\prod_{p\leq x}\left(1+f(p)+f(p^2)+\ldots\right)=\prod_{p\leq x}\left(1+\sum_{k=1}^{\infty} f(p^k)\right)\\
 &=1+\sum_{k_1=1}^{\infty}f(p_1^{k_1})+\sum_{k_2=1}^{\infty}f(p_2^{k_2})+\sum_{k_1=1}^{\infty} f(p_1^{k_1})\sum_{k_2=1}^{\infty} f(p_2^{k_2})+\ldots\\
 &=\sum_{k_1=0}^{\infty}\ldots \sum_{k_t=0}^{\infty}(f(p_1^{k_1})\ldots f(p_t^{k_t}))\\
-&=\sum_{k_1=0}^{\infty}\ldots \sum_{k_t=0}^{\infty}(f(p_1^{k_1}\ldots p_t^{k_t}))
+&=\sum_{k_1=0}^{\infty}\ldots \sum_{k_t=0}^{\infty}(f(p_1^{k_1}\ldots p_t^{k_t})).
 \end{aligned}
 \end{equation}
 
-En efecto podemos obtener el término 1 tomando $k_1=k_2=\ldots=k_t=0$ ya que $f(1)=1$ porque $f$ es multiplicativa. Note ahora que dado el conjunto $A$ de los enteros positivos con todos sus factores primos menores o iguales a $x$, el producto se puede escribir de manera compacta como:
+En efecto podemos obtener el término 1 tomando $k_1=k_2=\ldots=k_t=0$ ya que $f(1)=1$ porque $f$ es multiplicativa. Note ahora que dado el conjunto $A$ de los enteros positivos con todos sus factores primos menores o iguales a $x$, el producto se puede escribir de manera compacta como
 
-$$P(x)=\sum_{n\in A}f(n)$$
+$$P(x)=\sum_{n\in A}f(n),$$
 
-En efecto, dado $B$ el conjunto de los enteros positivos con al menos un factor primo mayor que $x$:
+luego, dado $B$ el conjunto de los enteros positivos con al menos un factor primo mayor que $x$
 
 $$
-\left|\sum_{n=1}^{\infty} f(n)-P(x)\right| \leq \sum_{n \in B}|f(n)| \leq \sum_{n>x}|f(n)|=\sum_{n=1}^{\infty}|f(n)|-\sum_{n \leq x}|f(n)|
+\left|\sum_{n=1}^{\infty} f(n)-P(x)\right| \leq \sum_{n \in B}|f(n)| \leq \sum_{n>x}|f(n)|=\sum_{n=1}^{\infty}|f(n)|-\sum_{n \leq x}|f(n)|.
 $$
 
 Lo que converge a $0$ cuando $x\to \infty$, luego $P(x)$ converge a $\displaystyle \sum_{n=1}^{\infty} f(n)$ cuando $x\to \infty$. Si $f$ es completamente  multiplicativa, $f(p^k)=f(p)^k$, aplicando esto a (1.14) obtenemos lo deseado:
 
-$$P(x)=\prod_p\left(1+f(p)+(f(p))^2+(f(p))^3+\cdots\right)=\prod(1-f(p))^{-1}$$
+$$P(x)=\prod_p\left(1+f(p)+(f(p))^2+(f(p))^3+\cdots\right)=\prod(1-f(p))^{-1},$$
 
-Ya que las series $\displaystyle\sum_{k=0}^{\infty}f(p_t^{k_t})$ en (1.14) se vuelven geométricas, cada una convergiendo a $(1-f(p_t))^{-1}$, $\left|f(p_t)\right|<1
-    $, luego:
+ya que las series $\displaystyle\sum_{k=0}^{\infty}f(p_t^{k_t})$ en (1.14) se vuelven geométricas, cada una convergiendo a $(1-f(p_t))^{-1}$, $\left|f(p_t)\right|<1
+    $, luego
 
-$$\sum_{n=1}^{\infty} f(n)=\prod_{n=1}^{\infty} (1-f(p))^{-1}$$
+$$\sum_{n=1}^{\infty} f(n)=\prod_{n=1}^{\infty} (1-f(p))^{-1}.$$
 \end{proof}
 
 \begin{corollary}[Producto de Euler]
