@@ -5,13 +5,13 @@
 
 \cleanchapterquote{...Dirichlet creó una parte nueva en las matemáticas, la aplicación de las series infinitas que Fourier ha introducido en la teoría del calor en la exploración de las propiedades de los números primos. Él ha descubierto una variedad de teoremas que ... son los pilares de las nuevas teorías}{C. G. J. Jacobi}{}
 
-El teorema de Dirichlet afirma que dados $a,n,k \in \N$ tal que $(a,n)=1$, hay infinitos primos de la forma $ak+n$. El primer resultado sobre la infinitud de los números primos se remonta a Euclides. Supongamos que hay una cantidad  finita de primos, podemos contarlos... $p_1,p_2,\ldots,p_n$, note que $p_1p_2\ldots p_n+1$ es primo ya que si $p_i\mid p_1p_2\ldots p_n+ 1$ para algún $1\leq i\leq n$, entonces:
+El teorema de Dirichlet afirma que dados $a,n,k \in \N$ tal que $(a,n)=1$, hay infinitos primos de la forma $ak+n$. El primer resultado sobre la infinitud de los números primos se remonta a Euclides. Supongamos que hay una cantidad  finita de primos, podemos contarlos... $p_1,p_2,\ldots,p_n$, note que $p_1p_2\ldots p_n+1$ es primo ya que si $p_i\mid p_1p_2\ldots p_n+ 1$ para algún $1\leq i\leq n$, entonces
 
 $$1=p_i(K-(p_1\ldots p_{i-1}p_{i+1}\ldots p_n)),$$
 
 luego $p_i\mid 1$, una contradicción, es decir, siempre podemos construir un primo $p_{n+1}$ con los $n$ primos anteriores, entonces son infinitos.\\
 
-Intentemos replicar este argumento para probar que hay infinitos primos de la forma $4k+1$, supongamos que hay finitos primos de la forma $4k+1$, $p_1,p_2,\ldots,p_n$, debemos construir un nuevo primo de  la forma $4k+1$ para que funcione el argumento de Euclides, sin embargo la expresión  $p_1p_2\ldots p_n+1$ no siempre es de la forma $4k+1$, por ejemplo $5\times13+1=66$, que es congruente a 2 módulo 4, de hecho con esta expresión siempre conseguimos pares. Requerimos una expresión nueva, por ejemplo, podríamos hacer $2p_1\ldots p_n+1$, pero también falla, note que $2\times5\times13+1=131$ que es un primo de la forma $4k+3$.\\
+Intentemos replicar este argumento para probar que hay infinitos primos de la forma $4k+1$, supongamos que hay finitos primos de la forma $4k+1$, digamos $p_1,p_2,\ldots,p_n$, debemos construir un nuevo primo de  la forma $4k+1$ para que funcione el argumento de Euclides, sin embargo la expresión  $p_1p_2\ldots p_n+1$ no siempre es de la forma $4k+1$, por ejemplo $5\times13+1=66$, que es congruente a 2 módulo 4, de hecho con esta expresión siempre conseguimos pares. Requerimos una expresión nueva, por ejemplo, podríamos hacer $2p_1\ldots p_n+1$, pero también falla, note que $2\times5\times13+1=131$ que es un primo de la forma $4k+3$.\\
 
 \begin{prop}
 
@@ -19,7 +19,7 @@ Sea $n\in \Z$, todo divisor primo impar de $n^2+1$ es de la forma $4k+1$.
 \end{prop}
 
 \begin{proof}
-Suponga que existe $p=4k+3$ primo tal que $p\mid n^2+1$, entonces $n^2\equiv -1 \pmod{p}$, luego por el pequeño teorema de Fermat:
+Suponga que existe $p=4k+3$ primo tal que $p\mid n^2+1$, entonces $n^2\equiv -1 \pmod{p}$, luego por el pequeño teorema de Fermat
 
 $$\pmod{p}: 1\equiv n^{ p-1}\equiv (n^{2})^{2k+1}\equiv (-1)^{2k+1}\equiv -1,$$
 
@@ -33,7 +33,7 @@ Supongamos que $p_i\mid N$, luego $p_i(K-4p_1^2\ldots p_i\ldots p_n^2)=1$ una co
 
 
 \begin{theorem}[Euler]
-La serie $\displaystyle\sum_p \dfrac{1}{p}$ diverge
+La serie $\displaystyle\sum_p \dfrac{1}{p}$ diverge.
 \end{theorem}
 
 \begin{proof}
@@ -50,7 +50,7 @@ note que:
     &\leq \sum_{p}\dfrac{1}{p^s(p^s-1)}\leq \sum_{n=1}^{\infty}\dfrac{1}{n^s(n^s-1)}.
 \end{align*}
 
-La última serie converge siempre que $\Re(s)>\dfrac{1}{2}$, entonces por la divergencia de la serie armónica, tomando el límite cuando $s\to 1^+$
+\footnote{La convergencia de esta serie nos llegó haciendo cuentas en una clase de estructuras algebraicas, Santiago me dijo ``Mateo esa serie es geométrica.''}La última serie converge siempre que $\Re(s)>\dfrac{1}{2}$, entonces por la divergencia de la serie armónica, tomando el límite cuando $s\to 1^+$
 
 $$
 \infty=\lim_{s\to 1^+}\log(\zeta(s))=\lim_{s\to 1^+}\sum_p
@@ -60,7 +60,7 @@ $$
 lo cual nos dice que la suma de los recíprocos de los primos diverge, y por lo tanto podemos decir que los primos son infinitos. 
 \end{proof}
 
-La idea de Dirichlet es replicar este argumento de Euler para probar que hay infinitos primos de la forma $4k+1$, para ello define la siguiente serie:
+La idea de Dirichlet es replicar este argumento de Euler para probar que hay infinitos primos de la forma $4k+1$, para ello define la siguiente serie
 
 $$
 L(s, \chi)=\sum_{n=1}^{\infty} \frac{\chi(n)}{n^s},
@@ -72,7 +72,7 @@ $$
 \chi(a)= \begin{cases}0 & \text { si } a \text { es par } \\ 1 & \text { si } a \equiv 1 \bmod 4 \\ -1 & \text { si } a \equiv 3 \bmod 4\end{cases}
 $$
 
-note que $\chi$ es completamente multiplicativa, entonces:
+note que $\chi$ es completamente multiplicativa, entonces
 
 $$
 L(s, \chi)=\prod_p \frac{1}{1-\chi(p) p^{-s}}.
@@ -83,20 +83,20 @@ Siguiendo los pasos de la prueba anterior obtenemos
 \begin{align*}
     \log L(s, \chi)&=\sum_p \frac{\chi(p)}{p^s}+\sum_p\sum_{k=2}^{\infty}\dfrac{\chi(k)}{kp^{ks}}\\
     &=\sum_{p\equiv 1(4)}\frac{1}{p^s}- \sum_{p\equiv 3(4)}\frac{1}{p^s}+g_1(s,\chi)
-.\end{align*}
+,\end{align*}
 
-donde no es difícil ver que $g_1(s,\chi)$ es convergente cuando $s\to 1^{+}$ ya que la serie de Dirichlet de $|\chi(n)|$ es menor o igual que $\zeta(s)$, además:
+donde no es difícil ver que $g_1(s,\chi)$ es convergente cuando $s\to 1^{+}$ ya que la serie de Dirichlet de $|\chi(n)|$ es menor o igual que $\zeta(s)$, además
 
 $$\log \zeta(s)=\sum_p \frac{1}{p^s}+g(s),$$
 
-así:
+así
 
 $$\begin{aligned}
-& \log \zeta(s)+\log L(s, \chi)=2 \sum_{p \equiv 1(4)} \frac{1}{p^s}+\left(\frac{1}{2^s}+g(s)+g_1(s, \chi)\right) \\
+& \log \zeta(s)+\log L(s, \chi)=2 \sum_{p \equiv 1(4)} \frac{1}{p^s}+\left(\frac{1}{2^s}+g(s)+g_1(s, \chi)\right), \\
 & \log \zeta(s)-\log L(s, \chi)=2 \sum_{p \equiv 3(4)} \frac{1}{p^s}+\left(\frac{1}{2^s}+g(s)-g_1(s, \chi)\right).
 \end{aligned}$$
 
-Tomando $\lim_{s\to 1^{+}}$ como antes se verifica que hay infinitos primos de la forma $4k+1$ y $4k+3$ ya que el término restante converge, sin embargo debemos garantizar algo, que $L(1,\chi)$ converge y es distinto de 0. Para esto note  que:
+Tomando $\lim_{s\to 1^{+}}$ como antes se verifica que hay infinitos primos de la forma $4k+1$ y $4k+3$ ya que el término restante converge, sin embargo debemos garantizar algo, que $L(1,\chi)$ converge y es distinto de 0. Para esto note  que
 
 \begin{align*}
     \sum_{n=1}^{\infty}\dfrac{\chi(n)}{n}=\sum_{n=1}^{\infty}\dfrac{(-1)^n}{2n+1}=\arctan(1)=\dfrac{\pi}{4}
@@ -141,7 +141,7 @@ Sea $G$ un grupo, $\chi$ es un carácter de $G$ si $\chi: G\to \C^{x}$ y satisfa
  El homomorfismo trivial que mapea a todo $g\in G$ al 1 lo llamaremos ``carácter trivial'' denotado $\chi_0$.\\
 
  \begin{definition}
- Dado un grupo $G$, definimos el conjunto de todos los caracteres de $G$, denotado como $\widehat{G}$. También definimos la multiplicación en $\widehat{G}$ como:
+ Dado un grupo $G$, definimos el conjunto de todos los caracteres de $G$, denotado como $\widehat{G}$. También definimos la multiplicación en $\widehat{G}$ como
 
 $$\chi_1\chi_2(g)=\chi_1(g)\chi_2(g) \quad \text{para todo } \chi_1,\chi_2\in \widehat{G} \quad \text{y } g\in G$$
 
@@ -151,19 +151,18 @@ $$\chi_1\chi_2(g)=\chi_1(g)\chi_2(g) \quad \text{para todo } \chi_1,\chi_2\in \w
 
 \begin{theorem}
 Sea $G$ un grupo cíclico de orden $n$ generado por $g$, $G=\langle g\rangle$, entonces hay exactamente $n$ caracteres $\chi_0,\ldots,\chi_{n-1}$ de $G$, dados por $\chi_m(g^k)=e\left((mk)/n\right)$ para todo $0\leq m\leq n-1$ y $k\in \Z$, esto es 
-$$\chi_0(g^k)=1, \chi_1(g^k)=e(k/n),\chi_2(g^k)=e(2k/n),\ldots,\chi_{n-1}(g^k)=e((n-1)k/n)$$
+$$\chi_0(g^k)=1, \chi_1(g^k)=e(k/n),\chi_2(g^k)=e(2k/n),\ldots,\chi_{n-1}(g^k)=e((n-1)k/n).$$
 \end{theorem}
 
 \begin{proof}
 Sea $\chi$ un carácter de $G$, tenemos que $\chi(g)^n=\chi(g^n)=\chi(1)=1$, esto es que $\chi(g)$ es una raíz $n-$ésima de la unidad, luego $\chi(g)=e(m/n)$ para algún $0\leq m\leq n-1$, dado  que $G$ es cíclico y generado por $g$, entonces $\chi$ está totalmente determinado por $\chi(g)$ y $\chi(g)^k=\chi(g^k)=e((km)/n)$ para todo $k\in \Z$, esto es $\chi=\chi_m$, Así si $\chi$ es un carácter de $G$, $\chi$ debe ser uno de los $\chi_0,\ldots,\chi_{n-1}$.Ahora veamos que $\chi_0,\ldots,\chi_{n-1}$ están bien definidos y son caracteres distintos de $G$.\\
 
-En efecto si $g^{k_1}=g^{k_2}$ entonces $k_1\equiv k_2\pmod{n}$, luego $\chi_m(g^{k_1})=e\left((mk_1)/n\right)=e\left((mk_2)/n\right)=\chi_m(g^{k_2})$ para todo $0\leq m\leq n-1$, por tanto $\chi_0,\ldots,\chi_{n-1}$ están bien definidos en $G$. Dados $0\leq m_1,m_2\leq n-1$ con $m_1\neq m_2$, entonces:
-
+En efecto si $g^{k_1}=g^{k_2}$ entonces $k_1\equiv k_2\pmod{n}$, luego $\chi_m(g^{k_1})=e\left((mk_1)/n\right)=e\left((mk_2)/n\right)=\chi_m(g^{k_2})$ para todo $0\leq m\leq n-1$, por tanto $\chi_0,\ldots,\chi_{n-1}$ están bien definidos en $G$. Dados $0\leq m_1,m_2\leq n-1$ con $m_1\neq m_2$, entonces
 $$\displaystyle\chi_{m_1}(g)=e\left(\frac{m_1}{n}\right)\neq e\left(\frac{m_2}{n}\right)=\chi_{m_2}(g),$$
 
 como $\chi_{m_1}$ y $\chi_{m_2}$ están totalmente determinados por $\chi_{m_1}(g)$ y $\chi_{m_2}(g)$, entonces $\chi_0,\ldots\chi_{n-1}$ son todos distintos.\\
 
-Finalmente debemos ver que dado $\chi_m$ con $0\leq m\leq n-1$, $\chi_m$ es homomorfismo de $G$ en $\C^{x}$, en efecto dados $a,b\in G$, $a=g^{k_1}$ y $b=g^{k_2}$. Note que:
+Finalmente debemos ver que dado $\chi_m$ con $0\leq m\leq n-1$, $\chi_m$ es homomorfismo de $G$ en $\C^{x}$, en efecto dados $a,b\in G$, $a=g^{k_1}$ y $b=g^{k_2}$. Note que
 
 \begin{align*}
 \chi_m(ab)&=\chi_m(g^{k_1}g^{k_2})\\
@@ -192,8 +191,6 @@ El carácter principal $\chi_0$ de $G$ es la identidad de $\widehat{G}$ ya que d
     La conmutatividad y asociatividad se siguen de manera análoga usando la conmutatividad y asociatividad de $\C^{x}$.\\
 \end{proof}
 
-Esta mierda pa qué sirve xd?\footnote{Que vaina pa fea mano}
-
 \begin{note}
 Por el teorema anterior, dado que $\widehat{G}$ es grupo, lo llamaremos grupo dual de $G$.\\
 
@@ -205,13 +202,13 @@ La inversa de $\chi$ en la prueba del anterior, denotada  como $\chi^{-1}$ en al
 Sea $G=\left\langle g\right\rangle$ un grupo cíclico de orden $n$, entonces:
 
 \begin{itemize}
-\item[(i)] Dado un carácter $\chi$ de $G$:
+\item[(i)] Dado un carácter $\chi$ de $G$
 
 $$
 \sum_{g \in G} \chi(g)= \begin{cases}n, & \text { si } \chi=\chi_0 \\ 0, & \text { e.o.c }\end{cases}
 $$
 
-\item[(ii)] Dado $a \in G$:
+\item[(ii)] Dado $a \in G$
 
 $$
 \sum_{\chi \in \widehat{G}} \chi(a)= \begin{cases}n, & \text { si } a=1 \\ 0, & \text { e.o.c }\end{cases}
@@ -228,17 +225,17 @@ $$
 
 $$\sum_{g \in G} \chi(g)=\sum_{k=0}^{n-1} \chi_m\left(g_0^k\right)=\sum_{k=0}^{n-1} e\left(\frac{m k}{n}\right)=\sum_{k=0}^{n-1}\left(e\left(\frac{m}{n}\right)\right)^k=\dfrac{1-e(m)}{1-e\left(\dfrac{m}{n}\right)},$$
 
-y $1-e(m)=1-cos(2\pi m)=0$ para todo $m=1,\ldots,n-1$, si $m=0$ entonces:
+y $1-e(m)=1-cos(2\pi m)=0$ para todo $m=1,\ldots,n-1$, si $m=0$ entonces
 
 $$\sum_{k=0}^{n-1} \chi_m\left(g_0^k\right)=\sum_{k=0}^{n-1} 1=n.$$
 
-(ii) Sea $a\in G$, $a=g^{k}$ para algún $k=0,1,\ldots,n-1$, en efecto:
+(ii) Sea $a\in G$, $a=g^{k}$ para algún $k=0,1,\ldots,n-1$, en efecto
 
 $$\sum_{\chi \in \widehat{G}} \chi(a)=\sum_{m=0}^{n-1} \chi_m(a)=\sum_{m=0}^{n-1} \chi_m\left(g^k\right)=\sum_{m=0}^{n-1} e\left(\frac{m k}{n}\right),$$
 
-análogamente se ve que esta suma es $n$ si $k=0$ y es 0 si $k\neq 0$, y el valor $k=0$ corresponde a $g^{0}=1$. Para (iii) note que por el teorema 2.3:
+análogamente se ve que esta suma es $n$ si $k=0$ y es 0 si $k\neq 0$, y el valor $k=0$ corresponde a $g^{0}=1$. Para (iii) note que por el teorema 2.3
 
-$$\widehat{G}=\left\{\chi_0, \chi_1, \ldots, \chi_{n-1}\right\}=\left\{\chi_1^0, \chi_1, \chi_1^2, \ldots, \chi_1^{n-1}\right\}=\left\langle\chi_1\right\rangle$$
+$$\widehat{G}=\left\{\chi_0, \chi_1, \ldots, \chi_{n-1}\right\}=\left\{\chi_1^0, \chi_1, \chi_1^2, \ldots, \chi_1^{n-1}\right\}=\left\langle\chi_1\right\rangle.$$
 
 \end{proof}
 

@@ -1407,45 +1407,45 @@ $$\sum_{n=1}^{\infty} f(n)=\prod_{n=1}^{\infty} (1-f(p))^{-1}.$$
 \end{proof}
 
 \begin{corollary}[Producto de Euler]
-Sea $f$ una función aritmética y $F(s)$ su serie de Dirichlet, supongamos que $F(s)$ converge absolutamente para $\sigma>\sigma_a$. Si $f$ es  multiplicativa:
+Sea $f$ una función aritmética y $F(s)$ su serie de Dirichlet, supongamos que $F(s)$ converge absolutamente para $\sigma>\sigma_a$. Si $f$ es  multiplicativa
 
 $$
-\sum_{n=1}^{\infty} f(n) n^{-s}=\prod_p\left(1+f(p) p^{-s}+f\left(p^2\right) p^{-2 s}+\cdots\right)
+\sum_{n=1}^{\infty} f(n) n^{-s}=\prod_p\left(1+f(p) p^{-s}+f\left(p^2\right) p^{-2 s}+\cdots\right).
 $$
 
-Si $f$ es completamente multiplicativa:
+Si $f$ es completamente multiplicativa
 
 $$
-\sum_{n=1}^{\infty} f(n) n^{-s}=\prod_p\left(1-f(p) p^{-s}\right)^{-1}
+\sum_{n=1}^{\infty} f(n) n^{-s}=\prod_p\left(1-f(p) p^{-s}\right)^{-1},
 $$
 
-Y cada producto es absolutamente convergente para $\sigma>\sigma_a$
+y cada producto es absolutamente convergente para $\sigma>\sigma_a$.
 \end{corollary}
 
-La prueba es esencialmente trivial, basta considerar:
+La prueba es esencialmente trivial, basta considerar
 
-$$F(s)=\sum_{n=1}^{\infty} f_s(n)=\sum_{n=1}^{\infty} \frac{f(n)}{n^s}$$
+$$F(s)=\sum_{n=1}^{\infty} f_s(n)=\sum_{n=1}^{\infty} \frac{f(n)}{n^s},$$
 
-Y aplicar el teorema anterior a $f_s$, note que si $f$ es multiplicativa o completamente multiplicativa, también $f_s$.
+y aplicar el teorema anterior a $f_s$, note que si $f$ es multiplicativa o completamente multiplicativa, también $f_s$.
 
 \begin{corollary}
-Sea $s\in \C$ tal que $\sigma>1$, entonces:
+Sea $s\in \C$ tal que $\sigma>1$, entonces
 
-$$\zeta(s)=\prod_{p}\left(1-\frac{1}{p^s}\right)^{-1} $$
+$$\zeta(s)=\prod_{p}\left(1-\frac{1}{p^s}\right)^{-1}. $$
 \end{corollary}
 
-Observemos lo siguiente:
+Observemos lo siguiente
 
 $$\begin{aligned}
 \frac{1}{\zeta(s)} & =\prod_{p}\left(1-\frac{1}{p^s}\right) \\
 & =\left(1-\frac{1}{2^s}\right)\left(1-\frac{1}{3^s}\right)\left(1-\frac{1}{5^s}\right) \ldots \\
 & =1-\sum_{p} p^{-s}+\sum_{\substack{p, q\\p\neq q}} p^{-s} q^{-s}-\ldots \\
-& =\sum_{n=1}^{\infty} \frac{\mu(n)}{n^s}
+& =\sum_{n=1}^{\infty} \frac{\mu(n)}{n^s}.
 \end{aligned}$$
 
-Hemos probado unicidad en series de Dirichlet, esto nos permite obtener una prueba alternativa de $\mu*1=e$. En efecto:
+Hemos probado unicidad en series de Dirichlet, esto nos permite obtener una prueba alternativa de $\mu*1=e$. En efecto
 
-$$\sum_{n=1}^{\infty} \frac{e(n)}{n^s}=1=\sum_{n=1}^{\infty} \frac{\mu(n)}{n^s}\zeta(s)=\sum_{n=1}^{\infty} \frac{\mu*1(n)}{n^s}$$
+$$\sum_{n=1}^{\infty} \frac{e(n)}{n^s}=1=\sum_{n=1}^{\infty} \frac{\mu(n)}{n^s}\zeta(s)=\sum_{n=1}^{\infty} \frac{\mu*1(n)}{n^s}.$$
 
 Otro ejemplo de  esto es:
 
@@ -1456,105 +1456,103 @@ $$\begin{aligned}
 & =\prod_{p}\left(\left[1+\frac{p}{p^s}+\frac{p^2}{p^{2 s}}+\ldots\right]-\left[\frac{1}{p^s}+\frac{p}{p^{2 s}}+\frac{p^2}{p^{3 s}}+\ldots\right]\right) \\
 & =\prod_{p }\left[1+\left(1-\frac{1}{p}\right)\left(\frac{p}{p^s}+\frac{p^2}{p^{2 s}}+\ldots\right)\right] \\
 &=\prod_{p }\left[1+\frac{p-1}{p^s}+\frac{p^2-p}{p^{2 s}}+\ldots\right]\\
-& =\sum_{n=1}^{\infty}f(n)n^{-s}.
+& =\sum_{n=1}^{\infty}f(n)n^{-s},
 \end{aligned}$$
 
-Donde $f(n)$ es tal que $f(p^{k})=p^{k}-p^{k-1}$, luego, $f(n)=\varphi(n)$, ahora note que:
+donde $f(n)$ es tal que $f(p^{k})=p^{k}-p^{k-1}$, luego, $f(n)=\varphi(n)$, ahora note que
 
-$$\zeta(s-1)=\sum_{n=1}^{\infty} \frac{1}{n^{s-1}}=\sum_{n=1}^{\infty} \frac{n}{n^s}$$
+$$\zeta(s-1)=\sum_{n=1}^{\infty} \frac{1}{n^{s-1}}=\sum_{n=1}^{\infty} \frac{n}{n^s},$$
 
-Así:
+así:
 
-$$\frac{\zeta(s-1)}{\zeta(s)}=\sum_{n=1}^{\infty} \frac{\varphi(n)}{n^s}=\sum_{n=1}^{\infty} \frac{n}{n^s}\sum_{n=1}^{\infty} \frac{\mu(n)}{n^s}=\sum_{n=1}^{\infty} \frac{\mu*N(n)}{n^s}$$
+$$\frac{\zeta(s-1)}{\zeta(s)}=\sum_{n=1}^{\infty} \frac{\varphi(n)}{n^s}=\sum_{n=1}^{\infty} \frac{n}{n^s}\sum_{n=1}^{\infty} \frac{\mu(n)}{n^s}=\sum_{n=1}^{\infty} \frac{\mu*N(n)}{n^s},$$
 
-Y por el teorema de unicidad, $\mu*N=\varphi$. Esto muestra el poder teórico de las series de Dirichlet, cuando tenemos propiedades adecuadas, podemos obtener mucha información de las funciones aritmética asociadas. Pero esto no es todo, mostraré una propiedad adicional, toda serie de Dirichlet se puede ver como una integral de Riemann-Stieltjes y bajo ciertas condiciones esta integral tomará la forma de una transformada de Laplace. Este hecho tomará particular importancia en la prueba del TNP.\\
+por el teorema de unicidad, obtenemos que $\mu*N=\varphi$. Esto muestra el poder teórico de las series de Dirichlet, cuando tenemos propiedades adecuadas, podemos obtener mucha información de las funciones aritmética asociadas. Pero esto no es todo, mostraré una propiedad adicional, toda serie de Dirichlet se puede ver como una integral de Riemann-Stieltjes y bajo ciertas condiciones esta integral tomará la forma de una transformada de Laplace. Este hecho tomará particular importancia en la prueba del TNP.\\
 
 \begin{lemma}[Kronecker]
-Sean $f$ una función aritmética y $s\in \C$ con $\sigma>0$ tal que $F(s)$ converge, entonces:
+Sean $f$ una función aritmética y $s\in \C$ con $\sigma>0$ tal que $F(s)$ converge, entonces
 
-$$\lim_{x \to \infty} \frac{1}{x^s}\sum_{n\leq x}f(n)=0$$
+$$\lim_{x \to \infty} \frac{1}{x^s}\sum_{n\leq x}f(n)=0.$$
 \end{lemma}
 
 \begin{proof}
 Sea $f$ fija pero arbitraria y $s\in \C$ con $\sigma>0$. Consideremos
 
-$$S(x)=\sum_{n\leq x}f(n), \quad D(x)=\sum_{n\leq x}\frac{f(n)}{n^s}$$
+$$S(x)=\sum_{n\leq x}f(n), \quad D(x)=\sum_{n\leq x}\frac{f(n)}{n^s},$$
 
 por hipótesis $D(x)$ converge a un $D$ cuando $x\to\infty$, queremos ver que $\lim_{x \to \infty} \dfrac{S(x)}{x^s}=0$.
 
-Dado $\epsilon>0$, existe un $x_0\geq 1$, tal que para todo $x\geq x_0$:
+Dado $\epsilon>0$, existe un $x_0\geq 1$, tal que para todo $x\geq x_0$
 
-$$|D(x)-D|<\frac{\epsilon}{2}$$
+$$|D(x)-D|<\frac{\epsilon}{2}.$$
 
-Sea $x\geq x_0$, aplicando sumación parcial a $S(x)$ tenemos que:
+Sea $x\geq x_0$, aplicando sumación parcial a $S(x)$ tenemos que
 
 \begin{align*}
 S(x)&=\sum_{n\leq x}\frac{f(n)}{n^s}n^s=\int_1^xt^sd(D(t))=D(x)x^s-\int_1^xD(t)st^{s-1}dt\\
-&=\int_0^xD(x)st^{s-1}dt-\int_1^xD(t)st^{s-1}dt
+&=\int_0^xD(x)st^{s-1}dt-\int_1^xD(t)st^{s-1}dt.
 \end{align*}
 
-Note que $D(t)=0$ para todo $t\in [0,1)$, luego en la segunda integral podemos cambiar el límite inferior por 0, obteniendo que:
+Note que $D(t)=0$ para todo $t\in [0,1)$, luego en la segunda integral podemos cambiar el límite inferior por 0, obteniendo que
 
 \begin{align*}
 |S(x)|&=\left|\int_0^x(D(x)-D(t))st^{s-1}dt\right|\\
-&\leq \int_0^x \left|D(x)-D(t)\right|\left|s\right|t^{\sigma-1}dt.
+&\leq \int_0^x \left|D(x)-D(t)\right|\left|s\right|t^{\sigma-1}dt,
 \end{align*}
 
-Para $x_0\leq t\leq x$ tenemos que:
+para $x_0\leq t\leq x$ tenemos que:
 
-$$|D(t)-D(x)|\leq |D(t)-D|+|D-D(x)|<\frac{\epsilon}{2}+\frac{\epsilon}{2}=\epsilon$$
+$$|D(t)-D(x)|\leq |D(t)-D|+|D-D(x)|<\frac{\epsilon}{2}+\frac{\epsilon}{2}=\epsilon,$$
 
-y si $0\leq t\leq x_0$, entonces:
+y si $0\leq t\leq x_0$, entonces
 
 \begin{align*}
 |D(t)-D(x)|&\leq|D(t)|+|D|+|D-D(x)|\\
-&<\sum_{n\leq x_0}\left|\frac{f(n)}{n^s}\right|+|D|+\frac{\epsilon}{2}=M  
+&<\sum_{n\leq x_0}\left|\frac{f(n)}{n^s}\right|+|D|+\frac{\epsilon}{2}=M , 
 \end{align*}
 
-donde $M$ depende de $\epsilon$, pero no de $x$. De esto se sigue que:
+donde $M$ depende de $\epsilon$, pero no de $x$. De esto se sigue que
 
 $$
 \begin{aligned}
 |S(x)| & \leq \epsilon \int_{x_0}^x|s| t^{\sigma-1} d t+M \int_0^{x_0}|s| t^{\sigma-1}dt\\
-& \leq \frac{|s|}{\sigma}\left(\epsilon\left(x^{\sigma}-x_0^{\sigma}\right)+M x_0^{\sigma}\right)
+& \leq \frac{|s|}{\sigma}\left(\epsilon\left(x^{\sigma}-x_0^{\sigma}\right)+M x_0^{\sigma}\right),
 \end{aligned}
 $$
 
-así:
+así
 
 \begin{equation}
-\left|\frac{S(x)}{x^s}\right| \leq \frac{|s|}{\sigma}\left(\epsilon+\frac{M x_0^{\sigma}}{x^{\sigma}}\right)
+\left|\frac{S(x)}{x^s}\right| \leq \frac{|s|}{\sigma}\left(\epsilon+\frac{M x_0^{\sigma}}{x^{\sigma}}\right).
 \end{equation}
 
-Como $M$ no depende de $x$, entonces tomando $x\to\infty$, el último término en (1.15) tiende a 0, luego para todo $\epsilon>0$:
+Como $M$ no depende de $x$, entonces tomando $x\to\infty$, el último término en (1.15) tiende a 0, luego para todo $\epsilon>0$
 
-$$\lim_{x \to \infty}\left|\frac{S(x)}{x^s}\right|\leq \frac{\epsilon|s|}{\sigma}$$
+$$\lim_{x \to \infty}\left|\frac{S(x)}{x^s}\right|\leq \frac{\epsilon|s|}{\sigma},$$
 
 y como $\epsilon$ es arbitrario, $\displaystyle\lim_{x \to \infty} \frac{S(x)}{x^s}=0$.\\
 \end{proof}
 
-Sea $F(s)$ una serie de Dirichlet con abscisa de convergencia $\sigma_c>0$, para todo $s\in \C$ con $\sigma>\sigma_c$:
+Sea $F(s)$ una serie de Dirichlet con abscisa de convergencia $\sigma_c>0$, para todo $s\in \C$ con $\sigma>\sigma_c$
 
 \begin{align*}
 \sum_{n=1}^{\infty}\frac{f(n)}{n^s}&=\lim_{N \to \infty} \int_1^N x^{-s}d(S(x))\\
 &=\lim_{N \to \infty}\frac{S(N)}{N^s}-\lim_{N \to \infty} \int_1^N S(x)d(x^{-s})\\
-&=s\int_1^{\infty} \frac{S(x)}{x^{s+1}}dx
+&=s\int_1^{\infty} \frac{S(x)}{x^{s+1}}dx.
 \end{align*}
 
-el término de borde se anula por el lema de Kronecker. Así obtenemos una representación integral para cualquier serie de Dirichlet con abscisa de convergencia positiva. Aplicando esto a $\zeta(s)$  obtenemos una extensión analítica de la función zeta de Riemann al semiplano $\sigma>0$ con un polo simple en $s=1$ con residuo 1.\\
+El término de borde se anula por el lema de Kronecker. Así obtenemos una representación integral para cualquier serie de Dirichlet con abscisa de convergencia positiva. Aplicando esto a $\zeta(s)$  obtenemos una extensión analítica de la función zeta de Riemann al semiplano $\sigma>0$ con un polo simple en $s=1$ con residuo 1.\\
 
 Note que tomando $x=e^t$, $dx=e^tdt$
 
-$$\sum_{n=1}^{\infty} \frac{f(n)}{n^s}=s\int_0^{\infty}S(e^{t})e^{-st}dt$$
+$$\sum_{n=1}^{\infty} \frac{f(n)}{n^s}=s\int_0^{\infty}S(e^{t})e^{-st}dt.$$
 
-la serie de Dirichlet toma forma de transformada de Laplace. Aunque esto parezca una propiedad cualquiera, Korevaar y Zagier aplicaron esto para obtener una prueba corta del TNP en la que no es necesario el teorema Tauberiano de Wiener-Ikehara \cite{zagier1997newman}, estas ideas también son las que se siguen en el libro de Pongsriiam \cite{pongsriiam2023analytic}.\\
-
-Ahora, vamos usar  todo lo anterior para obtener propiedades de $\zeta(s)$ que necesitamos para la prueba del TNP.
+La serie de Dirichlet toma forma de transformada de Laplace. Aunque esto parezca una propiedad cualquiera, Korevaar y Zagier aplicaron esto para obtener una prueba corta del TNP en la que no es necesario todo el poder del teorema Tauberiano de Wiener-Ikehara \cite{zagier1997newman}, estas ideas también se siguen en el libro de Pongsriiam \cite{pongsriiam2023analytic}.
 
 \section{La función zeta de Riemann}
 
 \begin{theorem}[Propiedades]
-Sea $s\in\C$ tal que $\sigma>1$, entonces:
+Sea $s\in\C$ tal que $\sigma>1$, entonces
 
 \begin{itemize}[]
 \item[i)] $\zeta(s)\neq 0$
@@ -1566,30 +1564,30 @@ Sea $s\in\C$ tal que $\sigma>1$, entonces:
 Las propiedades (ii) y (iii) ya las hemos probado antes, basta ver (i).\\
 
 \begin{proof}
-Como $\sigma>1$, entonces:
+Como $\sigma>1$, entonces
 
-$$\zeta(s)=\prod_p  \frac{1}{1-p^{-s}} $$
+$$\zeta(s)=\prod_p  \frac{1}{1-p^{-s}},$$
 
-donde el producto es absolutamente convergente, note que:
+donde el producto es absolutamente convergente, note que
 
-$$\frac{1}{1-p^{-s}}=\frac{p^s}{p^s-1}=1+\frac{1}{p^s-1}$$
+$$\frac{1}{1-p^{-s}}=\frac{p^s}{p^s-1}=1+\frac{1}{p^s-1},$$
 
-entonces el producto no tiene factores nulos, luego no converge a 0, $\zeta(s)\neq 0$
+entonces el producto no tiene factores nulos, luego no converge a 0, $\zeta(s)\neq 0$.
 \end{proof}
 
 \begin{theorem}
-Sea $s\in \C$ tal que $\sigma>1$, entonces:
+Sea $s\in \C$ tal que $\sigma>1$, entonces
 
-$$\zeta(s)=\frac{s}{s-1}-s\int_1^{\infty}\frac{\{t\}}{t^{s+1}}dt$$
+$$\zeta(s)=\frac{s}{s-1}-s\int_1^{\infty}\frac{\{t\}}{t^{s+1}}dt.$$
 \end{theorem}
 
 \begin{proof}
-Tenemos que $\zeta(s)=\displaystyle s\int_1^{\infty}\frac{[t]}{t^{s+1}}dt$, como $[t]=t-\{t\}$, entonces:
+Tenemos que $\zeta(s)=\displaystyle s\int_1^{\infty}\frac{[t]}{t^{s+1}}dt$, como $[t]=t-\{t\}$, entonces
 
 \begin{align*}
 \zeta(s)&=s\int_1^{\infty}\frac{t-\{t\}}{t^{s+1}}\\
 &=s\int_1^{\infty}\frac{1}{t^s}dt-s\int_1^{\infty}\frac{\{t\}}{t^{s+1}}dt\\
-&=\frac{s}{s-1}-s\int_1^{\infty}\frac{\{t\}}{t^{s+1}}dt
+&=\frac{s}{s-1}-s\int_1^{\infty}\frac{\{t\}}{t^{s+1}}dt.
 \end{align*}
 \end{proof}
 
@@ -1598,26 +1596,26 @@ La representación integral de $\zeta(s)$ nos da una extensión analítica al se
 \end{theorem}
 
 \begin{proof}
-Note que $\dfrac{s}{s-1}=1+\dfrac{1}{s-1}$ es analítica en el semiplano $\sigma>0$ excepto por un polo simple en $s=1$ con residuo 1. Basta ver que la función:
+Note que $\dfrac{s}{s-1}=1+\dfrac{1}{s-1}$ es analítica en el semiplano $\sigma>0$ excepto por un polo simple en $s=1$ con residuo 1. Basta ver que la función
 
-$$f(s)=\int_1^{\infty}\frac{\{t\}}{t^{s+1}}dt$$
+$$f(s)=\int_1^{\infty}\frac{\{t\}}{t^{s+1}}dt,$$
 
-es analítica en el semiplano $\sigma>0$. Para cada $n\in \N$, sea $f_n(s)=\displaystyle\int_1^{n}\frac{\{t\}}{t^{s+1}}dt$, tenemos que:
+es analítica en el semiplano $\sigma>0$. Para cada $n\in \N$, sea $f_n(s)=\displaystyle\int_1^{n}\frac{\{t\}}{t^{s+1}}dt$, tenemos que
 
-$$f_n(s)=\int_1^{n}\{t\}e^{\displaystyle-(s+1)\log t}dt=\int_1^{n}\sum_{n=0}^{\infty}\frac{\{t\}(-\log t)^n(s+1)^n}{n!}dt$$
+$$f_n(s)=\int_1^{n}\{t\}e^{\displaystyle-(s+1)\log t}dt=\int_1^{n}\sum_{n=0}^{\infty}\frac{\{t\}(-\log t)^n(s+1)^n}{n!}dt,$$
 
-donde la suma dentro de la integral es la serie de Taylor de $e^x$ que sabemos tiene radio de convergencia infinito. Queremos ver que $f_n$ es una sucesión de funciones analíticas, para lo que basta ver que podemos introducir la integral en la serie de potencias, además queremos ver que $f_n\to f$ uniformemente en cualquier subconjunto compacto de $\sigma>0$. En efecto:
+donde la suma dentro de la integral es la serie de Taylor de $e^x$ que sabemos tiene radio de convergencia infinito. Queremos ver que $f_n$ es una sucesión de funciones analíticas, para lo que basta ver que podemos introducir la integral en la serie de potencias, además queremos ver que $f_n\to f$ uniformemente en cualquier subconjunto compacto de $\sigma>0$. En efecto
 
 $$\begin{aligned}
 \sum_{m=0}^{\infty}\left|\frac{\{t\}(-\log t)^m(s+1)^m}{m!}\right| & \leq \sum_{m=0}^{\infty} \frac{(|\log t|(|s|+1))^m}{m!} \\
-& =e^{\displaystyle\left| \log t\right|(|s|+1)}=t^{|s|+1}
+& =e^{\displaystyle\left| \log t\right|(|s|+1)}=t^{|s|+1},
 \end{aligned}$$
 
 entonces 
 
-$$\int_1^n \sum_{m=0}^{\infty}\left|\frac{\{t\}(-\log t)^m(s+1)^m}{m!}\right| d t \leq \int_1^n t^{|s|+1} d t<\infty$$
+$$\int_1^n \sum_{m=0}^{\infty}\left|\frac{\{t\}(-\log t)^m(s+1)^m}{m!}\right| d t \leq \int_1^n t^{|s|+1} d t<\infty,$$
 
-luego por convergencia absoluta:
+luego por convergencia absoluta
 
 $$f_n(s)=\sum_{m=0}^{\infty} \frac{(s+1)^m}{m!} \int_1^n\{t\}(-\log t)^m d t.$$
 
@@ -1626,13 +1624,9 @@ Sea $s\in \C$ con $\sigma\geq\delta>0$. Dado $\epsilon>0$, sea $N=(\delta\epsilo
 \begin{align*}
 \left|f(s)-f_n(s)\right| &\leq \int_n^{\infty} \left|\frac{\{t\}}{t^{s+1}}\right| d t \leq \int_n^{\infty}\frac{1}{t^{\sigma+1}}\leq \frac{1}{\sigma n^\sigma}\\
 &\leq \frac{1}{\delta n^\delta}\\
-&<\frac{1}{\delta(\delta\epsilon)^{-\frac{1}{\delta}\delta}}=\epsilon
+&<\frac{1}{\delta(\delta\epsilon)^{-\frac{1}{\delta}\delta}}=\epsilon.
 \end{align*}
 
 como $N$ no depende de $s$, $f_n$ converge uniformemente a $f$ en el semiplano $\sigma\geq\delta$, en particular sobre cualquier compacto de $\sigma>0$, por el Teorema 1.26 $f(s)$ es analítica en el semiplano $\sigma>0$.
 
 \end{proof}
-
-\subsection{La ecuación funcional}
-
-Esta parte es opcional, no es necesaria para  la prueba del TNP, no estoy seguro de ponerla.
