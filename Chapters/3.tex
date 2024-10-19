@@ -50,7 +50,7 @@ note que:
     &\leq \sum_{p}\dfrac{1}{p^s(p^s-1)}\leq \sum_{n=1}^{\infty}\dfrac{1}{n^s(n^s-1)}.
 \end{align*}
 
-\footnote{La convergencia de esta serie nos llegó haciendo cuentas en una clase de estructuras algebraicas, Santiago me dijo ``Mateo esa serie es geométrica.''}La última serie converge siempre que $\Re(s)>\dfrac{1}{2}$, entonces por la divergencia de la serie armónica, tomando el límite cuando $s\to 1^+$
+\footnote{La convergencia de esta serie nos llegó haciendo cuentas en una clase de estructuras algebraicas, Santiago me dijo ``Mateo esa serie es geométrica.2''}La última serie converge siempre que $\Re(s)>\dfrac{1}{2}$, entonces por la divergencia de la serie armónica, tomando el límite cuando $s\to 1^+$
 
 $$
 \infty=\lim_{s\to 1^+}\log(\zeta(s))=\lim_{s\to 1^+}\sum_p
@@ -128,14 +128,14 @@ Lamentablemente, $f(n)$ generalmente no es multiplicativa, dicho esto, tenemos d
 \item[2)] Nuestro argumento depende de  probar que la serie de Dirichlet asociada a $f$ no se anula en $s=1$.
 \end{itemize}
 
-Para el primero de estos inconvenientes estudiaremos los caracteres de un grupo y en particular los caracteres de Dirichlet, estos veremos que poseen propiedades de ortogonalidad, lo que nos permitirá hacer ¡Análisis de Fourier! y representar a la función $f$ característica de la progresión en su serie de Fourier como una combinación lineal finita de funciones multiplicativas (los caracteres), con esto en mente veamos primero unos preliminares sobre caracteres que necesitaremos en la prueba.
+Para el primero de estos inconvenientes estudiaremos los caracteres de un grupo y en particular los caracteres de Dirichlet, estos veremos que poseen propiedades de ortogonalidad, lo que nos permitirá hacer ¡Análisis de Fourier! y representar a la función $f$ característica de la progresión en su serie de Fourier como una combinación lineal finita de funciones completamente multiplicativas (los caracteres), con esto en mente veamos primero unos preliminares sobre caracteres que necesitaremos en la prueba.
 
-\section{Carácteres de Dirichlet}
+\section{Caracteres y el teorema de Dirichlet}
 
 Primero vamos a presentar definición formal de la idea de carácter.\\
 
 \begin{definition}
-Sea $G$ un grupo, $\chi$ es un carácter de $G$ si $\chi: G\to \C^{x}$ y satisface que para todo $a,b\in G$, $\chi(ab)=\chi(a)\chi(b)$, es decir, un homomorfismo de $G$ en $\C^{x}$.
+Sea $G$ un grupo, $\chi$ es un carácter de $G$ si $\chi: G\to \C^{x}$ y satisface que para todo $a,b\in G$, $\chi(ab)=\chi(a)\chi(b)$, es decir, un homomorfismo de $G$ en $\C^{\times}$.
 \end{definition}
 
  El homomorfismo trivial que mapea a todo $g\in G$ al 1 lo llamaremos ``carácter trivial'' denotado $\chi_0$.\\
@@ -147,7 +147,7 @@ $$\chi_1\chi_2(g)=\chi_1(g)\chi_2(g) \quad \text{para todo } \chi_1,\chi_2\in \w
 
  \end{definition}
 
- Recordemos que para todo $x \in \mathbb{R}, e^{ix}=\cos x+i \sin x$ y decimos $e(x)$ para denotar $e^{2 \pi i x}$. Por ejemplo, $e(1 / n)$ es una raíz $n$-ésima de la unidad. Una caracterización de los caracteres de un grupo cíclico finito es la siguiente.
+Decimos $e(x)$ para denotar $e^{2 \pi i x}$. Por ejemplo, $e(1 / n)$ es una raíz $n$-ésima de la unidad. Una caracterización de los caracteres de un grupo cíclico finito es la siguiente.
 
 \begin{theorem}
 Sea $G$ un grupo cíclico de orden $n$ generado por $g$, $G=\langle g\rangle$, entonces hay exactamente $n$ caracteres $\chi_0,\ldots,\chi_{n-1}$ de $G$, dados por $\chi_m(g^k)=e\left((mk)/n\right)$ para todo $0\leq m\leq n-1$ y $k\in \Z$, esto es 
@@ -237,6 +237,191 @@ análogamente se ve que esta suma es $n$ si $k=0$ y es 0 si $k\neq 0$, y el valo
 
 $$\widehat{G}=\left\{\chi_0, \chi_1, \ldots, \chi_{n-1}\right\}=\left\{\chi_1^0, \chi_1, \chi_1^2, \ldots, \chi_1^{n-1}\right\}=\left\langle\chi_1\right\rangle.$$
 
+Esto completa la prueba.
+
 \end{proof}
 
-$$$$
+Observe que el teorema anterior nos permite establecer lo siguiente, dado $G$ un grupo cíclico de orden $n$, entonces $G$ es isomorfo a su grupo dual $\widehat{G}$, esto no es exclusivo de los grupos cíclicos, sabemos que todo grupo abeliano finito se puede escribir como suma directa de grupos cíclicos, Dirichlet probó lo siguiente
+
+\begin{theorem}[Dualidad]\label{dualidad}
+Sea $G$ un grupo abeliano finito de orden $n$, entonces $G$ tiene exactamente $n$ caracteres. Más aún, sea
+
+$$
+G=\mathbb{Z} / m_1 \mathbb{Z} \oplus \mathbb{Z} / m_2 \mathbb{Z} \oplus \cdots \oplus \mathbb{Z} / m_{\ell} \mathbb{Z}
+,$$
+
+entonces los caracteres de $G$ son de la forma
+
+$$
+\chi\left(\left(a_1, a_2, \ldots, a_{\ell}\right)\right)=e\left(\frac{a_1 k_1}{m_1}\right) e\left(\frac{a_2 k_2}{m_2}\right) \cdots e\left(\frac{a_{\ell} k_{\ell}}{m_{\ell}}\right),
+$$
+
+donde $k_i=0,1, \ldots, m_i-1$ para todo $i=1,2, \ldots, \ell$. Adicionalmente, $\widehat{G}$ es un grupo abeliano finito de orden $n,|\widehat{G}|=|G|=m_1 m_2 \cdots m_k$, y $\widehat{G}$ es isomorfo a $G$:
+
+\begin{equation}
+\begin{aligned}
+\widehat{G} & \simeq \widehat{\mathbb{Z} / m_1 \mathbb{Z}} \times \widehat{\mathbb{Z} / m_2 \mathbb{Z}} \times \cdots \times \widehat{\mathbb{Z} / m_{\ell} \mathbb{Z}} \\
+& \simeq \mathbb{Z} / m_1 \mathbb{Z} \oplus \cdots \oplus \mathbb{Z} / m_{\ell} \mathbb{Z} \simeq G.
+\end{aligned}
+\end{equation}
+
+\end{theorem}
+
+\begin{proof}
+Primero consideremos el caso en que $G$ es la suma directa de $\mathbb{Z} / m_i \mathbb{Z}$ para cada $i=1,2,3, \ldots, \ell$, sea $e_i=(0,0, \ldots, 1,0,0, \ldots, 0)$ donde 1 está en la posición $i$. Entonces $e_i$ tiene orden $m_i$ y  por lo tanto $\chi\left(e_i\right)$ es una $m_i$-ésima raíz de la unidad, así pues
+
+\begin{align*}
+    \chi\left(\left(a_1,\ldots,a_{\ell}\right)\right)&=\chi(a_1e_1+\ldots +a_{\ell}e_{\ell})\\
+    &=\chi(e_1)^{a_1}\ldots\chi(e_2)^{a_2}\ldots\chi(e_{\ell})^{a_{\ell}}\\
+    &=e\left(\frac{a_1k_1}{m_1}\right)e\left(\frac{a_2k_2}{m_2}\right)\ldots e\left(\frac{a_{\ell}k_{\ell}}{m_{\ell}}\right)
+,\end{align*}
+
+donde $k_i=0,1, \ldots, m_i-1$ para todo $i=1,2, \ldots, \ell$. De esto además vemos que $\chi$ se escribe como un producto de caracteres de $\mathbb{Z} / m_1 \mathbb{Z}, \ldots, \mathbb{Z} / m_{}\mathbb{Z}$, esto es, se tiene (2.1) y $|\widehat{G}|=$ $|G|=m_1 m_2 \cdots m_k$ dado que hay $m_i$ posibles elecciones para $k_i$. Como $G$ es abeliano finito entonces:
+
+$$
+G \simeq \mathbb{Z} / m_1 \mathbb{Z} \oplus \cdots \oplus \mathbb{Z} / m_{\ell}\mathbb{Z}.
+$$
+
+lo que completa la prueba.
+\end{proof}
+
+
+\subsection{Ortogonalidad de los caracteres}
+
+Los caracteres de un grupo abeliano finito satisfacen relaciones de ortogonalidad, cuando $G=(\Z/m\Z)^{\times}$ estas relaciones de ortogonalidad nos permiten hacer análisis de Fourier, tenemos transformada y representación en ``serie de Fourier'', en nuestro caso esta serie será en realidad una suma finita, por lo que no nos preocuparemos por  la convergencia de la misma. Las relaciones de ortogonalidad que veremos en esta sección son generalizaciones del teorema 2.5, recordemos que la idea es poder expresar la función característica de una clase de residuos módulo $m$ como combinación lineal de caracteres, funciones completamente multiplicativas.
+
+\begin{theorem}
+Sea $G$ un grupo abeliano finito. Entonces
+
+\begin{itemize}
+    \item [(i)] Dado un carácter $\chi$ de $G$
+
+$$
+\sum_{g \in G} \chi(g)= \begin{cases}|G|, & \text { si } \chi=\chi_0 \\ 0, & \text { e.o.c }.\end{cases}
+$$
+
+\item[(ii] Dado $g \in G$
+
+$$
+\sum_{\chi \in \widehat{G}} \chi(g)= \begin{cases}|G|, & \text { si } g=1 \\ 0, & \text { e.o.c }.\end{cases}
+$$
+\end{itemize}
+
+\end{theorem}
+
+\begin{proof}
+
+Si $\chi=\chi_0$ entonces $\chi(g)=1$ para todo $g \in G$ por tanto la suma (i) es igual a $|G|$. Dado $\chi \neq \chi_0$, existe $h \in G$ tal que $\chi(h) \neq 1$, luego
+
+$$
+\chi(h) \sum_{g \in G} \chi(g)=\sum_{g \in G} \chi(h g)=\sum_{g \in G} \chi(g),
+$$
+
+
+ya que la  suma  se hace  sobre todos los elementos del grupo, $hg$ solo me permuta los elementos de la suma, así
+
+$$(\chi(h)-1) \sum_{g\in G}\chi(g)=0,$$ 
+
+y como $\chi(h) \neq 1$, obtenemos lo requerido. De manera  análoga obtenemos (ii), si $g=1$, entonces $\chi(g)=1$ para todo $\chi \in \widehat{G}$ y la suma (ii) es igual a $|\widehat{G}|=|G|$ por  el teorema \ref{dualidad}. Suponga que $g \neq 1$, entonces existe $\psi \in \widehat{G}$ tal que $\psi(g) \neq 1$. Nuevamente
+
+$$
+\psi(g) \sum_{\chi \in \widehat{G}} \chi(g)=\sum_{\chi \in \widehat{G}}(\psi \chi)(g)=\sum_{\chi \in \widehat{G}} \chi(g).
+$$
+
+
+De donde se sigue el resultado.\\
+\end{proof}
+
+\begin{corollary}[Ortogonalidad]
+
+  Sea $G$ un grupo abeliano finito. Entonces
+
+\begin{itemize}
+    \item[(i)] Si $\chi$ y $\psi$ son caracteres de $G$
+
+$$
+\sum_{g \in G} \psi(g) \overline{\chi}(g)= \begin{cases}|G|, & \text { si } \psi=\chi ; \\ 0, & \text { e.o.c. }\end{cases}
+$$
+
+\item[(ii)] Si $g$ y $h$ son elementos de $G$
+
+$$
+\sum_{\chi \in \widehat{G}} \chi(g) \overline{\chi}(h)= \begin{cases}|G|, & \text { si } g=h \\ 0, & \text { e.o.c. }\end{cases}
+$$
+\end{itemize}
+
+\end{corollary}
+
+\begin{note}
+Un lector familiarizado con algunos conceptos del análisis de Fourier podría notar que la suma presentada en (i) es muy similar al producto interno en $\ell^2(\Z)$, esto no es para nada coincidencia, en esencia son el mismo producto interno.\\
+
+Sea $G$ un grupo abeliano finito se puede verificar que el espacio de funciones $ f:G \to \mathbb{C}$, es un espacio vectorial de dimensión finita con el producto interno
+
+$$
+\langle g, h \rangle = \sum_{g \in G} f(g) \overline{h(g)}.
+$$
+
+Además podemos ver a  $\widehat{G}$ como un subconjunto del espacio, ahora sí procedamos con la prueba.\\
+\end{note}
+
+\begin{proof}
+La suma en (i) se puede escribir como $\displaystyle\sum_{g \in G}\left(\psi \chi^{-1}\right)(g)$ y
+
+$$
+\psi \chi^{-1}=\chi_0 \quad \text { si y solo si } \quad \psi=\chi.
+$$
+
+
+La suma en (ii) es igual a $\displaystyle\sum_{x \in \widehat{G}} \chi\left(g h^{-1}\right)$, luego el resultado es una consecuencia inmediata del teorema anterior.
+\end{proof}
+
+Como mencionamos antes, la ortogonalidad de los caracteres nos permite hacer Análisis de Fourier!, procedamos formalmente suponiendo que tenemos 
+
+$$
+f(g)=\frac{1}{|G|}\sum_{\psi \in \widehat{G}}\widehat{f}(\psi) \psi(g),
+$$
+
+por la ortogonalidad de los caracteres
+
+\begin{align*}
+    \langle f, \chi\rangle&=\frac{1}{|G|}\sum_{g\in G}\sum_{\psi \in \widehat{G}}\widehat{f}(\psi) \psi(g)\overline{\chi}(g)\\
+    &=\frac{1}{|G|}\sum_{\psi \in \widehat{G}}\widehat{f}(\psi)\sum_{g\in G}\psi(g)\overline{\chi}(g)\\
+    &=\widehat{f}(\chi)
+.\end{align*}
+
+Esto motiva la siguiente definición de transformada de Fourier.
+
+\begin{definition}[Transformada de Fourier
+]
+Sea $f: G \rightarrow \mathbb{C}$, definimos su transformada de Fourier como la función $\widehat{f}: \widehat{G} \rightarrow \mathbb{C}$ dada por
+
+$$
+\widehat{f}(\chi)=\sum_{g\in G} f(g) \overline{\chi}(g).
+$$
+
+\end{definition}
+
+\begin{theorem}[Representación de Fourier
+]
+Dada $f: G \rightarrow \mathbb{C}$, tenemos la representación en ``serie'' de Fourier
+
+$$
+f(g)=\frac{1}{|G|}\sum_{\chi \in \widehat{G}}\widehat{f}(\chi) \chi(g).
+$$
+
+\end{theorem}
+
+Así toda función se puede escribir  como combinación lineal de caracteres (funciones completamente multiplicativas).\\
+
+\begin{proof}
+Dada $f:G\to \C$, por la ortogonalidad
+
+\begin{align*}
+    \frac{1}{|G|}\sum_{\chi \in \widehat{G}}\widehat{f}(\chi) \chi(g)&=\frac{1}{|G|}\sum_{\chi \in \widehat{G}}\sum_{h\in G} f(h) \overline{\chi}(h) \chi(g)\\
+    &=\frac{1}{|G|}\sum_{h\in G} f(h) \sum_{\chi \in \widehat{G}}\overline{\chi}(h) \chi(g)\\
+    &=f(g)
+.\end{align*}
+
+\end{proof}
+
+Antes de seguir con la prueba del teorema de Dirichlet necesitamos estudiar los caracteres de Dirichlet y algunas propiedades de las series de Dirichlet asociadas a estos, a las que llamaremos $L$-funciones.
