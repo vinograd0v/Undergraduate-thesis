@@ -50,7 +50,7 @@ note que:
     &\leq \sum_{p}\dfrac{1}{p^s(p^s-1)}\leq \sum_{n=1}^{\infty}\dfrac{1}{n^s(n^s-1)}.
 \end{align*}
 
-\footnote{La convergencia de esta serie nos llegó haciendo cuentas en una clase de estructuras algebraicas, Santiago me dijo ``Mateo esa serie es geométrica.2''}La última serie converge siempre que $\Re(s)>\dfrac{1}{2}$, entonces por la divergencia de la serie armónica, tomando el límite cuando $s\to 1^+$
+\footnote{La convergencia de esta serie nos llegó haciendo cuentas en una clase de estructuras algebraicas, Santiago me dijo ``Mateo esa serie es geométrica.''}La última serie converge siempre que $\Re(s)>\dfrac{1}{2}$, entonces por la divergencia de la serie armónica, tomando el límite cuando $s\to 1^+$
 
 $$
 \infty=\lim_{s\to 1^+}\log(\zeta(s))=\lim_{s\to 1^+}\sum_p
@@ -375,7 +375,7 @@ $$
 La suma en (ii) es igual a $\displaystyle\sum_{x \in \widehat{G}} \chi\left(g h^{-1}\right)$, luego el resultado es una consecuencia inmediata del teorema anterior.
 \end{proof}
 
-Como mencionamos antes, la ortogonalidad de los caracteres nos permite hacer Análisis de Fourier!, procedamos formalmente suponiendo que tenemos 
+Como mencionamos antes, la ortogonalidad de los caracteres nos permite hacer Análisis de Fourierx, procedamos formalmente suponiendo que tenemos 
 
 $$
 f(g)=\frac{1}{|G|}\sum_{\psi \in \widehat{G}}\widehat{f}(\psi) \psi(g),
@@ -425,3 +425,50 @@ Dada $f:G\to \C$, por la ortogonalidad
 \end{proof}
 
 Antes de seguir con la prueba del teorema de Dirichlet necesitamos estudiar los caracteres de Dirichlet y algunas propiedades de las series de Dirichlet asociadas a estos, a las que llamaremos $L$-funciones.
+
+\subsection{Caracteres de Dirichlet}
+
+En esta sección nos restringimos a estudiar los caracteres del grupo $(\Z/q\Z)^{\times}$, sabemos que este es un grupo multiplicativo formado por las unidades del grupo aditivo $(\Z/q\Z)$, las clases de residuos módulo $q$, conocemos un par de cosas de este grupo, por ejemplo, su orden está determinado por el número de elementos de $(\Z/q\Z)$ que son primos relativos con $q$, esto es $\varphi(q)$.\\
+
+Un carácter de Dirichlet es un carácter del grupo $(\Z/q\Z)^{\times}$, sin embargo es útil presentarlo como una función aritmética que extiende un carácter de $(\Z/q\Z)^{\times}$ a todos los naturales.
+
+\begin{definition}[Carácter de Dirichlet]
+Un carácter de Dirichlet es un carácter del grupo $(\mathbb{Z} / m \mathbb{Z})^{\times}$. Más generalmente, un carácter de Dirichlet módulo $m$ es una función aritmética que extiende un carácter de $(\mathbb{Z} / m \mathbb{Z})^{\times}$mediante
+
+$$
+f(n)= \begin{cases}\chi(a) & \text { si } n \equiv a (\bmod{m}), 1 \leq a \leq m, \text{ y }(a, m)=1, \\ 0 & \text { si }(n, m)>1.\end{cases}
+$$
+
+\end{definition}
+
+Por ejemplo el carácter trivial se extiende de la  siguiente manera:
+
+$$\chi_0(n)= \begin{cases}1, & \text { si }(n, m)=1 \\ 0, & \text { si }(n, m)>1\end{cases}.$$
+
+En algunos casos simplificaremos la notación como antes, solo escribiremos si $(n,m)=1$ y no la condición $1\leq a\leq m$ y $n\equiv a (\bmod{m})$ ya que estas condiciones se pueden asumir que están presentes dado que estamos trabajando sobre clases de residuos, de todas manera es importante aclarar que solo es una herramienta de notación.
+
+\begin{theorem}
+Sea $\chi$ un carácter de Dirichlet módulo $q$, entonces
+$\chi(m n)=\chi(m) \chi(n)$ y $\chi(n+q)=\chi(n)$ para todo $m, n \in \mathbb{N}$.
+\end{theorem}
+
+Esto es que en efecto cuando se extiende el carácter sobre todos los naturales, obtenemos una función periódica de periodo $q$ y  además esta sigue siendo completamente multiplicativa.\\
+
+\begin{proof}
+Sea $\chi$ un carácter de Dirichlet módulo $q$ y sean $m, n \in \mathbb{N}$. Sea $f$ el  carácter de $(\mathbb{Z} / q \mathbb{Z})^{\times}$ que induce $\chi$, esto es, para todo $n \in \mathbb{N}$,
+
+$$
+\chi(n)= \begin{cases}f(n), & \text { si }(n, q)=1 \\ 0, & \text { si }(n,q)>1\end{cases}
+$$
+
+
+si $(m, q)>1$ o $(n, q)>1$, entonces $(m n, q)>1$ y por tanto $\chi(m n)=0=$ $\chi(m) \chi(n)$. Si $(m, q)=(n, q)=1$, entonces $(m n, q)=1$ y
+
+$$
+\chi(m) \chi(n)=f(m) f(n)=f(mn)=\chi(m n) .
+$$
+
+
+Esto prueba que $\chi$ es completamente multiplicativa, tenemos que $(n+q, q)=(n, q)$ se sigue que si $(n+q, q)=1$, entonces $(n, q)=1$ y por tanto $\chi(n+q)=f(n+q)=$ $f(n)=\chi(n)$. Análogamente, si $(n+q, q)>1$, entonces $(n, q)>1$ y $\chi(n+q)=$ $0=\chi(n)$, entonces $\chi$ es periódica de periodo $q$.
+
+\end{proof}
