@@ -85,7 +85,7 @@ Siguiendo los pasos de la prueba anterior obtenemos
     &=\sum_{p\equiv 1(4)}\frac{1}{p^s}- \sum_{p\equiv 3(4)}\frac{1}{p^s}+g_1(s,\chi)
 ,\end{align*}
 
-donde no es difícil ver que $g_1(s,\chi)$ es convergente cuando $s\to 1^{+}$ ya que la serie de Dirichlet de $|\chi(n)|$ es menor o igual que $\zeta(s)$, además
+donde no es difícil ver que $g_1(s,\chi)$ es convergente cuando $s\to 1^{+}$ ya que $|\chi(n)|\leq 1$, además
 
 $$\log \zeta(s)=\sum_p \frac{1}{p^s}+g(s),$$
 
@@ -375,7 +375,7 @@ $$
 La suma en (ii) es igual a $\displaystyle\sum_{x \in \widehat{G}} \chi\left(g h^{-1}\right)$, luego el resultado es una consecuencia inmediata del teorema anterior.
 \end{proof}
 
-Como mencionamos antes, la ortogonalidad de los caracteres nos permite hacer Análisis de Fourierx, procedamos formalmente suponiendo que tenemos 
+Como mencionamos antes, la ortogonalidad de los caracteres nos permite hacer Análisis de Fourier, procedamos formalmente suponiendo que tenemos 
 
 $$
 f(g)=\frac{1}{|G|}\sum_{\psi \in \widehat{G}}\widehat{f}(\psi) \psi(g),
@@ -424,8 +424,6 @@ Dada $f:G\to \C$, por la ortogonalidad
 
 \end{proof}
 
-Antes de seguir con la prueba del teorema de Dirichlet necesitamos estudiar los caracteres de Dirichlet y algunas propiedades de las series de Dirichlet asociadas a estos, a las que llamaremos $L$-funciones.
-
 \subsection{Caracteres de Dirichlet}
 
 En esta sección nos restringimos a estudiar los caracteres del grupo $(\Z/q\Z)^{\times}$, sabemos que este es un grupo multiplicativo formado por las unidades del grupo aditivo $(\Z/q\Z)$, las clases de residuos módulo $q$, conocemos un par de cosas de este grupo, por ejemplo, su orden está determinado por el número de elementos de $(\Z/q\Z)$ que son primos relativos con $q$, esto es $\varphi(q)$.\\
@@ -472,3 +470,101 @@ $$
 Esto prueba que $\chi$ es completamente multiplicativa, tenemos que $(n+q, q)=(n, q)$ se sigue que si $(n+q, q)=1$, entonces $(n, q)=1$ y por tanto $\chi(n+q)=f(n+q)=$ $f(n)=\chi(n)$. Análogamente, si $(n+q, q)>1$, entonces $(n, q)>1$ y $\chi(n+q)=$ $0=\chi(n)$, entonces $\chi$ es periódica de periodo $q$.
 
 \end{proof}
+
+ Dada $f(n)$ la función característica de la progresión aritmética, es decir
+
+$$
+f(n)=\left\{\begin{array}{lll}
+1, & n \equiv a & (\bmod{m} ) \\
+0, & n \not\equiv a & (\bmod{m}),
+\end{array}\right.
+$$
+
+entonces
+
+$$
+\hat{f}(\chi)=\sum_{g \in(\mathbb{Z} / m \mathbb{Z})^{\times}} f(g) \overline{\chi}(g)=\overline{\chi}(a)=\chi\left(a^{-1}\right),
+$$
+
+ ya que el término $f(g)$ es $0$ excepto cuando $g=a$ donde $f(g)$ vale 1, por lo tanto tenemos la representación de Fourier
+
+$$
+f(n)=\frac{1}{\varphi(m)} \sum_\chi \chi\left(a^{-1}\right) \chi(n).
+$$
+
+\section{La L-serie asociada a un carácter de Dirichlet}
+
+En esta sección estudiaremos el comportamiento de las sumas parciales de $\chi(n)$, en particular nuestro objetivo es completar los ingredientes para la prueba del teorema de Dirichlet, estudiaremos la no nulidad de 
+
+$$\sum_{n=1}^{\infty} \frac{\chi(n)}{n}.$$
+
+\begin{definition}
+Sea $\chi$ un carácter de Dirichlet módulo $q$, la $L$-serie de Dirichlet asociada a $\chi$ (también llamada $L$-función) es la serie (la función) 
+
+$$
+L(s, \chi)=\sum_{n=1}^{\infty} \frac{\chi(n)}{n^s} .
+$$
+
+\end{definition}
+
+\begin{theorem}
+
+$L(\chi,s)$ converge absolutamente si $\Re(s)>1$ y en este semiplano tenemos el producto de Euler
+
+$$\sum_{n=1}^{\infty} \frac{\chi(n)}{n^s}=\prod_p \frac{1}{1-\chi(p) p^{-s}}.$$
+
+\end{theorem}
+
+\begin{proof}
+Tenemos que $|\chi(n)|=1$, luego por la convergencia absoluta de $\zeta(s)$ en el semiplano $\Re(s)>1$ obtenemos la convergencia deseada, además como $\chi$ es completamente multiplicativa el producto de Euler se sigue del corolario 1.35.
+\end{proof}
+
+Por el teorema anterior observemos lo siguiente:
+
+$$\begin{aligned}
+L\left(s, \chi_0\right) & =\prod_p\left(1-\frac{\chi_0(p)}{p^s}\right)^{-1} \\
+& =\prod_{p \nmid m}\left(1-\frac{1}{p^s}\right)^{-1},
+\end{aligned}$$
+
+para obtener una expresión precisa que podamos controlar sobre este producto una idea sería completar el producto sobre todos los primos y quitar los términos $p\mid m$ en otro producto, esto es:
+
+$$
+\begin{aligned}
+L\left(s, \chi_0\right) & =\prod_p\left(1-\frac{\chi_0(p)}{p^s}\right)^{-1} \\
+& =\prod_{p \nmid m}\left(1-\frac{1}{p^s}\right)^{-1} \\
+& =\prod_{p \mid m}\left(1-\frac{1}{p^s}\right) \prod_p\left(1-\frac{1}{p^s}\right)^{-1} \\
+& =\prod_{p \mid m}\left(1-\frac{1}{p^s}\right) \zeta(s) .
+\end{aligned}
+$$
+
+La expresión $\displaystyle\prod_{p \mid m}\left(1-\frac{1}{p^s}\right)$ es continua cuando tomamos el límite $s\to 1$, a saber
+
+$$\prod_{p \mid m}\left(1-\frac{1}{p}\right)=\frac{\varphi(m)}{m},$$
+
+ya obtuvimos propiedades analíticas sobre la función $\zeta(s)$, sabemos que esta es analítica en el semiplano $\sigma>0$ excepto por un polo simple en $s=1$ con residuo 1 (teorema 1.40), esto nos da el siguiente corolario.
+
+\begin{corollary}
+$L\left(s, \chi_0\right)$ es una función analítica en $\Re(s)>0$, excepto por un polo simple en $s=1$ con residuo $\dfrac{\varphi(m)}{m}$.
+\end{corollary}
+
+Debemos obtener ahora propiedades analíticas sobre $L(s,\chi)$ con $\chi\neq \chi_0$, dado $\chi$ un carácter de Dirichlet módulo $q$, sea $A(x)=\displaystyle\sum_{n \leq x} \chi(n)$, como $\chi\neq \chi_0$, obtenemos que $\displaystyle\sum_{n=1}^q \chi(n)=0$, en general, $\displaystyle\sum_{n=1}^{k q} \chi(n)=0$ para todo $k \in \mathbb{N}$. Entonces
+
+$$
+|A(x)| \leq \sum_{n=1}^q|\chi(n)|=\sum_{\substack{n=1 \\(n, q)=1}}^q 1=\varphi(q)=O(1),
+$$
+
+y aplicando sumación parcial se sigue que
+
+$$\begin{aligned}
+L(s, \chi) & =\sum_{n=1}^{\infty} \frac{\chi(n)}{n^s}=\int_{1^{-}}^{\infty} \frac{1}{x^s} d A(x) \\
+& =\left.\frac{A(x)}{x^s}\right|_{1^{-}} ^{\infty}+s \int_{1}^{\infty} \frac{A(x)}{x^s} \frac{d x}{x} \\
+& =s \int_{1}^{\infty} \frac{A(x)}{x^{s+1}} d x ,
+\end{aligned}$$
+
+
+
+donde el término de borde se anula ya que $A(x)$ es $O(1)$ y en el límite inferior las sumas parciales son 0, note que la expresión anterior es válida para $\Re(s)>0$ y por lo tanto
+
+\begin{theorem}
+Si $\chi \neq \chi_0, L(s, \chi)$ es una función analítica en $\Re(s)>0$. (no tiene polos)
+\end{theorem}

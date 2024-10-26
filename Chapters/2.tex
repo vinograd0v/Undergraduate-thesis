@@ -661,7 +661,9 @@ $$\displaystyle\sum_{n=1}^Na_nf(n)=\int_0^Nf(x)dA(x).$$
 Ya que al aplicar (1.9) tomando como integrador las sumas parciales tenemos que $A(n+)-A(n-)=A(n)-A(n-1)=a_n$, luego en cada paso la integral toma el valor $a_nf(n)$.\\
 
 \begin{note}
-El límite inferior de la integral puede ser cualquier número en el intervalo [0, 1) y el superior cualquier número en [N, N+1)
+El límite inferior de la integral puede ser cualquier número en el intervalo [0, 1) y el superior cualquier número en [N, N+1) sin afectar el valor de la integral, la siguiente notación es empleada
+
+$$\sum_{n=1}^N a_n f(n)=\int_0^N f(x) d A(x)=\int_{1^{-}}^N f(x) d A(x)$$
 \end{note}
 
 \begin{eg}
@@ -1164,7 +1166,7 @@ $$S=\{s\in \C : \sigma>\sigma_0 \text{ y } |t-t_0|\leq H(\sigma-\sigma_0)\}.$$
 \begin{proof}
 Sean $H>0$, $\varepsilon>0$ dado y $1<M<N$, como la serie converge en $s=s_0$, entonces
 
-$$\sum_{M<n \leq N} f(n) n^{-s_0} n^{s_0-s}=\int_M^N t^{s_0-s} d A(t)=\int_M^N t^{s_0-s} d(A(t)-A(M)),$$
+$$\sum_{M<n \leq N} f(n) n^{-s_0} n^{s_0-s}=\int_{M^-}^{N} t^{s_0-s} d A(t)=\int_{M^{-}}^N t^{s_0-s} d(A(t)-A(M)),$$
 
 con $A(t)=\displaystyle\sum_{n \leq t} f(n) n^{-s_0}$, luego
 $$
@@ -1489,7 +1491,7 @@ $$|D(x)-D|<\frac{\epsilon}{2}.$$
 Sea $x\geq x_0$, aplicando sumación parcial a $S(x)$ tenemos que
 
 \begin{align*}
-S(x)&=\sum_{n\leq x}\frac{f(n)}{n^s}n^s=\int_1^xt^sd(D(t))=D(x)x^s-\int_1^xD(t)st^{s-1}dt\\
+S(x)&=\sum_{n\leq x}\frac{f(n)}{n^s}n^s=\int_{1^{-}}^xt^sd(D(t))=D(x)x^s-\int_1^xD(t)st^{s-1}dt\\
 &=\int_0^xD(x)st^{s-1}dt-\int_1^xD(t)st^{s-1}dt.
 \end{align*}
 
@@ -1536,7 +1538,7 @@ y como $\epsilon$ es arbitrario, $\displaystyle\lim_{x \to \infty} \frac{S(x)}{x
 Sea $F(s)$ una serie de Dirichlet con abscisa de convergencia $\sigma_c>0$, para todo $s\in \C$ con $\sigma>\sigma_c$
 
 \begin{align*}
-\sum_{n=1}^{\infty}\frac{f(n)}{n^s}&=\lim_{N \to \infty} \int_1^N x^{-s}d(S(x))\\
+\sum_{n=1}^{\infty}\frac{f(n)}{n^s}&=\lim_{N \to \infty} \int_{1^{-}}^N x^{-s}d(S(x))\\
 &=\lim_{N \to \infty}\frac{S(N)}{N^s}-\lim_{N \to \infty} \int_1^N S(x)d(x^{-s})\\
 &=s\int_1^{\infty} \frac{S(x)}{x^{s+1}}dx.
 \end{align*}
