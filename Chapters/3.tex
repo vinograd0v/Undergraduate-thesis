@@ -121,21 +121,16 @@ y así por argumentos análogos a los de Euler se tendría que
 
 $$\log \left(\sum_{n=1}^{\infty} \frac{f(n)}{n^s}\right)=\sum_{p \equiv a(m)} \frac{1}{p^s}+O(1)$$
 
-Lamentablemente, $f(n)$ generalmente no es multiplicativa, dicho esto, tenemos dos problemas importantes para obtener una prueba por este camino y que debemos resolver.
+Lamentablemente, $f(n)$ generalmente no es multiplicativa\\
 
-\begin{itemize}
-\item[1)] La función $f$ como característica de la progresión no siempre resulta completamente multiplicativa módulo $n$
-\item[2)] Nuestro argumento depende de  probar que la serie de Dirichlet asociada a $f$ no se anula en $s=1$.
-\end{itemize}
-
-Para el primero de estos inconvenientes estudiaremos los caracteres de un grupo y en particular los caracteres de Dirichlet, estos veremos que poseen propiedades de ortogonalidad, lo que nos permitirá hacer ¡Análisis de Fourier! y representar a la función $f$ característica de la progresión en su serie de Fourier como una combinación lineal finita de funciones completamente multiplicativas (los caracteres), con esto en mente veamos primero unos preliminares sobre caracteres que necesitaremos en la prueba.
+Para resolver este inconveniente estudiaremos los caracteres de un grupo y en particular los caracteres de Dirichlet, estos veremos que poseen propiedades de ortogonalidad, lo que nos permitirá hacer ¡Análisis de Fourier! y representar a la función $f$ característica de la progresión en su serie de Fourier como una combinación lineal finita de funciones completamente multiplicativas (los caracteres), con esto en mente veamos primero unos preliminares sobre caracteres que necesitaremos en la prueba.
 
 \section{Caracteres y el teorema de Dirichlet}
 
 Primero vamos a presentar definición formal de la idea de carácter.\\
 
 \begin{definition}
-Sea $G$ un grupo, $\chi$ es un carácter de $G$ si $\chi: G\to \C^{x}$ y satisface que para todo $a,b\in G$, $\chi(ab)=\chi(a)\chi(b)$, es decir, un homomorfismo de $G$ en $\C^{\times}$.
+Sea $G$ un grupo, $\chi$ es un carácter de $G$ si $\chi: G\to \C^{\times}$ y satisface que para todo $a,b\in G$, $\chi(ab)=\chi(a)\chi(b)$, es decir, un homomorfismo de $G$ en $\C^{\times}$.
 \end{definition}
 
  El homomorfismo trivial que mapea a todo $g\in G$ al 1 lo llamaremos ``carácter trivial'' denotado $\chi_0$.\\
@@ -300,7 +295,7 @@ $$
 \sum_{g \in G} \chi(g)= \begin{cases}|G|, & \text { si } \chi=\chi_0 \\ 0, & \text { e.o.c }.\end{cases}
 $$
 
-\item[(ii] Dado $g \in G$
+\item[(ii)] Dado $g \in G$
 
 $$
 \sum_{\chi \in \widehat{G}} \chi(g)= \begin{cases}|G|, & \text { si } g=1 \\ 0, & \text { e.o.c }.\end{cases}
@@ -381,8 +376,7 @@ $$
 f(g)=\frac{1}{|G|}\sum_{\psi \in \widehat{G}}\widehat{f}(\psi) \psi(g),
 $$
 
-por la ortogonalidad de los caracteres
-
+por la ortogonalidad
 \begin{align*}
     \langle f, \chi\rangle&=\frac{1}{|G|}\sum_{g\in G}\sum_{\psi \in \widehat{G}}\widehat{f}(\psi) \psi(g)\overline{\chi}(g)\\
     &=\frac{1}{|G|}\sum_{\psi \in \widehat{G}}\widehat{f}(\psi)\sum_{g\in G}\psi(g)\overline{\chi}(g)\\
@@ -400,7 +394,6 @@ $$
 $$
 
 \end{definition}
-
 \begin{theorem}[Representación de Fourier
 ]
 Dada $f: G \rightarrow \mathbb{C}$, tenemos la representación en ``serie'' de Fourier
@@ -492,11 +485,24 @@ $$
 f(n)=\frac{1}{\varphi(m)} \sum_\chi \chi\left(a^{-1}\right) \chi(n).
 $$
 
+Observemos lo siguiente:
+
+\begin{align*}
+    \sum_{n=1}^{\infty}\frac{f(n)}{n^s}&=\frac{1}{\phi(m)}\sum_{n=1}^{\infty} \left(\frac{\displaystyle\sum_{\chi}\chi(a^{-1})\chi(n)}{n^s}\right)\\
+    &=\frac{1}{\phi(m)}\sum_{\chi}\chi(a^{-1})\sum_{n=1}^{\infty}\frac{\chi(n)}{n^s}
+.\end{align*}
+
+Entonces para poder aplicar el argumento de  Euler a esta serie de Dirichlet antes  debemos estudiar la función
+
+$$L(s,\chi)=\sum_{n=1}^{\infty} \frac{\chi(n)}{n^s}.$$
+
 \section{La L-serie asociada a un carácter de Dirichlet}
 
-En esta sección estudiaremos el comportamiento de las sumas parciales de $\chi(n)$, en particular nuestro objetivo es completar los ingredientes para la prueba del teorema de Dirichlet, estudiaremos la no nulidad de 
+En esta sección estudiaremos el comportamiento de las sumas parciales de $\chi(n)$, en particular nuestro objetivo es completar los ingredientes para la prueba del teorema de Dirichlet, por lo que en particular estudiaremos la no nulidad de 
 
 $$\sum_{n=1}^{\infty} \frac{\chi(n)}{n}.$$
+
+La razón de estudiar estas propiedades se esclarecerá con la prueba del teorema de Dirichlet, allí entenderemos la importancia de cada una de estas piezas que hemos ido construyendo.
 
 \begin{definition}
 Sea $\chi$ un carácter de Dirichlet módulo $q$, la $L$-serie de Dirichlet asociada a $\chi$ (también llamada $L$-función) es la serie (la función) 
@@ -519,7 +525,7 @@ $$\sum_{n=1}^{\infty} \frac{\chi(n)}{n^s}=\prod_p \frac{1}{1-\chi(p) p^{-s}}.$$
 Tenemos que $|\chi(n)|=1$, luego por la convergencia absoluta de $\zeta(s)$ en el semiplano $\Re(s)>1$ obtenemos la convergencia deseada, además como $\chi$ es completamente multiplicativa el producto de Euler se sigue del corolario 1.35.
 \end{proof}
 
-Por el teorema anterior observemos lo siguiente:
+El teorema anterior nos da la siguiente expresión:
 
 $$\begin{aligned}
 L\left(s, \chi_0\right) & =\prod_p\left(1-\frac{\chi_0(p)}{p^s}\right)^{-1} \\
@@ -563,8 +569,57 @@ L(s, \chi) & =\sum_{n=1}^{\infty} \frac{\chi(n)}{n^s}=\int_{1^{-}}^{\infty} \fra
 
 
 
-donde el término de borde se anula ya que $A(x)$ es $O(1)$ y en el límite inferior las sumas parciales son 0, note que la expresión anterior es válida para $\Re(s)>0$ y por lo tanto
+donde el término de borde se anula ya que $A(x)$ es $O(1)$ y en el límite inferior las sumas parciales son 0. Note que la expresión anterior es válida para $\Re(s)>0$ dado que $A(x)=O(1)$, además ya vimos que la expresión
 
-\begin{theorem}
+$$\int_1^{\infty}\frac{1}{x^{s+1}}dx$$
+
+es analítica en el semiplano $\sigma>0$ (Teorema 1.40), obtenemos el siguiente corolario
+\begin{corollary}
 Si $\chi \neq \chi_0, L(s, \chi)$ es una función analítica en $\Re(s)>0$. (no tiene polos)
+\end{corollary}
+
+\subsection{Prueba del teorema de Dirichlet}
+
+Imitando las ideas de Euler tenemos para $\Re(s) > 1$
+\[
+\log L(s, \chi) = \sum_p \sum_{n=1}^{\infty} \frac{\chi(p)}{np^{ns}} = \sum_p \frac{\chi(p)}{p^s} + \sum_{n=2}^{\infty} \sum_p \frac{\chi(p)}{np^{ns}} = \sum_p \frac{\chi(p)}{p^s} + O(1).
+\]
+
+Ahora usando que
+\[
+\frac{1}{\varphi(m)} \sum_{\chi (a^{-1})} \chi(a^{-1}) \chi(n) = 
+\begin{cases}
+1, & n \equiv a \pmod{m} \\
+0, & n \not\equiv a \pmod{m}
+\end{cases}
+\]
+tenemos lo siguiente
+
+\begin{align*}
+    \frac{1}{\varphi(m)} \sum_{\chi} \chi(a^{-1}) \log L(s, \chi)&= \frac{1}{\varphi(m)} \sum_{\chi} \chi(a^{-1})\left(\sum_p \frac{\chi(p)}{p^s} + O(1)\right)\\
+    &= \sum_p \frac{1}{p^s} \left( \frac{1}{\varphi(m)} \sum_{\chi} \chi(a^{-1}) \chi(p) \right) + O(1)\\
+&= \sum_{\substack{p}} \frac{f(p)}{p^s} + O(1)\\
+&=\sum_{\substack{p \equiv a(m)}} \frac{1}{p^s} + O(1)
+.\end{align*}
+
+Así para mostrar que la serie diverge, y por lo tanto que existen infinitos primos en la progresión aritmética, resta mostrar que
+\[
+\lim_{s \to 1^+} \frac{1}{\varphi(m)} \sum_{\chi (a^{-1})} \log L(s, \chi) = +\infty.
+\]
+
+Ya sabemos que
+\[
+\lim_{s \to 1^+} \log L(s, \chi_0) = +\infty,
+\]
+así es suficiente mostrar que para $\chi \neq \chi_0$
+\[
+\lim_{s \to 1^+} \log L(s, \chi)
+\]
+es finito, esto es que $L(1,\chi)\neq 0$.
+
+\begin{theorem}[Dirichlet]
+Sea $\chi \neq \chi_0$, entonces \[
+\log L(1, \chi) \neq 0.
+\]
+
 \end{theorem}

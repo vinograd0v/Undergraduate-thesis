@@ -28,7 +28,7 @@ $$a:\N \to \mathbb{F},$$
 con $\mathbb{F}=\C$ o $\mathbb{F}=\R$.
 \end{definition}
 
-Esta definición nos muestra que las funciones aritmética no son más que sucesiones de números reales o complejos, en algunos casos será útil considerarlas de esta  manera y de manera análoga a  las sucesiones las denotaremos como $a_n$, donde cada $a_n$ representa $f(n)$. Veamos algunos ejemplos importantes:
+Esta definición nos muestra que las funciones aritmética no son más que sucesiones de números reales o complejos, en algunos casos será útil considerarlas de esta  manera y de manera análoga a  las sucesiones las denotaremos como $a_n$, donde cada $a_n$ representa $a(n)$. Veamos algunos ejemplos importantes:
 
 \begin{itemize}
 \item[$\bullet$] \textbf{Función constante k:}
@@ -275,7 +275,6 @@ Sean f y g funciones aritméticas. Definimos la convolución o producto de Diric
 
 $$(f*g)(n)=\sum_{\mathrm{d} \mid \mathrm{n}} \mathrm{f}(\mathrm{d}) \mathrm{g}\left(\frac{\mathrm{n}}{\mathrm{d}}\right).$$
 
-O simplemente $f*g$.
 \end{definition}
 
 Algunos resultados del capítulo anterior se pueden escribir en términos de convolución, por ejemplo, el TFA se puede presentar como
@@ -309,10 +308,10 @@ $$\begin{aligned}
 & =(g * f)(n).
 \end{aligned}$$
 
-Ya que no importa el orden en el la suma recorra los divisores, lo que prueba la conmutatividad. Ahora, recordemos que $e(n)=1$ si $n=1$ y 0 si $n\neq 1$, por tanto
-$$(e*f)(n)=(f*e)(n)=\sum_{j\mid n}f(j)e \left( \frac{n}{j} \right).$$
+Ya que no importa el orden en el la suma recorra los divisores, lo que prueba la conmutatividad. Ahora, recordemos que $e(n)=1$ si $n=1$ y $e(n)=0$ si $n\neq 1$, tenemos que
+$$(e*f)(n)=(f*e)(n)=\sum_{j\mid n}f(j)e \left( \frac{n}{j} \right),$$
 
-Así, como $e \left( \dfrac{n}{j} \right)=0$ si $j\neq n$, los términos de la suma son cero excepto cuando $j=n$, 
+y como $e \left( \dfrac{n}{j} \right)=0$ si $j\neq n$, los términos de la suma son cero excepto cuando $j=n$, 
 
 $$(e*f)(n)=(f*e)(n)=\sum_{j\mid n}f(j)e \left( \frac{n}{j} \right)=f(n)=f.$$
 
@@ -320,8 +319,7 @@ Para probar la asociatividad, considere $N=g*h$ y $M=f*g$, luego
 
 $$
 \begin{aligned}
-(f * N)(n) & =\sum_{j \mid n} f(j) N\left(\frac{n}{j}\right) \\
-& =\sum_{j_1 j_2=n} f\left(j_1\right) N\left(j_2\right) \\
+(f * N)(n) & =\sum_{j_1 j_2=n} f\left(j_1\right) N\left(j_2\right) \\
 & =\sum_{j_1 j_2=n} f\left(j_1\right)\left(\sum_{j_3 j_4=j_2} g\left(j_3\right) h\left(j_4\right)\right) \\
 & =\sum_{j_1 j_3 j_4=n} f\left(j_1\right) g\left(j_3\right) h\left(j_4\right)\\
 & =\sum_{j_1 j_3 j_4=n} f\left(j_3\right) g\left(j_4\right) h\left(j_1\right)\\
@@ -352,7 +350,7 @@ Sea $f$ una función aritmética tal que $f(1) \neq 0$. Entonces existe una úni
 \end{theorem} 
 
 \begin{proof}
-Note que si $n=1$, entonces $f(1)g(1)=e(1)=1$, así $g(1)=\dfrac{1}{f(1)}$, ahora  supongamos que $g$ se ha definido para todos lo valores $1<k<n$, luego como $f*g(n)=0$:
+Note que si $n=1$, entonces $f(1)g(1)=e(1)=1$, así $g(1)=\dfrac{1}{f(1)}$, ahora  supongamos que $g$ se ha definido para todos lo valores $1<k<n$, en efecto si $f*g(n)=0$ obtenemos
 
 \begin{equation}
 0=\sum_{d\mid n}g(d)f \left( \frac{n}{d} \right)=\sum_{\substack{d \mid n \\
@@ -362,9 +360,9 @@ d<n}} f\left(\frac{n}{d}\right) g(d)+f(1) g(n),
 así
 
 $$g(n) =\frac{-1}{f(1)} \sum_{\substack{d \mid n \\
-d<n}} f\left(\frac{n}{d}\right) g(d).1$$
+d<n}} f\left(\frac{n}{d}\right) g(d).$$
 
-Esto nos define $g$ de manera recursiva, lo que concluye el resultado.
+Esto nos define $g$ de manera recursiva, lo que concluye el resultado por inducción matemática.
 
 \end{proof}
 
@@ -387,11 +385,11 @@ n| y}} f(mn) g\left(\frac{xy}{mn}\right) \\
 & =\sum_{\substack{m|x \\
 n| y}} f(m) g\left(\frac{x}{m}\right) f(n) g\left(\frac{y}{n}\right) \\
 & =\sum_{m \mid x} f(m) g\left(\frac{y}{m}\right) \sum_{n \mid y} f(n) g\left(\frac{y}{n}\right) \\
-& =(f * g)(x)(f * g)(y) .
+& =(f * g)(x)(f * g)(y) ,
 \end{aligned}
 $$
 
-Así $f * g$ es multiplicativa.
+así $f * g$ es multiplicativa.
 \end{proof}
 
 
@@ -449,10 +447,10 @@ Finalizaremos esta sección con algunas propiedades importantes de las funciones
 La propiedad del teorema (1.3) nos permite manipular sumas  con condiciones de coprimalidad, es decir sumas sobre los $n$ que son coprimos con un entero $k$ fijo. Considere el conjunto $C_k=\{n \text{ | } (n,k)=1\}$, note que la función característica del conjunto $C_k$ es:
 
 $$
-\mathbbm{1}_{C_k}(n)=\sum_{d \mid(n, k)} \mu(d)=e((n,k)),
+\mathbbm{1}_{C_k}(n)=\sum_{d \mid(n, k)} \mu(d)=e((n,k)).
 $$
 
-Una aplicación de esto, nos permite obtener la siguiente propiedad de la función $\varphi$ de Euler:
+Una aplicación de esto nos permite obtener la siguiente propiedad de la función $\varphi$ de Euler:
 
 $$\begin{aligned}
 \varphi(n) & =\sum_{\substack{m \leq n \\
@@ -469,7 +467,7 @@ Es claro que la función $N$ es multiplicativa por definición, luego esta propi
 
 
 \begin{theorem}
-La función $\mu$ es multiplicativa:
+La función $\mu$ es multiplicativa.
 \end{theorem}
 
 \begin{proof}
@@ -610,7 +608,7 @@ Sean $P=\{x_0,x_1,...,x_n\}\in\mathcal{P}[a,b]$ (las particiones del intervalo $
 
 La integral usual se define como el límite de las sumas de Riemann, esta definición nos da una correspondencia importante: Toda integral de Riemann se puede ver como el límite de una suma, una serie.\\
 
-Sin embargo, no toda suma se puede ver como una integral bajo esta definición, si tenemos una con una condición de sumación sobre, por ejemplo, los números primos, no hay un camino claro para expresarla como una integral, la solución a este problema viene de generalizar la noción de integral.\\
+Sin embargo, no toda suma se puede ver como una integral bajo esta definición, si tenemos una con una condición de sumación sobre, por ejemplo, los números primos, no hay un camino claro para expresarla como una integral, la solución a este problema viene de generalizar la integral de Riemann.\\
 
 La propiedad deseada la obtendremos de la integral de Riemann-Stieltjes.
 
@@ -654,7 +652,7 @@ Supongamos que $\alpha$ tiene salto $\alpha_k $ en un punto $x_k\in [a,b]$, no e
 
 La prueba de esto se encuentra también en \cite{Apostol:105425} [Teorema 7.9], en efecto si repetimos esto para cada $x_k$ obtenemos la suma deseada.\\
 
-Sea $f$ continua en $[0,N]$, el teorema anterior nos permite expresar la suma $\displaystyle\sum_{n=1}^Na_nf(n)$ como una integral de Riemann Stieltjes considerando sus sumas parciales
+Sea $f$ continua en $[0,N]$, el teorema anterior nos permite expresar la suma $\displaystyle\sum_{n=1}^Na_nf(n)$ como una integral de Riemann Stieltjes, a saber
 
 $$\displaystyle\sum_{n=1}^Na_nf(n)=\int_0^Nf(x)dA(x).$$
 
@@ -701,7 +699,7 @@ existe y
 Las pruebas de estos teoremas se encuentran también en \cite{Apostol:105425}, por lo que no las presentaremos aquí para no extendernos demasiado en la teoría de esta sección, con estas propiedades ya podemos presentar una prueba  del teorema de  sumación de Abel.
 
 \begin{theorem}[Sumación parcial de Abel]\label{Teorema sumacion de Abel}
-Sea $a_n$ función aritmética y $f\in C^1[1,x]$, entonces:
+Sea $a_n$ función aritmética y $f\in C^1[1,x]$, entonces
 
 $$
 \sum_{n \leq x} a_n f(n)=A(x) f(x)-\int_1^x A(t) f^{\prime}(t) d t .
@@ -718,16 +716,16 @@ ya que $A(x)=0$ para todo $x\in [0,1)$, en efecto
 \begin{align*}
     \sum_{n \leq x} a_n f(n)&=f(x)A(x)-\int_1^xA(t)df(t)\\
     &=f(x)A(x)-\int_1^xA(t)f^{'}(t)dt
-.\end{align*}
+,\end{align*}
 
-Por  el teorema \ref{reduccion a riemann}.
+por  el teorema \ref{reduccion a riemann}.
 \end{proof}
 
 \section{Algunas estimaciones básicas}
 
 Vamos a ver algunas aplicaciones de la teoría que hemos presentado, algunas de estas ya las habíamos mencionado antes, por ejemplo, el comportamiento asintótico de las sumas de la serie armónica.\\
 
-Vamos a ver que $\displaystyle\sum_{n \leq x} \frac{1}{n} =\log x+\gamma+O\left(\frac{1}{x}\right)$, donde $\gamma=\displaystyle\lim_{n \to \infty} \left( \sum_{n=1}^{n}\frac{1}{n} -\log n\right)$ conocida como la constante de Euler-Mascheroni.\\
+Vamos a ver que $\displaystyle\sum_{n \leq x} \frac{1}{n} =\log x+\gamma+O\left(\frac{1}{x}\right)$, donde $\gamma=\displaystyle\lim_{n \to \infty} \left( \sum_{n=1}^{n}\frac{1}{n} -\log n\right)$ es conocida como la constante de Euler-Mascheroni.\\
 
 Sea $a_n=1$ y $f(x)=\dfrac{1}{x}$, así $A(x)=[x]$ y al usar la sumación parcial tenemos que
 
@@ -826,7 +824,7 @@ $$
 \psi(x)=\sum_{n \leq x} \Lambda(n)=\sum_{m=1}^{\infty} \sum_{p^m \leq x} \Lambda\left(p^m\right)=\sum_{m=1}^{\infty} \sum_{p \leq x^{\frac{1}{m}}} \log p .
 $$
 
-Note que la suma sobre $m$ realmente es finita porque la suma sobre $p$, se  detiene cuando $x^{\frac{1}{m}}<2$, es decir, cuando $m>\log_2(x)$, entonces
+Note que la suma sobre $m$ realmente es finita porque la suma sobre $p$ se  detiene cuando $x^{\frac{1}{m}}<2$, es decir, cuando $m>\log_2(x)$, entonces
 
 \begin{align}
     \psi(x)=\sum_{m \leq \log _2 x} \sum_{p \leq x^{\frac{1}{m}}} \log p=\sum_{m \leq \log _2 x} \vartheta\left(x^{\frac{1}{m}}\right).
@@ -845,10 +843,10 @@ $$
 Por (1.10) se sigue que:
 
     $$
-\psi(x)=\sum_{2 \leq m \leq \log _2 x} \vartheta\left(x^{\frac{1}{m}}\right)+\vartheta(x) .
+\psi(x)=\sum_{2 \leq m \leq \log _2 x} \vartheta\left(x^{\frac{1}{m}}\right)+\vartheta(x) ,
 $$
 
-Ya que si $m=1$ entonces $\vartheta(x^{\frac{1}{m}})=\vartheta(x)$, luego
+ya que si $m=1$ entonces $\vartheta(x^{\frac{1}{m}})=\vartheta(x)$, luego
 
 $$
 \psi(x)-\vartheta(x)=\sum_{2 \leq m \leq \log _2 x} \vartheta\left(x^{\frac{1}{m}}\right)\geq  0.
@@ -857,17 +855,19 @@ $$
 Ahora por definición de $\vartheta$
 
 $$
-\vartheta(x)=\sum_{p \leq x} \log p\leq x \log x .
+\vartheta(x)=\sum_{p \leq x} \log p\leq x \log x ,
 $$
 
-Entonces
+entonces
 
 \begin{align*}
     0 \leq \psi(x)-\vartheta(x) &\leq \sum_{2 \leq m \leq \log _2 x} x^{\frac{1}{m}} \log x^{\frac{1}{m}} \\
     &\leq \sqrt{x} \sum_{2 \leq m \leq \log _2 x} \log x^{\frac{1}{m}}\\
     &\leq \sqrt{x}(\log_2(x)\log(\sqrt{x}))\\
-    &=\frac{\sqrt{x}\log^2 x}{\log(4)}.
+    &=\frac{\sqrt{x}\log^2 x}{\log(4)},
 \end{align*}
+
+y dividiendo por $x$ obtenemos el resultado
 \end{proof}
 
 \begin{theorem}
@@ -931,14 +931,14 @@ así, cuando $x \rightarrow \infty, \dfrac{1}{x} \displaystyle \int_2^x \frac{1}
 $(\leftarrow)$ Análogamente $\vartheta(\mathrm{t})=$ $O(\mathrm{t})$. Por tanto
 
 $$
-\frac{\log (x)}{x} \int_2^x \frac{\vartheta(t)}{t \log ^2(t)} d t=O\left(\frac{\log (x)}{x} \int_2^x \frac{1}{t \log ^2(t)} d t\right),
+\frac{\log (x)}{x} \int_2^x \frac{\vartheta(t)}{ \log ^2(t)} d t=O\left(\frac{\log (x)}{x} \int_2^x \frac{1}{ \log ^2(t)} d t\right),
 $$
  
  La integral en $O$ se puede acotar de manera análoga a la anterior:
  
 $$
 \begin{aligned}
-\int_2^x \frac{1}{t \log ^2(t)} d t & =\int_2^{\sqrt{x}} \frac{1}{t \log ^2(t)} d t+\int_{\sqrt{x}}^x \frac{1}{t \log ^2(t)} d t \\
+\int_2^x \frac{1}{ \log ^2(t)} d t & =\int_2^{\sqrt{x}} \frac{1}{ \log ^2(t)} d t+\int_{\sqrt{x}}^x \frac{1}{ \log ^2(t)} d t \\
 & \leq \frac{\sqrt{x}}{\log ^2(2)}+\frac{x-\sqrt{x}}{\log ^2(\sqrt{x})}
 \end{aligned}.
 $$
@@ -972,7 +972,7 @@ donde $S(t)=\displaystyle\int_1^t s(y)dy$, tenemos que $\displaystyle\left.\frac
 
 \begin{align*}
 \int_1^n \frac{s(t)}{t}dt&=\int_1^n\frac{S(t)}{t^2}=\int_1^{\infty}\frac{S(t)}{t^2}dt-\int_n^{\infty}\frac{S(t)}{t^2}dt\\
-&=c+O\left(\frac{1}{x}\right). && \left(|S(t)|\leq \frac{1}{2}\right)
+&=c+O\left(\frac{1}{n}\right). && \left(|S(t)|\leq \frac{1}{2}\right)
 \end{align*}
 
 Por tanto:
@@ -1017,8 +1017,9 @@ Sin embargo, nuestro interés son las series $F(s)$, estas fueron introducidas p
 
 Con lo que se mencionó antes parece que toda la teoría se conecta, y que de cierta forma esto solo es una forma diferente de atacar los mismos problemas, sin embargo, este no es el caso, las propiedades analíticas de una serie de Dirichlet, vista como función de variable compleja $s$ pueden ser explotadas para obtener información importante acerca del comportamiento de las sumas parciales de funciones aritmética
 
-$$\sum_{n\leq x}f(n).$$
+$$\sum_{n\leq x}f(n)$$
 
+y que no podemos obtener con la sumación parcial.
 \begin{definition}
 
 Sea $f$ una función aritmética, la serie
@@ -1092,18 +1093,18 @@ Si tomamos una serie de potencias $F(x)$, sabemos por lo menos tres cosas de ell
 Nuestro objetivo ahora es lograr obtener propiedades similares para series de Dirichlet.
 \subsection{Propiedades analíticas}
 
-Primero note que $\displaystyle x^{\displaystyle  s}=e^{\displaystyle s\log x}=e^{\displaystyle(\sigma+it)\log x}=x^{\displaystyle\sigma}e^{\displaystyle it\log{x}}$, por tanto $|\displaystyle x^{\displaystyle s}|=|x^{\displaystyle\sigma}|$ ya que:
+Primero note que $\displaystyle x^{\displaystyle  s}=e^{\displaystyle s\log x}=e^{\displaystyle(\sigma+it)\log x}=x^{\displaystyle\sigma}e^{\displaystyle it\log{x}}$, por tanto $|\displaystyle x^{\displaystyle s}|=|x^{\displaystyle\sigma}|$ ya que
 \begin{align*}
      \left|e^{ i\theta}\right|&=|cos(\theta)+i\sin(\theta)|\\
      &=1
- .\end{align*} 
+ ,\end{align*} 
 
 luego $\left| e^{\displaystyle it\log x}\right|=1$. Esto muestra que la convergencia absoluta de una serie de Dirichlet está determinada únicamente por $\sigma$.
 
 \begin{eg}[Convergencia de $\zeta(s)$]
 Note que
 
-$$\sum_{n=1}^{\infty} \left|\frac{1}{n^s}\right|=\sum_{n=1}^{\infty} \left|\frac{1}{n^{\sigma}}\right|=\sum_{n=1}^{\infty} \frac{1}{n^{\sigma}}.$$
+$$\sum_{n=1}^{\infty} \left|\frac{1}{n^s}\right|=\sum_{n=1}^{\infty} \frac{1}{n^{\sigma}}.$$
 
 Si $\sigma=1$ sabemos que la serie diverge, en otro caso, la serie converge si y solo si la integral:
 
@@ -1549,7 +1550,7 @@ Note que tomando $x=e^t$, $dx=e^tdt$
 
 $$\sum_{n=1}^{\infty} \frac{f(n)}{n^s}=s\int_0^{\infty}S(e^{t})e^{-st}dt.$$
 
-La serie de Dirichlet toma forma de transformada de Laplace. Aunque esto parezca una propiedad cualquiera, Korevaar y Zagier aplicaron esto para obtener una prueba corta del TNP en la que no es necesario todo el poder del teorema Tauberiano de Wiener-Ikehara \cite{zagier1997newman}, estas ideas también se siguen en el libro de Pongsriiam \cite{pongsriiam2023analytic}.
+La serie de Dirichlet toma forma de transformada de Laplace. Aunque esto parezca una propiedad cualquiera, Korevaar y Zagier aplicaron esto para obtener una prueba corta del TNP en la que no es necesario todo el poder del teorema Tauberiano de Wiener-Ikehara \cite{zagier1997newman}, esta prueba es una modificación de la prueba de Newman, donde el teorema analítico que se emplea se obtiene de manera más sencilla en virtud de lo anterior, estas ideas también se siguen en el libro de Pongsriiam \cite{pongsriiam2023analytic}.
 
 \section{La función zeta de Riemann}
 
