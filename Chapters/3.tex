@@ -157,7 +157,7 @@ $$\displaystyle\chi_{m_1}(g)=e\left(\frac{m_1}{n}\right)\neq e\left(\frac{m_2}{n
 
 como $\chi_{m_1}$ y $\chi_{m_2}$ están totalmente determinados por $\chi_{m_1}(g)$ y $\chi_{m_2}(g)$, entonces $\chi_0,\ldots\chi_{n-1}$ son todos distintos.\\
 
-Finalmente debemos ver que dado $\chi_m$ con $0\leq m\leq n-1$, $\chi_m$ es homomorfismo de $G$ en $\C^{x}$, en efecto dados $a,b\in G$, $a=g^{k_1}$ y $b=g^{k_2}$. Note que
+Finalmente debemos ver que dado $\chi_m$ con $0\leq m\leq n-1$, $\chi_m$ es homomorfismo de $G$ en $\C^{\times}$, en efecto dados $a,b\in G$, $a=g^{k_1}$ y $b=g^{k_2}$. Note que
 
 \begin{align*}
 \chi_m(ab)&=\chi_m(g^{k_1}g^{k_2})\\
@@ -183,7 +183,7 @@ El carácter principal $\chi_0$ de $G$ es la identidad de $\widehat{G}$ ya que d
      &=\chi_{m_1}\chi_{m_2}(a)\chi_{m_1}\chi_{m_2}(b)
       .\end{align*}
 
-    La conmutatividad y asociatividad se siguen de manera análoga usando la conmutatividad y asociatividad de $\C^{x}$.\\
+    La conmutatividad y asociatividad se siguen de manera análoga usando la conmutatividad y asociatividad de $\C^{\times}$.\\
 \end{proof}
 
 \begin{note}
@@ -367,16 +367,17 @@ $$
 $$
 
 
-La suma en (ii) es igual a $\displaystyle\sum_{x \in \widehat{G}} \chi\left(g h^{-1}\right)$, luego el resultado es una consecuencia inmediata del teorema anterior.
+La suma en (ii) es igual a $\displaystyle\sum_{x \in \widehat{G}} \chi\left(g h^{-1}\right)$, luego el resultado es una consecuencia inmediata del teorema anterior.\\
 \end{proof}
 
-Como mencionamos antes, la ortogonalidad de los caracteres nos permite hacer Análisis de Fourier, procedamos formalmente suponiendo que tenemos 
+Procedamos formalmente suponiendo que tenemos 
 
 $$
 f(g)=\frac{1}{|G|}\sum_{\psi \in \widehat{G}}\widehat{f}(\psi) \psi(g),
 $$
 
 por la ortogonalidad
+
 \begin{align*}
     \langle f, \chi\rangle&=\frac{1}{|G|}\sum_{g\in G}\sum_{\psi \in \widehat{G}}\widehat{f}(\psi) \psi(g)\overline{\chi}(g)\\
     &=\frac{1}{|G|}\sum_{\psi \in \widehat{G}}\widehat{f}(\psi)\sum_{g\in G}\psi(g)\overline{\chi}(g)\\
@@ -404,8 +405,6 @@ $$
 
 \end{theorem}
 
-Así toda función se puede escribir  como combinación lineal de caracteres (funciones completamente multiplicativas).\\
-
 \begin{proof}
 Dada $f:G\to \C$, por la ortogonalidad
 
@@ -416,6 +415,8 @@ Dada $f:G\to \C$, por la ortogonalidad
 .\end{align*}
 
 \end{proof}
+
+
 
 \subsection{Caracteres de Dirichlet}
 
@@ -482,19 +483,28 @@ $$
  ya que el término $f(g)$ es $0$ excepto cuando $g=a$ donde $f(g)$ vale 1, por lo tanto tenemos la representación de Fourier
 
 $$
-f(n)=\frac{1}{\varphi(m)} \sum_\chi \chi\left(a^{-1}\right) \chi(n).
+\boxed{f(n)=\frac{1}{\varphi(m)} \sum_\chi \chi\left(a^{-1}\right) \chi(n).
+}
 $$
 
-Observemos lo siguiente:
+Por lo que hemos resuelto nuestro primer inconveniente para construir una prueba de teorema de Dirichlet. Observemos lo siguiente:
 
 \begin{align*}
     \sum_{n=1}^{\infty}\frac{f(n)}{n^s}&=\frac{1}{\phi(m)}\sum_{n=1}^{\infty} \left(\frac{\displaystyle\sum_{\chi}\chi(a^{-1})\chi(n)}{n^s}\right)\\
     &=\frac{1}{\phi(m)}\sum_{\chi}\chi(a^{-1})\sum_{n=1}^{\infty}\frac{\chi(n)}{n^s}
-.\end{align*}
+,\end{align*}
 
-Entonces para poder aplicar el argumento de  Euler a esta serie de Dirichlet antes  debemos estudiar la función
+en donde la serie de Dirichlet
 
-$$L(s,\chi)=\sum_{n=1}^{\infty} \frac{\chi(n)}{n^s}.$$
+$$\sum_{n=1}^{\infty} \frac{\chi(n)}{n^s}=L(s,\chi)$$
+
+si resulta tener producto de Euler y finalmente obtendremos la prueba del teorema de Dirichlet de estudiar la expresión
+
+\begin{equation}
+\frac{1}{\phi(m)}\sum_{\chi}\chi(a^{-1})\log(L(1,\chi)).
+\end{equation}
+
+En la siguiente sección veremos que (2.2) es divergente y que en efecto es igual a la suma sobre los primos congruentes a $a (\bmod{m})$
 
 \section{La L-serie asociada a un carácter de Dirichlet}
 
@@ -593,7 +603,7 @@ Ahora usando que
 0, & n \not\equiv a \pmod{m}
 \end{cases}
 \]
-tenemos lo siguiente
+tenemos lo siguiente:
 
 \begin{align*}
     \frac{1}{\varphi(m)} \sum_{\chi} \chi(a^{-1}) \log L(s, \chi)&= \frac{1}{\varphi(m)} \sum_{\chi} \chi(a^{-1})\left(\sum_p \frac{\chi(p)}{p^s} + O(1)\right)\\
@@ -621,5 +631,4 @@ es finito, esto es que $L(1,\chi)\neq 0$.
 Sea $\chi \neq \chi_0$, entonces \[
 \log L(1, \chi) \neq 0.
 \]
-
 \end{theorem}
