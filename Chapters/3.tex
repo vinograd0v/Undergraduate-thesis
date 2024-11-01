@@ -590,6 +590,21 @@ Si $\chi \neq \chi_0, L(s, \chi)$ es una función analítica en $\Re(s)>0$. (no 
 
 \subsection{Prueba del teorema de Dirichlet}
 
+\begin{theorem}[Dirichlet]
+Sea $\chi \neq \chi_0$, entonces \[
+\log L(1, \chi) \neq 0.
+\]
+\end{theorem}
+
+Omitiremos la prueba de este teorema hasta completar la prueba del teorema de Dirichlet.
+
+
+\begin{theorem}[Dirichlet 1837]
+Sean $(a, m) = 1$, entonces existen infinitos primos en la progresión aritmética: $a, a + m, a + 2m, a + 3m, a + 4m, \dots$
+
+\end{theorem}
+
+\begin{proof}
 Imitando las ideas de Euler tenemos para $\Re(s) > 1$
 \[
 \log L(s, \chi) = \sum_p \sum_{n=1}^{\infty} \frac{\chi(p)}{np^{ns}} = \sum_p \frac{\chi(p)}{p^s} + \sum_{n=2}^{\infty} \sum_p \frac{\chi(p)}{np^{ns}} = \sum_p \frac{\chi(p)}{p^s} + O(1).
@@ -612,23 +627,44 @@ tenemos lo siguiente:
 &=\sum_{\substack{p \equiv a(m)}} \frac{1}{p^s} + O(1)
 .\end{align*}
 
-Así para mostrar que la serie diverge, y por lo tanto que existen infinitos primos en la progresión aritmética, resta mostrar que
+Así para mostrar que la serie diverge, y por lo tanto que existen infinitos primos en la progresión aritmética, resta ver que
 \[
-\lim_{s \to 1^+} \frac{1}{\varphi(m)} \sum_{\chi (a^{-1})} \log L(s, \chi) = +\infty.
+\lim_{s \to 1^+} \frac{1}{\varphi(m)} \sum_{\chi (a^{-1})} \log L(s, \chi) = +\infty,
 \]
 
-Ya sabemos que
+ya sabemos que
 \[
 \lim_{s \to 1^+} \log L(s, \chi_0) = +\infty,
 \]
-así es suficiente mostrar que para $\chi \neq \chi_0$
+por el teorema anterior tenemos que para $\chi \neq \chi_0$
 \[
 \lim_{s \to 1^+} \log L(s, \chi)
 \]
-es finito, esto es que $L(1,\chi)\neq 0$.
+es finito ya que $L(1,\chi)\neq 0$ y $L(s,\chi)$ no tiene polos en $\Re(s)>0$, el logaritmo no explota, lo anterior nos da que 
 
-\begin{theorem}[Dirichlet]
-Sea $\chi \neq \chi_0$, entonces \[
-\log L(1, \chi) \neq 0.
+\begin{align*}
+     +\infty&=\lim_{s \to 1^{+}} \frac{1}{\varphi(m)} \sum_{\chi} \chi(a^{-1}) \log L(s, \chi)\\
+     &=\sum_{\substack{p \equiv a(m)}} \frac{1}{p} + O(1)
+.\end{align*}
+\end{proof}
+
+En el artículo de su prueba, Dirichlet afirma que la demostración que presentó no fue  la que primero se le ocurrió, comenta que la prueba original utilizaba argumentos más indirectos y que la parte en la que tuvo problemas fue en la no nulidad de $L(1,\chi)$ para $\chi\neq \chi_0$ un carácter real, de hecho esta prueba le toma varios años, por eso la omitimos en esta sección, no queremos saturar la teoría sin mostrar las razones de la misma.\\
+
+La prueba original de Dirichlet de que \(L(1, \chi) \neq 0\) para un carácter real \(\chi\) viene de asociar este carácter al símbolo de Legendre y es una simple consecuencia de su fórmula del número de clases. Sea \(K = \mathbb{Q}(\sqrt{D})\) un extensión cuadrática con \(D \equiv 0, 1 \pmod{4}\), existe un carácter primitivo real asociado \(\chi\) tal que
+\[
+\zeta_K(s) = \sum_a (N\mathfrak{a})^{-s} = \zeta(s)L(s, \chi)
 \]
-\end{theorem}
+y cada carácter real primitivo módulo \( q \neq 1 \) se obtiene de esta forma a partir de \( K = \mathbb{Q}(\sqrt{\chi(-1)q}) \). Dirichlet demostró que
+\[
+L(1, \chi) = 
+\begin{cases}
+\dfrac{2\pi h}{w \sqrt{q}} & \text{si } \chi(-1) = -1, \\[8pt]
+\dfrac{2h \log \varepsilon}{\sqrt{q}} & \text{si } \chi(-1) = 1,
+\end{cases}
+\]
+donde \(h\) es el número de clases de \(K\), \(w\) es el número de unidades en el anillo de enteros de \(K\) si \(\chi(-1) = -1\), y \(\varepsilon\) es la unidad fundamental de \(K\) si \(\chi(-1) = 1\). Por lo tanto $L(1, \chi) > \frac{1}{\sqrt{q}}$. \cite{iwaniec2021analytic}\\
+
+En este trabajo también dividiremos la prueba de esto en dos casos, el caso en que el carácter solo toma valores reales no lo abordaremos de la manera antes mencionada ya que para esto debemos tomar una desviación hacia la teoría algebraica de números, es posible obtener una prueba de este hecho utilizando el método de Dirichlet de la hipérbola que estudiaremos en la siguiente sección.
+
+
+\section{La no nulidad de \texorpdfstring{$L(1,\chi)$}{Lg}}
