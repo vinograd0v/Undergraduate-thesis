@@ -5,7 +5,7 @@
 
 \cleanchapterquote{...Dirichlet creó una parte nueva en las matemáticas, la aplicación de las series infinitas que Fourier ha introducido en la teoría del calor en la exploración de las propiedades de los números primos. Él ha descubierto una variedad de teoremas que ... son los pilares de las nuevas teorías}{C. G. J. Jacobi}{}
 
-El teorema de Dirichlet afirma que dados $a,n,k \in \N$ tal que $(a,n)=1$, hay infinitos primos de la forma $ak+n$. El primer resultado sobre la infinitud de los números primos se remonta a Euclides. Supongamos que hay una cantidad  finita de primos, podemos contarlos... $p_1,p_2,\ldots,p_n$, note que $p_1p_2\ldots p_n+1$ es primo ya que si $p_i\mid p_1p_2\ldots p_n+ 1$ para algún $1\leq i\leq n$, entonces
+El teorema de Dirichlet afirma que dados $a,n\in  \N$ tal que $(a,n)=1$, hay infinitos primos de la forma $a, a+n, a+2n, a+3n,\ldots$, el primer resultado sobre la infinitud de los números primos se remonta a Euclides. Supongamos que hay una cantidad  finita de primos, podemos contarlos... $p_1,p_2,\ldots,p_n$, note que $p_1p_2\ldots p_n+1$ es primo ya que si $p_i\mid p_1p_2\ldots p_n+ 1$ para algún $1\leq i\leq n$, entonces
 
 $$1=p_i(K-(p_1\ldots p_{i-1}p_{i+1}\ldots p_n)),$$
 
@@ -50,14 +50,14 @@ note que:
     &\leq \sum_{p}\dfrac{1}{p^s(p^s-1)}\leq \sum_{n=1}^{\infty}\dfrac{1}{n^s(n^s-1)}.
 \end{align*}
 
-\footnote{La convergencia de esta serie nos llegó haciendo cuentas en una clase de estructuras algebraicas, Santiago me dijo ``Mateo esa serie es geométrica.''}La última serie converge siempre que $\Re(s)>\dfrac{1}{2}$, entonces por la divergencia de la serie armónica, tomando el límite cuando $s\to 1^+$
+\footnote{La convergencia de esta serie nos llegó haciendo cuentas en una clase de estructuras algebraicas, Santiago me dijo ``Mateo esa serie es geométrica''.}La última serie converge siempre que $\Re(s)>\dfrac{1}{2}$, entonces por la divergencia de la serie armónica, tomando el límite cuando $s\to 1^+$
 
 $$
 \infty=\lim_{s\to 1^+}\log(\zeta(s))=\lim_{s\to 1^+}\sum_p
 \dfrac{1}{p^s}+\sum_{p}\left(\sum_{k=2}^{\infty}\dfrac{1}{kp^{ks}}\right)=\sum_p
 \dfrac{1}{p}+ O(1),$$
 
-lo cual nos dice que la suma de los recíprocos de los primos diverge, y por lo tanto podemos decir que los primos son infinitos. 
+lo que nos dice que la suma de los recíprocos de los primos diverge y por lo tanto podemos decir que los primos son infinitos. 
 \end{proof}
 
 La idea de Dirichlet es replicar este argumento de Euler para probar que hay infinitos primos de la forma $4k+1$, para ello define la siguiente serie
@@ -487,7 +487,7 @@ $$
 }
 $$
 
-Por lo que hemos resuelto nuestro primer inconveniente para construir una prueba de teorema de Dirichlet. Observemos lo siguiente:
+Con este resultado hemos resuelto nuestro primer inconveniente para construir una prueba de teorema de Dirichlet. Observemos lo siguiente:
 
 \begin{align*}
     \sum_{n=1}^{\infty}\frac{f(n)}{n^s}&=\frac{1}{\phi(m)}\sum_{n=1}^{\infty} \left(\frac{\displaystyle\sum_{\chi}\chi(a^{-1})\chi(n)}{n^s}\right)\\
@@ -498,13 +498,13 @@ en donde la serie de Dirichlet
 
 $$\sum_{n=1}^{\infty} \frac{\chi(n)}{n^s}=L(s,\chi)$$
 
-si resulta tener producto de Euler y finalmente obtendremos la prueba del teorema de Dirichlet de estudiar la expresión
+si resulta tener producto de Euler por lo que obtendremos la prueba de estudiar la expresión
 
 \begin{equation}
 \frac{1}{\phi(m)}\sum_{\chi}\chi(a^{-1})\log(L(1,\chi)).
 \end{equation}
 
-En la siguiente sección veremos que (2.2) es divergente y que en efecto es igual a la suma sobre los primos congruentes a $a (\bmod{m})$
+En la siguiente sección veremos que (2.2) es divergente y que en efecto es igual a la suma sobre los primos congruentes a $a (\bmod{m})$.
 
 \section{La L-serie asociada a un carácter de Dirichlet}
 
@@ -648,9 +648,11 @@ es finito ya que $L(1,\chi)\neq 0$ y $L(s,\chi)$ no tiene polos en $\Re(s)>0$, e
 .\end{align*}
 \end{proof}
 
-En el artículo de su prueba, Dirichlet afirma que la demostración que presentó no fue  la que primero se le ocurrió, comenta que la prueba original utilizaba argumentos más indirectos y que la parte en la que tuvo problemas fue en la no nulidad de $L(1,\chi)$ para $\chi\neq \chi_0$ un carácter real, de hecho esta prueba le toma varios años, por eso la omitimos en esta sección, no queremos saturar la teoría sin mostrar las razones de la misma.\\
+La idea que tuvo Dirichlet de usar caracteres para escribir la función característica como combinación lineal de funciones completamente multiplicativas quizás venga de que Dirichlet no estudió en Alemania, estudió en Francia bajo supervisión de varios matemáticos, entre ellos Fourier, por lo que venía con ideas de representación de funciones, ideas que estaban surgiendo del estudio de la ecuación del calor, esta es la razón por la que se considera a este resultado como el nacimiento de la teoría analítica de números.\\
 
-La prueba original de Dirichlet de que \(L(1, \chi) \neq 0\) para un carácter real \(\chi\) viene de asociar este carácter al símbolo de Legendre y es una simple consecuencia de su fórmula del número de clases. Sea \(K = \mathbb{Q}(\sqrt{D})\) un extensión cuadrática con \(D \equiv 0, 1 \pmod{4}\), existe un carácter primitivo real asociado \(\chi\) tal que
+La primera prueba de Dirichlet estaba incompleta, solo abordaba el caso en el que $m$ era un número primo, para el caso general tuvo que asumir su fórmula del número de clases que demostró en un artículo en 1839-1840, varios años luego de su primera prueba, al final de su artículo menciona que la primera prueba que se le ocurrió del resultado vital que necesitaba (la no nulidad de $L(1,\chi)$, $\chi\neq\chi_0$) venía de  argumentos más indirectos y complicados, dice ``no creo que haya un indicio en algún lugar de su naturaleza''.\\
+
+La prueba que presentó de que \(L(1, \chi) \neq 0\) para un carácter real \(\chi\) viene de asociar este carácter al símbolo de Legendre y es una simple consecuencia de su fórmula del número de clases. Sea \(K = \mathbb{Q}(\sqrt{D})\) un extensión cuadrática con \(D \equiv 0, 1 \pmod{4}\), existe un carácter primitivo real asociado \(\chi\) tal que
 \[
 \zeta_K(s) = \sum_a (N\mathfrak{a})^{-s} = \zeta(s)L(s, \chi)
 \]
@@ -664,7 +666,8 @@ L(1, \chi) =
 \]
 donde \(h\) es el número de clases de \(K\), \(w\) es el número de unidades en el anillo de enteros de \(K\) si \(\chi(-1) = -1\), y \(\varepsilon\) es la unidad fundamental de \(K\) si \(\chi(-1) = 1\). Por lo tanto $L(1, \chi) > \frac{1}{\sqrt{q}}$. \cite{iwaniec2021analytic}\\
 
-En este trabajo también dividiremos la prueba de esto en dos casos, el caso en que el carácter solo toma valores reales no lo abordaremos de la manera antes mencionada ya que para esto debemos tomar una desviación hacia la teoría algebraica de números, es posible obtener una prueba de este hecho utilizando el método de Dirichlet de la hipérbola que estudiaremos en la siguiente sección.
-
+En este trabajo también dividiremos la prueba de esto en dos casos, el caso en que el carácter solo toma valores reales no lo abordaremos de la manera antes mencionada ya que para esto debemos tomar una desviación hacia la teoría algebraica de números, es posible obtener una prueba de este hecho utilizando el método de Dirichlet de la hipérbola que estudiamos en el primer capítulo. 
 
 \section{La no nulidad de \texorpdfstring{$L(1,\chi)$}{Lg}}
+
+
