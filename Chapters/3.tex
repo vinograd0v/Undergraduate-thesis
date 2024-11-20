@@ -678,10 +678,166 @@ la  pregunta natural es ¿cuál es la serie de Dirichlet asociada a $A(n)$?, not
 
 $$\sum_{n=1}^{\infty} \frac{A(n)}{n^s}=\sum_{n=1}^{\infty} \frac{(\chi*1)(n)}{n^s}=\sum_{n=1}^{\infty} \frac{\chi(n)}{n^s}\sum_{n=1}^{\infty} \frac{1}{n^s}=L(s,\chi)\zeta(s),$$
 
-es posible ver que esta expresión es justamente $\zeta_K(s)$ donde $\zeta_K(s)$ es la función zeta de Dedeckind en la extensión cuadrática $K=\Q(\sqrt{D})$ con $D$ el entero positivo más pequeño que divide a $n$.\\
+es posible ver que esta expresión es justamente $\zeta_K(s)$ donde $\zeta_K(s)$ es la función zeta de Dedekind en la extensión cuadrática $K=\Q(\sqrt{D})$ con $D$ el entero positivo mayor que 1 más pequeño que divide a $n$.\\
 
 En 1906 Landau presentó una prueba de este teorema haciendo estimaciones sobre la función 
 
 $$B(x)=\sum_{n\leq x}\frac{A(n)}{\sqrt{n}}=\sum_{n\leq x}\sum_{d\mid n}\frac{\chi(d)}{\sqrt{n} },$$
 
-demostró que $B(x)=2 \sqrt{x}L(1,\chi)+O(1)$ y que $B(x)$ diverge cuando tomamos $x\to\infty$, por lo tanto $L(1,\chi)\neq 0$, para ver esto utiliza el método de Dirichlet de la hipérbola dado $B(x)$ son las sumas parciales de una convolución. La prueba que presentaremos es la de Landau salvo por unas modificaciones, las ventaja es que esta demostración es más sencilla y autocontenida que la de Dirichlet, no requerimos herramientas de la teoría algebraica de números, aunque como vimos la idea subyacente proviene de allí.
+demostró que $B(x)=2 \sqrt{x}L(1,\chi)+O(1)$ y que $B(x)$ diverge cuando tomamos $x\to\infty$, por lo tanto $L(1,\chi)\neq 0$, para ver esto utiliza el método de Dirichlet de la hipérbola dado $B(x)$ son las sumas parciales de una convolución. La prueba que presentaremos es la de Landau salvo por unas pequeñas modificaciones, las ventaja es que esta demostración es más sencilla y autocontenida que la de Dirichlet, no requerimos herramientas de la teoría algebraica de números, aunque como vimos la idea subyacente proviene de allí.
+
+\begin{theorem}
+Sea $\chi=\chi_0$ un carácter módulo $k$ y sea $f$ una función no negativa con derivada continua tal que $f^{\prime}(x)<0$ para $x\geq x_0$. Entonces si $y\geq x\geq x_0$, tenemos que
+
+$$\sum_{y<n\leq x}\chi(n)f(n)=O(f(x)),$$
+
+si adicionalmente $f(x)\to 0$ cuando $x\to \infty$ entonces la serie
+
+$$\sum_{n=1}^{\infty} \chi(n)f(n)$$
+
+converge y tenemos que para $x\geq x_0$
+
+$$\sum_{n\leq x}\chi(n)f(n)=\sum_{n=1}^{\infty} \chi(n)f(n)+O(f(x))$$
+\end{theorem}
+
+\begin{proof}
+Tenemos que $A(x)=\displaystyle \sum_{n\leq x}\chi(n)=O(1)$, por lo tanto 
+
+$$
+\begin{aligned}
+\sum_{x< n \leqslant y} f(n) f(n) & =\int_x^y f(t) d(A(t)) \\
+& =f(y) A(y)-f(x) A(x)-\int_x^y A(t) f^{\prime}(t) d t \\
+& \ll f(y)+f(x)+\int_x^y\left(-f^{\prime}(t)\right) d t \\
+& \ll f(x),
+\end{aligned}
+$$
+
+si adicionalmente $f(x) \rightarrow 0$ cuando $x \rightarrow \infty$, $\displaystyle\sum_{x \leqslant n \leqslant y} x(n) f(n) \ll f(x) \rightarrow 0$ cuando $x, y \rightarrow \infty$ esto es $\displaystyle\sum_{n=1}^{\infty} x(n) f(n)$ converge por el criterio de Cauchy. Finalmente note que 
+
+$$
+\begin{aligned}
+\sum_{n=1}^{\infty} x(n) f(n) & =\sum_{n \leqslant x} x(n) f(n)+\lim _{y \rightarrow \infty} \sum_{x<n \leqslant y} x(n) f(n) \\
+&=\sum_{n \leqslant x} x(n) f(n)+O(f(x))
+\end{aligned}$$
+\end{proof}
+
+Aplicando este teorema para $f(x)=\dfrac{1}{x}$, $f(x)=\dfrac{\log x}{x}$ y $f(x)=\dfrac{1}{\sqrt{x} }$ obtenemos el siguiente corolario
+
+\begin{corollary}
+Si $\chi\neq\chi_0$ es un carácter módulo $k$ y si $x\geq 1$, tenemos que
+
+$$\begin{aligned}
+\sum_{n \leqslant x} \frac{\chi(n)}{n} & =L(1, \chi)+O\left(\frac{1}{x}\right) \\
+\sum_{n \leqslant x} \frac{\chi(n) \log n}{n} & =\sum_{n=1}^{\infty} \frac{\chi(n) \log n}{n}+O\left(\frac{\log x}{x}\right) \\
+\sum_{n \leqslant x} \frac{\chi(n)}{\sqrt{n}} & =L\left(\frac{1}{2}, \chi\right)+O\left(\frac{1}{\sqrt{x}}\right) .
+\end{aligned}$$
+\end{corollary}
+
+\subsection{No nulidad para el carácter real \texorpdfstring{$\chi\neq\chi_0$}{Lg}}
+
+
+\begin{theorem}
+Sea $\chi$ un carácter real módulo $k$ y considere la función
+
+$$A(n)=\sum_{d\mid n} \chi(n).$$
+
+Entonces $A(n)\geq 0$ para todo $n$ y $A(n)\geq 1$ si $n$ es un cuadrado perfecto.
+\end{theorem}
+
+\begin{proof}
+Para las potencias de primos tenemos que
+
+$$A(p^a)=\sum_{t=0}^{a}\chi(p^t)=1+\sum_{t=1}^{a} \chi(p)^t,$$
+
+como $\chi$ es a valor real, entonces los único valores de $\chi(p)$  son $0,1$ y $-1$, si $\chi(p)=0$, entonces $A(p^a)=1$, si $\chi(p)=1$ entonces $A(p^a)=a+1$, si $\chi(p)=-1$ entonces
+
+$$A(p^a)=\begin{cases}
+0 \quad\text{ si } a \text{ es impar},\\
+1 \quad\text{ si } a \text{ es par}.
+\end{cases}$$
+
+En cualquier caso, $A(p^a)\geq 1$ si $a$ es par. Ahora, si $n=p_1^{a_1}\cdot\cdot\cdot p_r^{a_r}$ entonces $A(n)=A(p_1^{a_1})\ldots A(p_r^{a_r})$ ya que $A$ es multiplicativa, dado que es convolución de dos funciones multiplicativas. Cada factor $A(p_i^{a_i})\geq 0$ de esto se sigue que $A(n)\geq 0$, además si $n$ es un cuadrado perfecto, entonces cada exponente $a_i$ es par, esto es que cada factor $A(p_i^{a_i})\geq 1$ por lo cual $A(n)\geq 1$.
+\end{proof}
+
+
+\begin{theorem}
+Dado $\chi\neq\chi_0$ un carácter real módulo $k$, sea
+
+$$A(n)=\sum_{d\mid n}\chi(d)\quad \text{y} \quad B(x)=\sum_{n\leq x}\frac{A(n)}{\sqrt{n}}.$$
+
+Tenemos que
+
+\begin{itemize}
+\item[i)] $B(x)\to\infty$ cuando $x\to\infty$
+
+\item[ii)] $B(x)=2 \sqrt{x} L(1.\chi)+O(1)$
+\end{itemize}
+\end{theorem}
+
+\begin{proof}
+Tenemos que
+
+$$B(x)\geq \sum_{\substack{n\leq x\\
+n=m^2}}\frac{1}{\sqrt{n}}=\sum_{n\leq x} \frac{1}{m} $$
+
+y por lo tanto cuando $x\to \infty$ la suma diverge por la divergencia de la serie armónica, esto prueba $i)$. Note que cambiando el orden de sumación
+
+\begin{align*}
+    B(x) &= \sum_{n \leq x} \sum_{\substack{d \mid n}} \frac{\chi(d)}{\sqrt{n}} 
+     = \sum_{d \leq x} \sum_{\substack{n \leq x \\ d \mid n}} \frac{\chi(d)}{\sqrt{n}}\\
+     &= \sum_{d \leq x} \chi(d) \sum_{\substack{n \leq x \\ d \mid n}} \frac{1}{\sqrt{n}}\\
+     &= \sum_{d \leq x} \chi(d) \sum_{k \leq \frac{x}{d}} \frac{1}{\sqrt{kd}}\\
+     &=\sum_{dk \leq x} \frac{\chi(d)}{\sqrt{kd}}
+.\end{align*}
+
+Aplicando el método de Dirichlet de la hipérbola a esta expresión se sigue que
+
+
+
+$$\begin{aligned}
+B(x)& =\sum_{d \leqslant \sqrt{x}} \frac{x(d)}{\sqrt{d}} \sum_{k \leq\frac{x}{d}} \frac{1}{\sqrt{k}}+\sum_{k \leqslant \sqrt{x}} \frac{1}{\sqrt{x}} \sum_{d\leq x / k} \frac{x(d)}{\sqrt{d}}-\sum_{k \leqslant \sqrt{x}} \frac{1}{\sqrt{x}} \sum_{d \leqslant \sqrt{k}} \frac{x(d)}{\sqrt{d}} \\
+& =S_1+S_2-S_3,
+\end{aligned}$$
+
+
+En efecto 
+
+\begin{align*}
+S_1 &= \sum_{d \leq \sqrt{x}} \frac{\chi(d)}{d} 
+\left( 2 \left( \frac{x}{d} \right)^{1/2} +a + O\left( \left( \frac{d}{x} \right)^{1/2} \right) \right) \\
+&= 2\sqrt{x} \sum_{d \leq \sqrt{x}} \frac{\chi(d)}{d} 
++ a \sum_{d \leq \sqrt{x}} \frac{\chi(d)}{\sqrt{d}} 
++ O\left( \frac{1}{\sqrt{x}} \sum_{d \leq \sqrt{x}} |\chi(d)| \right) \\
+&= 2\sqrt{x} \left( L(1, \chi) + O(x^{1/2}) \right) 
++ a L\left(\frac{1}{2}, \chi\right) + O\left(x^{-1/4}\right) + O(1) \\
+&= 2\sqrt{x} L(1, \chi) + a L\left(\frac{1}{2}, \chi\right) + O(1) \\
+&= 2\sqrt{x} L(1, \chi) + O(1).
+\end{align*}
+
+Análogamente  
+
+$$
+\begin{aligned}
+S_2 & =\sum_{k \leq \sqrt{x}} \frac{1}{\sqrt{k}}\left(L(1 / 2, \chi)+O\left(\frac{\sqrt{k} }{\sqrt{x}}\right)\right) \\
+& =L(1 / 2, \chi)\left(2 x^{1 / 4}+O(1)\right)+O\left(\sum_{k \leq \sqrt{x}} \frac{1}{\sqrt{x}}\right) \\
+& =L(1 / 2, \chi) 2 x^{1 / 4}+O(1)
+\end{aligned}
+$$
+
+y
+
+
+\begin{align*}
+    S_3 & =\left(L(1 / 2, \chi)+O\left(\frac{1}{x^{1 / 4}}\right)\right)\left(2 x^{1 / 4}+O(1)\right) \\
+& =L(1 / 2, \chi) 2 x^{1 / 4}+O(1),
+\end{align*}
+
+por lo tanto $B(x)=S_1+S_2-S_3=2 \sqrt{x}L(1,\chi)+O(1)$
+
+\end{proof}
+
+Como $B(x)$ diverge cuando $x\to\infty$ entonces $L(1,\chi)\neq0$
+
+\subsection{No nulidad para el carácter complejo \texorpdfstring{$\chi\neq\chi_0$}{Lg}}
+
+\lipsum[1]
