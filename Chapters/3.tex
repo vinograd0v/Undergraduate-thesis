@@ -648,13 +648,14 @@ es finito ya que $L(1,\chi)\neq 0$ y $L(s,\chi)$ no tiene polos en $\Re(s)>0$, e
 .\end{align*}
 \end{proof}
 
-La idea que tuvo Dirichlet de usar caracteres para escribir la función característica como combinación lineal de funciones completamente multiplicativas quizás venga de que Dirichlet no estudió en Alemania, estudió en Francia bajo supervisión de varios matemáticos, entre ellos Fourier, por lo que venía con ideas de representación de funciones, ideas que estaban surgiendo del estudio de la ecuación del calor, esta es la razón por la que se considera a este resultado como el nacimiento de la teoría analítica de números.\\
+La idea que tuvo Dirichlet de usar caracteres para escribir la función característica como combinación lineal de funciones completamente multiplicativas quizás venga de que Dirichlet no estudió en Alemania, estudió en Francia bajo supervisión de varios matemáticos, entre ellos Fourier, por lo que venía con algunas ideas de representación de funciones, ideas que estaban surgiendo del estudio de la ecuación del calor, esta es la razón por la que se considera a este resultado como el nacimiento de la teoría analítica de números, conecta dos áreas de la matemática aparentemente alejadas.\\
 
-La primera prueba de Dirichlet estaba incompleta, solo abordaba el caso en el que $m$ era un número primo, para el caso general tuvo que asumir su fórmula del número de clases que demostró en un artículo en 1839-1840, varios años luego de su primera prueba, al final de su artículo menciona que la primera prueba que se le ocurrió del resultado vital que necesitaba (la no nulidad de $L(1,\chi)$, $\chi\neq\chi_0$) venía de  argumentos más indirectos y complicados, dice ``no creo que haya un indicio en algún lugar de su naturaleza''.\\
+La primera prueba que presentó Dirichlet estaba incompleta, solo abordaba el caso en el que $m$ era un número primo, para el caso general tuvo que asumir su fórmula del número de clases que demostró en un artículo en 1839-1840, varios años luego de su primera prueba, al final de su artículo menciona que la primera prueba que se le ocurrió del resultado vital que necesitaba (la no nulidad de $L(1,\chi)$, $\chi\neq\chi_0$) venía de  argumentos más indirectos y complicados, dice ``no creo que haya un indicio en algún lugar de su naturaleza''.\\
 
-La prueba que presentó de que \(L(1, \chi) \neq 0\) para un carácter real \(\chi\) viene de asociar este carácter al símbolo de Legendre y es una simple consecuencia de su fórmula del número de clases. Sea \(K = \mathbb{Q}(\sqrt{D})\) un extensión cuadrática con \(D \equiv 0, 1 \pmod{4}\), existe un carácter primitivo real asociado \(\chi\) tal que
+\begin{note}
+La prueba original de \(L(1, \chi) \neq 0\) para un carácter real \(\chi\) viene de asociar este carácter al símbolo de Legendre y es una simple consecuencia de su fórmula del número de clases. Sea \(K = \mathbb{Q}(\sqrt{D})\) un extensión cuadrática con \(D \equiv 0, 1 \pmod{4}\), existe un carácter primitivo real asociado \(\chi\) tal que
 \[
-\zeta_K(s) = \sum_a (N\mathfrak{a})^{-s} = \zeta(s)L(s, \chi)
+\zeta_K(s) = \sum_a (N\mathfrak{a})^{-s} = \zeta(s)L(s, \chi),
 \]
 y cada carácter real primitivo módulo \( q \neq 1 \) se obtiene de esta forma a partir de \( K = \mathbb{Q}(\sqrt{\chi(-1)q}) \). Dirichlet demostró que
 \[
@@ -664,10 +665,23 @@ L(1, \chi) =
 \dfrac{2h \log \varepsilon}{\sqrt{q}} & \text{si } \chi(-1) = 1,
 \end{cases}
 \]
-donde \(h\) es el número de clases de \(K\), \(w\) es el número de unidades en el anillo de enteros de \(K\) si \(\chi(-1) = -1\), y \(\varepsilon\) es la unidad fundamental de \(K\) si \(\chi(-1) = 1\). Por lo tanto $L(1, \chi) > \frac{1}{\sqrt{q}}$. \cite{iwaniec2021analytic}\\
-
-En este trabajo también dividiremos la prueba de esto en dos casos, el caso en que el carácter solo toma valores reales no lo abordaremos de la manera antes mencionada ya que para esto debemos tomar una desviación hacia la teoría algebraica de números, es posible obtener una prueba de este hecho utilizando el método de Dirichlet de la hipérbola que estudiamos en el primer capítulo. 
+donde \(h\) es el número de clases de \(K\), \(w\) es el número de unidades en el anillo de enteros de \(K\) si \(\chi(-1) = -1\), y \(\varepsilon\) es la unidad fundamental de \(K\) si \(\chi(-1) = 1\). Por lo tanto $L(1, \chi) > 1/\sqrt{q}$.\quad \cite{iwaniec2021analytic}\\
+\end{note}
 
 \section{La no nulidad de \texorpdfstring{$L(1,\chi)$}{Lg}}
 
+En esta sección dividiremos la prueba en dos partes, primero veremos la no nulidad de $L(1,\chi)$ para $\chi\neq\chi_0$ un carácter real, luego la no nulidad para un carácter a valor complejo, haremos esto al igual que Dirichlet puesto que es más sencillo trabajar los dos casos por separado, toda nuestra atención estará al inicio sobre el caso del carácter real dado que es el caso más complicado, sin embargo la prueba que presentaremos no es la de Dirichlet, es posible obtener este resultado con el método de Dirichlet de la hipérbola que estudiamos en el capítulo 1. Dado un carácter real $\chi\neq\chi_0$ módulo $n$ considere la función
 
+$$A(n)=\sum_{j\mid n}\chi(j),$$
+
+la  pregunta natural es ¿cuál es la serie de Dirichlet asociada a $A(n)$?, note que $A(n)=(\chi*1)(n)$, entonces
+
+$$\sum_{n=1}^{\infty} \frac{A(n)}{n^s}=\sum_{n=1}^{\infty} \frac{(\chi*1)(n)}{n^s}=\sum_{n=1}^{\infty} \frac{\chi(n)}{n^s}\sum_{n=1}^{\infty} \frac{1}{n^s}=L(s,\chi)\zeta(s),$$
+
+es posible ver que esta expresión es justamente $\zeta_K(s)$ donde $\zeta_K(s)$ es la función zeta de Dedeckind en la extensión cuadrática $K=\Q(\sqrt{D})$ con $D$ el entero positivo más pequeño que divide a $n$.\\
+
+En 1906 Landau presentó una prueba de este teorema haciendo estimaciones sobre la función 
+
+$$B(x)=\sum_{n\leq x}\frac{A(n)}{\sqrt{n}}=\sum_{n\leq x}\sum_{d\mid n}\frac{\chi(d)}{\sqrt{n} },$$
+
+demostró que $B(x)=2 \sqrt{x}L(1,\chi)+O(1)$ y que $B(x)$ diverge cuando tomamos $x\to\infty$, por lo tanto $L(1,\chi)\neq 0$, para ver esto utiliza el método de Dirichlet de la hipérbola dado $B(x)$ son las sumas parciales de una convolución. La prueba que presentaremos es la de Landau salvo por unas modificaciones, las ventaja es que esta demostración es más sencilla y autocontenida que la de Dirichlet, no requerimos herramientas de la teoría algebraica de números, aunque como vimos la idea subyacente proviene de allí.
