@@ -680,7 +680,7 @@ $$\sum_{n=1}^{\infty} \frac{A(n)}{n^s}=\sum_{n=1}^{\infty} \frac{(\chi*1)(n)}{n^
 
 es posible ver que esta expresión es justamente $\zeta_K(s)$ donde $\zeta_K(s)$ es la función zeta de Dedekind en la extensión cuadrática $K=\Q(\sqrt{D})$ con $D$ el entero positivo mayor que 1 más pequeño que divide a $n$.\\
 
-En 1906 Landau presentó una prueba de este teorema haciendo estimaciones sobre la función 
+En 1895 Mertens presentó una prueba de este teorema haciendo estimaciones sobre la función 
 
 $$B(x)=\sum_{n\leq x}\frac{A(n)}{\sqrt{n}}=\sum_{n\leq x}\sum_{d\mid n}\frac{\chi(d)}{\sqrt{n} },$$
 
@@ -760,6 +760,36 @@ En cualquier caso, $A(p^a)\geq 1$ si $a$ es par. Ahora, si $n=p_1^{a_1}\cdot\cdo
 \end{proof}
 
 
+\begin{lemma}[Sumas parciales de $\zeta(s)$]
+Dado $x\geq 1$, $s>0$ y $s\neq 1$ tenemos que
+
+$$
+\sum_{n \leq x} \frac{1}{n^s}=\frac{x^{1-s}}{1-s}+\zeta(s)+O\left(x^{-s}\right)
+$$
+\end{lemma}
+
+\begin{proof}
+Note que 
+
+\begin{align*}
+    \sum_{n\leq x}\frac{1}{n^s}&=1+\int_1^x\frac{1}{t^s}d[t]\\
+    &=1+\int_1^x\frac{1}{t^s}dt-\int_1^x\frac{1}{t^s}d\{t\}\\
+    &=1+\frac{x^{1-s}}{1-s}-\frac{1}{1-s}-\int_1^x\frac{1}{t^s}d\{t\}\\
+    &=1+\frac{x^{1-s}}{1-s}-\frac{1}{1-s}-\left(\frac{\{x\}}{x^s}+s\int_1^xt^{-s-1}\{t\}dt\right)  
+.\end{align*}
+
+Como $\{t\}=O(1)$, entonces 
+
+\begin{align*}
+    \sum_{n\leq x}\frac{1}{n^s}&=\frac{x^{1-s}}{1-s}+1+\frac{1}{s-1}-s\int_1^x\frac{\{t\}}{t^{s+1}}dt+O(x^{-s})\\
+    &=\frac{x^{1-s}}{1-s}+\frac{s}{s-1}-s\int_1^x \frac{\{t\}}{t^{s+1}}dt+O(x^{-s})\\
+    &=\frac{x^{1-s}}{1-s}+\zeta(s)+O(x^{-s})
+,\end{align*}
+
+por la representación integral de $\zeta(s)$, esta representación integral tiene sentido para $s>0$ con $s\neq 1$, lo que concluye el resultado.
+\end{proof}
+
+
 \begin{theorem}
 Dado $\chi\neq\chi_0$ un carácter real módulo $k$, sea
 
@@ -790,17 +820,15 @@ y por lo tanto cuando $x\to \infty$ la suma diverge por la divergencia de la ser
      &=\sum_{dk \leq x} \frac{\chi(d)}{\sqrt{kd}}
 .\end{align*}
 
-Aplicando el método de Dirichlet de la hipérbola a esta expresión se sigue que
-
-
+Dado que la última expresión para $B(x)$ son sumas parciales de una convolución, podemos aplicar el método de Dirichlet de hipérbola como sigue
 
 $$\begin{aligned}
-B(x)& =\sum_{d \leqslant \sqrt{x}} \frac{x(d)}{\sqrt{d}} \sum_{k \leq\frac{x}{d}} \frac{1}{\sqrt{k}}+\sum_{k \leqslant \sqrt{x}} \frac{1}{\sqrt{x}} \sum_{d\leq x / k} \frac{x(d)}{\sqrt{d}}-\sum_{k \leqslant \sqrt{x}} \frac{1}{\sqrt{x}} \sum_{d \leqslant \sqrt{k}} \frac{x(d)}{\sqrt{d}} \\
+B(x)& =\sum_{d \leqslant \sqrt{x}} \frac{x(d)}{\sqrt{d}} \sum_{k \leq\frac{x}{d}} \frac{1}{\sqrt{k}}+\sum_{k \leqslant \sqrt{x}} \frac{1}{\sqrt{k}} \sum_{d\leq x / k} \frac{x(d)}{\sqrt{d}}-\sum_{k \leqslant \sqrt{x}} \frac{1}{\sqrt{k}} \sum_{d \leqslant \sqrt{k}} \frac{x(d)}{\sqrt{d}} \\
 & =S_1+S_2-S_3,
 \end{aligned}$$
 
 
-En efecto 
+Vamos a trabajar por separado las expresiones $S_1, S_2$ y $S_3$, note que podemos estimar $\displaystyle \sum_{k\leq \frac{x}{d}} \frac{1}{\sqrt{k}}$ aplicando  el teorema anterior y tomaremos $a=\zeta(s)$ dado que para este valor de $s$ la suma converge, así obtenemos
 
 \begin{align*}
 S_1 &= \sum_{d \leq \sqrt{x}} \frac{\chi(d)}{d} 
@@ -814,7 +842,7 @@ S_1 &= \sum_{d \leq \sqrt{x}} \frac{\chi(d)}{d}
 &= 2\sqrt{x} L(1, \chi) + O(1).
 \end{align*}
 
-Análogamente  
+Análogamente estimamos la suma $\displaystyle \sum_{k\leq \sqrt{x}} \frac{1}{\sqrt{k} }$
 
 $$
 \begin{aligned}
@@ -832,7 +860,7 @@ y
 & =L(1 / 2, \chi) 2 x^{1 / 4}+O(1),
 \end{align*}
 
-por lo tanto $B(x)=S_1+S_2-S_3=2 \sqrt{x}L(1,\chi)+O(1)$
+por lo tanto $B(x)=S_1+S_2-S_3=2 \sqrt{x}L(1,\chi)+O(1)$ ya que los términos $L(\frac{1}{2},\chi)2x^{\frac{1}{4}}$ se cancelan.
 
 \end{proof}
 

@@ -1631,5 +1631,150 @@ Sea $s\in \C$ con $\sigma\geq\delta>0$. Dado $\epsilon>0$, sea $N=(\delta\epsilo
 \end{align*}
 
 como $N$ no depende de $s$, $f_n$ converge uniformemente a $f$ en el semiplano $\sigma\geq\delta$, en particular sobre cualquier compacto de $\sigma>0$, por el Teorema 1.26 $f(s)$ es analítica en el semiplano $\sigma>0$.
+\end{proof}
+
+\section{El método de Dirichlet de la hipérbola}
+
+En algunas situaciones requerimos estimar expresiones del estilo $\displaystyle\sum_{n\leq x}(f*g)(n)$, estas son sumas parciales de una convolución de dos funciones aritmética, por ejemplo, si queremos estimar
+
+$$\sum_{n\leq x} \tau(n),$$
+
+tenemos que 
+
+$$
+\begin{aligned}
+\sum_{n \leqslant x} \tau(n) & =\sum_{d \leqslant x} \sum_{k \leqslant x / d} 1 \\
+& =\sum_{d \leqslant x}\left[\frac{x}{d}\right] \\
+& =\sum_{d \leqslant x}\left(\frac{x}{d}+O(1)\right)=x \log x+O(x) .
+\end{aligned},
+$$
+
+sin embargo, dado que $\tau(n)=(1*1)(n)$ podemos obtener un resultado mejor aún
+
+\begin{theorem}[Dirichlet]
+Para todo $x \geq 2$  se tiene \\
+$$\sum_{n \leqslant x} \tau(n)=x(\log x+2 \gamma-1)+O(\sqrt{x}).$$
+\end{theorem}
+
+Para lograr esto introducimos el método de Dirichlet de la hipérbola, note que la expresión
+
+$$\sum_{n\leq x}(f*g)(n)$$
+
+se puede reescribir como sigue
+
+\begin{align*}
+    \sum_{n\leq x}(f*g)(n)&=\sum_{n\leq x}\sum_{dk= n}f(d)g\left(k\right)\\
+    &=\sum_{dk\leq x} f(d)g(k)
+,\end{align*}
+
+donde la suma sobre $dk\leq n$ representa la suma sobre los puntos $(k,d)\in \N\times\N$ que están por debajo de la hipérbola $dk=x$ como en la siguiente figura
+
+
+\begin{center}
+\input{Graphics/Hiperbola}
+\end{center}
+
+Sumar de manera adecuada nos permite hacer mejores estimaciones, tenemos el siguiente teorema.
+
+
+\begin{theorem}[Método de Dirichlet de la hipérbola]
+ Sean $f$ y $g$ funciones aritmética. Dado $y>0$, tenemos que
+
+$$
+\begin{aligned}
+\sum_{n \leq x}(f * g)(n)= \sum_{d \leq y} f(d) \sum_{k \leq \frac{x}{d}} g(k)+\sum_{k \leq \frac{x}{y}} g(k) \sum_{d \leq \frac{x}{k}} f(d)-\left(\sum_{k \leq \frac{x}{y}} g(k)\right)\left(\sum_{d \leq y} f(d)\right)
+\end{aligned}
+$$
+\end{theorem}
+
+La siguiente figura ilustra la idea
+
+\begin{center}
+\input{Graphics/Hiperbola2}
+\end{center}
+
+en particular podemos tomar $y=\sqrt{x}$ de lo que obtenemos simetría, el rectángulo de la figura se vuelve un cuadrado de lado $\sqrt{x}$ y esto es conveniente para realizar algunas estimaciones, en particular en este trabajo tomaremos siempre $y=\sqrt{x}$, sin embargo presentaremos la prueba general.\\
+
+La prueba es inmediada de considerar la suma sobre $A\cup B$, sumarle la suma $B\cup C$ y restar la suma sobre $B$, sin embargo veremos una más algebraica\\
+
+\begin{proof}
+Podemos de forma directa calcular esta suma como sigue
+
+$$\begin{aligned}
+\sum_{d k \leq x} f(d) g(k) & =\sum_{\substack{d k \leq x \\
+d \leq y}} f(d) g(k)+\sum_{\substack{d k \leq x \\
+d>y}} f(d) g(k) \\
+& =\sum_{d \leq y} f(d) \sum_{k \leq \frac{x}{d}} g(k)+\sum_{k<\frac{x}{y}} g(k) \sum_{y<d \leq \frac{x}{k}} f(d) .
+\end{aligned}$$
+
+Note que a la izquierda ya tenemos el primer término del teorema. Ahora podemos reescribir la última suma de la derecha para obtener lo deseado, en efecto
+
+
+\begin{align*}
+    \sum_{k < \frac{x}{y}} g(k) 
+\left( 
+\sum_{d \leq \frac{x}{k}} f(d) - \sum_{d \leq y} f(d) 
+\right)&= \sum_{k < \frac{x}{y}} g(k) \sum_{d \leq \frac{x}{k}} f(d) 
+- \left( 
+\sum_{k < \frac{x}{y}} g(k) 
+\right)
+\left( 
+\sum_{d \leq y} f(d) 
+\right)\\
+&=\sum_{k \leq \frac{x}{y}} g(k) \sum_{d \leq \frac{x}{k}} f(d) 
+- \left( 
+\sum_{k \leq \frac{x}{y}} g(k) 
+\right)
+\left( 
+\sum_{d \leq y} f(d) 
+\right)
+.\end{align*}
+\end{proof}
+
+\subsection{El problema de Dirichlet}
+
+Sea $\Delta(x)$ el término de error en el teorema de Dirichlet, definido como 
+
+$$\Delta(x)=\sum_{n \leqslant x} \tau(n)-x \log x-(2 \gamma-1) x$$.
+
+
+ Por el teorema de Dirichlet, se tiene que $\Delta(x)=O(\sqrt{x})$. La estimación de $\Delta(x)$ constituye el problema de Dirichlet. Dicho problema es de gran interés, no solo por ser un gran desafío sin resolver, sino principalmente debido a que el intento de abordarlo conduce a otros problemas profundos interrelacionados con distintas cuestiones en la teoría de números, incluyendo la hipótesis de Riemann. Por ende, cualquier progreso significativo podría tener implicaciones extensas, afectando a una amplia gama de otros problemas en el campo. La mayoría de los resultados conocidos son estimaciones de la forma $\Delta(x)=O\left(x^s\right)$ para alguna constante $s$.\\
+
+
+El teorema de Dirichlet permite afirmar que se puede elegir $s=1/2$. Por otro lado, Hardy demostró a inicios del siglo XX que la estimación no es válida para $s$ menor que $1/4$. La conjetura predominante es que $1/4$ podría ser el exponente óptimo, pero esta hipótesis permanece sin confirmación. Hace casi un siglo, G.F. Voronoii estableció que se podría tomar $s=1/3$, y a pesar de los grandes esfuerzos de numerosos investigadores, no se ha logrado un avance significativo; el récord actual para $s$ se encuentra cerca de $0,3149$.
+
+Dicho esto veamos una prueba del teorema.\\
+
+\begin{proof} \textit{Teorema 1.41}. Tenemos que 
+
+$$\sum_{n \leqslant x} \tau(n)=\sum_{d \leqslant x} \sum_{k \leqslant x / d} 1,$$
+
+aplicando el método de la hipérbola con $y=\sqrt{x}$, separamos la suma en $S_1, S_2$ y $S_3$ como sigue 
+
+$$\begin{aligned}
+S_1 & =\sum_{d \leqslant \sqrt{x}} \sum_{k \leqslant x / d} 1 \\
+& =\sum_{d \leqslant \sqrt{x}}\left[\frac{x}{d}\right]=\sum_{d \leqslant \sqrt{x}}\left(\frac{x}{d}+O(1)\right) \\
+& =x\left(\log \sqrt{x}+\gamma+O\left(\frac{1}{\sqrt{x}}\right)\right)+O(\sqrt{x}) \\
+& =x\left(\frac{1}{2} \log x+\gamma\right)+O(\sqrt{x}),
+\end{aligned}$$
+
+simétricamente 
+
+$$\begin{aligned}
+S_2 & =\sum_{k \leqslant \sqrt{x}} \sum_{d \leqslant x / k} 1 \\
+& =\sum_{k \leqslant \sqrt{x}}\left[\frac{x}{k}\right]=\sum_{k \leqslant \sqrt{x}}\left(\frac{x}{k}+O(1)\right) \\
+& =x\left(\log \sqrt{x}+\gamma+O\left(\frac{1}{\sqrt{x}}\right)\right)+O(\sqrt{x}) \\
+& =x\left(\frac{1}{2} \log x+\gamma\right)+O(\sqrt{x})
+\end{aligned}$$
+
+y por último
+
+$$\begin{aligned}
+S_3 & =\sum_{d \leqslant \sqrt{x}} \sum_{k \leqslant \sqrt{x}} 1 \\
+& =[\sqrt{x}]^2=(\sqrt{x}-\{\sqrt{x}\})^2 \\
+& =x+O(\sqrt{x}).
+\end{aligned}$$
+Sumando $S_1+S_2+S_3$ obtenemos lo requerido.
+
 
 \end{proof}
