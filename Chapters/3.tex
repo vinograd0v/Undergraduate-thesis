@@ -866,6 +866,58 @@ por lo tanto $B(x)=S_1+S_2-S_3=2 \sqrt{x}L(1,\chi)+O(1)$ ya que los términos $L
 
 Como $B(x)$ diverge cuando $x\to\infty$ entonces $L(1,\chi)\neq0$
 
-\subsection{No nulidad para el carácter complejo \texorpdfstring{$\chi\neq\chi_0$}{Lg}}
+\subsection{No nulidad del carácter complejo \texorpdfstring{$\chi\neq\chi_0$}{Lg}}
 
-\lipsum[1]
+Considere la función
+
+$$P(s)=\prod_{\chi}L(s,\chi),$$
+
+donde $\chi$ es un carácter de Dirichlet módulo $q$, note que 
+
+$$P(s)=L(\chi_0,s)\prod_{\chi\neq \chi_0}L(s,\chi),$$
+
+sabemos que este último producto está acotado en $\Re(s)>0$ por el corolario 2.13 y que la función $L(\chi, s)$ tiene un polo simple en $s=1$ dado por $\zeta(s)$, el teorema 1.40 nos dice más aún, nos da que cuando $s\to 1^{+}$, $L(s,\chi_0)=O\left(\dfrac{1}{s-1}\right)$, Supongamos que $L(1,\chi_1)=0$ para algún carácter $x_1\neq\chi_0$, como $\chi_1$ es un carácter complejo, entonces $\chi_1\neq \overline{\chi_1}$, además
+
+$$L(s,\overline{\chi_1})=\sum_{n=1}^{\infty} \frac{\overline{\chi_1}(n)}{n^s}=\overline{\sum_{n=1}^{\infty} \frac{\chi_1(n)}{n^s}}=\overline{L(s,\chi_1)}$$
+
+de esto se sigue que si $L(1,\chi_1)=0$, entonces $L(1,\overline{\chi_1})=0$, estas consideraciones nos permiten presentar una prueba sencilla de la no nulidad de $L(1,\chi)$, note que fue necesario separar el caso del carácter real dado que si $\chi_1$ es un carácter real entonces $\chi_1=\overline{\chi_1}$ y esto daña el argumento.
+
+\begin{lemma}
+Sea $P(s)=\displaystyle\prod_{\chi}L(s,\chi)$, si $s>1$ entonces $P(s)\geq 1$.
+\end{lemma}
+
+\begin{proof}
+Tenemos que
+
+$$\begin{aligned}
+\log (P(s)) & =\sum_{\chi} \log L(s, \chi)=\sum_{\chi \bmod q} \sum_p \log \left(1-\frac{\chi(p)}{p^s}\right)^{-1} \\
+& =\sum_{\chi} \sum_p \sum_{m=1}^{\infty} \frac{\chi(p)^m}{mp^{m s}} \\
+& =\sum_p \sum_{m=1}^{\infty} \frac{1}{mp^{ms}} \sum_{\chi} \chi(p)^m .
+\end{aligned},$$
+
+por la ortogonalidad de los caracteres tenemos que
+
+$$\sum_{\chi} \chi(p)^m=\sum_{\chi}\overline{\chi}(1) \chi\left(p^m\right)= \begin{cases}\phi(q) & \text { si } p^m \equiv 1 (\bmod{q}), \\ 0 & \text { e.o.c, }\end{cases}$$
+
+
+esto nos da que $\displaystyle\sum_p \sum_{m=1}^{\infty} \frac{1}{mp^{ms}} \sum_{\chi} \chi(p)^m$ es un suma de términos no negativos, de esto se sigue que
+
+$$P(s)=exp\left(\sum_p \sum_{m=1}^{\infty} \frac{1}{mp^{ms}} \sum_{\chi} \chi(p)^m\right)\geq 1$$
+\end{proof}
+
+\begin{theorem}
+Sea $\chi\neq \chi_0$ un carácter complejo módulo $q$, entonces $L(1,\chi)\neq 0$.
+\end{theorem}
+
+\begin{proof}
+Supongamos que existe $\chi_1\neq \chi_0$ tal que $L(1,\chi_1)=0$, entonces $L(1,\overline{\chi_1})=0$, por lo tanto cuando $s\to 1^{+}$ tenemos que $L(s,\chi_1)=O(s-1)=L(s,\overline{\chi_1})$, en efecto
+
+$$P(s)=L(s,\chi_0)L(s,\chi_1)L(s,\overline{\chi_1})Q(s),$$
+
+con $$Q(s)=\prod_{\chi\neq \chi_1,\overline{\chi_1},\chi_0}L(s,\chi)=O(1), \quad \Re(s)>0.$$
+
+
+Al tomar el $\displaystyle \lim_{s \to 1^{+}} P(s)$ basta controlar los otros 3 factores, pero ya vimos que $L(s,\chi_1)=O(s-1)=L(s,\overline{\chi_1})$, por lo tanto $P(s)=O(s-1)$ cuando $s\to 1^{+}$, esto contradice el lema 2.21.\\
+\end{proof}
+
+Sea $s>0$, en esencia lo que ocurre en la prueba anterior es que los ceros de $L(s,\chi)$, con $\chi\neq \chi_0$ vienen en parejas por lo que si $L(s,\chi)=0$, entonces $L(s,\overline{\chi})=0$, esto es conveniente para este caso, un cero nos anula el efecto del polo dado por el carácter trivial y el otro nos da la contradicción.
