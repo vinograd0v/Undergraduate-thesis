@@ -9,11 +9,11 @@
 Obtener cotas, tanto superiores como inferiores, para la función contadora de primos $\pi(x)$ es un desafío notablemente difícil. En vista de estas dificultades, es excepcional que a mediados del siglo XIX, el matemático ruso P. L. Chebyshev lograra determinar el orden preciso de magnitud de $\pi(x)$. Chebyshev demostró que existen constantes positivas $A$ y $B$ tales que
 
 $$
-A \frac{x}{\log x} \leq \pi(x) \leq B \frac{x}{\log x}, \text{ esto es } \pi(x)\asymp \frac{x}{\log x}
+A \frac{x}{\log x} \leq \pi(x) \leq B \frac{x}{\log x}
 $$
 
 
-para valores de $x$ suficientemente grandes. De hecho, Chebyshev obtuvo las cotas específicas de $A\approx 0,92129$ y $B=(6/5) A \approx 1,10555$. Esto le permitió demostrar el Postulado de Bertrand, que establece que para $x$ suficientemente grande, siempre existe un número primo $p$ tal que $x<p<2 x$. Chebyshev además demostró que si $\pi(x)/(x\log x)$ tenía un límite cuando $x\to \infty$, entonces este límite tenía que ser 1, muchos intentos de producir una prueba usando los métodos de Chebyshev fallaron, el teorema se resistió a una prueba elemental por lo siguientes cien años.\\
+para valores de $x$ suficientemente grandes. De hecho, Chebyshev obtuvo las cotas específicas de $A\approx 0,92129$ y $B=(6/5) A \approx 1,10555$. Esto le permitió demostrar el Postulado de Bertrand, que establece que para $x>2$, siempre existe un número primo $p$ tal que $x<p<2 x$. Chebyshev además demostró que si $\pi(x)/(x\log x)$ tenía un límite cuando $x\to \infty$, entonces este límite tenía que ser 1, muchos intentos de producir una prueba usando los métodos de Chebyshev fallaron, el teorema se resistió a una prueba elemental por lo siguientes cien años.\\
 
 Años después, en 1859, aparece el famoso artículo de Riemann ``Sobre la cantidad de primos menores que una magnitud dada'', allí se encontraba el camino hacia una prueba del TNP. La idea revolucionaria de Riemann fue considerar a $\zeta(s)$ como una función de variable compleja y expresar a $\pi(x)$ en términos de una integral compleja que involucraba a $\zeta(s)$, más aún, Riemann obtiene la fórmula explícita
 
@@ -29,11 +29,11 @@ Riemann demostró que la función $\zeta(s)$ tiene una continuación analítica 
 
 también reconoció el papel importante que juegan los ceros de $\zeta(s)$ en la teoría de números y conjetura varias propiedades de estos ceros, todas estas conjeturas excepto una fueron demostradas por Von Mangolth y Hadamard a finales del siglo XIX, la conjetura que se resistió es la ya muy famosa hipótesis de Riemann ``la parte real de todos los ceros no triviales de $\zeta(s)$ es 1/2'', al conjeturarla, Riemann dice ``es muy probable que ...'' (es ist sehr wahrscheinlich dass).\\
 
-En 1896 aparecen las pruebas de Hadamard y Charles-Jean de La Vallée Poussin, ambos prueban que $\zeta(1+it)\neq 0$ para todo $t\in \R$, esto es que la función $\zeta(s)$ no se anula en los complejos parte real 1, esto les permite dar una prueba rigurosa siguiendo las ideas de Riemann, dicho esto, las pruebas de Hadamard y de la Vallée Poussin requieren análisis de la función zeta en una franja más grande que simplemente $\Re(s)\geq 1$ dado que involucran fórmulas explícitas en la prueba y en estas los ceros de $\zeta(s)$ juegan un papel importante.\\
+En 1896 aparecen las pruebas de Hadamard y Charles-Jean de La Vallée Poussin, ambos prueban que $\zeta(1+it)\neq 0$ para todo $t\in \R$, esto es que la función $\zeta(s)$ no se anula en los complejos con parte real 1, esto les permite dar una prueba rigurosa siguiendo las ideas de Riemann, dicho esto, las pruebas de Hadamard y de la Vallée Poussin requieren análisis de la función zeta en una franja más grande que simplemente $\Re(s)\geq 1$ dado que involucran fórmulas explícitas en la prueba y en estas los ceros de $\zeta(s)$ juegan un papel importante.\\
 
-En este capítulo veremos que el TNP implica que $\zeta(s)\neq 0$ para $\Re(s)=1$, esto ya era conocido por los matemáticos de la época y nos dice que es necesaria la no nulidad en la recta vertical para obtener el teorema de los números primos, el primer matemático en dar una prueba que no dependía de la ecuación funcional de $\zeta(s)$ fue Landau, en su lugar trabaja con la la extensión analítica en el semiplano $\Re(s)>0$ que estudiamos previamente.
+En este capítulo veremos que el TNP implica que $\zeta(s)\neq 0$ para $\Re(s)=1$, esto ya era conocido por los matemáticos de la época y nos dice que es necesaria la no nulidad en la recta vertical para obtener el teorema de los números primos, el primer matemático en dar una prueba que no dependía de la ecuación funcional de $\zeta(s)$ fue Landau, en su lugar trabaja con la extensión analítica en el semiplano $\Re(s)>0$ que estudiamos previamente.
 
-La pregunta natural que surge aquí es ¿puede el teorema de los números primos ser probado usando solo el hecho de que $\zeta(s)\neq 0$ en $\Re(s)=1$?, esta pregunta fue resulta por N. Wiener en 1931 con su famoso teorema Tauberiano
+La pregunta natural que surge aquí es ¿puede el teorema de los números primos ser probado usando solo el hecho de que $\zeta(s)\neq 0$ en $\Re(s)=1$?, la respuesta fue dada por N. Wiener en 1931 con su famoso teorema Tauberiano
 
 
 \begin{theorem}
@@ -52,6 +52,7 @@ A(x)=R x+o(x) \text { cuando } x \rightarrow \infty \text {. }
 $$
 \end{theorem}
 
-De este teorema el TNP resulta ser un corolario, más aún, obtenemos una equivalencia entre el teorema de los números primos y $\zeta(1+it)\neq 0$ y esta dirección será la que tomaremos en este trabajo.
+De este teorema el TNP resulta ser un corolario, más aún, obtenemos una equivalencia entre el teorema de los números primos y $\zeta(1+it)\neq 0$ ya que como podemos ver en las condiciones del teorema, no requerimos análisis por fuera de la franja $\Re(s)\geq 1$ y esta dirección será la que tomaremos en este trabajo.
+
 \section{El teorema de Wiener-Ikehara}
 
