@@ -69,3 +69,17 @@ De este teorema el TNP resulta ser un corolario, más aún, obtenemos una equiva
 
 \section{El teorema de Wiener-Ikehara}
 
+Sea $\displaystyle \sum_{n=0}^{\infty} a_n x^n$, $x\in \R$ una serie de potencias centrada en $0$ y con radio  de convergencia $1$, no tenemos información acerca de la convergencia de la serie en el borde la región, esto es $|x|=1$, la serie puede ser divergente o convergente. El teorema de Abel nos dice que si la serie es sumable en un punto del borde, entonces es continua en el punto, más precisamente, si
+
+$$\sum_{n=0}^{\infty} a_n=A,$$
+
+entonces
+
+$$\lim_{x \to 1^-}\sum_{n=0}^{\infty} a_n x^n=A.$$
+
+Uno podría preguntarse cuando esperar un recíproco de este teorema, bajo qué condiciones que este límite tenga cierto valor $A$, implica que la serie es sumable y converge al mismo valor, las primera condiciones acerca de esto fueros establecidas por Tauber (1897)
+
+\begin{theorem}
+    Sea $f(x)=\displaystyle\sum_{n=0}^{\infty} a_n x^n$ una serie de potencias que converge absolutamente para $|x|<1$.
+Si $\lim_{x \rightarrow 1^{-}} \displaystyle\sum_{n=0}^{\infty} a_n x^n=A$ y se cumple la condición $a_n=o\left(\dfrac{1}{n}\right)$, entonces $\displaystyle\sum_{n=0}^{\infty} a_n=A$.
+\end{theorem}
