@@ -40,7 +40,7 @@ Riemann demostró que la función $\zeta(s)$ tiene una continuación analítica 
 \zeta(s) = 2^s \pi^{s-1} \sin\left(\frac{\pi s}{2}\right) \Gamma(1-s) \zeta(1-s),
 \]
 
-también reconoció el papel importante que juegan los ceros de $\zeta(s)$ en la teoría de números y conjetura varias propiedades de estos ceros, todas estas conjeturas excepto una fueron demostradas por Von Mangolth y Hadamard a finales del siglo XIX, la conjetura que se resistió es la ya muy famosa hipótesis de Riemann ``la parte real de todos los ceros no triviales de $\zeta(s)$ es 1/2'', al conjeturarla, Riemann dice ``es muy probable que ...'' (es ist sehr wahrscheinlich dass).\\
+también reconoció el papel importante que juegan los ceros de $\zeta(s)$ en la teoría de números y conjetura varias propiedades de estos ceros, todas estas conjeturas excepto una fueron demostradas por Von Mangolth y Hadamard a finales del siglo XIX, la conjetura que se resistió es la ya muy famosa hipótesis de Riemann ``la parte real de todos los ceros no triviales de $\zeta(s)$ es 1/2'', al conjeturarla, Riemann dice ``es muy probable que ...'' (es ist sehr wahrscheinlich dass).\cite{bateman1996hundred}\\
 
 En 1896 aparecen las pruebas de Hadamard y Charles-Jean de La Vallée Poussin, ambos prueban que $\zeta(1+it)\neq 0$ para todo $t\in \R$, esto es que la función $\zeta(s)$ no se anula en los complejos con parte real 1, esto les permite dar una prueba rigurosa siguiendo las ideas de Riemann, dicho esto, las pruebas de Hadamard y de la Vallée Poussin requieren análisis de la función zeta en una franja más grande que simplemente $\Re(s)\geq 1$ dado que involucran fórmulas explícitas en la prueba y en estas los ceros de $\zeta(s)$ juegan un papel importante.\\
 
@@ -50,10 +50,10 @@ La pregunta natural que surge aquí es ¿puede el teorema de los números primos
 
 
 \begin{theorem}
-Sean $a_n \geq 0$ y $f(s)=\displaystyle\sum_{n=1}^{\infty} \frac{a_n}{n^s}$ una serie absolutamente convergente. Supongamos que se cumplen las siguientes condiciones:
+Sean $a_n \geq 0$ y $F(s)=\displaystyle\sum_{n=1}^{\infty} \frac{a_n}{n^s}$ una serie absolutamente convergente. Supongamos que se cumplen las siguientes condiciones:
 
 \begin{itemize}
-\item[a)] La función $f(s)$ se extiende a una función meromorfa en la región $\Re(s) \geq 1$ con un único polo simple en $s=1$, cuyo residuo es $1$.
+\item[a)] La función $F(s)$ se extiende a una función meromorfa en la región $\Re(s) \geq 1$ con un único polo simple en $s=1$, cuyo residuo es $1$.
 \item[b)] $A(x)=\displaystyle \sum_{n \leq x} a_n=O(x)$.
 \end{itemize}
 
@@ -99,7 +99,7 @@ La prueba de Newman inspiró dos grandes artículos que modificaron su prueba, l
 
 En esta sección presentaremos una prueba del teorema de Wiener-Ikehara modificando la prueba de Newman, esto es, siguiendo el enfoque de Zagier y Korevaar de una manera distinta, este camino para la prueba fue encontrado por Korevaar \cite{korevaar2006wiener}, también presentaremos versiones más fuertes del teorema siguiendo a \cite{vatwani2015simple}, estas versiones son las que necesitaremos para el TNP en progresiones aritmética del siguiente capítulo.
 
-\begin{theorem}
+\begin{theorem}[Korevaar y Zagier]
     Para $t \geq 0$, sea $f(t)$ una función acotada y localmente integrable y sea $$g(s):=\displaystyle\int_0^{\infty} f(t) e^{-s t} d t,$$
      para $\Re(s)>0$. Si $g(s)$ tiene continuación analítica a $\Re(s) \geq 0$, entonces $\displaystyle\int_0^{\infty} f(t) d t$ existe y es igual a $g(0)$.
 \end{theorem}
@@ -135,9 +135,13 @@ En esta sección presentaremos una prueba del teorema de Wiener-Ikehara modifica
 
 Tomando $s = R e^{i \theta}$, entonces $R \cos \theta = \sigma$ en $\mathscr{C}_{+}$, obtenemos la siguiente estimación:
 
-\[
-\left|e^{s T} \frac{1}{s}\left(1+\frac{s^2}{R^2}\right)\right| = e^{\sigma T}\left|\frac{1}{R e^{i \theta}}+\frac{e^{i \theta}}{R}\right| =e^{\sigma T}\left|\frac{e^{-i\theta}+e^{i\theta}}{R}\right|=e^{\sigma T}\left|\frac{2 \cos \theta}{R}\right| \ll e^{\sigma T} \frac{|\sigma|}{R^2},
-\]
+\begin{equation}
+    \begin{aligned}
+    \left|e^{s T} \frac{1}{s}\left(1+\frac{s^2}{R^2}\right)\right| &= e^{\sigma T}\left|\frac{1}{R e^{i \theta}}+\frac{e^{i \theta}}{R}\right|\\
+    &=e^{\sigma T}\left|\frac{e^{-i\theta}+e^{i\theta}}{R}\right|\\
+    &=e^{\sigma T}\left|\frac{2 \cos \theta}{R}\right| \ll e^{\sigma T} \frac{|\sigma|}{R^2},
+\end{aligned}
+\end{equation}
 
 por lo tanto, acotando en la integral obtenemos que
 
@@ -151,11 +155,214 @@ En $\mathscr{C}_{-}$, examinamos $g_T(s)$ y $g(s)$ por separado. Consideremos pr
 I_1 := \frac{1}{2 \pi i} \int_{\mathscr{C}_{-}} g_T(s) e^{s T}\left(1+\frac{s^2}{R^2}\right) \frac{d s}{s}.
 \]
 
-Como $g_T(s)$ es entera y el resto del integrando es analítico a la izquierda de $\sigma = 0$, tenemos, por el teorema de Cauchy,
+Como $g_T(s)$ es entera y el resto del integrando es analítico a la izquierda de $\sigma = 0$, tenemos que
 
 \[
 I_1 = \frac{1}{2 \pi i} \int_{C_{-}} g_T(s) e^{s T}\left(1+\frac{s^2}{R^2}\right) \frac{d s}{s}.
 \] 
 
+Es decir, podemos integrar sobre el semicírculo \( C_{-} \) en lugar de \( \mathscr{C}_{-} \), con \( C_{-} \) orientado de la misma manera que \( \mathscr{C}_{-} \). Luego, observando que \( \sigma < 0 \) en este caso, tenemos  
+
+\[
+\left|g_T(s)\right| = \left|\int_0^T f(t) e^{-s t} d t\right| \leq M \int_0^T e^{-\sigma t} d t \ll \frac{e^{-\sigma T}}{|\sigma|}.
+\]
+
+La estimación en (3.1) sigue siendo válida, por lo que de manera análoga obtenemos que
+
+$$|I_{1}|\ll \frac{1}{R},$$
+
+nos queda acotar la integral restante
+
+$$I_2=\frac{1}{2\pi i }\int_{\mathscr{C}_-}g(s)e^{st}\left(1+\frac{s^2}{R^2}\right)\frac{1}{s}ds.$$
+
+Como $\mathscr{C}_-$ está contenido en un compacto en el que $g(s)$ es analítica, $|g(s)|$ se puede acotar por una constante que depende únicamente de $R$, digamos 
+
+$$|g(s)|\leq M_R,$$
+
+para todo $s \in \mathscr{C}_-$, $s=e^{i\theta}$ o $s=-\delta+it$, esto es, $s$ está en los arcos de circunferencia, o $s$ está en la recta vertical $\Re(s)=-\delta$, debemos acotar la intergral en estos dos caminos del contorno, para $s=e^{i\theta}$ ya tenemos una cota dada por (3.1), si $s=-\delta+it$ tenemos que
+
+\begin{align*}
+    \left|\frac{e^{s T}}{s}\left(1+\frac{s^2}{R^2}\right)\right|&\leq \frac{e^{-\delta T}}{|s|}\left(1+\frac{|s|^2}{R^2}\right)\\
+    &\leq e^{-\delta T}\left(\frac{1}{|s|}+\frac{|s|}{R^2}\right)\\
+    &\leq e^{-\delta T}\left(\frac{1}{\delta}+\frac{1}{R}\right)
+,\end{align*}
+
+ya que $|t|\leq R$, combinanto esta cota junto con (3.1) y sabiendo que $|g(s)|\leq M_R$, podemos acotar la integral como
+
+$$|I_2|\ll \frac{M_R}{R^2}\left|\int_{\mathscr{C}_-} |\sigma|e^{\sigma T} d s\right|+\frac{R M_R e^{-\delta T}}{\delta}+M_R e^{-\delta T},$$
+
+
+por lo tanto
+
+\begin{equation}
+    \begin{aligned}
+    |g(0)-g_T(0)|&=|I_{\mathscr{C}}|\leq |I_{\mathscr{C}_+}|+|I_1|+|I_2|\\
+    &\ll \frac{1}{R}+\frac{M_R}{R^2}\left|\int_{\mathscr{C}_-} |\sigma|e^{\sigma T} d s\right|+\frac{R M_R e^{-\delta T}}{\delta}+M_R e^{-\delta T}
+.\end{aligned}
+\end{equation}
+
+En \( C_{-} \), tenemos \( \sigma < 0 \) y \( |\sigma| e^{\sigma T} \rightarrow 0 \) uniformemente en \( C_{-} \) cuando \( T \rightarrow \infty \). Por lo tanto, cuando \( T \rightarrow \infty \), el lado derecho de (3.2) converge a \( \dfrac{1}{R} \). Luego, tomando \( R \rightarrow \infty \), obtenemos 
+
+\[
+g(0) = \lim _{T \rightarrow \infty} g_T(0).
+\]
 \end{proof}
 
+\begin{lemma}[Korevaar  y Zagier]
+
+Sean $a_n\geq 0$ y $A(x)=\displaystyle\sum_{n\leq x} a_n$, si  la integral
+
+$$\int_1^{\infty}\frac{A(x)-x}{x^2}dx$$
+
+converge, entonces $A(x)\thicksim x$
+
+\end{lemma}
+
+\begin{proof}
+    Supongamos que $A(x)\not\thicksim x$, entonces existe una constante $\lambda>1$ (o $\lambda<1$) tal que $A(x)\geq \lambda x$ (o $A(x)\leq \lambda x$) para infinitos valores de $x\to \infty$.\\
+
+    Sin pérdida de generalidad consideramos el caso \( \lambda > 1 \). Dado que \( A(x) \) es una función creciente, se sigue que para cualquiera de los valores de \( x \) con \( A(x) \geq \lambda x \) y para \( x \leq t \leq \lambda x \), tenemos \( A(t) \geq A(x) \geq \lambda x \) y  
+
+\[
+\begin{aligned}
+\int_x^{\lambda x} \frac{A(t)-t}{t^2} d t & \geq \int_x^{\lambda x} \frac{\lambda x-t}{t^2} d t = \int_1^\lambda \frac{\lambda x-v x}{(v x)^2} x d v \\
+& = \int_1^\lambda \frac{\lambda-v}{v^2} d v\\
+&=c(\lambda)
+\end{aligned}
+\]
+
+que es una constante positiva que depende únicamente de \( \lambda \). Por lo tanto  
+
+\[
+\left|\int_x^{\infty} \frac{A(t)-t}{t^2} d t - \int_{\lambda x}^{\infty} \frac{A(t)-t}{t^2} d t\right| =c(\lambda),
+\]
+
+sin embargo, las integrales anteriores son colas de una integral convergente, por lo que ambas convergen a cero cuando \( x \rightarrow \infty \), esto contradice que $c(\lambda)>0$.\\
+\end{proof}
+
+Con esto ya podemos presentar una prueba del teorema de Wiener-Ikehara.\\
+
+\begin{proof}\textit{ Teorema 3.1}. Tenemos, para $\Re(s)>1$ que
+\[
+F(s)=\sum_{n=1}^{\infty}a_nn^{-s} =s \int_1^{\infty}\frac{A(t)}{t^{s+1}} d t,
+\]
+
+Esto implica que en el semiplano \( \sigma > 1 \), \(\displaystyle \sum_{n=1}^{\infty} a_n n^{-s} \) converge absolutamente, \( F(s) \) es analítica y  
+
+\[
+F(s) - \frac{s}{s-1} = s \int_1^{\infty} \frac{A(t)-t}{t^{s+1}} d t.
+\]
+
+Cambiando \( s \) por \( s+1 \) y \( t = e^u \) en la integral, tenemos para \( \Re(s) > 0 \),  
+
+\[
+F(s+1) - 1 - \frac{1}{s} = (s+1) \int_0^{\infty} \frac{A\left(e^u\right) - e^u}{e^u} e^{-u s} d u.
+\]
+
+Por hipótesis \( A\left(e^u\right) = O\left(e^u\right) \), se sigue que la función \( f \) dada por  
+
+\[
+f(u) = \frac{A\left(e^u\right) - e^u}{e^u}
+\]
+
+es acotada en \( [0, \infty) \) e integrable en cada subintervalo cerrado y acotado de \( [0, \infty) \), y  
+
+\begin{align}
+    \frac{F(s+1) - 1 - \frac{1}{s}}{s+1} = \int_0^{\infty} f(u) e^{-s u} d u.
+\end{align}
+
+El lado izquierdo en (3.3) es analítico para \( \sigma > 0 \). Como \( F(s+1) \) tiene un polo simple en \( s = 0 \), vemos que
+
+ \[ F(s+1) - \dfrac{1}{s}\]
+
+ es analítica en \( s = 0 \), y para todo \( s \) con \( \sigma \geq 0 \). Por lo tanto, podemos aplicar el teorema 3.4 para obtener que la integral  
+
+\[
+\int_0^{\infty} \frac{A\left(e^u\right) - e^u}{e^u} d u = \int_1^{\infty} \frac{A(t)-t}{t^2} d t
+\]
+
+converge. Por el lema anterior, obtenemos que \( A(x) \sim x \).
+\end{proof}
+
+Con este teorema ya podemos obtener una prueba del TNP, sin embargo, en progresiones aritmética la serie de Dirichlet 
+
+$$L(\chi,s)=\sum_{n=1}^{\infty} \frac{\chi(n)}{n^s}$$
+
+no cumple la hipótesis $\chi(n)\geq 0$ del teorema de Wiener-Ikehara, también sabemos que el teorema de los números primos nos dice que
+
+$$\pi(a,q,x)\thicksim \frac{x}{\varphi(q)\log  x},$$
+
+por lo que esperamos aplicar el teorema de Wiener-Ikehara a una serie de Dirichlet con residuo $1/\phi(q)$, necesitamos extender el resultado para un conjunto más grande de series de Dirichlet, como mencionamos antes, haremos esto siguiendo a \cite{vatwani2015simple}, estas extensiones del teorema tauberiano son también tratadas en el texto de Ram Murty \cite{murty2007problems}
+
+\begin{corollary}
+    Sean $a_n \geq 0$ y $F(s)=\displaystyle\sum_{n=1}^{\infty} \frac{a_n}{n^s}$ una serie absolutamente convergente. Supongamos que se cumplen las siguientes condiciones:
+
+\begin{itemize}
+\item[a)] La función $F(s)$ se extiende a una función meromorfa en la región $\Re(s) \geq 1$ con un único polo simple en $s=1$, cuyo residuo es $R$.
+\item[b)] $A(x)=\displaystyle \sum_{n \leq x} a_n=O(x)$.
+\end{itemize}
+
+
+Entonces, se tiene que
+
+$$
+A(x)=Rx+o(x) \text { cuando } x \rightarrow \infty \text {. }
+$$
+\end{corollary}
+
+\begin{proof}
+    Note que basta considerar $R> 0$, ya que si $R\leq 0$ basta probar el teorema para 
+
+    $$F(s)+m\zeta(s)=\sum_{n=1}^{\infty} \frac{a_n+m}{n^s}$$
+
+    con $m\in \Z$ tal que $m>|R|$. Para $R>0$ note que cambianto $a_n$ por $\dfrac{a_n}{R}$ y aplicando el teorema 3.1 obtenemos lo deseado.\\
+\end{proof}
+
+Finalizamos esta sección con el siguiente corolario
+
+\begin{corollary}
+Sea $
+F(s) =\displaystyle \sum_{n=1}^{\infty} \frac{a_n}{n^s}
+$ una serie de Dirichlet con coeficientes complejos. Sea $A(x)$ la suma parcial de los coeficientes. Supongamos que existe una serie de Dirichlet $
+G(s) = \displaystyle\sum_{n=1}^{\infty} \frac{b_n}{n^s}
+$ con coeficientes no negativos, tal que:  
+
+\begin{itemize}
+    \item[(a)] $\left|a_n\right| \leq b_n$ para todo $n\in \N$.
+    \item[(b)] $G(s)$ es absolutamente convergente para $\Re(s) > 1$.
+    \item[(c)] La función $G(s)$ (respectivamente $F(s)$) se extiende meromórficamente a la región $\Re(s) \geq 1$, sin polos excepto por un polo simple en $s = 1$ con residuo $R$ (respectivamente $r$).
+    \item[(d)] $B(x):=\displaystyle\sum_{n \leq x}b_n=O(x)$.
+\end{itemize}
+
+Entonces, cuando $x \rightarrow \infty$, $
+A(x) = r x + o(x).
+$
+\end{corollary}
+
+
+\begin{proof}
+Si los coeficientes $a_n$ son reales, consideramos la serie $G(s)-F(s)$, que tiene coeficientes no negativos y satisface las condiciones del corolario anterior, obteniendo
+
+$$
+\sum_{n \leq x}\left(b_n-a_n\right) = (R-r) x + o(x)
+$$
+
+cuando $x \to \infty$. Dado que $B(x) = R x + o(x)$, esto prueba el resultado en el caso de coeficientes reales.  
+
+Si los coeficientes $a_n$ no son reales, definimos
+
+$$
+F^*(s) = \sum_{n=1}^{\infty} \frac{\overline{a_n}}{n^s},
+$$
+
+de modo que
+
+$$
+F = \frac{F + F^*}{2} + i\left(\frac{F - F^*}{2 i}\right),
+$$
+
+y aplicamos el resultado para coeficientes reales separadamente a la parte real e imaginaria de la expresión anterior.
+\end{proof}
+
+
+\section{Prueba del teorema de los números primos}
