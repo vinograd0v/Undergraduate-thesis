@@ -53,7 +53,7 @@ La pregunta natural que surge aquí es ¿puede el teorema de los números primos
 Sean $a_n \geq 0$ y $f(s)=\displaystyle\sum_{n=1}^{\infty} \frac{a_n}{n^s}$ una serie absolutamente convergente. Supongamos que se cumplen las siguientes condiciones:
 
 \begin{itemize}
-\item[a)] La función $f(s)$ se extiende a una función meromorfa en la región $\Re(s) \geq 1$ con un único polo simple en $s=1$, cuyo residuo es $R$.
+\item[a)] La función $f(s)$ se extiende a una función meromorfa en la región $\Re(s) \geq 1$ con un único polo simple en $s=1$, cuyo residuo es $1$.
 \item[b)] $A(x)=\displaystyle \sum_{n \leq x} a_n=O(x)$.
 \end{itemize}
 
@@ -61,7 +61,7 @@ Sean $a_n \geq 0$ y $f(s)=\displaystyle\sum_{n=1}^{\infty} \frac{a_n}{n^s}$ una 
 Entonces, se tiene que
 
 $$
-A(x)=R x+o(x) \text { cuando } x \rightarrow \infty \text {. }
+A(x)=x+o(x) \text { cuando } x \rightarrow \infty \text {. }
 $$
 \end{theorem}
 
@@ -69,17 +69,63 @@ De este teorema el TNP resulta ser un corolario, más aún, obtenemos una equiva
 
 \section{El teorema de Wiener-Ikehara}
 
-Sea $\displaystyle \sum_{n=0}^{\infty} a_n x^n$, $x\in \R$ una serie de potencias centrada en $0$ y con radio  de convergencia $1$, no tenemos información acerca de la convergencia de la serie en el borde la región, esto es $|x|=1$, la serie puede ser divergente o convergente. El teorema de Abel nos dice que si la serie es sumable en un punto del borde, entonces es continua en el punto, más precisamente, si
-
+Sea $\displaystyle \sum_{n=0}^{\infty} a_n x^n$, $x\in \R$ una serie de potencias centrada en $0$ y con radio  de convergencia $1$, en el borde la región, la serie puede ser divergente o convergente. El teorema de Abel nos dice que si la serie es sumable en un punto del borde, entonces es continua en el punto, más precisamente, si
 $$\sum_{n=0}^{\infty} a_n=A,$$
-
 entonces
-
 $$\lim_{x \to 1^-}\sum_{n=0}^{\infty} a_n x^n=A.$$
 
-Uno podría preguntarse cuando esperar un recíproco de este teorema, bajo qué condiciones que este límite tenga cierto valor $A$, implica que la serie es sumable y converge al mismo valor, las primera condiciones acerca de esto fueros establecidas por Tauber (1897)
+Uno podría preguntarse cuando esperar un recíproco de este teorema, bajo qué condiciones que este límite tenga cierto valor $A$, implica que la serie es sumable y converge a $A$, las primeras condiciones fueros establecidas por Tauber
+
+\begin{prop}[Tauber, 1897]
+    Sea $f(x)=\displaystyle\sum_{n=0}^{\infty} a_n x^n$ una serie de potencias que converge absolutamente para $|x|<1$.
+Si $\lim_{x \rightarrow 1^{-}} f(x)=A$ y se cumple la condición $a_n=o\left(\dfrac{1}{n}\right)$, entonces $f(1)=A$.
+\end{prop}
+
+Los teoremas tauberianos son recíprocos condicionales del teorema de Abel, la condición $a_n=o\left(\dfrac{1}{n}\right)$ nos restringe el crecimiento de los coeficientes, estas condiciones fueron relajadas subsecuentemente por Hardy y Littlewood a $O\left(\dfrac{1}{n}\right)$ y posteriormente a $na_n>-K$.\\
+
+Algunas de las aplicaciones más importantes de la teoría tauberiana son a la teoría analítica de números, en este contexto los resultados tauberianos se pueden considerar como estimaciones sobre las sumas parciales de los coeficientes de una serie de Dirichlet.
+
+En 1980 el matemático Donald J. Newman dió una prueba corta del teorema de los números primos, utilizando el siguiente teorema tauberiano
+
+\begin{theorem}[Newman]
+    Supongamos que 
+
+    $$|a_n|\leq 1 \text{ y } F(s)=\sum_{n=1}^{\infty} \frac{a_n}{n^s}.$$
+
+    Entonces $F$ es analítica en el semiplano $\sigma>1$. Si $F$ tiene extensión analítica en el semiplano $\sigma\geq 1$, entonces $F(s)$ converge en $\sigma\geq 1$.
+\end{theorem}
+
+La prueba de Newman inspiró dos grandes artículos que modificaron su prueba, los de Zagier \cite{zagier1997newman} y Korevaar \cite{korevaar1982newman}, en donde se aprovecha la relación que hay entre transformada de Laplace y series de Dirichlet, esto nos permite dar una prueba del TNP en la que solo se emplea el teorema de residuos de Cauchy.\\
+
+En esta sección presentaremos una prueba del teorema de Wiener-Ikehara modificando la prueba de Newman, esto es, siguiendo el enfoque de Zagier y Korevaar de una manera distinta, este camino para la prueba fue encontrado por Korevaar \cite{korevaar2006wiener}, también presentaremos versiones más fuertes del teorema siguiendo a \cite{vatwani2015simple}, estas versiones son las que necesitaremos para el TNP en progresiones aritmética del siguiente capítulo.
 
 \begin{theorem}
-    Sea $f(x)=\displaystyle\sum_{n=0}^{\infty} a_n x^n$ una serie de potencias que converge absolutamente para $|x|<1$.
-Si $\lim_{x \rightarrow 1^{-}} \displaystyle\sum_{n=0}^{\infty} a_n x^n=A$ y se cumple la condición $a_n=o\left(\dfrac{1}{n}\right)$, entonces $\displaystyle\sum_{n=0}^{\infty} a_n=A$.
+    Para $t \geq 0$, sea $f(t)$ una función acotada y localmente integrable y sea $$g(s):=\displaystyle\int_0^{\infty} f(t) e^{-s t} d t,$$
+     para $\Re(s)>0$. Si $g(s)$ tiene continuación analítica a $\Re(s) \geq 0$, entonces $\displaystyle\int_0^{\infty} f(t) d t$ existe y es igual a $g(0)$.
 \end{theorem}
+
+\begin{proof}
+    Dado $T>0$, sea
+
+    $$g_T(s)=\int_0^Tf(t)e^{-st}dt,$$
+
+    por hipótesis $g_T(s)$ converge para todo $s\in \C$, y $g_T(s)$ es una función entera, queremos ver que 
+
+    $$\lim_{T \to \infty} \int_0^T f(t)e^{-st}dt=g(0).$$
+ 
+    Dado $R>0$, considere el siguiente contorno positivamente orientado $\mathscr{C}$
+
+    \begin{center}
+    \input{Graphics/Contour}
+    \end{center}
+
+    donde $\delta>0$ (dependiendo de $R$) se escoge de tal forma que $g(s)$ es analítica en $\mathscr{C}$, esto se puede hacer ya que el conjunto $A:=\{(0,y): y\in [-R,R]\}$ es compacto y como $g(s)$ es analítica, $A$ se puede cubrir por bolas abiertas, en cada una de las cuales $g(s)$ es analítica, la compacidad permite escoger un subcubrimiento finito, del que obtenemos $\delta$.  Denotemos
+
+    $$\mathscr{C}_+=\mathscr{C}\cap \{s:\sigma>0\},\quad \quad \mathscr{C}_-=\mathscr{C}\cap \{s:\sigma<0\}$$
+
+    y como $C_-$ el semicírculo de radio $R$ a la izquierda de $\sigma=0$, el teorema de residuos de Cauchy nos da que (\textcolor{red}{cuando entienda bien la cuenta la escribo})
+
+    $$\frac{1}{2\pi i}\int_{\mathscr{C}}\left(g(s)-g_T(s)\right)e^{sT}\left(1+\frac{s^2}{R^2}\right)\frac{1}{s}ds=g(0)-g_T(0)$$ 
+
+\end{proof}
+
