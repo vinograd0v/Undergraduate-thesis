@@ -123,9 +123,39 @@ En esta sección presentaremos una prueba del teorema de Wiener-Ikehara modifica
 
     $$\mathscr{C}_+=\mathscr{C}\cap \{s:\sigma>0\},\quad \quad \mathscr{C}_-=\mathscr{C}\cap \{s:\sigma<0\}$$
 
-    y como $C_-$ el semicírculo de radio $R$ a la izquierda de $\sigma=0$, el teorema de residuos de Cauchy nos da que (\textcolor{red}{cuando entienda bien la cuenta la escribo})
+    y como $C_-$ el semicírculo de radio $R$ a la izquierda de $\sigma=0$, el teorema de residuos de Cauchy nos da que \textcolor{red}{(cuando entienda bien la cuenta la escribo)}
 
-    $$\frac{1}{2\pi i}\int_{\mathscr{C}}\left(g(s)-g_T(s)\right)e^{sT}\left(1+\frac{s^2}{R^2}\right)\frac{1}{s}ds=g(0)-g_T(0)$$ 
+    $$I_{\mathscr{C}}=\frac{1}{2\pi i}\int_{\mathscr{C}}\left(g(s)-g_T(s)\right)e^{sT}\left(1+\frac{s^2}{R^2}\right)\frac{1}{s}ds=g(0)-g_T(0).$$
+
+    Sea $M = \sup _{t \geq 0}|f(t)|$. En $\mathscr{C}_{+}$, dado que $\sigma > 0$, tenemos
+
+\[
+\left|g(s)-g_T(s)\right| = \left|\int_T^{\infty} f(t) e^{-s t} d t\right| \leq M \int_T^{\infty} e^{-\sigma t} d t \ll \frac{e^{-\sigma T}}{\sigma}.
+\]
+
+Tomando $s = R e^{i \theta}$, entonces $R \cos \theta = \sigma$ en $\mathscr{C}_{+}$, obtenemos la siguiente estimación:
+
+\[
+\left|e^{s T} \frac{1}{s}\left(1+\frac{s^2}{R^2}\right)\right| = e^{\sigma T}\left|\frac{1}{R e^{i \theta}}+\frac{e^{i \theta}}{R}\right| =e^{\sigma T}\left|\frac{e^{-i\theta}+e^{i\theta}}{R}\right|=e^{\sigma T}\left|\frac{2 \cos \theta}{R}\right| \ll e^{\sigma T} \frac{|\sigma|}{R^2},
+\]
+
+por lo tanto, acotando en la integral obtenemos que
+
+\[
+\left|I_{\mathscr{C}_{+}}\right| \ll \frac{1}{R^2}\left|\int_{\mathscr{C}_{+}} d s\right|=\frac{1}{R^2}\pi R\ll \frac{1}{R}.
+\]
+
+En $\mathscr{C}_{-}$, examinamos $g_T(s)$ y $g(s)$ por separado. Consideremos primero la integral
+
+\[
+I_1 := \frac{1}{2 \pi i} \int_{\mathscr{C}_{-}} g_T(s) e^{s T}\left(1+\frac{s^2}{R^2}\right) \frac{d s}{s}.
+\]
+
+Como $g_T(s)$ es entera y el resto del integrando es analítico a la izquierda de $\sigma = 0$, tenemos, por el teorema de Cauchy,
+
+\[
+I_1 = \frac{1}{2 \pi i} \int_{C_{-}} g_T(s) e^{s T}\left(1+\frac{s^2}{R^2}\right) \frac{d s}{s}.
+\] 
 
 \end{proof}
 
