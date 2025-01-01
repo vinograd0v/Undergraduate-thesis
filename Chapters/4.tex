@@ -366,3 +366,39 @@ y aplicamos el resultado para coeficientes reales separadamente a la parte real 
 
 
 \section{Prueba del teorema de los números primos}
+
+Para probar el TNP queremos ver que $\psi(x)\thicksim x$, en este punto, el camino a seguir es claro, necesitamos probar que la serie de Dirichlet de la función de Von Mangolth cumple las condiciones del teorema de Wiener-Ikehara y que además tiene un único polo simple en $s=1$ con residuo $1$.\\
+
+Primero vamos a verificar que en efecto $\psi(x)=O(x)$, en el capítulo de premilinares vimos que $\psi(x)-\vartheta(x)=O(\sqrt{x}\log^2 x)$, por lo tanto, basta ver que en efecto $\vartheta(x)=O(x)$. Dado $n\in \N$, note que
+
+$$2^{2n}=(1+1)^{2n}=\binom{2n}{0}+\ldots+\binom{2n}{2n}\geq \binom{2n}{n},$$
+
+todo número primo $n<p<2n$ divide a $(2n)!$ y no a $(n!)^2$, de lo que obtenemos
+
+$$2^{2n}=(1+1)^{2n}=\binom{2n}{0}+\ldots+\binom{2n}{2n}\geq \binom{2n}{n}\geq \prod_{n<p<2n}p=e^{\displaystyle\vartheta(2n)-\vartheta(n)},$$
+
+tomando el logaritmo en los extremos se sigue que $2n\log 2\geq \vartheta(2n)-\vartheta(n)$, podemos reescribrir esto como
+
+\begin{equation}
+    \vartheta(x)-\vartheta\left(\frac{x}{2}\right)\leq x\log 2,
+\end{equation}
+
+entonces
+
+\begin{equation}
+    \begin{aligned}
+ \vartheta(x)-\vartheta\left(\frac{x}{2}\right) &\leq x\log2, \\
+ \vartheta\left(\frac{x}{2}\right) -\vartheta\left(\frac{x}{4}\right) &\leq \frac{x}{2}\log2,\\
+ &\hspace*{0.19cm}\vdots \\
+ \vartheta\left(\frac{x}{2^r}\right)-0 &\leq \frac{x}{2^r}\log 2,
+\end{aligned}
+\end{equation}
+
+donde $r$ es el mayor entero tal que $x>2^r$, sumando estas desigualdades obtenemos que
+
+\begin{align*}
+    \vartheta(x)&\leq x\log 2\left(\sum_{i=0}^{r} \frac{1}{2^{i}}\right)\leq x\log(4)\left(1-\frac{1}{2^{r+1}}\right)\leq x\log 4
+.\end{align*}
+
+
+
