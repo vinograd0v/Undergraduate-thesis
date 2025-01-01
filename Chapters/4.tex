@@ -399,12 +399,24 @@ donde $r$ es el mayor entero tal que $x>2^r$, sumando las desigualdades en (3.4)
     \vartheta(x)&\leq x\log 2\left(\sum_{i=0}^{r} \frac{1}{2^{i}}\right)\leq x\log(4)\left(1-\frac{1}{2^{r+1}}\right)\leq x\log 4
 .\end{align*}
 
+En variable compleja, un teorema muy importante es el llamado ``principio del argumento'', este nos dice que la derivada logarítmica de una función $f(z)$, manda polos y ceros de $f(z)$ en polos simples de $\dfrac{f^{\prime}(z)}{f(z)}$, con residuo la multiplicidad del polo y del cero respectivamente, esto es algo que ya sabía Riemann en \cite{riemann1990ueber} y es lo que da la relación entre primos y ceros de $\zeta(s)$.\\
+
 Recordemos del corolario 1.30, que la serie de Dirichlet asociada a $\Lambda$, converge absolutamente en el semiplano $\sigma>1$, para verificar que esta se extiende a una función meromorfa en $\sigma\geq 1$, con un único polo simple en $s=1$ con residuo $1$, explotaremos la identidad
 
-$$-\frac{d(\log\zeta(s))}{ds}=-\frac{\zeta^{\prime}(s)}{\zeta(s)}=\sum_{n=1}^{\infty} \frac{\Lambda(n)}{n^s}.$$
+\begin{equation}
+    -\frac{d(\log\zeta(s))}{ds}=-\frac{\zeta^{\prime}(s)}{\zeta(s)}=\sum_{n=1}^{\infty} \frac{\Lambda(n)}{n^s}
+\end{equation}
 
-En variable compleja, un teorema muy importante es el llamado ``principio del argumento'', este nos dice que la derivada logarítmica de una función $f(z)$, manda polos y ceros de $f(z)$ en polos simples de $\dfrac{f^{\prime}(z)}{f(z)}$, con residuo la multiplicidad del polo y del cero respectivamente.
+y el principio del argumento para analizar la recta $\sigma=1$.\\
 
+El teorema 1.40 nos dice que $\zeta(s)$ tiene un único polo simple en $s=1$, el principio del argumento nos garantiza que este polo simple sigue siendo un polo simple de la derivada logarítmica, por lo que ahora debemos garantizar que la función $\zeta(s)$ no se anula en $\Re(s)=1$, de este modo tendríamos un único polo simple con residuo $-1$ dado únicamente por el polo que ya tenía $\zeta(s)$ en $s=1$, multiplicando por el $-$ presente en la identidad (3.5) obtenemos que la serie de Dirichlet de $\Lambda$ cumple todas las condiciones del teorema de Wiener-Ikehara y adicionalmente este residuo en $s=1$ es justamente $1$, es decir hemos probado el teorema de los números primos.\\
 
+\begin{note}
+Para no desviarnos de la idea principal, asumiremos temporalmente el principio del argumento y veremos una prueba al final de esta sección. Como hemos podido ver, solo requerimos el hecho de que $\zeta(s)\neq 0$ en $\Re(s)=1$ para concluir el TNP, justamente lo que habíamos mencionado anteriormente, el gran poder que tiene este teorema tauberiano, es que no necesitamos información de $\zeta(s)$ por detrás de esta franja, cosa que no ocurre si abordamos la prueba de manera distinta.
+\end{note}
+
+\begin{theorem}[Teorema de los números primos]
+    La función $\zeta(s)\neq 0$ en $\Re(s)=1$ si y solamente si $\pi(x)\thicksim x$.
+\end{theorem}
 
 
