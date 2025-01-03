@@ -53,7 +53,7 @@ La pregunta natural que surge aquí es ¿puede el teorema de los números primos
 Sean $a_n \geq 0$ y $F(s)=\displaystyle\sum_{n=1}^{\infty} \frac{a_n}{n^s}$ una serie absolutamente convergente. Supongamos que se cumplen las siguientes condiciones:
 
 \begin{itemize}
-\item[a)] La función $F(s)$ se extiende a una función meromorfa en la región $\Re(s) \geq 1$ con un único polo simple en $s=1$, cuyo residuo es $1$.
+\item[a)] La función $F(s)$ se extiende a una función analítica en la región $\Re(s) \geq 1$ con un único polo simple en $s=1$, cuyo residuo es $1$.
 \item[b)] $A(x)=\displaystyle \sum_{n \leq x} a_n=O(x)$.
 \end{itemize}
 
@@ -298,7 +298,7 @@ por lo que esperamos aplicar el teorema de Wiener-Ikehara a una serie de Dirichl
     Sean $a_n \geq 0$ y $F(s)=\displaystyle\sum_{n=1}^{\infty} \frac{a_n}{n^s}$ una serie absolutamente convergente. Supongamos que se cumplen las siguientes condiciones:
 
 \begin{itemize}
-\item[a)] La función $F(s)$ se extiende a una función meromorfa en la región $\Re(s) \geq 1$ con un único polo simple en $s=1$, cuyo residuo es $R$.
+\item[a)] La función $F(s)$ se extiende a una función analítica en la región $\Re(s) \geq 1$ con un único polo simple en $s=1$, cuyo residuo es $R$.
 \item[b)] $A(x)=\displaystyle \sum_{n \leq x} a_n=O(x)$.
 \end{itemize}
 
@@ -330,7 +330,7 @@ $ con coeficientes no negativos, tal que:
 \begin{itemize}
     \item[(a)] $\left|a_n\right| \leq b_n$ para todo $n\in \N$.
     \item[(b)] $G(s)$ es absolutamente convergente para $\Re(s) > 1$.
-    \item[(c)] La función $G(s)$ (respectivamente $F(s)$) se extiende meromórficamente a la región $\Re(s) \geq 1$, sin polos excepto por un polo simple en $s = 1$ con residuo $R$ (respectivamente $r$).
+    \item[(c)] La función $G(s)$ (respectivamente $F(s)$) tiene una extensión analítica en la región $\Re(s) \geq 1$, sin polos excepto por un polo simple en $s = 1$ con residuo $R$ (respectivamente $r$).
     \item[(d)] $B(x):=\displaystyle\sum_{n \leq x}b_n=O(x)$.
 \end{itemize}
 
@@ -397,26 +397,82 @@ donde $r$ es el mayor entero tal que $x>2^r$, sumando las desigualdades en (3.4)
 
 \begin{align*}
     \vartheta(x)&\leq x\log 2\left(\sum_{i=0}^{r} \frac{1}{2^{i}}\right)\leq x\log(4)\left(1-\frac{1}{2^{r+1}}\right)\leq x\log 4
-.\end{align*}
+,\end{align*}
 
-En variable compleja, un teorema muy importante es el llamado ``principio del argumento'', este nos dice que la derivada logarítmica de una función $f(z)$, manda polos y ceros de $f(z)$ en polos simples de $\dfrac{f^{\prime}(z)}{f(z)}$, con residuo la multiplicidad del polo y del cero respectivamente, esto es algo que ya sabía Riemann en \cite{riemann1990ueber} y es lo que da la relación entre primos y ceros de $\zeta(s)$.\\
+con lo que hemos probado que $\vartheta(x)=O(x)$.\\
 
-Recordemos del corolario 1.30, que la serie de Dirichlet asociada a $\Lambda$, converge absolutamente en el semiplano $\sigma>1$, para verificar que esta se extiende a una función meromorfa en $\sigma\geq 1$, con un único polo simple en $s=1$ con residuo $1$, explotaremos la identidad
+\begin{theorem}[Principio del argumento]
+    Sea $f(z)$ una función analítica, 
 
-\begin{equation}
-    -\frac{d(\log\zeta(s))}{ds}=-\frac{\zeta^{\prime}(s)}{\zeta(s)}=\sum_{n=1}^{\infty} \frac{\Lambda(n)}{n^s}
-\end{equation}
+    \begin{itemize}
+        \item[$\bullet$]si $z_0$ es un polo de $f(z)$ de orden $m$, entonces $z_0$ es un polo simple de $\dfrac{f^{\prime}(z)}{f(z)}$ con residuo $-m$,
 
-y el principio del argumento para analizar la recta $\sigma=1$.\\
-
-El teorema 1.40 nos dice que $\zeta(s)$ tiene un único polo simple en $s=1$, el principio del argumento nos garantiza que este polo simple sigue siendo un polo simple de la derivada logarítmica, por lo que ahora debemos garantizar que la función $\zeta(s)$ no se anula en $\Re(s)=1$, de este modo tendríamos un único polo simple con residuo $-1$ dado únicamente por el polo que ya tenía $\zeta(s)$ en $s=1$, multiplicando por el $-$ presente en la identidad (3.5) obtenemos que la serie de Dirichlet de $\Lambda$ cumple todas las condiciones del teorema de Wiener-Ikehara y adicionalmente este residuo en $s=1$ es justamente $1$, es decir hemos probado el teorema de los números primos.\\
-
-\begin{note}
-Para no desviarnos de la idea principal, asumiremos temporalmente el principio del argumento y veremos una prueba al final de esta sección. Como hemos podido ver, solo requerimos el hecho de que $\zeta(s)\neq 0$ en $\Re(s)=1$ para concluir el TNP, justamente lo que habíamos mencionado anteriormente, el gran poder que tiene este teorema tauberiano, es que no necesitamos información de $\zeta(s)$ por detrás de esta franja, cosa que no ocurre si abordamos la prueba de manera distinta.
-\end{note}
-
-\begin{theorem}[Teorema de los números primos]
-    La función $\zeta(s)\neq 0$ en $\Re(s)=1$ si y solamente si $\pi(x)\thicksim x$.
+        \item si $z_0$ es un cero de $f(z)$ de orden $m$, entonces $z_0$ es un polo simple de $\dfrac{f^{\prime}(z)}{f(z)}$ con residuo $m$.
+    \end{itemize}
 \end{theorem}
 
+\begin{proof}
+    Sea $z_0$ un cero de $f$. Podemos escribir 
+
+$$
+f(z) = \left(z - z_0\right)^m g(z),
+$$
+
+donde $m$ es la multiplicidad del cero y por lo tanto $g\left(z_0\right) \neq 0$, tenemos que
+
+$$
+f^{\prime}(z) = m\left(z - z_0\right)^{m-1} g(z) + \left(z - z_0\right)^m g^{\prime}(z),
+$$
+
+y
+
+$$
+\frac{f^{\prime}(z)}{f(z)} = \frac{m}{z - z_0} + \frac{g^{\prime}(z)}{g(z)}.
+$$
+
+Dado que $g\left(z_0\right) \neq 0$, se sigue que $\dfrac{g^{\prime}(z)}{g(z)}$ no tiene singularidades en $z_0$, por lo tanto es analítica en $z_0$. Esto implica que el residuo de $\dfrac{f^{\prime}(z)}{f(z)}$ en $z_0$ es $m$.\\
+
+Análogamente, si $z_{0}$ es un polo de $f$, 
+
+$$
+f(z)=(z-z_{0})^{-m}h(z),
+$$
+donde $m$ es el orden del polo, y $h\left(z_0\right) \neq 0$. Entonces, 
+$$
+f^{\prime}(z) = -m\left(z - z_0\right)^{-m-1} h(z) + \left(z - z_0\right)^{-m} h^{\prime}(z),
+$$
+y
+$$
+\frac{f^{\prime}(z)}{f(z)} = \frac{-m}{z - z_0} + \frac{h^{\prime}(z)}{h(z)}.
+$$
+\end{proof}
+
+Recordemos que
+
+$$F(s)=\sum_{n=1}^{\infty} \frac{\Lambda(n)}{n^s}=-\frac{\zeta^{\prime}(s)}{\zeta(s)}
+,$$
+converge absolutamente en $\Re(s)>1$ (corolario 1.30), entonces el principio del argumento nos dice que $F(s)$ tiene un polo simple en $s=1$ con residuo 1, dado por el polo que tiene $\zeta(s)$ en $s=1$.\\
+
+Para garantizar que $F(s)$ tiene una extensión analítica a $\Re(s)\geq 1$, excepto por un \textbf{único} polo simple en $s=1$ con residuo 1, debemos ver que $\zeta(s)\neq 0$ en la recta $\Re(s)=1$, este hecho junto con el teorema de Wiener-Ikehara implican inmediatamente el teorema de los números primos.
+
+\begin{lemma}
+    Si $\theta\in \mathbb{R}$, entonces $3+4\cos\theta+\cos2\theta\geq 0$
+\end{lemma}
+
+\begin{proof}
+    En efecto
+    \begin{align*}
+        0&\leq 2(1+\cos\theta)^2\\
+        &=2(1+2\cos\theta+\cos^2\theta)\\
+        &=2+4\cos\theta+1+\cos(2\theta)
+    .\end{align*}
+    \end{proof}
+
+\begin{theorem}
+$\zeta(1+it)\neq 0$ para todo $t\in \R$.
+\end{theorem}
+
+\begin{proof}
+    Ejercicio
+\end{proof}
 
