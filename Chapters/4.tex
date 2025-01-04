@@ -469,10 +469,57 @@ Para garantizar que $F(s)$ tiene una extensión analítica a $\Re(s)\geq 1$, exc
     \end{proof}
 
 \begin{theorem}
-$\zeta(1+it)\neq 0$ para todo $t\in \R$.
+$\zeta(1+it)\neq 0$ para todo $t\neq 0$.
 \end{theorem}
 
 \begin{proof}
-    Ejercicio
+Note que
+    \begin{align*}
+        p^{-n\sigma}\cos(nt\log p)&=p^{-n\sigma}\cos(-nt\log p)\\
+        &=p^{-n\sigma}\Re(exp(i\log p^{-nt}))\\
+        &=\Re(p^{-n\sigma}p^{-int})\\
+        &=\Re(p^{-ns})
+    ,\end{align*}
+
+por lo tanto
+
+\begin{align*}
+    \Re(\log\zeta(s))&=\sum_{p}\sum_{n=1}^{\infty} \frac{\Re(p^{-ns})}{n}\\
+    &=\sum_{p}\sum_{n=1}^{\infty} \frac{p^{-n\sigma}}{n}\cos(nt\log p)
+.\end{align*}
+
+Ahora, como $\Re(\log z)=\log|z|$, entonces por el lema 3.9
+
+\begin{align*}
+    0&\leq \sum_p \sum_{n=1}^{\infty}\frac{p^{-n \sigma}}{n}(3+4 \cos (n t \log p)+\cos (2 n t \log p))\\
+     &=\Re(3\log\zeta(\sigma)+4\log\zeta(\sigma+it)+\log\zeta(\sigma+2it))\\
+    &=3 \log |\zeta(\sigma)|+4 \log |\zeta(\sigma+i t)|+\log |\zeta(\sigma+2 i t)|
+,\end{align*}
+
+esto es
+
+$$
+|\zeta(\sigma)|^3|\zeta(\sigma+i t)|^4|\zeta(\sigma+2 i t)| \geqslant 1,
+$$
+
+obtenemos la identidad
+
+\begin{equation}
+    |(\sigma-1) \zeta(\sigma)|^3\left|\frac{\zeta(\sigma+i t)}{\sigma-1}\right|^4|\zeta(\sigma+2 i t)| \geqslant \frac{1}{\sigma-1} .
+\end{equation}
+
+Supongamos que $\zeta(1+it)=0$ para algún $t\neq 0$, entonces
+
+$$\lim_{\sigma \to 1}\frac{\zeta(\sigma+it)-\zeta(1+it)}{\sigma-1}=\lim_{\sigma \to 1}\frac{\zeta(\sigma+it)}{\sigma-1}=\zeta^{\prime}(1+it),$$
+
+como $\zeta(s)$ tiene un polo simple en $s=1$, se sigue que
+
+$$\lim_{\sigma \to 1} (\sigma-1)\zeta(\sigma)=1,$$
+
+esto muestra que 
+
+$$\lim _{\sigma \rightarrow 1}|(\sigma-1) \zeta(\sigma)|^3\left|\frac{\zeta(\sigma+i t)}{\sigma-1}\right|^4|\zeta(\sigma+2 i t)|$$
+
+existe y es igual a $\left|\zeta^{\prime}(1+i t)\right|^4|\zeta(1+2 i t)|$, lo que contradice (3.5).
 \end{proof}
 
