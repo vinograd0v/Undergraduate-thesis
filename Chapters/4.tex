@@ -524,5 +524,29 @@ existe y es igual a $\left|\zeta^{\prime}(1+i t)\right|^4|\zeta(1+2 i t)|$, lo q
 \end{proof}
 
 \begin{corollary}[Teorema de los números primos]
-
+$$\pi(x)\thicksim \frac{x}{\log x},\quad \psi(x)\thicksim x.$$
 \end{corollary}
+
+\begin{proof}
+    Sea $F(s)=\displaystyle\sum_{n=1}^{\infty} \dfrac{\Lambda(n)}{n^s}$, como $F(s)$ tiene un único polo simple en $s=1$ con residuo $1$, aplicando el teorema de Wiener-Ikehara se sigue que
+
+    $$\psi(x)=\sum_{n\leq x} \Lambda(n)=x+o(x),$$
+
+    esto es
+
+    $$\lim_{n \to \infty} \frac{\psi(x)}{x}=\lim_{n \to \infty} \frac{x+o(x)}{x}=1.$$
+\end{proof}
+
+\begin{note}
+Una aplicación elemental de la regla de L´Hopital es la siguiente:
+
+\begin{align*}
+    \displaystyle\lim_{x \to \infty} \frac{\displaystyle\int_2^x \displaystyle\frac{1}{\log t}dt}{\displaystyle\frac{x}{\log x}}=\lim_{x \to \infty} \frac{\displaystyle\frac{1}{\log x}}{\displaystyle\frac{\log x-x^{-1}}{\log^2x}}=\lim_{x \to \infty} \frac{1}{1-(x\log x)^{-1}}=1
+.\end{align*}
+
+Esta presentación del teorema de los números primos, a saber,
+
+$$\pi(x)\thicksim \int_2^x\frac{1}{\log t}dt,$$
+
+nos dice que integral la densidad de los primos nos da el números de primos menores que x.
+\end{note}
