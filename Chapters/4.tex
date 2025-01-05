@@ -534,7 +534,7 @@ $$\pi(x)\thicksim \frac{x}{\log x},\quad \psi(x)\thicksim x.$$
 
     esto es
 
-    $$\lim_{n \to \infty} \frac{\psi(x)}{x}=\lim_{n \to \infty} \frac{x+o(x)}{x}=1.$$
+    $$\lim_{x \to \infty} \frac{\psi(x)}{x}=\lim_{x \to \infty} \frac{x+o(x)}{x}=1.$$
 \end{proof}
 
 \begin{note}
@@ -548,5 +548,45 @@ Esta presentación del teorema de los números primos, a saber,
 
 $$\pi(x)\thicksim \int_2^x\frac{1}{\log t}dt,$$
 
-nos dice que integral la densidad de los primos nos da el números de primos menores que x.
+nos dice que integrar la densidad de los primos nos da el números de primos menores que x.\\
 \end{note}
+
+Terminaremos esta sección abordando el discurso de Hardy sobre si es posible una prueba elemental del teorema de los números primos\\
+
+\cleanchapterquote{No se conoce ninguna prueba elemental del teorema de los números primos, y uno puede preguntarse si es razonable esperar una. Ahora sabemos que el teorema es, en términos generales, equivalente a un teorema sobre una función analítica, el teorema de que la función zeta de Riemann no tiene raíces en cierta línea. Una prueba de tal teorema, que no dependa fundamentalmente de la teoría de funciones, me parece extraordinariamente improbable}{G. H. Hardy.}{}
+
+Las razones de Hardy se esclarecen con la prueba que hemos visto en este capítulo, la no nulidad de $\zeta(1+it)$ es una condición suficiente para el TNP, ver que es una condición necesaria no es una tarea complicada y era ya conocido por Hadamard y de La Vallée Puossin.\\
+
+Tenemos que
+
+$$\int_1^{\infty}\frac{\psi(x)}{x^{s+1}}dx=-\frac{1}{s}\frac{\zeta^{\prime}(s)}{\zeta(s)},$$
+
+podemos escribir a $\zeta(s)$ como $\zeta(s)=(s-1)^{-1}h(s)$, en efecto
+
+\begin{align*}
+    \int_1^{\infty}\frac{\psi(x)-x}{x^{s+1}}dx&=-\frac{1}{s}\left(\frac{h^{\prime}(s)(s-1)^{-1}-(s-1)^{-2}h(s)}{(s-1)^{-1}h(s)}\right)-\frac{1}{s-1}\\
+    &=-\frac{1}{s}\left(\frac{h^{\prime}(s)}{h(s)}+1\right)
+,\end{align*}
+
+por el principio del argumento, dado $\tau\neq 0$, si $\zeta(1+i\tau)=0$, entonces
+
+$$\lim_{\sigma \to 1}(\sigma-1)\frac{h^{\prime}(\sigma+i\tau)}{h(\sigma+i\tau)}=m,$$
+
+donde $m$ es la multiplicidad del 0. Se sigue que
+
+
+\begin{equation}
+    \lim_{\sigma \to 1}(\sigma-1)\int_1^{\infty}\frac{\psi(x)-x}{x^{\sigma+1+i\tau}}dx=-\frac{m}{\sigma+\tau i}\neq 0,
+\end{equation}
+
+por otro lado si $\psi(x)\thicksim x$, 
+
+\begin{align*}
+    \left|\int_1^{\infty}\frac{\psi(x)-x}{x^{s+1}}dx\right|&\leq \int_1^{\infty}\frac{|\psi(x)-x|}{x^{\sigma+1}}dx\leq k
+.\end{align*}
+
+Esto muestra que 
+
+$$\lim_{\sigma \to 1} (\sigma-1)\int_1^{\infty}\frac{\psi(x)-x}{x^{\sigma+1+i\tau}}dx=0.$$
+
+Lo que contradice (3.6).
