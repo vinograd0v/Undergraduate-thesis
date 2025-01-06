@@ -48,9 +48,26 @@
 }
 
 \newcommand{\cleanchapterquote}[3]{%
-	\begin{minipage}{.865\textwidth}%
+	\begin{minipage}{0.9\textwidth}%
 		\begin{flushright}
-			\begin{minipage}{.65\textwidth}%
+			\begin{minipage}{.75\textwidth}%
+				\begin{flushleft}
+					{\hugequote}\textit{#1}
+				\end{flushleft}
+	    		\begin{flushright}
+    				--- \textbf{#2} \\
+    				#3
+		    	\end{flushright}
+		    \end{minipage}%
+		\end{flushright}
+	\end{minipage}%
+	\bigskip
+}
+
+\newcommand{\phrase}[3]{%
+	\begin{minipage}{0.95\textwidth}%
+		\begin{flushright}
+			\begin{minipage}{.9\textwidth}%
 				\begin{flushleft}
 					{\hugequote}\textit{#1}
 				\end{flushleft}

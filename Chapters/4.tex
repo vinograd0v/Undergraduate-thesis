@@ -510,15 +510,15 @@ obtenemos la identidad
 
 Supongamos que $\zeta(1+it)=0$ para algún $t\neq 0$, entonces
 
-$$\lim_{\sigma \to 1}\frac{\zeta(\sigma+it)-\zeta(1+it)}{\sigma-1}=\lim_{\sigma \to 1}\frac{\zeta(\sigma+it)}{\sigma-1}=\zeta^{\prime}(1+it),$$
+$$\lim_{\sigma \to 1^+}\frac{\zeta(\sigma+it)-\zeta(1+it)}{\sigma-1}=\lim_{\sigma \to 1^+}\frac{\zeta(\sigma+it)}{\sigma-1}=\zeta^{\prime}(1+it),$$
 
 como $\zeta(s)$ tiene un polo simple en $s=1$, se sigue que
 
-$$\lim_{\sigma \to 1} (\sigma-1)\zeta(\sigma)=1,$$
+$$\lim_{\sigma \to 1^+} (\sigma-1)\zeta(\sigma)=1,$$
 
 esto muestra que 
 
-$$\lim _{\sigma \rightarrow 1}|(\sigma-1) \zeta(\sigma)|^3\left|\frac{\zeta(\sigma+i t)}{\sigma-1}\right|^4|\zeta(\sigma+2 i t)|$$
+$$\lim _{\sigma \to 1^+}|(\sigma-1) \zeta(\sigma)|^3\left|\frac{\zeta(\sigma+i t)}{\sigma-1}\right|^4|\zeta(\sigma+2 i t)|$$
 
 existe y es igual a $\left|\zeta^{\prime}(1+i t)\right|^4|\zeta(1+2 i t)|$, lo que contradice (3.5).
 \end{proof}
@@ -553,9 +553,9 @@ nos dice que integrar la densidad de los primos nos da el números de primos men
 
 Terminaremos esta sección abordando el discurso de Hardy sobre si es posible una prueba elemental del teorema de los números primos\\
 
-\cleanchapterquote{No se conoce ninguna prueba elemental del teorema de los números primos, y uno puede preguntarse si es razonable esperar una. Ahora sabemos que el teorema es, en términos generales, equivalente a un teorema sobre una función analítica, el teorema de que la función zeta de Riemann no tiene raíces en cierta línea. Una prueba de tal teorema, que no dependa fundamentalmente de la teoría de funciones, me parece extraordinariamente improbable}{G. H. Hardy.}{}
+\phrase{No se conoce ninguna prueba elemental del teorema de los números primos, y uno puede preguntarse si es razonable esperar una. Ahora sabemos que el teorema es, en términos generales, equivalente a un teorema sobre una función analítica, el teorema de que la función zeta de Riemann no tiene raíces en cierta línea. Una prueba de tal teorema, que no dependa fundamentalmente de la teoría de funciones, me parece extraordinariamente improbable}{G. H. Hardy.}{}
 
-Las razones de Hardy se esclarecen con la prueba que hemos visto en este capítulo, la no nulidad de $\zeta(1+it)$ es una condición suficiente para el TNP, ver que es una condición necesaria no es una tarea complicada y era ya conocido por Hadamard y de La Vallée Puossin.\\
+Las razones de Hardy se esclarecen con la prueba que hemos visto en este capítulo, la no nulidad de $\zeta(1+it)$ es una condición suficiente para el TNP, ver que es una condición necesaria no es una tarea complicada y era ya conocido por Hadamard y de La Vallée Poussin.\\
 
 Tenemos que
 
@@ -587,6 +587,40 @@ por otro lado si $\psi(x)\thicksim x$,
 
 Esto muestra que 
 
-$$\lim_{\sigma \to 1} (\sigma-1)\int_1^{\infty}\frac{\psi(x)-x}{x^{\sigma+1+i\tau}}dx=0.$$
+$$\lim_{\sigma \to 1} (\sigma-1)\int_1^{\infty}\frac{\psi(x)-x}{x^{\sigma+1+i\tau}}dx=0,$$
 
-Lo que contradice (3.6).
+lo que contradice (3.6).
+
+\begin{corollary}
+    $\zeta(1+it)\neq 0$ para todo $t\neq 0$ si y solamente si $\pi(x)\thicksim x$.
+\end{corollary}
+
+En 1950 el matemático Atle Selberg ganó la medalla fields por presentar una prueba del TNP en la que no se requiere variable compleja, esta fue la primera prueba elemental, cuya idea principal se basa en explotar la identidad 
+
+$$\vartheta(x) \log (x)+\sum_{p \leq x} \log (p) \vartheta\left(\frac{x}{p}\right)=2 x \log (x)+O(x),$$
+
+no abordaremos esta prueba aquí, el argumento es bastante indirecto y extenso, con varias pasos intermedios suavizando funciones, para ver en detalle la prueba se puede consultar \cite{jameson2003prime}.\\
+
+\begin{note}
+    La desventaja de abordar la prueba del TNP desde la teoría tauberiana es que no controlamos el error, solo obtenemos un término $o$ pequeña y sabemos que las estimaciones $O$ grande son mejores, sin embargo obtuvimos algo muy fuerte, una equivalencia
+
+\begin{center}
+    \begin{table}[h!]
+\begin{tabular}{|l|l|l|}
+\hline
+\hspace{1.5cm}\textbf{Autores} & \hspace{1.3cm}\textbf{Cota para} & \hspace{0.2cm}\textbf{Región de no nulidad} \\
+ & \hspace*{1.35cm}\textbf{$\psi(x) - x$}& \hspace{0.7cm}$t^* = \max(|t|, 3)$\\
+ \hline
+Chebyshev (1851) & \hspace{2.2cm}$cx$ &  \\
+\hline
+Hadamard, Poussin (1896) & \quad\quad$O\left( \displaystyle xe^{\displaystyle-c\sqrt{\log x}} \right)$ & $\sigma \geq 1 - \dfrac{c}{\log t^*}$ \\ \hline
+Littlewood (1922) & $O\left( \displaystyle xe^{\displaystyle-c\sqrt{\log x \log \log x}} \right)$ & $\sigma \geq 1 - \dfrac{c \log \log t^*}{\log t^*}$ \\ \hline
+Wiener-Ikehara (1931) & \hspace{2.05cm}$o(x)$ & $\sigma \geq 1$ \\ \hline
+Vinogradov-Korobov (1958) &\hspace{0.16cm} $O\left( xe^{-c \displaystyle\frac{(\log x)^{3/5}}{(\log \log x)^{1/5}}} \right)$ & $\sigma \geq 1 - \dfrac{c (\log \log t^*)^{-1/3}}{(\log t^*)^{2/3}}$ \\ \hline
+Hipótesis de Riemann & $\displaystyle \quad\quad O_\epsilon(x^{1/2+\epsilon}), \, \epsilon > 0$ & $\sigma > 1/2$ \\ \hline
+\end{tabular}
+\end{table}
+
+\end{center}
+\end{note}
+
