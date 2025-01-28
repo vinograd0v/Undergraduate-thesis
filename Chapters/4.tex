@@ -92,7 +92,7 @@ En 1980 el matemático Donald J. Newman dió una prueba corta del teorema de los
 
     $$|a_n|\leq 1 \text{ y } F(s)=\sum_{n=1}^{\infty} \frac{a_n}{n^s}.$$
 
-    Entonces $F$ es analítica en el semiplano $\sigma>1$. Si $F$ tiene extensión analítica en el semiplano $\sigma\geq 1$, entonces $F(s)$ converge en $\sigma\geq 1$.
+    Entonces $F$ es analítica en el semiplano $\sigma>1$. Si $F$ tiene extensión analítica en el semiplano $\sigma\geq 1$, entonces $\displaystyle\sum_{n=1}^{\infty} \frac{a_n}{n^s}$ converge en $\sigma\geq 1$.
 \end{theorem}
 
 La prueba de Newman inspiró dos grandes artículos que modificaron su prueba, los de Zagier \cite{zagier1997newman} y Korevaar \cite{korevaar1982newman}, en donde se aprovecha la relación que hay entre transformada de Laplace y series de Dirichlet, esto nos permite dar una prueba del TNP en la que solo se emplea el teorema de residuos de Cauchy.\\
@@ -123,9 +123,11 @@ En esta sección presentaremos una prueba del teorema de Wiener-Ikehara modifica
 
     $$\mathscr{C}_+=\mathscr{C}\cap \{s:\sigma>0\},\quad \quad \mathscr{C}_-=\mathscr{C}\cap \{s:\sigma<0\}$$
 
-    y como $C_-$ el semicírculo de radio $R$ a la izquierda de $\sigma=0$, el teorema de residuos de Cauchy nos da que \textcolor{red}{(cuando entienda bien la cuenta la escribo)}
+    y como $C_-$ el semicírculo de radio $R$ a la izquierda de $\sigma=0$, aplicando fórmula de la integral de Cauchy obtenemos que
 
-    $$I_{\mathscr{C}}=\frac{1}{2\pi i}\int_{\mathscr{C}}\left(g(s)-g_T(s)\right)e^{sT}\left(1+\frac{s^2}{R^2}\right)\frac{1}{s}ds=g(0)-g_T(0).$$
+    $$I_{\mathscr{C}}=\frac{1}{2\pi i}\int_{\mathscr{C}}\left(g(s)-g_T(s)\right)e^{sT}\left(1+\frac{s^2}{R^2}\right)\frac{1}{s}ds=g(0)-g_T(0)$$
+
+    dado que todas las funciones en la integral $I_{\mathscr{C}}$ son analíticas, excepto por $1/s$ que tiene un polo simple en $s=0$, de donde obtenemos el residuo $g(0)-g_T(0)$.\\
 
     Sea $M = \sup _{t \geq 0}|f(t)|$. En $\mathscr{C}_{+}$, dado que $\sigma > 0$, tenemos
 
@@ -281,10 +283,25 @@ El lado izquierdo en (3.3) es analítico para \( \sigma > 0 \). Como \( F(s+1) \
 \int_0^{\infty} \frac{A\left(e^u\right) - e^u}{e^u} d u = \int_1^{\infty} \frac{A(t)-t}{t^2} d t
 \]
 
-converge. Por el lema anterior, obtenemos que \( A(x) \sim x \).
+converge. Por el lema anterior, obtenemos que \( A(x) \sim x \).\\
 \end{proof}
 
-Con este teorema ya podemos obtener una prueba del TNP, sin embargo, en progresiones aritmética la serie de Dirichlet 
+\begin{note}
+    En esta prueba del teorema de Wiener-Ikehara, la idea principal fue la introducción de un kernel en la integral $I_{\mathscr{C}}$, a saber,
+
+    $$\displaystyle \left(1+\frac{s^2}{R^2}\right)\frac{1}{s}.$$
+
+    Esta función tiene la característica de tener un polo en $s=0$, se sigue que
+
+    $$I_{\mathscr{C}}=\frac{1}{2\pi i}\int_{\mathscr{C}}\left(g(s)-g_T(s)\right)e^{sT}\left(1+\frac{s^2}{R^2}\right)\frac{1}{s}ds=g(0)-g_T(0),$$
+
+    esta expresión nos permite ver que $\lim_{T \to \infty} g_T(0)=g(0)$ acotando de manera adecuada los términos en la integral y tomando el límite.\\
+
+    Si revisamos pruebas clásicas del teorema, por ejemplo la que se encuentra en \cite{murty2007problems}, notaremos que aquí esta función juega un papel similar al del kernel de Fejér, las ideas subyacentes de las pruebas son muy similares ya que si tomamos $s=\sigma+it$, la expresión (3.3) toma la forma de una trasformada de Fourier.\\
+
+\end{note}
+
+Con este teorema, podemos obtener una prueba del TNP, sin embargo, en progresiones aritmética la serie de Dirichlet 
 
 $$L(\chi,s)=\sum_{n=1}^{\infty} \frac{\chi(n)}{n^s}$$
 
