@@ -619,25 +619,43 @@ $$\vartheta(x) \log (x)+\sum_{p \leq x} \log (p) \vartheta\left(\frac{x}{p}\righ
 no abordaremos esta prueba aquí, el argumento es bastante indirecto y extenso, con varias pasos intermedios suavizando funciones, para ver en detalle la prueba se puede consultar \cite{jameson2003prime}.\\
 
 \begin{note}
-    La desventaja de abordar la prueba del TNP desde la teoría tauberiana es que no controlamos el error, solo obtenemos un término $o$ pequeña y sabemos que las estimaciones $O$ grande son mejores, sin embargo obtuvimos algo muy fuerte, una equivalencia
+    La desventaja de abordar la prueba del TNP desde la teoría tauberiana es que no controlamos el error, solo obtenemos un término $o$ pequeña y sabemos que las estimaciones $O$ grande son mejores, sin embargo obtuvimos algo muy fuerte, una equivalencia.\\
+
+    Algunas versiones del TNP con término de error son las siguientes.
 
 \begin{center}
-    \begin{table}[h!]
+\begin{table}[h!]
 \begin{tabular}{|l|l|l|}
 \hline
-\hspace{1.5cm}\textbf{Autores} & \hspace{1.3cm}\textbf{Cota para} & \hspace{0.2cm}\textbf{Región de no nulidad} \\
- & \hspace*{1.35cm}\textbf{$\psi(x) - x$}& \hspace{0.7cm}$t^* = \max(|t|, 3)$\\
- \hline
-Chebyshev (1851) & \hspace{2.2cm}$cx$ &  \\
+& & \vspace*{-0.2cm}\\
+\hspace{1.5cm}\textbf{Autores} & \hspace{1.5cm}\textbf{Cota para} & \hspace{0.12cm}\textbf{Región de no nulidad} \\
+ & \hspace*{1.75cm}\textbf{$\psi(x) - x$}& \hspace{0.7cm}$t^* = \max(|t|, 3)$\\
+& & \vspace*{-0.2cm}\\
 \hline
-Hadamard, Poussin (1896) & \quad\quad$O\left( \displaystyle xe^{\displaystyle-c\sqrt{\log x}} \right)$ & $\sigma \geq 1 - \dfrac{c}{\log t^*}$ \\ \hline
-Littlewood (1922) & $O\left( \displaystyle xe^{\displaystyle-c\sqrt{\log x \log \log x}} \right)$ & $\sigma \geq 1 - \dfrac{c \log \log t^*}{\log t^*}$ \\ \hline
-Wiener-Ikehara (1931) & \hspace{2.05cm}$o(x)$ & $\sigma \geq 1$ \\ \hline
-Vinogradov-Korobov (1958) &\hspace{0.16cm} $O\left( xe^{-c \displaystyle\frac{(\log x)^{\frac{3}{5}}}{(\log \log x)^{\frac{1}{5}}}} \right)$ & $\sigma \geq 1 - \dfrac{c (\log \log t^*)^{-\frac{1}{3}}}{(\log t^*)^{\frac{2}{3}}}$ \\ \hline
-Hipótesis de Riemann & $\displaystyle \quad\quad O_\epsilon(x^{1/2+\epsilon}), \, \epsilon > 0$ & $\sigma > 1/2$ \\ \hline
+& & \vspace*{-0.2cm}\\
+Chebyshev (1851) & \hspace{2.2cm}$cx$ &  \\
+& & \vspace*{-0.2cm}\\
+\hline
+& & \vspace*{-0.2cm}\\
+Hadamard, Poussin (1896) & \hspace*{0.8cm}$O\left( \displaystyle xe^{\displaystyle-c\sqrt{\log x}} \right)$ & $\sigma \geq 1 - \dfrac{c}{\log t^*}$ \\
+& & \vspace*{-0.2cm}\\
+\hline
+& & \vspace*{-0.2cm}\\
+Littlewood (1922) & $O\left( \displaystyle xe^{\displaystyle-c\sqrt{\log x \log \log x}} \right)$ & $\sigma \geq 1 - \dfrac{c \log \log t^*}{\log t^*}$ \\ 
+& & \vspace*{-0.2cm}\\
+\hline
+& & \vspace*{-0.2cm}\\
+Wiener-Ikehara (1931) & \hspace{2.0cm}$o(x)$ & $\sigma \geq 1$ \\ 
+& & \vspace*{-0.2cm}\\
+\hline
+& & \vspace*{-0.2cm}\\
+Hipótesis de Riemann & $\displaystyle \quad\quad O_\epsilon(x^{1/2+\epsilon}), \epsilon > 0$ & $\sigma > 1/2$ \\ 
+& & \vspace*{-0.2cm}\\
+\hline
 \end{tabular}
 \end{table}
 \end{center}
+\vspace*{-1cm}
+Esto permite ver la relación que hay entre ceros de la función zeta de Riemann y el término de error del teorema.
 \end{note}
-
 Para finalizar este trabajo estudiaremos como se extiende este teorema a las progresiones aritmética en el siguiente capítulo.
