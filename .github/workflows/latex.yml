@@ -19,8 +19,10 @@ jobs:
         with:
           root_file: main.tex
 
-      - name: Upload PDF artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: thesis-pdf
-          path: main.pdf
+      - name: Commit and push generated PDF
+        run: |
+          git config --global user.name "vinograd0v"
+          git config --global user.email "mmanosalva@unal.edu.co"
+          git add main.pdf
+          git commit -m "Automated PDF update"
+          git push
