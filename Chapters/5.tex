@@ -3,8 +3,58 @@
 \thispagestyle{empty}
 \vspace{-0.5cm}
 
-\cleanchapterquote{\lipsum[2]}{Godfrey Harold Hardy (1921)
-}{}
+\cleanchapterquote{Los encantos de esta ciencia sublime, las matemáticas, solo se le revelan a aquellos que tienen el valor de profundizar en ella.}{Carl Friedrich Gauss}{}
 
+El teorema de Dirichlet nos dice que hay infinitos primos de la forma $a,a+n , a+2n,\ldots$ siempre que $(a,n)=1$, este es un resultado importante en teoría de números sin embargo podemos decir mucho más sobre primos en progresiones aritmética. Hemos probado el teorema de los números primos en el capítulo anterior y una pregunta natural es cómo se extiende este a progresiones aritmética, por ejemplo, si estudiamos los primos de la forma $4k+1$ y $4k+3$, ¿hay la misma cantidad de primos de la forma $4k+1$ que $4k+3$?, ¿podemos esperar una distribución uniforme de estos?, la respuesta nos la dará el TNP, este nos dice que
+
+$$\pi(1,4,x)\thicksim \frac{x}{\varphi(4)\log x}=\frac{x}{2\log x},\quad \pi(3,4,x)\thicksim \frac{x}{2\log x}.$$
+
+Más precisamente $(\Z/4\Z)^\times=\{\overline{1},\overline{3}\}$, tenemos dos clases generadoras de primos y en cada una tenemos la mitad, este resultado no es un hecho trivial, por mucho tiempo los matemáticos pensaron que este no era el caso, la evidencia heurística apuntaba a que habían más primos de la forma $4k+3$ hasta que Littlewood demostró que $\pi(3,4,x)-\pi(1,4,x)$ tiene infinitos cambios de signo, estos temas se abordan de manera más detallada en \cite{granville2006prime}.
 
 \section{Teorema de los números primos en progresiones aritmética}
+
+\begin{theorem}
+Dados $a$ y $m$ primos relativos.
+    $$\pi(a,m,x)\thicksim \frac{x}{\varphi(m)\log x}$$    
+\end{theorem}
+
+Observemos lo siguiente, si $h$ es una función aritmética completamente multiplicativa
+
+\begin{align*}
+    ((f*g)h)(n)&=\sum_{j\mid n}f(j)g\left(\frac{n}{j}\right)h(n)=\sum_{j\mid n}f(j)g\left(\frac{n}{j}\right)h\left(j\right)h\left(\frac{n}{j}\right)\\
+    &=\sum_{j\mid n}f(j)h\left(j\right)g\left(\frac{n}{j}\right)h\left(\frac{n}{j}\right)\\
+    &=\sum_{j\mid n}fh(j)gh\left(\frac{n}{j}\right)\\
+    &=(fh*gh)(n)
+.\end{align*}
+
+Podemos aplicar esto para obtener una fórmula para la derivada logarítmica de la función $L(\chi,s)$
+
+\begin{align*}
+    -L^{\prime}(\chi,s)&=\sum_{n=1}^{\infty} \frac{\chi(n)\log(n)}{n^s}=\sum_{n=1}^{\infty} \frac{\chi(n)(\Lambda*1)(n)}{n^s}=\sum_{n=1}^{\infty} \frac{(\chi\Lambda*1\chi)(n) }{n^s}\\
+    &=\sum_{n=1}^{\infty} \frac{\chi(n)\Lambda(n)}{n^s}\sum_{n=1}^{\infty} \frac{\chi(n)}{n^s},
+\end{align*}
+
+esto es
+
+$$\boxed{-\frac{L^{\prime}}{L}(\chi,s)=\sum_{n=1}^{\infty} \frac{\chi(n)\Lambda(n)}{n^s}}.$$
+
+Obtendremos el TNP en progresiones aritmética de aplicar el teorema de Wiener Ikehara a la función
+
+$$\sum_{n\equiv a(m)}\frac{\Lambda(n)}{n^s},$$
+
+pero para esto debemos primero ver qué forma tiene esta función, sea $f(n)$ la función característica de la progresión, usando su representación de Fourier obtenemos que
+
+\begin{align*}
+    F(s)=\sum_{n\equiv a\bmod{m}}\frac{\Lambda(n)}{n^s}&=\sum_{n=1}^{\infty}\frac{\Lambda(n)f(n)}{n^s}=\sum_{n=1}^{\infty} \frac{\Lambda(n)}{n^s}\left(\frac{1}{\varphi(m)}\sum_\chi \chi(a^{-1})\chi(n)\right)\\
+    &=\frac{1}{\varphi(m)}\sum_\chi\chi(a^{-1})\left(\sum_{n=1}^{\infty} \frac{\chi(n)\Lambda(n)}{n^s}\right)\\
+    &=\frac{1}{\varphi(m)}\sum_\chi\chi(a^{-1})\left(-\frac{L^{\prime}}{L}(\chi,s)\right)
+.\end{align*}
+
+Sabemos que todas estas $L$ funciones son analíticas en $\Re(s)\geq 1$ excepto $L(\chi_0,s)$ que tiene un polo simple en $s=1$ dado por el polo simple que tiene $\zeta(s)$, aplicando el principio del argumento y suponiendo que ninguna de estas $L$ funciones se anula en la región $\Re(s)=1$ sabremos que en la suma anterior el único carácter que contribuye un polo es el trivial, este polo tendrá residuo $1$, luego la función $F(s)$ cumple todas las condiciones del teorema de Wiener Ikehara y además tiene residuo $\dfrac{1}{\varphi(m)}$, esto es, el teorema de los números primos en progresiones aritmética.\\
+
+Repasando lo anterior, debemos garantizar también que $L(\chi,s)\neq 0$ para $\Re(s)>1$, la prueba de esto la presentaremos a continuación y es análoga a la que hicimos para $\zeta(s)$, luego podemos afirmar que el TNP en progresiones aritmética es una consecuencia del siguiente teorema
+
+\begin{theorem}
+    Sea $\chi$ un carácter de Dirichlet, $L(\chi,\sigma+it)\neq 0$  para todo $t$
+\end{theorem}
+
