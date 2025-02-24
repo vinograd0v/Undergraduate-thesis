@@ -1,4 +1,4 @@
-name: Build LaTeX Document
+name: Compile All LaTeX Documents
 
 on:
   push:
@@ -7,22 +7,45 @@ on:
   pull_request:
 
 jobs:
-  build:
+  compile:
     runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/xu-cheng/texlive-full:latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Compile LaTeX document
-        uses: xu-cheng/latex-action@v3
-        with:
-          root_file: main.tex
-
-      - name: Commit and push generated PDF
+      - name: Find and compile LaTeX files
         run: |
+          echo "Buscando archivos main.tex..."
+          failures=0
+          # Itera sobre cada archivo main.tex encontrado
+          find . -type f -name "main.tex" -print0 | while IFS= read -r -d '' file; do
+              echo "Compilando $file..."
+              dir=$(dirname "$file")
+              # Compila en el directorio correspondiente
+              (cd "$dir" && latexmk -pdf -silent -f main.tex) || { 
+                  echo "ERROR: Falló la compilación de $file"; 
+                  failures=$((failures+1)); 
+              }
+          done
+          if [ $failures -gt 0 ]; then
+              echo "$failures archivo(s) fallaron en la compilación."
+              exit 1
+          fi
+
+      - name: Commit and push generated PDFs
+        run: |
+          # Configurar el directorio seguro para Git
+          git config --global --add safe.directory "$(pwd)"
           git config --global user.name "vinograd0v"
           git config --global user.email "mmanosalva@unal.edu.co"
-          git add -f main.pdf
-          git commit -m "Automated PDF update"
-          git push
+          # Agrega todos los PDFs generados
+          find . -type f -name "main.pdf" -print0 | xargs -0 git add -f
+          if ! git diff-index --quiet HEAD --; then
+              git commit -m "Automated PDF update"
+              git push
+          else
+              echo "No hay cambios a commitear"
+          fi
