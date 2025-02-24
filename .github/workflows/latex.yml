@@ -23,6 +23,6 @@ jobs:
         run: |
           git config --global user.name "vinograd0v"
           git config --global user.email "mmanosalva@unal.edu.co"
-          git add main.pdf
+          git add -f main.pdf
           git commit -m "Automated PDF update"
           git push
