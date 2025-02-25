@@ -10,10 +10,25 @@ El teorema de Dirichlet nos dice que hay infinitos primos de la forma $a,a+n , a
 $$\pi(1,4,x)\thicksim \frac{x}{\varphi(4)\log x}=\frac{x}{2\log x},\quad \pi(3,4,x)\thicksim \frac{x}{2\log x}.$$
 
 Más precisamente $(\Z/4\Z)^\times=\{\overline{1},\overline{3}\}$, tenemos dos clases generadoras de primos y en cada una tenemos la mitad, este resultado no es un hecho trivial, por mucho tiempo los matemáticos pensaron que este no era el caso, la evidencia heurística apuntaba a que habían más primos de la forma $4k+3$ hasta que Littlewood demostró que $\pi(3,4,x)-\pi(1,4,x)$ tiene infinitos cambios de signo, estos temas se abordan de manera más detallada en \cite{granville2006prime}.
-
 \section{Teorema de los números primos en progresiones aritmética}
 
+Como antes, la idea es aplicar el teorema de Wiener-Ikehara para probar el TNP, por lo que presentamos antes este teorema sobre no nulidad de $L-$funciones, análogo al que tenemos para $\zeta(s)$
+
 \begin{theorem}
+    Sea $\chi$ un carácter de Dirichlet, entonces
+
+    $$L(\chi,s)\neq 0, \text{ si }\Re(s)>1$$
+\end{theorem}
+
+\begin{proof}
+    Como $\Re(s)>1$, entonces
+
+    $$L(\chi,s)=\prod_p\frac{1}{1-\chi(p)p^{-s}},$$
+
+    de manera análoga al teorema 1.38, el término $\dfrac{1}{1-\chi(p)p^{-s}}=\dfrac{p^s}{p^s-\chi(p)}\neq 0$ para todo $p$, esto nos  da que el producto no tiene factores nulos y por tanto no converge a 0.
+\end{proof}
+
+\begin{theorem}[Teorema de los números primos en progresiones aritmética]
 Dados $a$ y $m$ primos relativos.
     $$\pi(a,m,x)\thicksim \frac{x}{\varphi(m)\log x}$$    
 \end{theorem}
@@ -40,21 +55,25 @@ $$\boxed{-\frac{L^{\prime}}{L}(\chi,s)=\sum_{n=1}^{\infty} \frac{\chi(n)\Lambda(
 
 Obtendremos el TNP en progresiones aritmética de aplicar el teorema de Wiener Ikehara a la función
 
-$$\sum_{n\equiv a(m)}\frac{\Lambda(n)}{n^s},$$
+$$F(s)=\sum_{n\equiv a \bmod{m}}\frac{\Lambda(n)}{n^s},$$
 
 pero para esto debemos primero ver qué forma tiene esta función, sea $f(n)$ la función característica de la progresión, usando su representación de Fourier obtenemos que
 
 \begin{align*}
-    F(s)=\sum_{n\equiv a\bmod{m}}\frac{\Lambda(n)}{n^s}&=\sum_{n=1}^{\infty}\frac{\Lambda(n)f(n)}{n^s}=\sum_{n=1}^{\infty} \frac{\Lambda(n)}{n^s}\left(\frac{1}{\varphi(m)}\sum_\chi \chi(a^{-1})\chi(n)\right)\\
+    F(s)&=\sum_{n=1}^{\infty}\frac{\Lambda(n)f(n)}{n^s}=\sum_{n=1}^{\infty} \frac{\Lambda(n)}{n^s}\left(\frac{1}{\varphi(m)}\sum_\chi \chi(a^{-1})\chi(n)\right)\\
     &=\frac{1}{\varphi(m)}\sum_\chi\chi(a^{-1})\left(\sum_{n=1}^{\infty} \frac{\chi(n)\Lambda(n)}{n^s}\right)\\
     &=\frac{1}{\varphi(m)}\sum_\chi\chi(a^{-1})\left(-\frac{L^{\prime}}{L}(\chi,s)\right)
 .\end{align*}
 
-Sabemos que todas estas $L$ funciones son analíticas en $\Re(s)\geq 1$ excepto $L(\chi_0,s)$ que tiene un polo simple en $s=1$ dado por el polo simple que tiene $\zeta(s)$, aplicando el principio del argumento y suponiendo que ninguna de estas $L$ funciones se anula en la región $\Re(s)=1$ sabremos que en la suma anterior el único carácter que contribuye un polo es el trivial, este polo tendrá residuo $1$, luego la función $F(s)$ cumple todas las condiciones del teorema de Wiener Ikehara y además tiene residuo $\dfrac{1}{\varphi(m)}$, esto es, el teorema de los números primos en progresiones aritmética.\\
+Sabemos que todas estas $L-$funciones presentes en la suma son analíticas en $\Re(s)\geq 1$ excepto $L(\chi_0,s)$ que tiene un polo simple en $s=1$ dado por el polo simple que tiene $\zeta(s)$, aplicando el principio del argumento y suponiendo que ninguna de estas $L$ funciones se anula en la recta vertical $\Re(s)=1$ sabremos que en la suma anterior el único carácter que contribuye un polo es el trivial, este polo tendrá residuo $1$, luego la función $F(s)$ cumple todas las condiciones del teorema de Wiener Ikehara y además tiene residuo $\dfrac{1}{\varphi(m)}$, esto es
 
-Repasando lo anterior, debemos garantizar también que $L(\chi,s)\neq 0$ para $\Re(s)>1$, la prueba de esto la presentaremos a continuación y es análoga a la que hicimos para $\zeta(s)$, luego podemos afirmar que el TNP en progresiones aritmética es una consecuencia del siguiente teorema
+$$\psi(a,m,x)=\sum_{\substack{n\leq x\\n\equiv a\bmod{m}}}\Lambda(n)\thicksim \frac{x}{\varphi(m)}.$$
 
+Repasando lo anterior, las derivadas logarítmicas son todas analíticas en $\Re(s)\geq 1$ por el principio del argumento, solo una tiene un polo en $s=1$, la del carácter trivial y esta nos da el residuo que esperamos. El teorema de los números primos es una consecuencia inmediata de la siguiente afirmación
 \begin{theorem}
-    Sea $\chi$ un carácter de Dirichlet, $L(\chi,\sigma+it)\neq 0$  para todo $t$
+    Sea $\chi$ un carácter de Dirichlet, $L(\chi,1+it)\neq 0$  para todo $t$
 \end{theorem}
 
+La prueba de este teorema no es sencilla, recordemos que para $\zeta(s)$ no lo fue, requería de ciertas estimaciones que no son evidentes, en general estudiar las regiones de no nulidad de $L-$funciones es un problema profundo en teoría analítica de números que además permanece abierto. La prueba que veremos aquí es la propuesta en \cite{murty2007problems}.
+
+\subsection{La no nulidad de \texorpdfstring{$L(1+it,\chi)$ }{Lg}}
