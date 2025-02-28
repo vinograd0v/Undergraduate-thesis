@@ -77,3 +77,95 @@ Repasando lo anterior, las derivadas logarítmicas son todas analíticas en $\Re
 La prueba de este teorema no es sencilla, recordemos que para $\zeta(s)$ no lo fue, requería de ciertas estimaciones que no son evidentes, en general estudiar las regiones de no nulidad de $L-$funciones es un problema profundo en teoría analítica de números que además permanece abierto. La prueba que veremos aquí es la propuesta en \cite{murty2007problems}.
 
 \subsection{La no nulidad de \texorpdfstring{$L(1+it,\chi)$ }{Lg}}
+
+Como en el capítulo anterior, probar esta no nulidad requiere de identidades trigonométricas, ya que al tomarle parte real a una serie de Dirichlet nos aparecen cosenos de manera natural, sin embargo, cuando vimos que $L(1,\chi)\neq 0$ para $\chi\neq\chi_0$ consideramos un producto de $L-$funciones y realizamos un argumento de conteo de ceros y polos. En este caso también vamos a considerar el producto de todas las $L$-funciones, veremos que
+
+$$f(s)=\prod_\chi L(s,\chi)$$ 
+
+no se anula en la recta vertical $\Re(s)=1$ y por lo tanto ninguna $L-$función, para esto aplicaremos un argumento que proviene de Landau y que es modificado en \cite{murty2007problems}, el estudio de las series de Dirichlet con coeficientes no negativos, por lo que estudiaremos la expresión $\log(f(s))$.\\
+
+ Finalmente, como estamos trabajando con $\log(f(s))$, el logaritmo transforma este producto de $L-$funciones en una suma y vamos a necesitar identidades sobre suma de cosenos, particularmente la identidad de Lagrange para el núcleo de Dirichlet.
+
+ \begin{theorem}
+Para $0 < \theta < 2\pi$.
+     \[
+    \frac{1}{2} + \cos \theta + \cos(2\theta) + \dots + \cos(n\theta) = \frac{\sin\left((n + \frac{1}{2})\theta\right)}{2 \sin\left(\frac{\theta}{2}\right)},
+    \]
+ \end{theorem}
+
+ \begin{proof}
+     Note que si tomamos $|z|=1$ con $z\neq \pm 1$, entonces $z=exp(i\theta)$, de esto se sigue que
+
+    $$\Re\left(\sum_{k=0}^{n} z^k\right)=\sum_{k=0}^{n} \Re(z^k)=\sum_{k=0}^{n}cos(k\theta).$$
+
+    En efecto
+    \begin{align*}
+      \Re\left(\sum_{k=0}^{n} z^k\right)&=\Re\left(\frac{z^{n+1}-1}{z-1}\right)\\
+      &=\Re\left(\frac{exp\left(i(n+1)\theta)\right) -1}{exp(i\theta)-1}\right)\\
+      &=\Re\left(\frac{exp(i(n+1)\theta/2)}{exp(i\theta/2)}\frac{exp(-i(n+1)\theta/2)-exp(i(n+1)\theta/2)}{exp(-i\theta/2)-exp(i\theta/2)}\right)
+    .\end{align*}
+
+   Note que el último término de la derecha  de puede escribir como
+
+   $$\Re\left(exp(in\theta/2)\frac{\sin\left((n+1)\theta/2\right)}{\sin(\theta/2)}\right)=\cos(n\theta/2)\frac{\sin((n+1)\theta/2)}{\sin(\theta/2)},$$
+
+   además
+   
+   $$
+\begin{aligned}
+\cos \left(\frac{n \theta}{2}\right) \sin \left(\frac{(n+1) \theta}{2}\right)&=\frac{1}{2}\left(\sin \left(\frac{\theta n}{2}+\frac{\theta(n+1)}{2}\right)+\sin \left(\frac{\theta(n+1)}{2}-\frac{n \theta}{2}\right)\right. \\
+& =\frac{1}{2}\left(\sin \left(\frac{\theta(2 n+1)}{2}\right)+\sin \left(\frac{\theta}{2}\right)\right) \\
+& =\frac{1}{2} \sin \left(\theta\left(n+\frac{1}{2}\right)\right)+\frac{1}{2} \sin \left(\frac{\theta}{2}\right),
+\end{aligned}
+$$
+dividiendo entre $\sin\left(\displaystyle\frac{\theta}{2}\right)$ obtenemos que
+
+\[
+    1 + \cos \theta + \cos(2\theta) + \dots + \cos(n\theta) = \frac{1}{2} + \frac{\sin\left((n + \frac{1}{2})\theta\right)}{2 \sin\left(\frac{\theta}{2}\right)},
+    \]
+
+de lo que se sigue el resultado.
+ \end{proof}
+
+ \begin{lemma}
+$$1+\frac{\sin 3 \theta}{\sin \theta}+\frac{\sin 5 \theta}{\sin \theta}+\cdots+\frac{\sin (2 n-1) \theta}{\sin \theta}=\left(\frac{\sin n \theta}{\sin \theta}\right)^2$$
+ \end{lemma}
+
+Omitimos la prueba aquí ya que el resultado se sigue por inducción y se puede consultar en \cite{murty2007problems}.
+
+ \begin{theorem}
+     Para todo entero $m\geq 0$,
+
+     $$(2 m+1)+2 \sum_{j=0}^{2 m-1}(j+1) \cos (2 m-j) \theta=\left(\frac{\sin \left(m+\frac{1}{2}\right) \theta}{\sin \frac{\theta}{2}}\right)^2.$$
+ \end{theorem}
+
+ \begin{proof}
+     Cambiando el orden de sumación, podemos reescribir la identidad como  sigue 
+
+     $$2 m+1+2 \sum_{j=1}^{2 m}(2 m-j+1) \cos j \theta=\left(\frac{\sin \left(m+\frac{1}{2}\right) \theta}{\sin \frac{\theta}{2}}\right)^2 .$$
+
+     Tomando $\theta=2\varphi$, debemos probar que
+
+     $$2 m+1+2 \sum_{j=1}^{2 m}(2 m-j+1) \cos 2 j \varphi=\left(\frac{\sin (2 m+1) \varphi}{\sin \varphi}\right)^2,$$
+
+     por el teorema 4.4
+
+     $$1+2 \sum_{j=1}^n \cos 2 j \varphi=\frac{\sin (2 n+1) \varphi}{\sin \varphi}.$$
+
+     Ahora note que 
+
+     \begin{align*}
+         \sum_{n=0}^{2m}(1+2 \sum_{j=1}^n \cos 2 j \varphi)&=(2m+1)+2 \sum_{n=0}^{2m}\sum_{j=1}^n \cos 2 j \varphi\\
+         &=\sum_{n=0}^{2m}\frac{\sin (2 n+1) \varphi}{\sin \varphi}
+     .\end{align*}
+
+     De esto se sigue que,
+
+     \begin{align*}
+         (2m+1)+2 \sum_{n=0}^{2m}\sum_{j=1}^n \cos 2 j \varphi&=(2 m+1)+2 \sum_{j=1}^{2 m} \cos 2 j \varphi \sum_{j \leq n \leq 2 m} 1\\
+         &=(2 m+1)+2 \sum_{j=1}^{2 m}(2 m-j+1) \cos 2 j \varphi\\
+         &=\sum_{n=0}^{2 m} \frac{\sin (2 n+1) \varphi}{\sin \varphi}\\
+         &=\left(\frac{\sin (2 m+1) \varphi}{\sin \varphi}\right)^2
+     .\end{align*}
+ \end{proof}
+
