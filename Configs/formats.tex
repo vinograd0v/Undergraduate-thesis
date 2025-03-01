@@ -28,7 +28,7 @@
 \patchcmd{\tableofcontents}{\contentsname}{\bfseries\contentsname}{}{}
 
 \renewenvironment{leftbar}
-  {\def\FrameCommand{\hspace{6em}%
+  {\thispagestyle{empty}\def\FrameCommand{\hspace{6em}%
     {\color{black}\vrule width 2pt depth 6pt}\hspace{1em}}%
     \MakeFramed{\parshape 1 0cm \dimexpr\textwidth-6em\relax\FrameRestore}\vskip2pt%
   }
@@ -93,7 +93,7 @@
 {\newpage \vspace*{5cm}\thispagestyle{empty}\centering \bfseries  \textit{Esta página se dejó intencionalmente en blanco} \par}
 \vspace{\fill}}
 
-\setlength{\parindent}{0pt}
 \newcommand*{\blankpages}{
 {\newpage \vspace*{5cm}\thispagestyle{empty}\centering \bfseries  \textit{} \par}
 \vspace{\fill}}
+
