@@ -94,7 +94,7 @@ Para $0 < \theta < 2\pi$.
  \end{theorem}
 
  \begin{proof}
-     Note que si tomamos $|z|=1$ con $z\neq \pm 1$, entonces $z=exp(i\theta)$, de esto se sigue que
+     Note que si tomamos $|z|=1$ con $z\neq 1$, entonces $z=exp(i\theta)$, de esto se sigue que
 
     $$\Re\left(\sum_{k=0}^{n} z^k\right)=\sum_{k=0}^{n} \Re(z^k)=\sum_{k=0}^{n}cos(k\theta).$$
 
@@ -169,3 +169,85 @@ Omitimos la prueba aquí ya que el resultado se sigue por inducción y se puede 
      .\end{align*}
  \end{proof}
 
+\begin{theorem}[K. Murty]
+Sea $f(s)$ una función a valor complejo que satisface las siguientes condiciones
+
+\begin{itemize}
+    \item[$\bullet$] $f$ es holomorfica y no nula en $\Re(s)>1$,
+    \item[$\bullet$] $\log f(s)$ se puede escribir como una serie de Dirichlet
+    $$
+    \sum_{n=1}^{\infty} \frac{b_n}{n^s}
+    $$
+    con $b_n \geq 0$ para $\Re(s)>1$;
+    \item[$\bullet$] en la recta $\Re(s)=1, f$ es holomorfica excepto por un polo de orden $e \geq 0$ en $s=1$.
+\end{itemize} 
+
+Si $f$ tiene un cero en $\Re(s)=1$, entonces el orden del cero está acotado por $e/2$.
+\end{theorem}
+
+\begin{proof}
+    Supongamos que $f$ tiene un cero en $1+it_0$ de orden $k>e/2$,entonces $e\leq2k-1$, considere la función
+
+    $$\begin{aligned}
+g(s) & =f(s)^{2 k+1} \prod_{j=1}^{2 k} f\left(s+i j t_0\right)^{2(2 k+1-j)} \\
+& =f(s)^{2 k+1} f\left(s+i t_0\right)^{4 k} f\left(s+2 i t_0\right)^{4 k-2} \cdots f\left(s+2 k i t_0\right)^2,
+\end{aligned}$$
+entonces $g(s)$ es holomorfica en $\Re(s)>1$ y tiene un cero de al menos orden 1 en $s=1$ ya que 
+$$
+4 k^2-(2 k+1) e \geq 4 k^2-(2 k+1)(2 k-1)=1
+$$
+
+donde $k$ es el orden del cero y $e$ el orden del polo. Por otro lado, para $\Re(s)>1$,
+
+$$
+\log g(s)=\sum_{n=1}^{\infty} \frac{b_n}{n^s}\left(2 k+1+2 \sum_{j=1}^{2 n} 2(2 k+1-j) n^{-i j t_0}\right) .
+$$
+
+Sea $\theta=t_0 \log n$. Entonces para $s=\sigma>1$,
+$$\Re (\log g(\sigma))=\log |g(\sigma)|=\sum_{n=1}^{\infty} \frac{b_n}{n^\sigma}\left(2 k+1+\sum_{j=1}^{2 k} 2(2 k+1-j) \cos j \theta\right),$$
+por el teorema anterior, el término del paréntesis es no negativo, de esto se sigue que $|g(\sigma)|\geq 1$, una contradicción ya que cuando $\sigma\to 1$, $g(s)=0$.
+\end{proof}
+
+\begin{theorem}
+    $L(s,\chi)\neq 0$ para todo $s$ con $\Re(s)=1$.
+\end{theorem}
+
+\begin{proof}
+    Sea $f(s)=\prod_\chi L(s,\chi)$ con $\chi$ un carácter de Dirichlet módulo $q$, claramente $f(s)$ es holomorfica y no nula en $\Re(s)>1$, además
+
+    $$\log f(s)=\sum_\chi \log L(s, \chi)=\sum_{n, p} \frac{1}{n p^{n s}} \sum_\chi \chi\left(p^n\right).$$
+
+    Note que 
+
+    \begin{align*}
+        f(n)=\begin{cases}
+        1 &\text{ si }p^n\equiv 1 \bmod{q}\\
+        0 &\text{ e.o.c.}
+    \end{cases}&=\frac{1}{\varphi(q)}\sum_\chi \chi(p^n)\overline{\chi(1)}\\
+    &=\frac{1}{\varphi(q)}\sum_\chi \chi(p^n)
+    ,\end{align*}
+
+    de esto se sigue que 
+
+    $$\log(f(s))=\varphi(q) \sum_{\substack{n, p \\ p^n \equiv 1(\bmod q)}} \frac{1}{n p^{n s}},$$
+
+    luego $\log(f(s))$ es una serie de Dirichlet con coeficientes no negativos. En la recta $\Re(s)=1$, $f$ es holomorfica excepto por un polo simple en $s=1$, a saber $L(1,\chi_0)$. Por el teorema 4.7, si $f(s)$ tiene un cero  en $\Re(s)=1$ entonces el orden del cero está acotado por $1/2$, esto es que $f(s)$ no se anula en $\Re(s)=1$ y por lo tanto $L(s,\chi)$.
+\end{proof}
+
+\begin{corollary}
+    Dados $a$ y $q$ primos relativos,
+
+    $$\psi(a,q,x)\thicksim \frac{x}{\varphi(q)}.$$
+\end{corollary}
+
+Como en el teorema de los números primos, es posible obtener mejores cotas para el error estudiando regiones donde $L(s,\chi)\neq 0$
+
+\begin{theorem}[Siegel–Walfisz]
+Dados $N\in \R$ y $(a,q)=1$, existe $C_N$ tal que
+
+$$\psi(a, q, x)=\frac{x}{\varphi(q)}+O\left(x \exp \left(-C_N(\log x)^{\frac{1}{2}}\right)\right)$$
+
+si $q \leq(\log x)^N .$
+\end{theorem}
+
+Sin embargo es algo que va más allá de los límites de este, ya muy largo trabajo.
