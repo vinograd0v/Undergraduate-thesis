@@ -5,7 +5,7 @@
 
 \cleanchapterquote{La matemática posee no solo verdad, sino también belleza suprema; una belleza fría y austera, como aquella de la escultura, sin apelación a ninguna parte de nuestra naturaleza débil, sin los adornos magníficos de la pintura o la música, pero sublime y pura, y capaz de una perfección severa como solo las mejores artes pueden presentar}{Bertrand Russel}{}\\
 
-Alrededor del año 300 a.C. Euclides prueba que hay infinitos números primos, establece que si los primos son finitos, entonces el producto $p_1\ldots p_n+1$ no es divisible por ningún primo $p_1,\ldots,p_n$, de esta manera siempre se puede construir un número primo adicional. En el siglo XVIII Euler prueba que hay infinitos primos usando la divergencia de la serie armónica, si asumimos que hay un número finito de números primos, entonces el siguiente producto es finito:
+Alrededor del año 300 a.C. Euclides prueba que hay infinitos números primos, establece que si los primos son finitos, entonces el producto $p_1\ldots p_n+1$ no es divisible por ningún primo $p_1,\ldots,p_n$, de esta manera siempre se puede construir un número primo adicional. En el siglo XVIII Euler prueba que hay infinitos primos usando la divergencia de la serie armónica. Si asumimos que hay un número finito de números primos, entonces el siguiente producto es finito:
 
 $$\prod_p \dfrac{1}{1-p^{-1}}.$$
 
@@ -15,9 +15,9 @@ Ahora note que el término del producto es a lo que converge una serie geométri
     \infty>\prod_p \dfrac{1}{1-p^{-1}}&=\prod_p \left(\sum_{k=0}^{\infty}\dfrac{1}{p^k}\right)=\prod_p \left(1+\dfrac{1}{p}+\dfrac{1}{p^2}+\dfrac{1}{p^3}+\ldots\right)\\
     &=\sum_{n=1}^{\infty}\dfrac{1}{n}\\
     &=\infty
-,\end{align*}
+.\end{align*}
 
-ya que todo número natural puede escribirse de manera única como producto de potencias de primos, esto nos lleva a una evidente contradicción. Euler consigue este argumento ya que venía de estudiar problemas similares, como la convergencia de la serie
+Ya que todo número natural puede escribirse de manera única como producto de potencias de primos, esto nos lleva a una evidente contradicción. Euler consigue este argumento dado que venía de estudiar problemas similares, como la convergencia de la serie
 
 $$\sum_{n=1}^{\infty}\frac{1}{n^2}=\frac{\pi^2}{6}.$$
 
@@ -29,7 +29,7 @@ así
 
 $$\frac{\sin x}{x}=1-\frac{x^2}{3!}+\frac{x^4}{5!}-\frac{x^6}{7!}\pm\ldots$$
 
-En este punto es donde hace un salto de fe, pensando que el polinomio de Taylor se puede escribir como un producto infinito si lo factorizamos sobre sus raíces, ie. Las  raíces de $\dfrac{\sin x}{x}$, asume que lo que ocurre para polinomios finitos también se tiene para polinomios infinitos, obteniendo que
+En este punto es donde hace un salto de fe, pensando que el polinomio de Taylor se puede escribir como un producto infinito si lo factorizamos sobre sus raíces, ie. las  raíces de $\dfrac{\sin x}{x}$, asume que lo que ocurre para polinomios finitos también se tiene para polinomios infinitos, obteniendo que
 
 \begin{align*}
     \frac{\sin x}{x}&=1-\frac{x^2}{3!}+\frac{x^4}{5!}-\frac{x^6}{7!}\pm\ldots\\
